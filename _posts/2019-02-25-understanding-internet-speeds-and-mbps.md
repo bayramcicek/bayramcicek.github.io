@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Understanding Internet Speeds and Mbps"
-date: 2019-02-25 22:28:26 +0300
+title:  "Understanding Internet Speeds and Mbps"
+date:   2019-02-25 22:28:26 +0300
 categories: general
 ---
 
