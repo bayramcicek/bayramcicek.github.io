@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "Ekşi Sözlük için yaptığım küçük bir eklenti: Ekşi Search"
+date:   2019-06-13 13:28:26 +0300
+categories: general
+---
+
+Eklentilerin nasıl yapıldığını hep merak ederdim. Bu yüzden kolay ama kullanışlı bir eklenti(add-on/extension) yapmak istedim. Bunun için youtube'daki ve opera/firefox geliştirici sayfalarındaki örnekleri inceledim. Dışarıdan kolay gibi gözükse de yine de biraz zor ve karmaşık gibi geldi bana. 
+
+Fareyle seçtiğimiz bir metni, url'nin sonuna nasıl ekleneceğini öğrenince bunu Ekşi Sözlük için uyarlamak istedim. Mantık basitti:
+
+- Seçilen metni al
+- eksisozluk.com tam adresinin sonuna ekle
+
+Uzun uğraşlar sonucu nihayet eklenti çalıştı. Kaynak kodlarına bakmak isterseniz: [github][github]
+
+
+|Eklentiyi deneyebilirsiniz: [opera][op-link] - [firefox][fr-link] - chrome(google hesabım silindiği için kaldırıldı)|
+
+_güncelleme: google, geliştirici hesabı açmak için tek seferlik ücret istiyor. eklentiyi yüklediğim google hesabını silmem gerektiğinden eklenti kaldırıldı. yeni aldığım google hesabında tekrar geliştirici hesabı açıp ücret ödemek istemediğimden ve bu ücret ödeme politikasına karşı çıktığımdan tekrar geliştirici hesabı açmadım._
+
+---
+
+<br>
+Aşağıdaki javascript fonksiyonu, anladığım kadarıyla aralarında boşluk ve/veya özel karakterler içeren kelimeleri URL formatına çeviriyor yani adres satırında nasıl gözükmesi gerektiği işine yarıyor:
+
+{% highlight javascript %}
+function fixedEncodeURI (str) {
+    return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']');
+}
+{% endhighlight %}
+
+Mesela `hello world` kelimesi, adres satırında `hello%20world` olarak yorumlanır.
+
+---
+
+<br>
+The encodeURI() function is used to encode a URI. According to [stackoverflow][st]:
+
+- URI (uniform resource identifier) identifies a resource (text document, image file, etc)
+- URL (uniform resource locator) is a subset of the URIs that include a network location
+- URN (uniform resource name) is a subset of URIs that include a name within a given space, but no location
+
+---
+
+<br>
+
+[github]: https://github.com/bayramcicek/eksi-search
+[op-link]: https://addons.opera.com/en/extensions/details/eksi-search/
+[fr-link]: https://addons.mozilla.org/en-US/firefox/addon/ek%C5%9Fi-search/
+[st]: https://stackoverflow.com/a/26410882/10376542

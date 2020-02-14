@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-05T15:33:57+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public. - bayram cicek's website</subtitle><entry><title type="html">Heap vs Stack: Bellek Birimlerine Genel Bakış</title><link href="http://localhost:4000/general/2020/02/02/heap-vs-stack.html" rel="alternate" type="text/html" title="Heap vs Stack: Bellek Birimlerine Genel Bakış" /><published>2020-02-02T21:36:01+03:00</published><updated>2020-02-02T21:36:01+03:00</updated><id>http://localhost:4000/general/2020/02/02/heap-vs-stack</id><content type="html" xml:base="http://localhost:4000/general/2020/02/02/heap-vs-stack.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-14T21:58:41+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public. - bayram cicek's website</subtitle><entry><title type="html">Heap vs Stack: Bellek Birimlerine Genel Bakış</title><link href="http://localhost:4000/general/2020/02/02/heap-vs-stack.html" rel="alternate" type="text/html" title="Heap vs Stack: Bellek Birimlerine Genel Bakış" /><published>2020-02-02T21:36:01+03:00</published><updated>2020-02-02T21:36:01+03:00</updated><id>http://localhost:4000/general/2020/02/02/heap-vs-stack</id><content type="html" xml:base="http://localhost:4000/general/2020/02/02/heap-vs-stack.html">&lt;ul&gt;
   &lt;li&gt;Stack&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -64,30 +64,37 @@ Prentice-Hall, Chapter 5, 7, 8 and Appendix B.5&lt;/p&gt;
     &lt;p&gt;Gribble, P. (2012). &lt;em&gt;Memory: Stack vs Heap. Summer 2012&lt;/em&gt;, University of
 Western from &lt;a href=&quot;https://gribblelab.org/CBootCamp/7_Memory_Stack_vs_Heap.html&quot;&gt;https://gribblelab.org/CBootCamp/7_Memory_Stack_vs_Heap.html&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Stack</summary></entry><entry><title type="html">Extensions, URI, URL and URN</title><link href="http://localhost:4000/general/2019/06/13/extensions-uri-url-urn.html" rel="alternate" type="text/html" title="Extensions, URI, URL and URN" /><published>2019-06-13T13:28:26+03:00</published><updated>2019-06-13T13:28:26+03:00</updated><id>http://localhost:4000/general/2019/06/13/extensions-uri-url-urn</id><content type="html" xml:base="http://localhost:4000/general/2019/06/13/extensions-uri-url-urn.html">&lt;p&gt;I’ve never created an extension before, and I’ve created some demo extensions by watching some YT tutorials. YT videos and opera / firefox developer page(s) guide me how to create manifest files, icons, and event pages.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Stack</summary></entry><entry><title type="html">Ekşi Sözlük için yaptığım küçük bir eklenti: Ekşi Search</title><link href="http://localhost:4000/general/2019/06/13/eksi.html" rel="alternate" type="text/html" title="Ekşi Sözlük için yaptığım küçük bir eklenti: Ekşi Search" /><published>2019-06-13T13:28:26+03:00</published><updated>2019-06-13T13:28:26+03:00</updated><id>http://localhost:4000/general/2019/06/13/eksi</id><content type="html" xml:base="http://localhost:4000/general/2019/06/13/eksi.html">&lt;p&gt;Eklentilerin nasıl yapıldığını hep merak ederdim. Bu yüzden kolay ama kullanışlı bir eklenti(add-on/extension) yapmak istedim. Bunun için youtube’daki ve opera/firefox geliştirici sayfalarındaki örnekleri inceledim. Dışarıdan kolay gibi gözükse de yine de biraz zor ve karmaşık gibi geldi bana.&lt;/p&gt;
 
-&lt;p&gt;After a few attempts, I finally made an extension called Ekşi Search. Basically, the main idea behind Ekşi Search is selecting a text in any web site and right click then click button.&lt;/p&gt;
+&lt;p&gt;Fareyle seçtiğimiz bir metni, url’nin sonuna nasıl ekleneceğini öğrenince bunu Ekşi Sözlük için uyarlamak istedim. Mantık basitti:&lt;/p&gt;
 
-&lt;p&gt;Extension source code: &lt;a href=&quot;https://github.com/bayramcicek/eksi-search&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Seçilen metni al&lt;/li&gt;
+  &lt;li&gt;eksisozluk.com tam adresinin sonuna ekle&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Uzun uğraşlar sonucu nihayet eklenti çalıştı. Kaynak kodlarına bakmak isterseniz: &lt;a href=&quot;https://github.com/bayramcicek/eksi-search&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Try my first extension at: &lt;a href=&quot;https://addons.opera.com/en/extensions/details/eksi-search/&quot;&gt;opera&lt;/a&gt; - chrome(removed due to closing google account) - &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/ek%C5%9Fi-search/&quot;&gt;firefox&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Eklentiyi deneyebilirsiniz: &lt;a href=&quot;https://addons.opera.com/en/extensions/details/eksi-search/&quot;&gt;opera&lt;/a&gt; - &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/ek%C5%9Fi-search/&quot;&gt;firefox&lt;/a&gt; - chrome(google hesabım silindiği için kaldırıldı)&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;p&gt;&lt;em&gt;güncelleme: google, geliştirici hesabı açmak için tek seferlik ücret istiyor. eklentiyi yüklediğim google hesabını silmem gerektiğinden eklenti kaldırıldı. yeni aldığım google hesabında tekrar geliştirici hesabı açıp ücret ödemek istemediğimden ve bu ücret ödeme politikasına karşı çıktığımdan tekrar geliştirici hesabı açmadım.&lt;/em&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;br /&gt;
-In this study, I learned how to encode a URL by a javascript function:&lt;/p&gt;
+Aşağıdaki javascript fonksiyonu, anladığım kadarıyla aralarında boşluk ve/veya özel karakterler içeren kelimeleri URL formatına çeviriyor yani adres satırında nasıl gözükmesi gerektiği işine yarıyor:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fixedEncodeURI&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;encodeURI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/%5B/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/%5D/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;hello world&lt;/code&gt; will interpreted as &lt;code class=&quot;highlighter-rouge&quot;&gt;hello%20world&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Mesela &lt;code class=&quot;highlighter-rouge&quot;&gt;hello world&lt;/code&gt; kelimesi, adres satırında &lt;code class=&quot;highlighter-rouge&quot;&gt;hello%20world&lt;/code&gt; olarak yorumlanır.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -102,8 +109,7 @@ The encodeURI() function is used to encode a URI. According to &lt;a href=&quot;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;br /&gt;
-As an undergraduate student who has just finished 3rd grade, I still feel as a beginner student because when I think ahead, I see that there are lots of things should be learned.&lt;/p&gt;</content><author><name></name></author><summary type="html">I’ve never created an extension before, and I’ve created some demo extensions by watching some YT tutorials. YT videos and opera / firefox developer page(s) guide me how to create manifest files, icons, and event pages.</summary></entry><entry><title type="html">Understanding Internet Speeds and Mbps</title><link href="http://localhost:4000/general/2019/02/25/understanding-internet-speeds-and-mbps.html" rel="alternate" type="text/html" title="Understanding Internet Speeds and Mbps" /><published>2019-02-25T22:28:26+03:00</published><updated>2019-02-25T22:28:26+03:00</updated><id>http://localhost:4000/general/2019/02/25/understanding-internet-speeds-and-mbps</id><content type="html" xml:base="http://localhost:4000/general/2019/02/25/understanding-internet-speeds-and-mbps.html">&lt;p&gt;Internet speeds are so important for us and a big part of our lives. When you want to see how much internet speed is, you’ll see it displayed as mbps or kbps.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Eklentilerin nasıl yapıldığını hep merak ederdim. Bu yüzden kolay ama kullanışlı bir eklenti(add-on/extension) yapmak istedim. Bunun için youtube’daki ve opera/firefox geliştirici sayfalarındaki örnekleri inceledim. Dışarıdan kolay gibi gözükse de yine de biraz zor ve karmaşık gibi geldi bana.</summary></entry><entry><title type="html">Understanding Internet Speeds and Mbps</title><link href="http://localhost:4000/general/2019/02/25/understanding-internet-speeds-and-mbps.html" rel="alternate" type="text/html" title="Understanding Internet Speeds and Mbps" /><published>2019-02-25T22:28:26+03:00</published><updated>2019-02-25T22:28:26+03:00</updated><id>http://localhost:4000/general/2019/02/25/understanding-internet-speeds-and-mbps</id><content type="html" xml:base="http://localhost:4000/general/2019/02/25/understanding-internet-speeds-and-mbps.html">&lt;p&gt;Internet speeds are so important for us and a big part of our lives. When you want to see how much internet speed is, you’ll see it displayed as mbps or kbps.&lt;/p&gt;
 
 &lt;p&gt;What does mbps and kbps mean? Mbps is a transfer measurement and means &lt;code class=&quot;highlighter-rouge&quot;&gt;mega bit per second&lt;/code&gt;. Let’s look at data storage measurements to make it clear:
 &lt;br /&gt;&lt;/p&gt;
@@ -111,11 +117,9 @@ As an undergraduate student who has just finished 3rd grade, I still feel as a b
   &lt;img src=&quot;https://bayramcicek.com.tr/folder/bit.png&quot; alt=&quot;bit&quot; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;As shown above, we can see that &lt;code class=&quot;highlighter-rouge&quot;&gt;1 byte = 8 bits&lt;/code&gt;. Don’t forget that &lt;code class=&quot;highlighter-rouge&quot;&gt;bit&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;mega bit per second&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;As shown above, we can see that &lt;code class=&quot;highlighter-rouge&quot;&gt;1 byte = 8 bits&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;For example you have 16 mbps internet speed and then you ask yourself “how many megabytes can I download per second with 16 mbps?”&lt;/p&gt;
-
-&lt;p&gt;Back to our &lt;code class=&quot;highlighter-rouge&quot;&gt;bit&lt;/code&gt; that I mentioned before. If &lt;code class=&quot;highlighter-rouge&quot;&gt;8 bits = 1 byte&lt;/code&gt; so &lt;code class=&quot;highlighter-rouge&quot;&gt;16 bits = 2 byte&lt;/code&gt;. Hence, 16 mega &lt;code class=&quot;highlighter-rouge&quot;&gt;bit&lt;/code&gt; per second is equal to 2 mega &lt;code class=&quot;highlighter-rouge&quot;&gt;byte&lt;/code&gt; per second.&lt;/p&gt;
+&lt;p&gt;For example you have 16 mbps internet speed and then you ask yourself “how many megabytes can I download per second with 16 mbps?” If &lt;code class=&quot;highlighter-rouge&quot;&gt;8 bits = 1 byte&lt;/code&gt; so &lt;code class=&quot;highlighter-rouge&quot;&gt;16 bits = 2 byte&lt;/code&gt;. Hence, 16 mega &lt;code class=&quot;highlighter-rouge&quot;&gt;bit&lt;/code&gt; per second is equal to 2 mega &lt;code class=&quot;highlighter-rouge&quot;&gt;byte&lt;/code&gt; per second.&lt;/p&gt;
 
 &lt;p&gt;In a few words, divide your internet speed by 8 to see how many megabytes can you download per second.
 As a result, &lt;code class=&quot;highlighter-rouge&quot;&gt;16 Mbps = 2 MB/s&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;32 Mbps = 4 MB/s&lt;/code&gt; and so on…&lt;/p&gt;

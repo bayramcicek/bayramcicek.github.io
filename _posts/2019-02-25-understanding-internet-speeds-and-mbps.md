@@ -13,11 +13,9 @@ What does mbps and kbps mean? Mbps is a transfer measurement and means `mega bit
   <img src="https://bayramcicek.com.tr/folder/bit.png" alt="bit"/>
 </p>
 
-As shown above, we can see that `1 byte = 8 bits`. Don't forget that `bit` in `mega bit per second`.
+As shown above, we can see that `1 byte = 8 bits`. 
 
-For example you have 16 mbps internet speed and then you ask yourself "how many megabytes can I download per second with 16 mbps?"
-
-Back to our `bit` that I mentioned before. If `8 bits = 1 byte` so `16 bits = 2 byte`. Hence, 16 mega `bit` per second is equal to 2 mega `byte` per second. 
+For example you have 16 mbps internet speed and then you ask yourself "how many megabytes can I download per second with 16 mbps?" If `8 bits = 1 byte` so `16 bits = 2 byte`. Hence, 16 mega `bit` per second is equal to 2 mega `byte` per second. 
 
 In a few words, divide your internet speed by 8 to see how many megabytes can you download per second.
 As a result, `16 Mbps = 2 MB/s` `32 Mbps = 4 MB/s` and so on...
