@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="PCIe Bus Error: severity=Corrected problem after booting into Ubuntu" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Ubuntu 18.04.4" />
-<meta property="og:description" content="Ubuntu 18.04.4" />
+<meta name="description" content="This post is the mirror of my answer on StackOverFlow:" />
+<meta property="og:description" content="This post is the mirror of my answer on StackOverFlow:" />
 <link rel="canonical" href="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html" />
 <meta property="og:url" content="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html" />
 <meta property="og:site_name" content="bayram cicek’s website" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-01T21:18:28+03:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html","headline":"PCIe Bus Error: severity=Corrected problem after booting into Ubuntu","datePublished":"2020-03-01T21:18:28+03:00","dateModified":"2020-03-01T21:18:28+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html"},"description":"Ubuntu 18.04.4","@context":"https://schema.org"}</script>
+{"description":"This post is the mirror of my answer on StackOverFlow:","@type":"BlogPosting","headline":"PCIe Bus Error: severity=Corrected problem after booting into Ubuntu","dateModified":"2020-03-01T21:18:28+03:00","datePublished":"2020-03-01T21:18:28+03:00","url":"http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bayram cicek's website" /></head>
 <body><header class="site-header" role="banner">
@@ -46,13 +46,34 @@
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul>
-  <li>Ubuntu 18.04.4</li>
+  <li>This post is the mirror of <a href="https://askubuntu.com/a/1222375/829928">my answer</a> on StackOverFlow:</li>
 </ul>
 
-<h2 id="hazırlanıyor">hazırlanıyor…</h2>
+<p>I always have the same issue when reinstall <code class="highlighter-rouge">Ubuntu 18.04.4</code> with <code class="highlighter-rouge">ASUS X555UQ Laptop</code>.</p>
 
-<p><br />
-<a href="https://askubuntu.com/questions/771899/pcie-bus-error-severity-corrected">https://askubuntu.com/questions/771899/pcie-bus-error-severity-corrected</a></p>
+<p>Answers of <a href="https://askubuntu.com/questions/771899/pcie-bus-error-severity-corrected">this</a> question on StackOverFlow helped me a lot about adding which parameter to <code class="highlighter-rouge">/etc/default/grub/</code> but I can’t reach terminal (also tty), because after installing OS via live usb, it gives a blank screen(or mentioned issue) instead of login screen.</p>
+
+<p>Then I thought that I have to get to the GRUB menu at boot-time so, according to this link <a href="https://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time">how to get to the GRUB menu at boot-time</a>, pressing <code class="highlighter-rouge">esc</code> while booting did not cause the GRUB menu to appear. It shows <code class="highlighter-rouge">please select boot device</code> section for me.</p>
+
+<p align="center">
+  <img src="http://127.0.0.1:4000/folder/boot-device.jpg" alt="boot-device" />
+</p>
+
+<p>Then I pressed <code class="highlighter-rouge">Enter</code> to boot again and while booting, pressed <code class="highlighter-rouge">esc</code> again. Finally it reached to the GRUB menu and I pressed <code class="highlighter-rouge">e</code> to edit the commands(this page starts with <code class="highlighter-rouge">set params 'Ubuntu'</code>). Then I added <code class="highlighter-rouge">pci=nomsi</code> to end of the line starting with <code class="highlighter-rouge">linux</code> and pressed <code class="highlighter-rouge">F10</code> to boot.</p>
+
+<p align="center">
+  <img src="http://127.0.0.1:4000/folder/grub.jpg" alt="grub" />
+</p>
+
+<p align="center">
+  <img src="http://127.0.0.1:4000/folder/params.jpg" alt="params" />
+</p>
+
+<p>After this operation, I was able to reach login screen and terminal. Then I followed the <a href="https://askubuntu.com/a/926352/829928">@Ujjal Kumar Das’s</a> answer on StackOverFlow and updated my <code class="highlighter-rouge">/etc/default/grub/</code> file permanently.</p>
+
+<p>Maybe this method works for the users who have the same laptop model like me. I like using Ubuntu, but this issue is so annoying every time.</p>
+
+<p><br /></p>
 
 
   </div><a class="u-url" href="/general/2020/03/01/pcie-bus-error-severity-corrected.html" hidden></a>
