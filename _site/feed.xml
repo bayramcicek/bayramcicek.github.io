@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-30T02:16:23+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public. - bayram cicek's website</subtitle><entry><title type="html">PCIe Bus Error: severity=Corrected problem after booting into Ubuntu</title><link href="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html" rel="alternate" type="text/html" title="PCIe Bus Error: severity=Corrected problem after booting into Ubuntu" /><published>2020-03-01T21:18:28+03:00</published><updated>2020-03-01T21:18:28+03:00</updated><id>http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected</id><content type="html" xml:base="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-30T02:31:06+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public. - bayram cicek's website</subtitle><entry><title type="html">PCIe Bus Error: severity=Corrected problem after booting into Ubuntu</title><link href="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html" rel="alternate" type="text/html" title="PCIe Bus Error: severity=Corrected problem after booting into Ubuntu" /><published>2020-03-01T21:18:28+03:00</published><updated>2020-03-01T21:18:28+03:00</updated><id>http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected</id><content type="html" xml:base="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html">&lt;ul&gt;
   &lt;li&gt;This post is the mirror of &lt;a href=&quot;https://askubuntu.com/a/1222375/829928&quot;&gt;my answer&lt;/a&gt; on StackOverFlow:&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -9,17 +9,17 @@
 &lt;p&gt;Then I thought that I have to get to the GRUB menu at boot-time so, according to this link &lt;a href=&quot;https://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time&quot;&gt;how to get to the GRUB menu at boot-time&lt;/a&gt;, pressing &lt;code class=&quot;highlighter-rouge&quot;&gt;esc&lt;/code&gt; while booting did not cause the GRUB menu to appear. It shows &lt;code class=&quot;highlighter-rouge&quot;&gt;please select boot device&lt;/code&gt; section for me.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;http://127.0.0.1:4000/folder/boot-device.jpg&quot; alt=&quot;boot-device&quot; /&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/boot-device.jpg&quot; alt=&quot;boot-device&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Then I pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;Enter&lt;/code&gt; to boot again and while booting, pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;esc&lt;/code&gt; again. Finally it reached to the GRUB menu and I pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt; to edit the commands(this page starts with &lt;code class=&quot;highlighter-rouge&quot;&gt;set params 'Ubuntu'&lt;/code&gt;). Then I added &lt;code class=&quot;highlighter-rouge&quot;&gt;pci=nomsi&lt;/code&gt; to end of the line starting with &lt;code class=&quot;highlighter-rouge&quot;&gt;linux&lt;/code&gt; and pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;F10&lt;/code&gt; to boot.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;http://127.0.0.1:4000/folder/grub.jpg&quot; alt=&quot;grub&quot; /&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/grub.jpg&quot; alt=&quot;grub&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;http://127.0.0.1:4000/folder/params.jpg&quot; alt=&quot;params&quot; /&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/params.jpg&quot; alt=&quot;params&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;After this operation, I was able to reach login screen and terminal. Then I followed the &lt;a href=&quot;https://askubuntu.com/a/926352/829928&quot;&gt;@Ujjal Kumar Das’s&lt;/a&gt; answer on StackOverFlow and updated my &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/default/grub/&lt;/code&gt; file permanently.&lt;/p&gt;
