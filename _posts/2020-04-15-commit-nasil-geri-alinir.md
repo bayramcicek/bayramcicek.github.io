@@ -5,7 +5,7 @@ date:   2020-04-15 12:25:06 +0300
 categories: general
 ---
 
-Github üzerinde yaptığım son 10 commit'i geri almak yani silmek istedim. Bu işlemi Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.
+Github üzerinde yaptığım son 10 commit'i geri almak yani silmek istedim. Bu işlemin Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.
 
 - Öncelikle uzak sunucudaki depoyu yerelinize kopyalayın ve depo dizinine girin:
 
