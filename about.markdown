@@ -6,11 +6,13 @@ permalink: /about/
 
 ![](https://projecteuler.net/profile/cicek.png)
 
-My all Projects: [github.com/bayramcicek] 
+projects: [github.com/bayramcicek] 
 
-Hackerrank: [hackerrank.com/cicek]
+hackerrank: [hackerrank.com/cicek]
 
 about me: [about.me/bayramcicek]
+
+contact/iletişim: mail [at] bayramcicek.com.tr
 
 ___	
 

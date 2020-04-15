@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-30T02:31:06+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public. - bayram cicek's website</subtitle><entry><title type="html">PCIe Bus Error: severity=Corrected problem after booting into Ubuntu</title><link href="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html" rel="alternate" type="text/html" title="PCIe Bus Error: severity=Corrected problem after booting into Ubuntu" /><published>2020-03-01T21:18:28+03:00</published><updated>2020-03-01T21:18:28+03:00</updated><id>http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected</id><content type="html" xml:base="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-15T14:14:06+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public. - bayram cicek's website</subtitle><entry><title type="html">Git: commit’ler nasıl geri alınır/silinir?</title><link href="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html" rel="alternate" type="text/html" title="Git: commit'ler nasıl geri alınır/silinir?" /><published>2020-04-15T12:25:06+03:00</published><updated>2020-04-15T12:25:06+03:00</updated><id>http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir</id><content type="html" xml:base="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html">&lt;p&gt;Github üzerinde yaptığım son 10 commit’i geri almak yani silmek istedim. Bu işlemi Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Öncelikle uzak sunucudaki depoyu yerelinize kopyalayın ve depo dizinine girin:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git clone &amp;lt;link&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ cd ./&amp;lt;depo-adı&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sondan kaçıncı commit’ten itibaren silmeniz gerektiğini öğrenmek için ya Github vb. gibi bir uzak sunucudan bakmalısınız ya da komut satırından şu şekilde bakmalısınız:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git log&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Burada önünüze son commit’ten eskiye doğru giden bir sayfa gelmelidir. Burada kaç commit silmek istediğinizi belirleyin.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Son 10 commit’i silmek istediğimizi varsayalım.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Son 10 commit’i silmek için son 12. commit’in commit_ID’sini öğrenmek istiyor olalım:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git log -n 12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Önünüze çıkan commitlerde en aşağı indiğinizde bu 12. commit olacaktır. 12. commit’in ID’sini kopyalayın. (örn: df11d552bc6a38e7z3e229f969d44be65ed1998d)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Aşağıdaki komutu çalıştırdığınızda önünüze son 11 commit’in olduğu bir dosya açılacak:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase -i df11d552bc6a38e7z3e229f969d44be65ed1998d&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;(burada öğrenmiş oluyoruz ki &lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase -i &amp;lt;x'inci commit_ID&amp;gt;&lt;/code&gt;,  bize son &lt;code class=&quot;highlighter-rouge&quot;&gt;(x-1)&lt;/code&gt;‘inci commit’leri gösteriyor.)&lt;/p&gt;
+
+&lt;p&gt;Önünüzdeki dosyada en üstteki commit en eski commit, en alttaki de en yeni yapılmış(son) commit olacaktır. Biz son 10 commit’i silmek istiyorduk. Öyleyse en üstteki commit hariç(çünkü en üstteki commit son 11. commit), altındaki 10 commit’i silip dosyayı kaydedip kapatıyoruz.&lt;/p&gt;
+
+&lt;p&gt;(Aslında &lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase -i x&lt;/code&gt; yazarken sadece silmek istediğimiz commit’lerin gösterilmesini isteyebiliriz fakat son 10 commit’i silmek istediğimizde kalacak sonuncu commit’i görmek, hatalı bir işlem yapılması ihtimalinin önüne geçebilir.)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;İşlemin yapıldığından emin olmak için commit’leri kontrol edelim:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git status&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Burada yerelimizde bulunan commit’lerin uzak sunucudaki commit’lerden 10 geri(behind) olduğunu görmelisiniz ki istediğimiz şey de buydu zaten.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Son olarak değişiklikleri uzak sunucuya yollayıp uzak sunucudaki sayfanızı yenileyin:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git push -f origin master&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;(-f -&amp;gt; force-push, –force)&lt;/i&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Github üzerinde yaptığım son 10 commit’i geri almak yani silmek istedim. Bu işlemi Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.</summary></entry><entry><title type="html">PCIe Bus Error: severity=Corrected problem after booting into Ubuntu</title><link href="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html" rel="alternate" type="text/html" title="PCIe Bus Error: severity=Corrected problem after booting into Ubuntu" /><published>2020-03-01T21:18:28+03:00</published><updated>2020-03-01T21:18:28+03:00</updated><id>http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected</id><content type="html" xml:base="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html">&lt;ul&gt;
   &lt;li&gt;This post is the mirror of &lt;a href=&quot;https://askubuntu.com/a/1222375/829928&quot;&gt;my answer&lt;/a&gt; on StackOverFlow:&lt;/li&gt;
 &lt;/ul&gt;
 
