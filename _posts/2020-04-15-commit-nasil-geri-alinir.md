@@ -25,7 +25,7 @@ Burada önünüze son commit'ten eskiye doğru giden bir sayfa gelmelidir. Burad
 
 `$ git log -n 12`
 
-Önünüze çıkan commitlerde en aşağı indiğinizde bu 12. commit olacaktır. 12. commit'in ID'sini kopyalayın. (örn: df11d552bc6a38e7z3e229f969d44be65ed1998d)
+Önünüze çıkan commit'lerde en aşağı indiğinizde bu 12. commit olacaktır. 12. commit'in ID'sini kopyalayın. (örn: df11d552bc6a38e7z3e229f969d44be65ed1998d)
 
 - Aşağıdaki komutu çalıştırdığınızda önünüze son 11 commit'in olduğu bir dosya açılacak:
 
