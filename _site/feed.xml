@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-01T14:31:50+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Git: commit’ler nasıl geri alınır/silinir?</title><link href="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html" rel="alternate" type="text/html" title="Git: commit'ler nasıl geri alınır/silinir?" /><published>2020-04-15T12:25:06+03:00</published><updated>2020-04-15T12:25:06+03:00</updated><id>http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir</id><content type="html" xml:base="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html">&lt;p&gt;Github üzerinde yaptığım son 10 commit’i geri almak yani silmek istedim. Bu işlemin Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-11T05:23:03+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Git: commit’ler nasıl geri alınır/silinir?</title><link href="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html" rel="alternate" type="text/html" title="Git: commit'ler nasıl geri alınır/silinir?" /><published>2020-04-15T12:25:06+03:00</published><updated>2020-04-15T12:25:06+03:00</updated><id>http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir</id><content type="html" xml:base="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html">&lt;p&gt;Github üzerinde yaptığım son 10 commit’i geri almak yani silmek istedim. Bu işlemin Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Öncelikle uzak sunucudaki depoyu yerelinize kopyalayın ve depo dizinine girin:&lt;/li&gt;
@@ -212,7 +212,32 @@ As a result, &lt;code class=&quot;highlighter-rouge&quot;&gt;16 Mbps = 2 MB/s&lt
   &lt;img src=&quot;https://bayramcicek.com.tr/folder/down.png&quot; alt=&quot;download&quot; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;I have 14.52 mbps internet speed right now. According to the calculation above, I can download &lt;code class=&quot;highlighter-rouge&quot;&gt;1.8 MB&lt;/code&gt; per second. So, downloading 5 MB file size of a song will take &lt;code class=&quot;highlighter-rouge&quot;&gt;5/1.8 = 2.77&lt;/code&gt; second.&lt;/p&gt;</content><author><name></name></author><summary type="html">Internet speeds are so important for us and a big part of our lives. When you want to see how much internet speed is, you’ll see it displayed as mbps or kbps.</summary></entry><entry><title type="html">Asal Sayı Bulma Algoritması</title><link href="http://localhost:4000/general/2018/10/20/asal-sayi-bulma-algoritmasi.html" rel="alternate" type="text/html" title="Asal Sayı Bulma Algoritması " /><published>2018-10-20T00:33:26+03:00</published><updated>2018-10-20T00:33:26+03:00</updated><id>http://localhost:4000/general/2018/10/20/asal-sayi-bulma-algoritmasi</id><content type="html" xml:base="http://localhost:4000/general/2018/10/20/asal-sayi-bulma-algoritmasi.html">&lt;p&gt;Algoritma konusunu daha iyi kavramak için sorularını çözdüğüm projecteuler’deki bir
+&lt;p&gt;I have 14.52 mbps internet speed right now. According to the calculation above, I can download &lt;code class=&quot;highlighter-rouge&quot;&gt;1.8 MB&lt;/code&gt; per second. So, downloading 5 MB file size of a song will take &lt;code class=&quot;highlighter-rouge&quot;&gt;5/1.8 = 2.77&lt;/code&gt; second.&lt;/p&gt;</content><author><name></name></author><summary type="html">Internet speeds are so important for us and a big part of our lives. When you want to see how much internet speed is, you’ll see it displayed as mbps or kbps.</summary></entry><entry><title type="html">Asal Sayı Bulma Algoritması</title><link href="http://localhost:4000/general/2018/10/20/asal-sayi-bulma-algoritmasi.html" rel="alternate" type="text/html" title="Asal Sayı Bulma Algoritması " /><published>2018-10-20T00:33:26+03:00</published><updated>2018-10-20T00:33:26+03:00</updated><id>http://localhost:4000/general/2018/10/20/asal-sayi-bulma-algoritmasi</id><content type="html" xml:base="http://localhost:4000/general/2018/10/20/asal-sayi-bulma-algoritmasi.html">&lt;p&gt;&lt;em&gt;&lt;b&gt;Güncelleme (1 Nisan 2020):&lt;/b&gt; Algoritma ve Akış Şeması / Flowchart eklendi:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; &lt;em&gt;8 – 100 arası asal sayıları yazdıran algoritma:&lt;/em&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;A1) Başla
+A2) i = 8
+A3) Eğer TAM(i/2)*2 = i ise A8’e git
+A4) Eğer TAM(i/3)*3 = i ise A8’e git
+A5) Eğer TAM(i/5)*5 = i ise A8’e git
+A6) Eğer TAM(i/7)*7 = i ise A8’e git
+A7) i’yi ekrana yaz
+A8) Eğer i = 100 ise A10’a git
+A9) i = i + 1 al ve A3’e git
+A10) Dur&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;-&amp;gt; &lt;em&gt;Akış Şeması / Flowchart:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;http://127.0.0.1:4000/folder/prime.png&quot; alt=&quot;prime&quot; /&gt;
+&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Algoritma konusunu daha iyi kavramak için sorularını çözdüğüm projecteuler’deki bir
 soruyu, okulda öğrendiğimiz bir algoritma ile çözmeye çalıştım.&lt;/p&gt;
 
 &lt;p&gt;Soru: 2000000’dan küçük olan asal sayıların toplamını yazdırınız.&lt;/p&gt;
@@ -280,7 +305,7 @@ denediğimde 10’larca dakika geçmesine rağmen sonucu bulamadığını görd�
 –&amp;gt; 2’nin katlarına False atıyor.&lt;br /&gt;
 –&amp;gt; Aynı şekilde 3, 5, 7… ‘yi asal olarak ekledikten sonra, katlarına False atıyor.&lt;br /&gt;&lt;br /&gt;
 Böylece asal olmayanlara False atanıyor. Geriye de True, yani asal sayılar kalıyor.
-Böylece kodun çalışma süresi 10+ dakikadan 2- saniyeye düştü.&lt;/p&gt;</content><author><name></name></author><summary type="html">Algoritma konusunu daha iyi kavramak için sorularını çözdüğüm projecteuler’deki bir soruyu, okulda öğrendiğimiz bir algoritma ile çözmeye çalıştım.</summary></entry><entry><title type="html">Hello World!</title><link href="http://localhost:4000/general/2017/12/01/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2017-12-01T14:42:56+03:00</published><updated>2017-12-01T14:42:56+03:00</updated><id>http://localhost:4000/general/2017/12/01/hello-world</id><content type="html" xml:base="http://localhost:4000/general/2017/12/01/hello-world.html">&lt;p&gt;Merhaba!&lt;/p&gt;
+Böylece kodun çalışma süresi 10+ dakikadan 2- saniyeye düştü.&lt;/p&gt;</content><author><name></name></author><summary type="html">Güncelleme (1 Nisan 2020): Algoritma ve Akış Şeması / Flowchart eklendi:</summary></entry><entry><title type="html">Hello World!</title><link href="http://localhost:4000/general/2017/12/01/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2017-12-01T14:42:56+03:00</published><updated>2017-12-01T14:42:56+03:00</updated><id>http://localhost:4000/general/2017/12/01/hello-world</id><content type="html" xml:base="http://localhost:4000/general/2017/12/01/hello-world.html">&lt;p&gt;Merhaba!&lt;/p&gt;
 
 &lt;hr /&gt;
 

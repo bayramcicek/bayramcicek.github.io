@@ -5,6 +5,35 @@ date:   2018-10-20 00:33:26 +0300
 categories: general
 ---
 
+*<b>Güncelleme (1 Nisan 2020):</b> Algoritma ve Akış Şeması / Flowchart eklendi:*
+
+-> *8 – 100 arası asal sayıları yazdıran algoritma:*
+
+{% highlight text %}
+
+A1) Başla
+A2) i = 8
+A3) Eğer TAM(i/2)*2 = i ise A8’e git
+A4) Eğer TAM(i/3)*3 = i ise A8’e git
+A5) Eğer TAM(i/5)*5 = i ise A8’e git
+A6) Eğer TAM(i/7)*7 = i ise A8’e git
+A7) i’yi ekrana yaz
+A8) Eğer i = 100 ise A10’a git
+A9) i = i + 1 al ve A3’e git
+A10) Dur
+
+{% endhighlight %}
+
+-> *Akış Şeması / Flowchart:*
+
+<br>
+<p align="center">
+  <img src="http://127.0.0.1:4000/folder/prime.png" alt="prime"/>
+</p>
+
+---
+
+<br>
 Algoritma konusunu daha iyi kavramak için sorularını çözdüğüm projecteuler’deki bir
 soruyu, okulda öğrendiğimiz bir algoritma ile çözmeye çalıştım.
 
