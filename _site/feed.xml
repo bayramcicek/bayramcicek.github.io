@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-11T05:23:03+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Git: commit’ler nasıl geri alınır/silinir?</title><link href="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html" rel="alternate" type="text/html" title="Git: commit'ler nasıl geri alınır/silinir?" /><published>2020-04-15T12:25:06+03:00</published><updated>2020-04-15T12:25:06+03:00</updated><id>http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir</id><content type="html" xml:base="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html">&lt;p&gt;Github üzerinde yaptığım son 10 commit’i geri almak yani silmek istedim. Bu işlemin Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-11T05:27:03+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Git: commit’ler nasıl geri alınır/silinir?</title><link href="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html" rel="alternate" type="text/html" title="Git: commit'ler nasıl geri alınır/silinir?" /><published>2020-04-15T12:25:06+03:00</published><updated>2020-04-15T12:25:06+03:00</updated><id>http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir</id><content type="html" xml:base="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html">&lt;p&gt;Github üzerinde yaptığım son 10 commit’i geri almak yani silmek istedim. Bu işlemin Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Öncelikle uzak sunucudaki depoyu yerelinize kopyalayın ve depo dizinine girin:&lt;/li&gt;
@@ -231,7 +231,7 @@ A10) Dur&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;http://127.0.0.1:4000/folder/prime.png&quot; alt=&quot;prime&quot; /&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/prime.png&quot; alt=&quot;prime&quot; /&gt;
 &lt;/p&gt;
 
 &lt;hr /&gt;
