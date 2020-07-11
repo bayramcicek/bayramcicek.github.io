@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-07-11T08:20:50+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Diskteki Bad Sector Problemi</title><link href="http://localhost:4000/general/2020/07/11/disk-bad-sector.html" rel="alternate" type="text/html" title="Diskteki Bad Sector Problemi" /><published>2020-07-11T07:52:48+03:00</published><updated>2020-07-11T07:52:48+03:00</updated><id>http://localhost:4000/general/2020/07/11/disk-bad-sector</id><content type="html" xml:base="http://localhost:4000/general/2020/07/11/disk-bad-sector.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">HDD ve SSD Hız Karşılaştırması</title><link href="http://localhost:4000/general/2020/07/10/hdd-ssd.html" rel="alternate" type="text/html" title="HDD ve SSD Hız Karşılaştırması" /><published>2020-07-10T05:12:03+03:00</published><updated>2020-07-10T05:12:03+03:00</updated><id>http://localhost:4000/general/2020/07/10/hdd-ssd</id><content type="html" xml:base="http://localhost:4000/general/2020/07/10/hdd-ssd.html">&lt;p&gt;Bilgisayarları hızlandırmak için ek &lt;code class=&quot;highlighter-rouge&quot;&gt;RAM&lt;/code&gt; eklemek her zaman çözüm olmayabilir. Bir bilgisayarın &lt;code class=&quot;highlighter-rouge&quot;&gt;RAM&lt;/code&gt; hafızası yeterliyse ve &lt;code class=&quot;highlighter-rouge&quot;&gt;HDD&lt;/code&gt; ile çalıştırılıyor ise sadece &lt;code class=&quot;highlighter-rouge&quot;&gt;SSD&lt;/code&gt; eklenerek hızlandırılabilir.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-07-11T09:53:15+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Disk ve Bad Sector Problemi</title><link href="http://localhost:4000/general/2020/07/11/disk-bad-sector.html" rel="alternate" type="text/html" title="Disk ve Bad Sector Problemi" /><published>2020-07-11T07:52:48+03:00</published><updated>2020-07-11T07:52:48+03:00</updated><id>http://localhost:4000/general/2020/07/11/disk-bad-sector</id><content type="html" xml:base="http://localhost:4000/general/2020/07/11/disk-bad-sector.html">&lt;p&gt;Kullandığım cihazda sürekli &lt;a href=&quot;https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system&quot;&gt;şuradaki&lt;/a&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;read-only file system&lt;/code&gt; problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve &lt;a href=&quot;https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system/1213927#1213927&quot;&gt;şurada&lt;/a&gt; yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki &lt;code class=&quot;highlighter-rouge&quot;&gt;fiziksel&lt;/code&gt; bir problem olabileceğini öğrendim.&lt;/p&gt;
+
+&lt;p&gt;HDD disklerindeki &lt;code class=&quot;highlighter-rouge&quot;&gt;sector&lt;/code&gt; kısımları zamanla fiziksel olarak zarar görebiliyor. &lt;code class=&quot;highlighter-rouge&quot;&gt;Bad sector&lt;/code&gt; kısımlarına veri okuma-yazma işlemleri yapılmak istendiğinde işletim sistemi bir problem olduğunu farkediyor ve güvenlik açısından kendisinin yüklü olduğu disk kısmını read-only haline getiriyor. Baştan beri yaşadığım problem buydu.&lt;/p&gt;
+
+&lt;p&gt;Bad sector fiziksel bir problem olduğundan aslında bu problemi çözemeyiz fakat bu kullanılamayan sector kısımlarını diskin görmezden gelmesini sağlayıp bu problemden &lt;code class=&quot;highlighter-rouge&quot;&gt;diski formatlamadığımız sürece&lt;/code&gt; kurtulabiliriz.&lt;/p&gt;
+
+&lt;p&gt;Bad sector’e sahip disk, sistemimde &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/sda1&lt;/code&gt; olarak bulunuyor. Bu her cihazda değişiklik gösterebilir.&lt;/p&gt;
+
+&lt;p&gt;Diskte ne kadar bad sector olduğunu bulmadan önce diskteki her bir sector’ün boyutunu öğrenmeliyiz.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo tune2fs -l /dev/sda1 | grep -i 'block size'&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/bad-blocks/1-block-size.png&quot; alt=&quot;block-size&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Diskteki bad sector kısımlarının bulunması ve bu kısımların bir dosyaya yazılması gereklidir. Bu işlem için tüm diskin taranması gerektiğinden işlem çok uzun sürebilir. &lt;code class=&quot;highlighter-rouge&quot;&gt;1TB&lt;/code&gt; boyutundaki bir disk için saatler sürebilir. Bu uzun tarama süresinden kaçınmak için diskimi &lt;code class=&quot;highlighter-rouge&quot;&gt;100GB&lt;/code&gt; ve &lt;code class=&quot;highlighter-rouge&quot;&gt;900GB&lt;/code&gt; olarak ayırdım. 900GB’lik kısmı kullanmama gerek olmadığından bu kısmı &lt;code class=&quot;highlighter-rouge&quot;&gt;GParted&lt;/code&gt; üzerinden &lt;code class=&quot;highlighter-rouge&quot;&gt;unallocated&lt;/code&gt; olarak formatladım. Diğer 100GB boyutunu da &lt;code class=&quot;highlighter-rouge&quot;&gt;ext4&lt;/code&gt; olarak formatladım. Böylece sadece 100GB’lik bir alan taranacağından taranma süresi çok daha hızlı olacak. (yaklaşık 40 dakika)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo badblocks -b 4096 -vs /dev/sda1 &amp;gt; ./bad_blocks.txt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/bad-blocks/2-search-badblocks.png&quot; alt=&quot;search-badblocks&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Eğer diskteki blok boyutunu öğrenmeden &lt;code class=&quot;highlighter-rouge&quot;&gt;-b 4096&lt;/code&gt; kısmını ilk yazılan komutta girmeseydik büyük ihtimal &lt;code class=&quot;highlighter-rouge&quot;&gt;out of range; ignored.&lt;/code&gt; hatası olacaktı.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/bad-blocks/3-block-ignored-error.png&quot; alt=&quot;block-ignored-error&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Tarama bittiğinde kaç adet bad block olduğu gösterilir.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/bad-blocks/4-badblocks-completed.png&quot; alt=&quot;badblocks-completed&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Bad block kısımlarının kaydedildiği &lt;code class=&quot;highlighter-rouge&quot;&gt;bad_blocks.txt&lt;/code&gt; dosyası.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/bad-blocks/5-badblocks-txt-file.png&quot; alt=&quot;badblocks-txt-file&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Son olarak diskin, hatalı blokları görmezden gelmesi sağlanmalıdır.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo e2fsck -l bad_blocks.txt /dev/sda1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/bad-blocks/6-badblocks-added.png&quot; alt=&quot;badblocks-added&quot; /&gt;
+&lt;/p&gt;</content><author><name></name></author><summary type="html">Kullandığım cihazda sürekli şuradaki read-only file system problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve şurada yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki fiziksel bir problem olabileceğini öğrendim.</summary></entry><entry><title type="html">HDD ve SSD Hız Karşılaştırması</title><link href="http://localhost:4000/general/2020/07/10/hdd-ssd.html" rel="alternate" type="text/html" title="HDD ve SSD Hız Karşılaştırması" /><published>2020-07-10T05:12:03+03:00</published><updated>2020-07-10T05:12:03+03:00</updated><id>http://localhost:4000/general/2020/07/10/hdd-ssd</id><content type="html" xml:base="http://localhost:4000/general/2020/07/10/hdd-ssd.html">&lt;p&gt;Bilgisayarları hızlandırmak için ek &lt;code class=&quot;highlighter-rouge&quot;&gt;RAM&lt;/code&gt; eklemek her zaman çözüm olmayabilir. Bir bilgisayarın &lt;code class=&quot;highlighter-rouge&quot;&gt;RAM&lt;/code&gt; hafızası yeterliyse ve &lt;code class=&quot;highlighter-rouge&quot;&gt;HDD&lt;/code&gt; ile çalıştırılıyor ise sadece &lt;code class=&quot;highlighter-rouge&quot;&gt;SSD&lt;/code&gt; eklenerek hızlandırılabilir.&lt;/p&gt;
 
 &lt;p&gt;HDD’nin istenilen verilere erişmesi için arama başlığını &lt;code class=&quot;highlighter-rouge&quot;&gt;fiziksel&lt;/code&gt; olarak hareket ettirip doğru &lt;code class=&quot;highlighter-rouge&quot;&gt;track&lt;/code&gt; kısmını bulduktan sonra o track’teki doğru &lt;code class=&quot;highlighter-rouge&quot;&gt;sector&lt;/code&gt; kısmını bulmalıdır. Bu da çok fazla zaman kaybına yol açar. SDD ise bir veriye erişmek için verinin bulunduğu yere -hızlı fiziksel aracılar sayesinde- direkt bir &lt;code class=&quot;highlighter-rouge&quot;&gt;komut&lt;/code&gt; gönderir ve veri hazır hale gelir. Böylece SSD, bir veriye HDD disklerden daha hızlı erişim sağlar. SSD’nin bu üstünlükleri tabii ki fiyatlarına da yansır.&lt;/p&gt;
 

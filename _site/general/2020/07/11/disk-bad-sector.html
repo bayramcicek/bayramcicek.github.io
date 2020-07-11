@@ -3,19 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Diskteki Bad Sector Problemi | bayram cicek’s website</title>
+<title>Disk ve Bad Sector Problemi | bayram cicek’s website</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Diskteki Bad Sector Problemi" />
+<meta property="og:title" content="Disk ve Bad Sector Problemi" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="All content written by me is by default released freely under the Public License." />
-<meta property="og:description" content="All content written by me is by default released freely under the Public License." />
+<meta name="description" content="Kullandığım cihazda sürekli şuradaki read-only file system problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve şurada yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki fiziksel bir problem olabileceğini öğrendim." />
+<meta property="og:description" content="Kullandığım cihazda sürekli şuradaki read-only file system problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve şurada yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki fiziksel bir problem olabileceğini öğrendim." />
 <link rel="canonical" href="http://localhost:4000/general/2020/07/11/disk-bad-sector.html" />
 <meta property="og:url" content="http://localhost:4000/general/2020/07/11/disk-bad-sector.html" />
 <meta property="og:site_name" content="bayram cicek’s website" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-07-11T07:52:48+03:00" />
 <script type="application/ld+json">
-{"description":"All content written by me is by default released freely under the Public License.","url":"http://localhost:4000/general/2020/07/11/disk-bad-sector.html","@type":"BlogPosting","headline":"Diskteki Bad Sector Problemi","dateModified":"2020-07-11T07:52:48+03:00","datePublished":"2020-07-11T07:52:48+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2020/07/11/disk-bad-sector.html"},"@context":"https://schema.org"}</script>
+{"description":"Kullandığım cihazda sürekli şuradaki read-only file system problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve şurada yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki fiziksel bir problem olabileceğini öğrendim.","url":"http://localhost:4000/general/2020/07/11/disk-bad-sector.html","@type":"BlogPosting","headline":"Disk ve Bad Sector Problemi","dateModified":"2020-07-11T07:52:48+03:00","datePublished":"2020-07-11T07:52:48+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2020/07/11/disk-bad-sector.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bayram cicek's website" /></head>
 <body><header class="site-header" role="banner">
@@ -38,14 +38,74 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Diskteki Bad Sector Problemi</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Disk ve Bad Sector Problemi</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="2020-07-11T07:52:48+03:00" itemprop="datePublished">Jul 11, 2020
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    
+    <p>Kullandığım cihazda sürekli <a href="https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system">şuradaki</a> <code class="highlighter-rouge">read-only file system</code> problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve <a href="https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system/1213927#1213927">şurada</a> yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki <code class="highlighter-rouge">fiziksel</code> bir problem olabileceğini öğrendim.</p>
+
+<p>HDD disklerindeki <code class="highlighter-rouge">sector</code> kısımları zamanla fiziksel olarak zarar görebiliyor. <code class="highlighter-rouge">Bad sector</code> kısımlarına veri okuma-yazma işlemleri yapılmak istendiğinde işletim sistemi bir problem olduğunu farkediyor ve güvenlik açısından kendisinin yüklü olduğu disk kısmını read-only haline getiriyor. Baştan beri yaşadığım problem buydu.</p>
+
+<p>Bad sector fiziksel bir problem olduğundan aslında bu problemi çözemeyiz fakat bu kullanılamayan sector kısımlarını diskin görmezden gelmesini sağlayıp bu problemden <code class="highlighter-rouge">diski formatlamadığımız sürece</code> kurtulabiliriz.</p>
+
+<p>Bad sector’e sahip disk, sistemimde <code class="highlighter-rouge">/dev/sda1</code> olarak bulunuyor. Bu her cihazda değişiklik gösterebilir.</p>
+
+<p>Diskte ne kadar bad sector olduğunu bulmadan önce diskteki her bir sector’ün boyutunu öğrenmeliyiz.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">$ sudo tune2fs -l /dev/sda1 | grep -i 'block size'</code></li>
+</ul>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/bad-blocks/1-block-size.png" alt="block-size" />
+</p>
+
+<p><br />
+Diskteki bad sector kısımlarının bulunması ve bu kısımların bir dosyaya yazılması gereklidir. Bu işlem için tüm diskin taranması gerektiğinden işlem çok uzun sürebilir. <code class="highlighter-rouge">1TB</code> boyutundaki bir disk için saatler sürebilir. Bu uzun tarama süresinden kaçınmak için diskimi <code class="highlighter-rouge">100GB</code> ve <code class="highlighter-rouge">900GB</code> olarak ayırdım. 900GB’lik kısmı kullanmama gerek olmadığından bu kısmı <code class="highlighter-rouge">GParted</code> üzerinden <code class="highlighter-rouge">unallocated</code> olarak formatladım. Diğer 100GB boyutunu da <code class="highlighter-rouge">ext4</code> olarak formatladım. Böylece sadece 100GB’lik bir alan taranacağından taranma süresi çok daha hızlı olacak. (yaklaşık 40 dakika)</p>
+
+<ul>
+  <li><code class="highlighter-rouge">$ sudo badblocks -b 4096 -vs /dev/sda1 &gt; ./bad_blocks.txt</code></li>
+</ul>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/bad-blocks/2-search-badblocks.png" alt="search-badblocks" />
+</p>
+
+<p><br />
+Eğer diskteki blok boyutunu öğrenmeden <code class="highlighter-rouge">-b 4096</code> kısmını ilk yazılan komutta girmeseydik büyük ihtimal <code class="highlighter-rouge">out of range; ignored.</code> hatası olacaktı.</p>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/bad-blocks/3-block-ignored-error.png" alt="block-ignored-error" />
+</p>
+
+<p><br />
+Tarama bittiğinde kaç adet bad block olduğu gösterilir.</p>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/bad-blocks/4-badblocks-completed.png" alt="badblocks-completed" />
+</p>
+
+<p><br />
+Bad block kısımlarının kaydedildiği <code class="highlighter-rouge">bad_blocks.txt</code> dosyası.</p>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/bad-blocks/5-badblocks-txt-file.png" alt="badblocks-txt-file" />
+</p>
+
+<p><br />
+Son olarak diskin, hatalı blokları görmezden gelmesi sağlanmalıdır.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">$ sudo e2fsck -l bad_blocks.txt /dev/sda1</code></li>
+</ul>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/bad-blocks/6-badblocks-added.png" alt="badblocks-added" />
+</p>
+
 
   </div><a class="u-url" href="/general/2020/07/11/disk-bad-sector.html" hidden></a>
 </article>
