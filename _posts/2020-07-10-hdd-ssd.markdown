@@ -1,0 +1,27 @@
+---
+layout: post
+title:  "HDD ve SSD Hız Karşılaştırması"
+date:   2020-07-10 05:12:03 +0300
+categories: general
+---
+
+Bilgisayarları hızlandırmak için ek `RAM` eklemek her zaman çözüm olmayabilir. Bir bilgisayarın `RAM` hafızası yeterliyse ve `HDD` ile çalıştırılıyor ise sadece `SSD` eklenerek hızlandırılabilir.
+
+HDD'nin istenilen verilere erişmesi için arama başlığını `fiziksel` olarak hareket ettirip doğru `track` kısmını bulduktan sonra o track'teki doğru `sector` kısmını bulmalıdır. Bu da çok fazla zaman kaybına yol açar. SDD ise bir veriye erişmek için verinin bulunduğu yere -hızlı fiziksel aracılar sayesinde- direkt bir `komut` gönderir ve veri hazır hale gelir. Böylece SSD, bir veriye HDD disklerden daha hızlı erişim sağlar. SSD'nin bu üstünlükleri tabii ki fiyatlarına da yansır.
+
+Aynı şekilde bir işletim sistemi HDD yerine bir SSD üzerinde `boot` edilirse bilgisayar daha hızlı açılacaktır. `Okuma-yazma` hızı arttığından programlar da daha hızlı tepki vererek eskisinden daha hızlı açılacaktır.
+
+
+Uzun zamandır sadece HDD ile kullandığım dizüstü bilgisayarı -yavaş ve hantal kalmasından dolayı- SSD ekleyerek çalıştırmayı denedim. HDD kullanırken `Ubuntu 20.04` kullanıyordum. SSD'ye geçtiğimde ise `Manjaro 20.0.3` kullanmaya başladım. Aşağıdaki ölçümler bu işletim sistemlerine göredir.
+
+İşletim sisteminin açılması(boot) -> Kullanıcı seçme ve parola girişi -> Masaüstüne erişim:
+
+- HDD üzerinde : `80sn`
+- SSD üzerinde : `41sn`
+	- `100−((41÷80)×100)` = `%48,75` daha `hızlı` masaüstüne erişim.
+
+Android Studio açılması -> Dosyaların indexlenmesi:
+
+- HDD üzerinde : `123sn`
+- SSD üzerinde : `30sn`
+	- `100−((30÷123)×100)` = `%75,6` daha `hızlı` kullanıma hazır olma.

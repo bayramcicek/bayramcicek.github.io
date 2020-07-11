@@ -6,7 +6,7 @@ permalink: /about/
 
 about me: [about.me/bayramcicek]
 
-contact / iletişim: mail[at]bayramcicek.com.tr {{ site.email }}
+contact / iletişim: mail[at]bayramcicek.com.tr
 
 ___
 
@@ -16,6 +16,8 @@ github: [github.com/bayramcicek]
 gitlab: [gitlab.com/bayramcicek]
 
 stackoverflow: [stackoverflow.com/users/10376542/bayramcicek]
+
+google play store: [play.google.com/store/apps/dev?id=6087074203641646267]
 
 ___
 
@@ -59,3 +61,5 @@ You can find the source code for Jekyll at GitHub:
 [hackerrank.com/cicek]: https://www.hackerrank.com/cicek
 
 [jekyll-organization]: https://github.com/jekyll
+
+[play.google.com/store/apps/dev?id=6087074203641646267]: https://play.google.com/store/apps/dev?id=6087074203641646267

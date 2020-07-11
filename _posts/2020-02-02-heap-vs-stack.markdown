@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Heap vs Stack: Bellek Birimlerine Genel Bakış"
+title:  "Heap ve Stack: Bellek Birimlerine Genel Bakış"
 date:   2020-02-02 21:36:01 +0300
 categories: general
 ---
