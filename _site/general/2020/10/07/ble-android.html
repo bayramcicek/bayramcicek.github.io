@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Android Bluetooth Low Energy - BLE | bayram cicek’s website</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Android Bluetooth Low Energy - BLE" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bluetooth Low Energy (BLE) (Bluetooth Düşük Enerji), yakın cihazlar arasında küçük miktardaki verilerin klasik Bluetooth’a göre hem daha hızlı transfer edilmesini sağlayan hem de daha az enerji gerektiren bir teknolojidir. Bu sayede BLE, nesnelerin interneti alanında oldukça fazla kullanılmaktadır." />
+<meta property="og:description" content="Bluetooth Low Energy (BLE) (Bluetooth Düşük Enerji), yakın cihazlar arasında küçük miktardaki verilerin klasik Bluetooth’a göre hem daha hızlı transfer edilmesini sağlayan hem de daha az enerji gerektiren bir teknolojidir. Bu sayede BLE, nesnelerin interneti alanında oldukça fazla kullanılmaktadır." />
+<link rel="canonical" href="http://localhost:4000/general/2020/10/07/ble-android.html" />
+<meta property="og:url" content="http://localhost:4000/general/2020/10/07/ble-android.html" />
+<meta property="og:site_name" content="bayram cicek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-07T12:01:12+03:00" />
+<script type="application/ld+json">
+{"description":"Bluetooth Low Energy (BLE) (Bluetooth Düşük Enerji), yakın cihazlar arasında küçük miktardaki verilerin klasik Bluetooth’a göre hem daha hızlı transfer edilmesini sağlayan hem de daha az enerji gerektiren bir teknolojidir. Bu sayede BLE, nesnelerin interneti alanında oldukça fazla kullanılmaktadır.","url":"http://localhost:4000/general/2020/10/07/ble-android.html","@type":"BlogPosting","headline":"Android Bluetooth Low Energy - BLE","dateModified":"2020-10-07T12:01:12+03:00","datePublished":"2020-10-07T12:01:12+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2020/10/07/ble-android.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bayram cicek's website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">bayram cicek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Android Bluetooth Low Energy - BLE</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-10-07T12:01:12+03:00" itemprop="datePublished">Oct 7, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Bluetooth Low Energy (BLE) (Bluetooth Düşük Enerji), yakın cihazlar arasında küçük miktardaki verilerin klasik Bluetooth’a göre hem daha hızlı transfer edilmesini sağlayan hem de daha az enerji gerektiren bir teknolojidir. Bu sayede BLE, nesnelerin interneti alanında oldukça fazla kullanılmaktadır.</p>
+
+<p>Çalıştığımız bir projede Android üzerinde BLE kullanmamız gerekti ve her ne kadar BLE’nin Android üzerinde uygulanışı biraz sancılı olsa da en azından verinin karşıdaki cihaza aktarımını gerçekleştirebildik.</p>
+
+<p>Öncelikle gerekli izinlerin <code class="highlighter-rouge">AndroidManifest.xml</code> dosyasına eklenmesi gerek.</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.BLUETOOTH"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.BLUETOOTH_ADMIN"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_FINE_LOCATION"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;uses-feature</span>
+    <span class="na">android:name=</span><span class="s">"android.hardware.bluetooth_le"</span>
+    <span class="na">android:required=</span><span class="s">"true"</span> <span class="nt">/&gt;</span></code></pre></figure>
+
+<p>Yukarıdaki izinleri kullanıcının kendisi açması gerekir. Bu yüzden her izin için kullanıcıya bir arayüz ile erişim yetkisi istemelisiniz. Bu yazının sade olması ve uzun olmaması için bu adımlar atlıyoruz.</p>
+
+<p><code class="highlighter-rouge">mConnectedGatt</code>, BLE cihazlarının <a href="https://www.bluetooth.com/specifications/GATT/">GATT</a> profilini tanımlar. Bu profilde BLE servislerini taramak, bağlantının yönetilmesi, <code class="highlighter-rouge">MTU</code>(Maksimum transfer kotası) belirlenmesi ve BLE cihazlarının servis ve karakteristik özelliklerine erişim gibi özellikler bulunur.</p>
+
+<p><code class="highlighter-rouge">characteristic</code>, cihazın pil seviyesini, seri numarasını veya cihaza gönderilecek verileri tutan bir veri taşıyıcısıdır yani anlamlı verilerin tutulduğu değişkendir.</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">private</span> <span class="kd">var</span> <span class="py">mConnectedGatt</span><span class="p">:</span> <span class="nc">BluetoothGatt</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+<span class="k">private</span> <span class="kd">var</span> <span class="py">characteristic</span><span class="p">:</span> <span class="nc">BluetoothGattCharacteristic</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+
+<span class="k">private</span> <span class="k">const</span> <span class="kd">val</span> <span class="py">ENVIRONMENTAL_SERVICE_UUID</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span>
+    <span class="s">"&lt;SERVICE_UUID&gt;"</span>
+<span class="k">private</span> <span class="k">const</span> <span class="kd">val</span> <span class="py">CHARACTERISTIC_UUID</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">"&lt;CHARACTERISTIC_UUID&gt;"</span>
+<span class="k">private</span> <span class="kd">val</span> <span class="py">serviceUuid</span> <span class="p">=</span> <span class="nc">UUID</span><span class="p">.</span><span class="nf">fromString</span><span class="p">(</span><span class="nc">ENVIRONMENTAL_SERVICE_UUID</span><span class="p">)</span>
+<span class="k">private</span> <span class="kd">val</span> <span class="py">charUuid</span> <span class="p">=</span> <span class="nc">UUID</span><span class="p">.</span><span class="nf">fromString</span><span class="p">(</span><span class="nc">CHARACTERISTIC_UUID</span><span class="p">)</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">bluetoothAdapter</code>, direkt olarak bluetooth donanımını temsil eder. Bluetooth’u açıp/kapatmak ve BLE cihazlarını taramak için kullanılır.</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">private</span> <span class="kd">val</span> <span class="py">bluetoothAdapter</span><span class="p">:</span> <span class="nc">BluetoothAdapter</span> <span class="k">by</span> <span class="nf">lazy</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">bluetoothManager</span> <span class="p">=</span> <span class="n">activity</span><span class="o">?.</span><span class="nf">getSystemService</span><span class="p">(</span><span class="nc">BLUETOOTH_SERVICE</span><span class="p">)</span> <span class="k">as</span> <span class="nc">BluetoothManager</span>
+    <span class="n">bluetoothManager</span><span class="p">.</span><span class="n">adapter</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="kd">val</span> <span class="py">bleScanner</span> <span class="k">by</span> <span class="nf">lazy</span> <span class="p">{</span>
+    <span class="n">bluetoothAdapter</span><span class="p">.</span><span class="n">bluetoothLeScanner</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="kd">val</span> <span class="py">scanSettings</span> <span class="p">=</span> <span class="nc">ScanSettings</span><span class="p">.</span><span class="nc">Builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nf">setScanMode</span><span class="p">(</span><span class="nc">ScanSettings</span><span class="p">.</span><span class="nc">SCAN_MODE_LOW_LATENCY</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">setScanMode</span><span class="p">(</span><span class="nc">ScanSettings</span><span class="p">.</span><span class="nc">CALLBACK_TYPE_FIRST_MATCH</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">build</span><span class="p">()</span></code></pre></figure>
+
+<p>BLE cihazları tarandığında scanCallback() çalışacaktır. onScanResult() metodu içerisinde taranan cihazlar görülecektir. if() kısmında ise şartınıza uyan cihaz hangisi ise <code class="highlighter-rouge">result.let{}</code> ile o cihaza BLE bağlantısı kurulmaya çalışılacak.</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">private</span> <span class="kd">val</span> <span class="py">scanCallback</span> <span class="p">=</span> <span class="k">object</span><span class="p">:</span> <span class="nc">ScanCallback</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onScanResult</span><span class="p">(</span><span class="n">callbackType</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="nc">ScanResult</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onScanResult</span><span class="p">(</span><span class="n">callbackType</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+        <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"onScanResult"</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">device</span><span class="p">.</span><span class="nf">toString</span><span class="p">())</span>
+        <span class="k">if</span> <span class="p">(&lt;</span><span class="n">your</span> <span class="n">condition</span> <span class="k">is</span> <span class="k">true</span><span class="p">&gt;)</span> <span class="p">{</span>
+            <span class="n">result</span><span class="p">.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">result</span><span class="p">.</span><span class="n">device</span><span class="p">.</span><span class="nf">connectGatt</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="n">gattCallback</span><span class="p">)</span> <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onBatchScanResults</span><span class="p">(</span><span class="n">results</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">ScanResult</span><span class="p">&gt;?)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onBatchScanResults</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+        <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"DeviceListActivity"</span><span class="p">,</span> <span class="s">"onBatchScanResults:${results.toString()}"</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onScanFailed</span><span class="p">(</span><span class="n">errorCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onScanFailed</span><span class="p">(</span><span class="n">errorCode</span><span class="p">)</span>
+        <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"DeviceListActivity"</span><span class="p">,</span> <span class="s">"onScanFailed: $errorCode"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Bağlanılmak istenen cihaz bulunduğunda <code class="highlighter-rouge">gattCallback()</code> çağırılır. <code class="highlighter-rouge">onConnectionStateChange()</code> içerisindeki <code class="highlighter-rouge">newState</code> ile bağlantının sağlandığını veya bağlantının koptuğunu belirleyebiliriz. Bağlantı sağlandı ise <code class="highlighter-rouge">gatt?.requestMtu(64)</code> ile istenilen MTU miktarını belirtmeliyiz. MTU isteğinin ardından <code class="highlighter-rouge">onMtuChanged</code> metodu çağırılır ve ardından istenilen servise bağlanmak için <code class="highlighter-rouge">gatt?.discoverServices()</code> ile <code class="highlighter-rouge">onServicesDiscovered()</code> methodu çağırılır. Eğer istenilen servise bağlantı başarılı ise <code class="highlighter-rouge">isServiceDiscovered = true</code> ile <code class="highlighter-rouge">isServiceDiscovered</code> değişkenine bir <code class="highlighter-rouge">setter</code> belirleyip bağlantının başarılı olduğuna dair bir bildirim veya popup gösterebiliriz.</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">private</span> <span class="kd">val</span> <span class="py">gattCallback</span> <span class="p">=</span> <span class="k">object</span><span class="p">:</span> <span class="nc">BluetoothGattCallback</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onConnectionStateChange</span><span class="p">(</span><span class="n">gatt</span><span class="p">:</span> <span class="nc">BluetoothGatt</span><span class="p">?,</span> <span class="n">status</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">newState</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">deviceAddress</span> <span class="p">=</span> <span class="n">gatt</span><span class="o">?.</span><span class="n">device</span><span class="o">?.</span><span class="n">address</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="p">==</span> <span class="nc">BluetoothGatt</span><span class="p">.</span><span class="nc">GATT_SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">mConnectedGatt</span> <span class="p">=</span> <span class="n">gatt</span>
+            <span class="n">mDeviceState</span> <span class="p">=</span> <span class="n">newState</span>
+            <span class="k">when</span> <span class="p">(</span><span class="n">newState</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nc">BluetoothProfile</span><span class="p">.</span><span class="nc">STATE_CONNECTED</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                    <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"STATE_CONNECTED"</span><span class="p">,</span> <span class="s">"to  $deviceAddress"</span><span class="p">)</span>
+                    <span class="n">gatt</span><span class="o">?.</span><span class="nf">requestMtu</span><span class="p">(</span><span class="m">64</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="nc">BluetoothProfile</span><span class="p">.</span><span class="nc">STATE_DISCONNECTED</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                    <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"STATE_DIS_connected"</span><span class="p">,</span> <span class="s">"STATE_DIS_connected"</span><span class="p">)</span>
+                     <span class="n">mConnectedGatt</span><span class="o">?.</span><span class="nf">close</span><span class="p">()</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">mDeviceState</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span>
+            <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span>
+                <span class="s">"onConnectionStateChange"</span><span class="p">,</span>
+                <span class="s">"Error $status encountered for $deviceAddress! Disconnecting..."</span>
+            <span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onMtuChanged</span><span class="p">(</span><span class="n">gatt</span><span class="p">:</span> <span class="nc">BluetoothGatt</span><span class="p">?,</span> <span class="n">mtu</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onMtuChanged</span><span class="p">(</span><span class="n">gatt</span><span class="p">,</span> <span class="n">mtu</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+        <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"onMtuChanged"</span><span class="p">,</span> <span class="s">"$mtu, status:$status"</span><span class="p">)</span>
+        <span class="n">gatt</span><span class="o">?.</span><span class="nf">discoverServices</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onServicesDiscovered</span><span class="p">(</span><span class="n">gatt</span><span class="p">:</span> <span class="nc">BluetoothGatt</span><span class="p">?,</span> <span class="n">status</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"onServicesDiscovered"</span><span class="p">,</span> <span class="s">"onServicesDiscovered"</span><span class="p">)</span>
+        <span class="n">characteristic</span> <span class="p">=</span> <span class="n">gatt</span><span class="o">?.</span><span class="nf">getService</span><span class="p">(</span><span class="n">serviceUuid</span><span class="p">)</span>
+            <span class="o">?.</span><span class="nf">getCharacteristic</span><span class="p">(</span><span class="n">charUuid</span><span class="p">)</span>
+        <span class="n">gatt</span><span class="o">?.</span><span class="nf">setCharacteristicNotification</span><span class="p">(</span><span class="n">characteristic</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span>
+        <span class="n">characteristic</span><span class="o">?.</span><span class="n">writeType</span> <span class="p">=</span> <span class="nc">BluetoothGattCharacteristic</span><span class="p">.</span><span class="nc">WRITE_TYPE_NO_RESPONSE</span>
+        <span class="n">isServiceDiscovered</span> <span class="p">=</span> <span class="k">true</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCharacteristicWrite</span><span class="p">(</span>
+        <span class="n">gatt</span><span class="p">:</span> <span class="nc">BluetoothGatt</span><span class="p">?,</span> <span class="n">characteristic</span><span class="p">:</span> <span class="nc">BluetoothGattCharacteristic</span><span class="p">?,</span> <span class="n">status</span><span class="p">:</span> <span class="nc">Int</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="nf">with</span><span class="p">(</span><span class="n">characteristic</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">when</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nc">BluetoothGatt</span><span class="p">.</span><span class="nc">GATT_SUCCESS</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                    <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"onCharacteristicWrite"</span><span class="p">,</span> <span class="s">"Wrote to characteristic ${this?.uuid}"</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="nc">BluetoothGatt</span><span class="p">.</span><span class="nc">GATT_INVALID_ATTRIBUTE_LENGTH</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                    <span class="nc">Log</span><span class="p">.</span><span class="nf">e</span><span class="p">(</span><span class="s">"onCharacteristicWrite"</span><span class="p">,</span> <span class="s">"Write exceeded connection ATT MTU!"</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="nc">BluetoothGatt</span><span class="p">.</span><span class="nc">GATT_WRITE_NOT_PERMITTED</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                    <span class="nc">Log</span><span class="p">.</span><span class="nf">e</span><span class="p">(</span><span class="s">"onCharacteristicWrite"</span><span class="p">,</span> <span class="s">"Write not permitted for ${this?.uuid}!"</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                    <span class="nc">Log</span><span class="p">.</span><span class="nf">e</span><span class="p">(</span>
+                        <span class="s">"onCharacteristicWrite"</span><span class="p">,</span>
+                        <span class="s">"Characteristic write failed for ${this?.uuid}, error: $status"</span>
+                    <span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCharacteristicRead</span><span class="p">(</span>
+        <span class="n">gatt</span><span class="p">:</span> <span class="nc">BluetoothGatt</span><span class="p">?,</span> <span class="n">characteristic</span><span class="p">:</span> <span class="nc">BluetoothGattCharacteristic</span><span class="p">?,</span> <span class="n">status</span><span class="p">:</span> <span class="nc">Int</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"onCharacteristicRead"</span><span class="p">,</span> <span class="s">"$gatt, $characteristic. $status"</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCharacteristicChanged</span><span class="p">(</span>
+        <span class="n">gatt</span><span class="p">:</span> <span class="nc">BluetoothGatt</span><span class="p">?,</span> <span class="n">characteristic</span><span class="p">:</span> <span class="nc">BluetoothGattCharacteristic</span><span class="p">?</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="nc">Log</span><span class="p">.</span><span class="nf">i</span><span class="p">(</span><span class="s">"onCharacteristicChanged"</span><span class="p">,</span> <span class="s">"$gatt, $characteristic"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>BLE cihazlarını taramak için <code class="highlighter-rouge">bleScanner.startScan(null, scanSettings, scanCallback)</code>, taramayı durdurmak için ise <code class="highlighter-rouge">bleScanner.stopScan(scanCallback)</code> kullanılır.</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">private</span> <span class="kd">val</span> <span class="py">handler</span> <span class="p">=</span> <span class="nc">Handler</span><span class="p">()</span>
+
+<span class="c1">// Stops scanning after 10 seconds.</span>
+<span class="k">private</span> <span class="kd">val</span> <span class="py">SCAN_PERIOD</span><span class="p">:</span> <span class="nc">Long</span> <span class="p">=</span> <span class="m">10000</span>
+
+<span class="k">private</span> <span class="k">fun</span> <span class="nf">scanLeDevice</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(!</span><span class="n">mScanning</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Stops scanning after a pre-defined scan period.</span>
+        <span class="n">handler</span><span class="p">.</span><span class="nf">postDelayed</span><span class="p">({</span>
+            <span class="n">mScanning</span> <span class="p">=</span> <span class="k">false</span>
+            <span class="n">bleScanner</span><span class="p">.</span><span class="nf">stopScan</span><span class="p">(</span><span class="n">scanCallback</span><span class="p">)</span>
+        <span class="p">},</span> <span class="nc">SCAN_PERIOD</span><span class="p">)</span>
+        <span class="n">mScanning</span> <span class="p">=</span> <span class="k">true</span>
+        <span class="n">bleScanner</span><span class="p">.</span><span class="nf">startScan</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="n">scanSettings</span><span class="p">,</span> <span class="n">scanCallback</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">mScanning</span> <span class="p">=</span> <span class="k">false</span>
+        <span class="n">bleScanner</span><span class="p">.</span><span class="nf">stopScan</span><span class="p">(</span><span class="n">scanCallback</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Bağlanılan cihaza gönderilecek veri <code class="highlighter-rouge">byte array</code> tipine dönüştürülmesi gerekir.</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="kd">val</span> <span class="py">byteArray</span> <span class="p">=</span>
+    <span class="s">"{'data': '$data'}"</span><span class="p">.</span><span class="nf">toByteArray</span><span class="p">(</span><span class="n">charset</span><span class="p">)</span></code></pre></figure>
+
+<p>Daha sonra <code class="highlighter-rouge">characteristic</code> ve <code class="highlighter-rouge">mConnectedGatt</code> değişkenleri <code class="highlighter-rouge">null</code> durumundan farklı ise veriyi BLE cihazına göndermek gerekir.</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">try</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">characteristic</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">mConnectedGatt</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// bağlantı yok öyleyse bağlantıyı başlat</span>
+        <span class="nf">scanLeDevice</span><span class="p">()</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    	<span class="c1">// bağlantı var öyleyse veriyi gönder</span>
+        <span class="n">characteristic</span><span class="o">!!</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">byteArray</span>
+        <span class="n">mConnectedGatt</span><span class="o">?.</span><span class="nf">writeCharacteristic</span><span class="p">(</span><span class="n">characteristic</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="nc">Exception</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">Log</span><span class="p">.</span><span class="nf">e</span><span class="p">(</span><span class="s">"ERROR"</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="nf">toString</span><span class="p">())</span>
+<span class="p">}</span></code></pre></figure>
+
+<hr />
+
+<p><br />
+Kaynaklar:</p>
+<ul>
+  <li><a href="https://punchthrough.com/android-ble-guide/">https://punchthrough.com/android-ble-guide/</a></li>
+  <li><a href="https://www.bluetooth.com/specifications/GATT/">https://www.bluetooth.com/specifications/GATT/</a></li>
+  <li><a href="https://developer.android.com/guide/topics/connectivity/bluetooth-le">https://developer.android.com/guide/topics/connectivity/bluetooth-le</a></li>
+</ul>
+
+
+  </div><a class="u-url" href="/general/2020/10/07/ble-android.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">bayram cicek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">bayram cicek&#39;s website</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.twitter.com/bayramcicek21"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">bayramcicek21</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

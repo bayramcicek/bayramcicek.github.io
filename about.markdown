@@ -4,9 +4,15 @@ title: About / Hakkımda
 permalink: /about/
 ---
 
+Graduated from computer science as of June 2020. Currently working on IoT projects.<br>
+Bilgisayar Mühendisliğinden yeni mezun oldum. Şu anda Nesnelerin İnterneti alanında çalışmaktayım.
+
+___
+
+<br>
 about me: [about.me/bayramcicek]
 
-contact / iletişim: mail[at]bayramcicek.com.tr
+contact / iletişim: [mail@bayramcicek.com.tr]
 
 ___
 
@@ -49,6 +55,7 @@ You can find the source code for Jekyll at GitHub:
 [jekyll](https://github.com/jekyll/jekyll)
 
 [about.me/bayramcicek]: https://about.me/bayramcicek
+[mail@bayramcicek.com.tr]: mailto:mail@bayramcicek.com.tr
 
 [github.com/bayramcicek]: https://github.com/bayramcicek/
 [gitlab.com/bayramcicek]: https://gitlab.com/bayramcicek

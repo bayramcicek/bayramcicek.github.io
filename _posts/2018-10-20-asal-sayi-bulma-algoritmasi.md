@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Asal Sayı Bulma Algoritması "
+title:  "Asal Sayı Bulma Algoritması"
 date:   2018-10-20 00:33:26 +0300
 categories: general
 ---
