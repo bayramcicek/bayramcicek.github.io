@@ -1,0 +1,90 @@
+---
+layout: post
+title:  "Git: Updating a forked repository"
+date:   2020-11-07 12:34:14 +0300
+categories: general
+---
+
+Update your local repository to keep it up-to-date.
+
+<pre>
+$ git pull origin main
+
+(...)
+
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Total 10 (delta 6), reused 6 (delta 6), pack-reused 4
+Unpacking objects: 100% (10/10), 1.07 KiB | 78.00 KiB/s, done.
+From https://&lt;your_forked_repo&gt;
+ * branch            main       -> FETCH_HEAD
+   f187d39..e437f49  main       -> origin/main
+Updating f187d39..e437f49
+Fast-forward
+ ./test.cpp | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+</pre>
+
+Show the working tree status.
+<pre>
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+</pre>
+
+Add original repository and call it <i>upstream</i>.
+<pre>
+$ git remote add upstream https://&lt;original_repo&gt;.git
+</pre>
+
+List the remote connections. Upstream should be seen here.
+<pre>
+$ git remote -v
+origin  https://&lt;your_forked_repo&gt;.git (fetch)
+origin  https://&lt;your_forked_repo&gt;.git (push)
+upstream    https://&lt;original_repo&gt;.git (fetch)
+upstream    https://&lt;original_repo&gt;.git (push)
+</pre>
+
+Fetch upstream.
+<pre>
+$ git fetch upstream main
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Total 47 (delta 14), reused 14 (delta 14), pack-reused 33
+Unpacking objects: 100% (47/47), 8.08 KiB | 243.00 KiB/s, done.
+From https://&lt;original_repo&gt;
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> upstream/main
+</pre>
+
+Switch to your master branch.
+<pre>
+$ git checkout main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+</pre>
+
+
+Apply upstream changes into your local repository.
+<pre>
+$ git rebase upstream/main
+Successfully rebased and updated refs/heads/main.
+</pre>
+
+See changes.
+<pre>
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 11 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+</pre>
+
+Force push the changes into your remote repository.
+<pre>
+$ git push -f origin main
+</pre>

@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-10-07T16:24:57+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Android Bluetooth Low Energy - BLE</title><link href="http://localhost:4000/general/2020/10/07/ble-android.html" rel="alternate" type="text/html" title="Android Bluetooth Low Energy - BLE" /><published>2020-10-07T12:01:12+03:00</published><updated>2020-10-07T12:01:12+03:00</updated><id>http://localhost:4000/general/2020/10/07/ble-android</id><content type="html" xml:base="http://localhost:4000/general/2020/10/07/ble-android.html">&lt;p&gt;Bluetooth Low Energy (BLE) (Bluetooth Düşük Enerji), yakın cihazlar arasında küçük miktardaki verilerin klasik Bluetooth’a göre hem daha hızlı transfer edilmesini sağlayan hem de daha az enerji gerektiren bir teknolojidir. Bu sayede BLE, nesnelerin interneti alanında oldukça fazla kullanılmaktadır.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-07T14:02:32+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Git: Updating a forked repository</title><link href="http://localhost:4000/general/2020/11/07/sync-fork.html" rel="alternate" type="text/html" title="Git: Updating a forked repository" /><published>2020-11-07T12:34:14+03:00</published><updated>2020-11-07T12:34:14+03:00</updated><id>http://localhost:4000/general/2020/11/07/sync-fork</id><content type="html" xml:base="http://localhost:4000/general/2020/11/07/sync-fork.html">&lt;p&gt;Update your local repository to keep it up-to-date.&lt;/p&gt;
+
+&lt;pre&gt;
+$ git pull origin main
+
+(...)
+
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Total 10 (delta 6), reused 6 (delta 6), pack-reused 4
+Unpacking objects: 100% (10/10), 1.07 KiB | 78.00 KiB/s, done.
+From https://&amp;lt;your_forked_repo&amp;gt;
+ * branch            main       -&amp;gt; FETCH_HEAD
+   f187d39..e437f49  main       -&amp;gt; origin/main
+Updating f187d39..e437f49
+Fast-forward
+ ./test.cpp | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+&lt;/pre&gt;
+
+&lt;p&gt;Show the working tree status.&lt;/p&gt;
+&lt;pre&gt;
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+&lt;/pre&gt;
+
+&lt;p&gt;Add original repository and call it &lt;i&gt;upstream&lt;/i&gt;.&lt;/p&gt;
+&lt;pre&gt;
+$ git remote add upstream https://&amp;lt;original_repo&amp;gt;.git
+&lt;/pre&gt;
+
+&lt;p&gt;List the remote connections. Upstream should be seen here.&lt;/p&gt;
+&lt;pre&gt;
+$ git remote -v
+origin  https://&amp;lt;your_forked_repo&amp;gt;.git (fetch)
+origin  https://&amp;lt;your_forked_repo&amp;gt;.git (push)
+upstream    https://&amp;lt;original_repo&amp;gt;.git (fetch)
+upstream    https://&amp;lt;original_repo&amp;gt;.git (push)
+&lt;/pre&gt;
+
+&lt;p&gt;Fetch upstream.&lt;/p&gt;
+&lt;pre&gt;
+$ git fetch upstream main
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Total 47 (delta 14), reused 14 (delta 14), pack-reused 33
+Unpacking objects: 100% (47/47), 8.08 KiB | 243.00 KiB/s, done.
+From https://&amp;lt;original_repo&amp;gt;
+ * branch            main       -&amp;gt; FETCH_HEAD
+ * [new branch]      main       -&amp;gt; upstream/main
+&lt;/pre&gt;
+
+&lt;p&gt;Switch to your master branch.&lt;/p&gt;
+&lt;pre&gt;
+$ git checkout main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+&lt;/pre&gt;
+
+&lt;p&gt;Apply upstream changes into your local repository.&lt;/p&gt;
+&lt;pre&gt;
+$ git rebase upstream/main
+Successfully rebased and updated refs/heads/main.
+&lt;/pre&gt;
+
+&lt;p&gt;See changes.&lt;/p&gt;
+&lt;pre&gt;
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 11 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+nothing to commit, working tree clean
+&lt;/pre&gt;
+
+&lt;p&gt;Force push the changes into your remote repository.&lt;/p&gt;
+&lt;pre&gt;
+$ git push -f origin main
+&lt;/pre&gt;</content><author><name></name></author><summary type="html">Update your local repository to keep it up-to-date.</summary></entry><entry><title type="html">Android Bluetooth Low Energy - BLE</title><link href="http://localhost:4000/general/2020/10/07/ble-android.html" rel="alternate" type="text/html" title="Android Bluetooth Low Energy - BLE" /><published>2020-10-07T12:01:12+03:00</published><updated>2020-10-07T12:01:12+03:00</updated><id>http://localhost:4000/general/2020/10/07/ble-android</id><content type="html" xml:base="http://localhost:4000/general/2020/10/07/ble-android.html">&lt;p&gt;Bluetooth Low Energy (BLE) (Bluetooth Düşük Enerji), yakın cihazlar arasında küçük miktardaki verilerin klasik Bluetooth’a göre hem daha hızlı transfer edilmesini sağlayan hem de daha az enerji gerektiren bir teknolojidir. Bu sayede BLE, nesnelerin interneti alanında oldukça fazla kullanılmaktadır.&lt;/p&gt;
 
 &lt;p&gt;Çalıştığımız bir projede Android üzerinde BLE kullanmamız gerekti ve her ne kadar BLE’nin Android üzerinde uygulanışı biraz sancılı olsa da en azından verinin karşıdaki cihaza aktarımını gerçekleştirebildik.&lt;/p&gt;
 
@@ -580,25 +661,4 @@ denediğimde 10’larca dakika geçmesine rağmen sonucu bulamadığını görd�
 –&amp;gt; 2’nin katlarına False atıyor.&lt;br /&gt;
 –&amp;gt; Aynı şekilde 3, 5, 7… ‘yi asal olarak ekledikten sonra, katlarına False atıyor.&lt;br /&gt;&lt;br /&gt;
 Böylece asal olmayanlara False atanıyor. Geriye de True, yani asal sayılar kalıyor.
-Böylece kodun çalışma süresi 10+ dakikadan 2- saniyeye düştü.&lt;/p&gt;</content><author><name></name></author><summary type="html">Güncelleme (1 Nisan 2020): Algoritma ve Akış Şeması / Flowchart eklendi:</summary></entry><entry><title type="html">Hello World!</title><link href="http://localhost:4000/general/2017/12/01/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2017-12-01T14:42:56+03:00</published><updated>2017-12-01T14:42:56+03:00</updated><id>http://localhost:4000/general/2017/12/01/hello-world</id><content type="html" xml:base="http://localhost:4000/general/2017/12/01/hello-world.html">&lt;p&gt;Merhaba!&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;
-You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Where &lt;code class=&quot;highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Merhaba!</summary></entry></feed>
+Böylece kodun çalışma süresi 10+ dakikadan 2- saniyeye düştü.&lt;/p&gt;</content><author><name></name></author><summary type="html">Güncelleme (1 Nisan 2020): Algoritma ve Akış Şeması / Flowchart eklendi:</summary></entry></feed>
