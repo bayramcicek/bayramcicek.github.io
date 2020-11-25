@@ -5,8 +5,6 @@ date:   2018-10-20 00:33:26 +0300
 categories: general
 ---
 
-*<b>Güncelleme (1 Nisan 2020):</b> Algoritma ve Akış Şeması / Flowchart eklendi:*
-
 -> *8 – 100 arası asal sayıları yazdıran algoritma:*
 
 {% highlight text %}

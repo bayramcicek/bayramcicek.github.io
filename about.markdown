@@ -4,8 +4,8 @@ title: About / Hakkımda
 permalink: /about/
 ---
 
-Graduated from computer science as of June 2020. Currently working on IoT projects.<br>
-Bilgisayar Mühendisliğinden yeni mezun oldum. Şu anda Nesnelerin İnterneti alanında çalışmaktayım.
+Currently working on IoT and LibreOffice.<br><br>
+Nesnelerin interneti alanında çalışmaktayım ve LibreOffice gibi özgür yazılımlara katkıda bulunmaktayım.
 
 ___
 

@@ -17,8 +17,6 @@ Uzun uğraşlar sonucu nihayet eklenti çalıştı. Kaynak kodlarına bakmak ist
 
 |Eklentiyi deneyebilirsiniz: [opera][op-link] - [firefox][fr-link] - chrome(google hesabım silindiği için kaldırıldı)|
 
-_güncelleme: google, geliştirici hesabı açmak için tek seferlik ücret istiyor. eklentiyi yüklediğim google hesabını silmem gerektiğinden eklenti kaldırıldı. yeni aldığım google hesabında tekrar geliştirici hesabı açıp ücret ödemek istemediğimden ve bu ücret ödeme politikasına karşı çıktığımdan tekrar geliştirici hesabı açmadım._
-
 ---
 
 <br>
