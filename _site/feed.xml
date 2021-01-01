@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-25T20:54:57+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Contributing to LibreOffice: First patch</title><link href="http://localhost:4000/general/2020/11/25/libreoffice.html" rel="alternate" type="text/html" title="Contributing to LibreOffice: First patch" /><published>2020-11-25T20:01:12+03:00</published><updated>2020-11-25T20:01:12+03:00</updated><id>http://localhost:4000/general/2020/11/25/libreoffice</id><content type="html" xml:base="http://localhost:4000/general/2020/11/25/libreoffice.html">&lt;p&gt;I’m happy to announce that I made my first contribution on &lt;a href=&quot;https://www.libreoffice.org/&quot;&gt;LibreOffice&lt;/a&gt; project.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-01T20:17:49+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Ddrescue ile HDD Verilerini Kurtarmak</title><link href="http://localhost:4000/general/2021/01/01/superblock-error.html" rel="alternate" type="text/html" title="Ddrescue ile HDD Verilerini Kurtarmak" /><published>2021-01-01T18:03:46+03:00</published><updated>2021-01-01T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/01/01/superblock-error</id><content type="html" xml:base="http://localhost:4000/general/2021/01/01/superblock-error.html">&lt;p&gt;GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde &lt;code class=&quot;highlighter-rouge&quot;&gt;...the superblock is corrupt...&lt;/code&gt; hatasını gördüm. Kullandığım HDD üzerinde daha önce &lt;a href=&quot;https://bayramcicek.com.tr/general/2020/07/11/disk-bad-sector.html&quot;&gt;bad sector&lt;/a&gt; problemi oluşmuştu ve sadece read-only hatası vermişti.&lt;/p&gt;
+
+&lt;p&gt;1TB ‘lık HDD içinden ayırdığım -temiz ve bad sector içermeyen- 100GB ‘lık alanda bu defasında -dosya sistemi ile ilgili metadata bilgilerini içeren- &lt;code class=&quot;highlighter-rouge&quot;&gt;superblock&lt;/code&gt; adı verilen bloklardan biri bozulmuştu. Bu blok bozulduğunda sisteminiz o bellek alanını tanıyamaz ve terminalden o alanı &lt;code class=&quot;highlighter-rouge&quot;&gt;mount&lt;/code&gt; etmek istediğinizde ise &lt;code class=&quot;highlighter-rouge&quot;&gt;the file system structure on disk is corrupt&lt;/code&gt; hatasını alırsınız.&lt;/p&gt;
+
+&lt;p&gt;Bu 100GB bozuk bellek alanına erişimim kaybolduğundan &lt;code class=&quot;highlighter-rouge&quot;&gt;unallocated&lt;/code&gt; olarak bıraktığım 900GB alanın 150GB ‘lık alanını ext4 olarak ayırdım. Bu hatalı belleğin temiz alanlarını 150GB ‘lık bellek alanına &lt;code class=&quot;highlighter-rouge&quot;&gt;ddrescue&lt;/code&gt; ile kopyalayarak kurtarmayı düşündüm.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo fdisk -l&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+Device         Start       End    Sectors  Size  Type
+/dev/sdb1       2048 209717247  209715200  100G  Linux filesystem
+/dev/sdb2  209717248 524290047  314572800  150G  Linux filesystem
+&lt;/pre&gt;
+
+&lt;p&gt;Hatalı alan &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/sbd1&lt;/code&gt;, yeni alan ise &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/sdb2&lt;/code&gt;. Öyleyse &lt;code class=&quot;highlighter-rouge&quot;&gt;sdb1&lt;/code&gt; alanını &lt;code class=&quot;highlighter-rouge&quot;&gt;sdb2&lt;/code&gt; alanına kopyalamak gerekir.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo ddrescue -f -n /dev/sdb1 /dev/sdb2 /root/recovery.log&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/ddrescue/ddrescue_0.png&quot; alt=&quot;ddrescue_2&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Kurtarma işlemi bittiğinde &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/sdb2&lt;/code&gt; belleğini mount etmek istediğimde &lt;code class=&quot;highlighter-rouge&quot;&gt;unable to access location: Structure needs cleaning&lt;/code&gt; hatası ortaya çıktı. Öyleyse dosya sistemini yeniden yapılandırmak gerekir.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo fsck.ext4 -y /dev/sdb2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bu işlemi yaptıktan bir süre sonra &lt;code class=&quot;highlighter-rouge&quot;&gt;sdb2&lt;/code&gt; tekrar hata vermeye başladı. Bu alan çok büyük olduğundan 50GB ‘lık yeni bir bellek alanı oluşturup &lt;code class=&quot;highlighter-rouge&quot;&gt;bad block&lt;/code&gt; içermediğini kontrol ettikten sonra 150GB bellek alanındaki çok az yer kaplayan verileri bu alana kopyalamanın daha sağlıklı olacağını düşündüm. Bu alanda herhangi bir hata olmadığı için problem çözülmüş oldu.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo badblocks -b 4096 -vs /dev/sdb3 &amp;gt; ./bad_blocks.txt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/ddrescue/ddrescue_1.png&quot; alt=&quot;ddrescue_2&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Bellek alanınız ne kadar büyük olursa kurtarma ve bad block tarama işlemleri o kadar uzun sürer. Bu yüzden belleğinizi olabildiğince ufak bir alana ayırıp neredeyse hiç kullanmayacağınız alanları &lt;code class=&quot;highlighter-rouge&quot;&gt;unallocated&lt;/code&gt; olarak yapılandırmak diskinizin hatalara karşı daha hızlı cevap vermesini sağlayacaktır.&lt;/p&gt;</content><author><name></name></author><summary type="html">GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde ...the superblock is corrupt... hatasını gördüm. Kullandığım HDD üzerinde daha önce bad sector problemi oluşmuştu ve sadece read-only hatası vermişti.</summary></entry><entry><title type="html">Contributing to LibreOffice: First patch</title><link href="http://localhost:4000/general/2020/11/25/libreoffice.html" rel="alternate" type="text/html" title="Contributing to LibreOffice: First patch" /><published>2020-11-25T20:01:12+03:00</published><updated>2020-11-25T20:01:12+03:00</updated><id>http://localhost:4000/general/2020/11/25/libreoffice</id><content type="html" xml:base="http://localhost:4000/general/2020/11/25/libreoffice.html">&lt;p&gt;I’m happy to announce that I made my first contribution on &lt;a href=&quot;https://www.libreoffice.org/&quot;&gt;LibreOffice&lt;/a&gt; project.&lt;/p&gt;
 
 &lt;p&gt;About 3 weeks ago, I attended &lt;a href=&quot;https://github.com/mrkara/AcikKaynakGelistirme&quot;&gt;Contributing Free and Open Source Projects with C++&lt;/a&gt; course by Muhammet Kara. First 3 week of the course, we learned basics of C++. After that week, we sent our first patch with other attendees.&lt;/p&gt;
 
@@ -556,22 +600,4 @@ The encodeURI() function is used to encode a URI. According to &lt;a href=&quot;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Eklentilerin nasıl yapıldığını hep merak ederdim. Bu yüzden kolay ama kullanışlı bir eklenti(add-on/extension) yapmak istedim. Bunun için youtube’daki ve opera/firefox geliştirici sayfalarındaki örnekleri inceledim. Dışarıdan kolay gibi gözükse de yine de biraz zor ve karmaşık gibi geldi bana.</summary></entry><entry><title type="html">Understanding Internet Speeds and Mbps</title><link href="http://localhost:4000/general/2019/02/25/understanding-internet-speeds-and-mbps.html" rel="alternate" type="text/html" title="Understanding Internet Speeds and Mbps" /><published>2019-02-25T22:28:26+03:00</published><updated>2019-02-25T22:28:26+03:00</updated><id>http://localhost:4000/general/2019/02/25/understanding-internet-speeds-and-mbps</id><content type="html" xml:base="http://localhost:4000/general/2019/02/25/understanding-internet-speeds-and-mbps.html">&lt;p&gt;Internet speeds are so important for us and a big part of our lives. When you want to see how much internet speed is, you’ll see it displayed as mbps or kbps.&lt;/p&gt;
-
-&lt;p&gt;What does mbps and kbps mean? Mbps is a transfer measurement and means &lt;code class=&quot;highlighter-rouge&quot;&gt;mega bit per second&lt;/code&gt;. Let’s look at data storage measurements to make it clear:
-&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/bit.png&quot; alt=&quot;bit&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;As shown above, we can see that &lt;code class=&quot;highlighter-rouge&quot;&gt;1 byte = 8 bits&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;For example you have 16 mbps internet speed and then you ask yourself “how many megabytes can I download per second with 16 mbps?” If &lt;code class=&quot;highlighter-rouge&quot;&gt;8 bits = 1 byte&lt;/code&gt; so &lt;code class=&quot;highlighter-rouge&quot;&gt;16 bits = 2 byte&lt;/code&gt;. Hence, 16 mega &lt;code class=&quot;highlighter-rouge&quot;&gt;bit&lt;/code&gt; per second is equal to 2 mega &lt;code class=&quot;highlighter-rouge&quot;&gt;byte&lt;/code&gt; per second.&lt;/p&gt;
-
-&lt;p&gt;In a few words, divide your internet speed by 8 to see how many megabytes can you download per second.
-As a result, &lt;code class=&quot;highlighter-rouge&quot;&gt;16 Mbps = 2 MB/s&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;32 Mbps = 4 MB/s&lt;/code&gt; and so on…&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/down.png&quot; alt=&quot;download&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;I have 14.52 mbps internet speed right now. According to the calculation above, I can download &lt;code class=&quot;highlighter-rouge&quot;&gt;1.8 MB&lt;/code&gt; per second. So, downloading 5 MB file size of a song will take &lt;code class=&quot;highlighter-rouge&quot;&gt;5/1.8 = 2.77&lt;/code&gt; second.&lt;/p&gt;</content><author><name></name></author><summary type="html">Internet speeds are so important for us and a big part of our lives. When you want to see how much internet speed is, you’ll see it displayed as mbps or kbps.</summary></entry></feed>
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Eklentilerin nasıl yapıldığını hep merak ederdim. Bu yüzden kolay ama kullanışlı bir eklenti(add-on/extension) yapmak istedim. Bunun için youtube’daki ve opera/firefox geliştirici sayfalarındaki örnekleri inceledim. Dışarıdan kolay gibi gözükse de yine de biraz zor ve karmaşık gibi geldi bana.</summary></entry></feed>

@@ -4,8 +4,7 @@ title: About / Hakkımda
 permalink: /about/
 ---
 
-Currently working on IoT and LibreOffice.<br><br>
-Nesnelerin interneti alanında çalışmaktayım ve LibreOffice gibi özgür yazılımlara katkıda bulunmaktayım.
+I'm currently working on IoT and LibreOffice.
 
 ___
 
