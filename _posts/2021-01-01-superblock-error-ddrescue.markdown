@@ -43,4 +43,6 @@ Bu işlemi yaptıktan bir süre sonra `sdb2` tekrar hata vermeye başladı. Bu a
 <br>
 Bellek alanınız ne kadar büyük olursa kurtarma ve bad block tarama işlemleri o kadar uzun sürer. Bu yüzden belleğinizi olabildiğince ufak bir alana ayırıp neredeyse hiç kullanmayacağınız alanları `unallocated` olarak yapılandırmak diskinizin hatalara karşı daha hızlı cevap vermesini sağlayacaktır.
 
+Yılın ilk günü hard diskinizin bozulması iyi bir yılbaşı hediyesi olmasa da `ddrescue` ile verilerin nasıl kurtarılacağı konusunu öğrenmek iyi bir başlangıç olarak sayılabilir. 
+
 [bad_sector]: https://bayramcicek.com.tr/general/2020/07/11/disk-bad-sector.html
