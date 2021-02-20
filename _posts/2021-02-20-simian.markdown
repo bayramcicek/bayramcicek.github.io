@@ -1,0 +1,144 @@
+---
+layout: post
+title:  "Simian: copy/paste code detector/fixing"
+date:   2021-02-20 18:03:46 +0300
+categories: general
+---
+
+[Simian][simian] is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.
+
+Here is a demonstrate of c/p detection on Libre Office bug [tdf#39593: copy/paste code detector/fixing][id=39593].
+
+To get a space separated list of .cxx files, run:
+
+```
+find <directory> -name "*.cxx" | grep -v unxlng | tr '\n' ' ' > files
+```
+All .cxx file names have been written to `files.txt`. The Simian call to get code pieces with at least 30 equivalent is for example:
+
+```
+java -jar simian-2.3.31.jar -threshold=30 -language=c++ `cat files`
+```
+
+Output would be:
+
+```
+Found 34 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files:
+ Between lines 639 and 726 in /.../core/vcl/source/bitmap/bitmap.cxx
+ Between lines 766 and 853 in /.../core/vcl/source/bitmap/bitmap.cxx
+ 
+Found 45 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files: 
+ Between lines 1468 and 1538 in /.../core/sw/qa/extras/uiwriter/uiwriter2.cxx
+ Between lines 1381 and 1451 in /.../core/sw/qa/extras/uiwriter/uiwriter2.cxx
+
+Found 59 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files:
+ Between lines 1748 and 1820 in /.../core/sc/qa/unit/pivottable_filters_test.cxx
+ Between lines 2278 and 2350 in /.../core/sc/qa/unit/pivottable_filters_test.cxx
+ 
+Found 75 duplicate lines with fingerprint 026938a138dede7a72201d666a827760 in the following files:
+ Between lines 932 and 1049 in /.../core/sax/source/tools/converter.cxx
+ Between lines 1060 and 1177 in /.../core/sax/source/tools/converter.cxx
+ 
+...
+
+```
+We have selected /.../core/sax/source/tools/converter.cxx file to reduce c/p code. It's clearly visible that only two lines are different on two functions. Between 932 - 1049 and 1060 - 1177 lines could shrink within one function. 
+
+{% highlight cpp %}
+/** convert ISO "duration" string to double; negative durations allowed */
+bool Converter::convertDuration(double& rfTime,
+                                std::u16string_view rString)
+{
+    std::u16string_view aTrimmed = trim(rString);
+    const sal_Unicode* pStr = aTrimmed.data();
+
+    // negative time duration?
+    bool bIsNegativeDuration = false;
+    if ( '-' == (*pStr) )
+    { ... }
+
+    /* ... */
+
+    else{
+    }
+    return bSuccess;
+}
+{% endhighlight %}
+
+{% highlight cpp %}
+/** convert ISO "duration" string to double; negative durations allowed */
+bool Converter::convertDuration(double& rfTime,
+                                std::string_view rString)
+{
+    std::string_view aTrimmed = trim(rString);
+    const char* pStr = aTrimmed.data();
+
+    // negative time duration?
+    bool bIsNegativeDuration = false;
+    if ( '-' == (*pStr) )
+    { ... }
+
+    /* ... */
+
+    else{
+    }
+    return bSuccess;
+}
+{% endhighlight %}
+
+```
+convertDuration(double& rfTime, std::u16string_view rString)
+convertDuration(double& rfTime, std::string_view rString)
+```
+Since two functions are include the same data type of `rfTime` variables, there is no need to create a `template`. However, data type of `rString` variables are different. Consequently we have to create a template only for rString.
+
+{% highlight cpp %}
+/** helper function of Converter::convertDuration */
+template<typename V>
+static bool convertDurationHelper(double& rfTime, V pStr)
+{
+    // negative time duration?
+    bool bIsNegativeDuration = false;
+    if ( '-' == (*pStr) )
+    { ... }
+
+    /* ... */
+    
+    else{
+    }
+    return bSuccess;
+} 
+{% endhighlight %}
+
+Finally, deleting duplicate code pieces will make the functions look even better and readable.
+
+{% highlight cpp %}
+/** convert ISO "duration" string to double; negative durations allowed */
+bool Converter::convertDuration(double& rfTime,
+                                std::u16string_view rString)
+{
+    std::u16string_view aTrimmed = trim(rString);
+    const sal_Unicode* pStr = aTrimmed.data();
+
+    return convertDurationHelper(rfTime, pStr);
+}
+{% endhighlight %}
+
+{% highlight cpp %}
+/** convert ISO "duration" string to double; negative durations allowed */
+bool Converter::convertDuration(double& rfTime,
+                                std::string_view rString)
+{
+    std::string_view aTrimmed = trim(rString);
+    const char* pStr = aTrimmed.data();
+
+    return convertDurationHelper(rfTime, pStr);
+}
+{% endhighlight %}
+
+The patch can be seen at [https://gerrit.libreoffice.org/c/core/+/111008][111008]. This was my first medium-size contribution to Libre Office.
+
+
+[simian]: https://www.harukizaemon.com/simian/
+[id=39593]: https://bugs.documentfoundation.org/show_bug.cgi?id=39593
+[111008]: https://gerrit.libreoffice.org/c/core/+/111008

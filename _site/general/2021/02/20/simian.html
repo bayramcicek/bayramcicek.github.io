@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Simian: copy/paste code detector/fixing | bayram cicek’s website</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Simian: copy/paste code detector/fixing" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files." />
+<meta property="og:description" content="Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files." />
+<link rel="canonical" href="http://localhost:4000/general/2021/02/20/simian.html" />
+<meta property="og:url" content="http://localhost:4000/general/2021/02/20/simian.html" />
+<meta property="og:site_name" content="bayram cicek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-20T18:03:46+03:00" />
+<script type="application/ld+json">
+{"headline":"Simian: copy/paste code detector/fixing","url":"http://localhost:4000/general/2021/02/20/simian.html","dateModified":"2021-02-20T18:03:46+03:00","datePublished":"2021-02-20T18:03:46+03:00","description":"Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2021/02/20/simian.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bayram cicek's website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">bayram cicek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Simian: copy/paste code detector/fixing</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-02-20T18:03:46+03:00" itemprop="datePublished">Feb 20, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><a href="https://www.harukizaemon.com/simian/">Simian</a> is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.</p>
+
+<p>Here is a demonstrate of c/p detection on Libre Office bug <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=39593">tdf#39593: copy/paste code detector/fixing</a>.</p>
+
+<p>To get a space separated list of .cxx files, run:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find &lt;directory&gt; -name "*.cxx" | grep -v unxlng | tr '\n' ' ' &gt; files
+</code></pre></div></div>
+<p>All .cxx file names have been written to <code class="highlighter-rouge">files.txt</code>. The Simian call to get code pieces with at least 30 equivalent is for example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -jar simian-2.3.31.jar -threshold=30 -language=c++ `cat files`
+</code></pre></div></div>
+
+<p>Output would be:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Found 34 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files:
+ Between lines 639 and 726 in /.../core/vcl/source/bitmap/bitmap.cxx
+ Between lines 766 and 853 in /.../core/vcl/source/bitmap/bitmap.cxx
+ 
+Found 45 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files: 
+ Between lines 1468 and 1538 in /.../core/sw/qa/extras/uiwriter/uiwriter2.cxx
+ Between lines 1381 and 1451 in /.../core/sw/qa/extras/uiwriter/uiwriter2.cxx
+
+Found 59 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files:
+ Between lines 1748 and 1820 in /.../core/sc/qa/unit/pivottable_filters_test.cxx
+ Between lines 2278 and 2350 in /.../core/sc/qa/unit/pivottable_filters_test.cxx
+ 
+Found 75 duplicate lines with fingerprint 026938a138dede7a72201d666a827760 in the following files:
+ Between lines 932 and 1049 in /.../core/sax/source/tools/converter.cxx
+ Between lines 1060 and 1177 in /.../core/sax/source/tools/converter.cxx
+ 
+...
+
+</code></pre></div></div>
+<p>We have selected /…/core/sax/source/tools/converter.cxx file to reduce c/p code. It’s clearly visible that only two lines are different on two functions. Between 932 - 1049 and 1060 - 1177 lines could shrink within one function.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/** convert ISO "duration" string to double; negative durations allowed */</span>
+<span class="kt">bool</span> <span class="n">Converter</span><span class="o">::</span><span class="n">convertDuration</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">rfTime</span><span class="p">,</span>
+                                <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span> <span class="n">rString</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span> <span class="n">aTrimmed</span> <span class="o">=</span> <span class="n">trim</span><span class="p">(</span><span class="n">rString</span><span class="p">);</span>
+    <span class="k">const</span> <span class="n">sal_Unicode</span><span class="o">*</span> <span class="n">pStr</span> <span class="o">=</span> <span class="n">aTrimmed</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
+
+    <span class="c1">// negative time duration?</span>
+    <span class="kt">bool</span> <span class="n">bIsNegativeDuration</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="sc">'-'</span> <span class="o">==</span> <span class="p">(</span><span class="o">*</span><span class="n">pStr</span><span class="p">)</span> <span class="p">)</span>
+    <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+
+    <span class="cm">/* ... */</span>
+
+    <span class="k">else</span><span class="p">{</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">bSuccess</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/** convert ISO "duration" string to double; negative durations allowed */</span>
+<span class="kt">bool</span> <span class="n">Converter</span><span class="o">::</span><span class="n">convertDuration</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">rfTime</span><span class="p">,</span>
+                                <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">rString</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">aTrimmed</span> <span class="o">=</span> <span class="n">trim</span><span class="p">(</span><span class="n">rString</span><span class="p">);</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pStr</span> <span class="o">=</span> <span class="n">aTrimmed</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
+
+    <span class="c1">// negative time duration?</span>
+    <span class="kt">bool</span> <span class="n">bIsNegativeDuration</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="sc">'-'</span> <span class="o">==</span> <span class="p">(</span><span class="o">*</span><span class="n">pStr</span><span class="p">)</span> <span class="p">)</span>
+    <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+
+    <span class="cm">/* ... */</span>
+
+    <span class="k">else</span><span class="p">{</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">bSuccess</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>convertDuration(double&amp; rfTime, std::u16string_view rString)
+convertDuration(double&amp; rfTime, std::string_view rString)
+</code></pre></div></div>
+<p>Since two functions are include the same data type of <code class="highlighter-rouge">rfTime</code> variables, there is no need to create a <code class="highlighter-rouge">template</code>. However, data type of <code class="highlighter-rouge">rString</code> variables are different. Consequently we have to create a template only for rString.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/** helper function of Converter::convertDuration */</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">V</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="kt">bool</span> <span class="nf">convertDurationHelper</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">rfTime</span><span class="p">,</span> <span class="n">V</span> <span class="n">pStr</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// negative time duration?</span>
+    <span class="kt">bool</span> <span class="n">bIsNegativeDuration</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="sc">'-'</span> <span class="o">==</span> <span class="p">(</span><span class="o">*</span><span class="n">pStr</span><span class="p">)</span> <span class="p">)</span>
+    <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+
+    <span class="cm">/* ... */</span>
+    
+    <span class="k">else</span><span class="p">{</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">bSuccess</span><span class="p">;</span>
+<span class="p">}</span> </code></pre></figure>
+
+<p>Finally, deleting duplicate code pieces will make the functions look even better and readable.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/** convert ISO "duration" string to double; negative durations allowed */</span>
+<span class="kt">bool</span> <span class="n">Converter</span><span class="o">::</span><span class="n">convertDuration</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">rfTime</span><span class="p">,</span>
+                                <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span> <span class="n">rString</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span> <span class="n">aTrimmed</span> <span class="o">=</span> <span class="n">trim</span><span class="p">(</span><span class="n">rString</span><span class="p">);</span>
+    <span class="k">const</span> <span class="n">sal_Unicode</span><span class="o">*</span> <span class="n">pStr</span> <span class="o">=</span> <span class="n">aTrimmed</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="n">convertDurationHelper</span><span class="p">(</span><span class="n">rfTime</span><span class="p">,</span> <span class="n">pStr</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/** convert ISO "duration" string to double; negative durations allowed */</span>
+<span class="kt">bool</span> <span class="n">Converter</span><span class="o">::</span><span class="n">convertDuration</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">rfTime</span><span class="p">,</span>
+                                <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">rString</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string_view</span> <span class="n">aTrimmed</span> <span class="o">=</span> <span class="n">trim</span><span class="p">(</span><span class="n">rString</span><span class="p">);</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pStr</span> <span class="o">=</span> <span class="n">aTrimmed</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="n">convertDurationHelper</span><span class="p">(</span><span class="n">rfTime</span><span class="p">,</span> <span class="n">pStr</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The patch can be seen at <a href="https://gerrit.libreoffice.org/c/core/+/111008">https://gerrit.libreoffice.org/c/core/+/111008</a>. This was my first medium-size contribution to Libre Office.</p>
+
+
+  </div><a class="u-url" href="/general/2021/02/20/simian.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">bayram cicek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">bayram cicek&#39;s website</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.twitter.com/bayramcicek21"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">bayramcicek21</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

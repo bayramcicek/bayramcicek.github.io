@@ -1,4 +1,121 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-01T20:36:39+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Ddrescue ile HDD Verilerini Kurtarmak</title><link href="http://localhost:4000/general/2021/01/01/superblock-error-ddrescue.html" rel="alternate" type="text/html" title="Ddrescue ile HDD Verilerini Kurtarmak" /><published>2021-01-01T18:03:46+03:00</published><updated>2021-01-01T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/01/01/superblock-error-ddrescue</id><content type="html" xml:base="http://localhost:4000/general/2021/01/01/superblock-error-ddrescue.html">&lt;p&gt;GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde &lt;code class=&quot;highlighter-rouge&quot;&gt;...the superblock is corrupt...&lt;/code&gt; hatasını gördüm. Kullandığım HDD üzerinde daha önce &lt;a href=&quot;https://bayramcicek.com.tr/general/2020/07/11/disk-bad-sector.html&quot;&gt;bad sector&lt;/a&gt; problemi oluşmuştu ve sadece read-only hatası vermişti.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-20T23:34:32+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Simian: copy/paste code detector/fixing</title><link href="http://localhost:4000/general/2021/02/20/simian.html" rel="alternate" type="text/html" title="Simian: copy/paste code detector/fixing" /><published>2021-02-20T18:03:46+03:00</published><updated>2021-02-20T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/02/20/simian</id><content type="html" xml:base="http://localhost:4000/general/2021/02/20/simian.html">&lt;p&gt;&lt;a href=&quot;https://www.harukizaemon.com/simian/&quot;&gt;Simian&lt;/a&gt; is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.&lt;/p&gt;
+
+&lt;p&gt;Here is a demonstrate of c/p detection on Libre Office bug &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=39593&quot;&gt;tdf#39593: copy/paste code detector/fixing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To get a space separated list of .cxx files, run:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find &amp;lt;directory&amp;gt; -name &quot;*.cxx&quot; | grep -v unxlng | tr '\n' ' ' &amp;gt; files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;All .cxx file names have been written to &lt;code class=&quot;highlighter-rouge&quot;&gt;files.txt&lt;/code&gt;. The Simian call to get code pieces with at least 30 equivalent is for example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;java -jar simian-2.3.31.jar -threshold=30 -language=c++ `cat files`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output would be:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Found 34 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files:
+ Between lines 639 and 726 in /.../core/vcl/source/bitmap/bitmap.cxx
+ Between lines 766 and 853 in /.../core/vcl/source/bitmap/bitmap.cxx
+ 
+Found 45 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files: 
+ Between lines 1468 and 1538 in /.../core/sw/qa/extras/uiwriter/uiwriter2.cxx
+ Between lines 1381 and 1451 in /.../core/sw/qa/extras/uiwriter/uiwriter2.cxx
+
+Found 59 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files:
+ Between lines 1748 and 1820 in /.../core/sc/qa/unit/pivottable_filters_test.cxx
+ Between lines 2278 and 2350 in /.../core/sc/qa/unit/pivottable_filters_test.cxx
+ 
+Found 75 duplicate lines with fingerprint 026938a138dede7a72201d666a827760 in the following files:
+ Between lines 932 and 1049 in /.../core/sax/source/tools/converter.cxx
+ Between lines 1060 and 1177 in /.../core/sax/source/tools/converter.cxx
+ 
+...
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;We have selected /…/core/sax/source/tools/converter.cxx file to reduce c/p code. It’s clearly visible that only two lines are different on two functions. Between 932 - 1049 and 1060 - 1177 lines could shrink within one function.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/** convert ISO &quot;duration&quot; string to double; negative durations allowed */&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Converter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convertDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rfTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                                &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTrimmed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sal_Unicode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTrimmed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// negative time duration?&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bIsNegativeDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/** convert ISO &quot;duration&quot; string to double; negative durations allowed */&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Converter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convertDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rfTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                                &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string_view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string_view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTrimmed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTrimmed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// negative time duration?&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bIsNegativeDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;convertDuration(double&amp;amp; rfTime, std::u16string_view rString)
+convertDuration(double&amp;amp; rfTime, std::string_view rString)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Since two functions are include the same data type of &lt;code class=&quot;highlighter-rouge&quot;&gt;rfTime&lt;/code&gt; variables, there is no need to create a &lt;code class=&quot;highlighter-rouge&quot;&gt;template&lt;/code&gt;. However, data type of &lt;code class=&quot;highlighter-rouge&quot;&gt;rString&lt;/code&gt; variables are different. Consequently we have to create a template only for rString.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/** helper function of Converter::convertDuration */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;convertDurationHelper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rfTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// negative time duration?&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bIsNegativeDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Finally, deleting duplicate code pieces will make the functions look even better and readable.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/** convert ISO &quot;duration&quot; string to double; negative durations allowed */&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Converter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convertDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rfTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                                &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTrimmed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sal_Unicode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTrimmed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertDurationHelper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rfTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/** convert ISO &quot;duration&quot; string to double; negative durations allowed */&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Converter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convertDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rfTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                                &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string_view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string_view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTrimmed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTrimmed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertDurationHelper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rfTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The patch can be seen at &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/111008&quot;&gt;https://gerrit.libreoffice.org/c/core/+/111008&lt;/a&gt;. This was my first medium-size contribution to Libre Office.&lt;/p&gt;</content><author><name></name></author><summary type="html">Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.</summary></entry><entry><title type="html">Ddrescue ile HDD Verilerini Kurtarmak</title><link href="http://localhost:4000/general/2021/01/01/superblock-error-ddrescue.html" rel="alternate" type="text/html" title="Ddrescue ile HDD Verilerini Kurtarmak" /><published>2021-01-01T18:03:46+03:00</published><updated>2021-01-01T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/01/01/superblock-error-ddrescue</id><content type="html" xml:base="http://localhost:4000/general/2021/01/01/superblock-error-ddrescue.html">&lt;p&gt;GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde &lt;code class=&quot;highlighter-rouge&quot;&gt;...the superblock is corrupt...&lt;/code&gt; hatasını gördüm. Kullandığım HDD üzerinde daha önce &lt;a href=&quot;https://bayramcicek.com.tr/general/2020/07/11/disk-bad-sector.html&quot;&gt;bad sector&lt;/a&gt; problemi oluşmuştu ve sadece read-only hatası vermişti.&lt;/p&gt;
 
 &lt;p&gt;1TB ‘lık HDD içinden ayırdığım -temiz ve bad sector içermeyen- 100GB ‘lık alanda bu defasında -dosya sistemi ile ilgili metadata bilgilerini içeren- &lt;code class=&quot;highlighter-rouge&quot;&gt;superblock&lt;/code&gt; adı verilen bloklardan biri bozulmuştu. Bu blok bozulduğunda sisteminiz o bellek alanını tanıyamaz ve terminalden o alanı &lt;code class=&quot;highlighter-rouge&quot;&gt;mount&lt;/code&gt; etmek istediğinizde ise &lt;code class=&quot;highlighter-rouge&quot;&gt;the file system structure on disk is corrupt&lt;/code&gt; hatasını alırsınız.&lt;/p&gt;
 
@@ -559,47 +676,4 @@ Prentice-Hall, Chapter 5, 7, 8 and Appendix B.5&lt;/p&gt;
     &lt;p&gt;Gribble, P. (2012). &lt;em&gt;Memory: Stack vs Heap. Summer 2012&lt;/em&gt;, University of
 Western from &lt;a href=&quot;https://gribblelab.org/CBootCamp/7_Memory_Stack_vs_Heap.html&quot;&gt;https://gribblelab.org/CBootCamp/7_Memory_Stack_vs_Heap.html&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Stack</summary></entry><entry><title type="html">Ekşi Sözlük için yaptığım küçük bir eklenti: Ekşi Search</title><link href="http://localhost:4000/general/2019/06/13/eksi.html" rel="alternate" type="text/html" title="Ekşi Sözlük için yaptığım küçük bir eklenti: Ekşi Search" /><published>2019-06-13T13:28:26+03:00</published><updated>2019-06-13T13:28:26+03:00</updated><id>http://localhost:4000/general/2019/06/13/eksi</id><content type="html" xml:base="http://localhost:4000/general/2019/06/13/eksi.html">&lt;p&gt;Eklentilerin nasıl yapıldığını hep merak ederdim. Bu yüzden kolay ama kullanışlı bir eklenti(add-on/extension) yapmak istedim. Bunun için youtube’daki ve opera/firefox geliştirici sayfalarındaki örnekleri inceledim. Dışarıdan kolay gibi gözükse de yine de biraz zor ve karmaşık gibi geldi bana.&lt;/p&gt;
-
-&lt;p&gt;Fareyle seçtiğimiz bir metni, url’nin sonuna nasıl ekleneceğini öğrenince bunu Ekşi Sözlük için uyarlamak istedim. Mantık basitti:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Seçilen metni al&lt;/li&gt;
-  &lt;li&gt;eksisozluk.com tam adresinin sonuna ekle&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Uzun uğraşlar sonucu nihayet eklenti çalıştı. Kaynak kodlarına bakmak isterseniz: &lt;a href=&quot;https://github.com/bayramcicek/eksi-search&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Eklentiyi deneyebilirsiniz: &lt;a href=&quot;https://addons.opera.com/en/extensions/details/eksi-search/&quot;&gt;opera&lt;/a&gt; - &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/ek%C5%9Fi-search/&quot;&gt;firefox&lt;/a&gt; - chrome(google hesabım silindiği için kaldırıldı)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Aşağıdaki javascript fonksiyonu, anladığım kadarıyla aralarında boşluk ve/veya özel karakterler içeren kelimeleri URL formatına çeviriyor yani adres satırında nasıl gözükmesi gerektiği işine yarıyor:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fixedEncodeURI&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;encodeURI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/%5B/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/%5D/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Mesela &lt;code class=&quot;highlighter-rouge&quot;&gt;hello world&lt;/code&gt; kelimesi, adres satırında &lt;code class=&quot;highlighter-rouge&quot;&gt;hello%20world&lt;/code&gt; olarak yorumlanır.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;
-The encodeURI() function is used to encode a URI. According to &lt;a href=&quot;https://stackoverflow.com/a/26410882/10376542&quot;&gt;stackoverflow&lt;/a&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;URI (uniform resource identifier) identifies a resource (text document, image file, etc)&lt;/li&gt;
-  &lt;li&gt;URL (uniform resource locator) is a subset of the URIs that include a network location&lt;/li&gt;
-  &lt;li&gt;URN (uniform resource name) is a subset of URIs that include a name within a given space, but no location&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Eklentilerin nasıl yapıldığını hep merak ederdim. Bu yüzden kolay ama kullanışlı bir eklenti(add-on/extension) yapmak istedim. Bunun için youtube’daki ve opera/firefox geliştirici sayfalarındaki örnekleri inceledim. Dışarıdan kolay gibi gözükse de yine de biraz zor ve karmaşık gibi geldi bana.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Stack</summary></entry></feed>
