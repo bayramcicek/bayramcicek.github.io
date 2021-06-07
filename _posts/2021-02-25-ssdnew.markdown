@@ -1,6 +1,0 @@
----
-layout: post
-title: New tech to organize your daily tasks.
-date:   2021-02-25 14:42:56 +0300
-categories: [Tech]
----

@@ -5,43 +5,9 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 07 Jun 2021 15:19:01 +0300</pubDate>
-        <lastBuildDate>Mon, 07 Jun 2021 15:19:01 +0300</lastBuildDate>
+        <pubDate>Mon, 07 Jun 2021 15:51:11 +0300</pubDate>
+        <lastBuildDate>Mon, 07 Jun 2021 15:51:11 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
-        
-            <item>
-                <title>Top innovations in technology.</title>
-                <author>Bayram Çiçek</author>
-                <description>&lt;p&gt;As explained in this excellent blog post by Yongfu Liao, Jekyll Feed doesn’t allow you to generate an RSS feed for a particular tag or category of posts. However, there is a workaround which you can read more about here and here.&lt;/p&gt;
-
-&lt;p&gt;Yongfu shares his modification of the original workaround on Github. This code is really nice because it provides exactly the format of the RSS feed required by R-Bloggers.&lt;/p&gt;
-
-&lt;p&gt;All you need to do is to take the code below, paste it into a text editor, and save it as an .xml file. For example, my file is called “feed.r.bloggers.xml.”&lt;/p&gt;
-
-&lt;p&gt;Make sure you change the “Author” section in the code to your email address (the name part is optional). Indicate the tag you will use to indicate that a given post is suitable for R-Bloggers. In the example below, I specify: [“R”], meaning all posts with this (case-sensitive) tag will be included in the RSS feed.&lt;/p&gt;
-</description>
-                <pubDate>Wed, 24 Feb 2021 14:42:56 +0300</pubDate>
-                <link>http://localhost:4000/libreoffice-dev/2021/02/24/snew.html</link>
-                <guid isPermaLink="true">http://localhost:4000/libreoffice-dev/2021/02/24/snew.html</guid>
-                
-                
-                <category>libreoffice-dev</category>
-                
-            </item>
-        
-            <item>
-                <title>My ways to live life.</title>
-                <author>Bayram Çiçek</author>
-                <description>&lt;p&gt;HEY!&lt;/p&gt;
-</description>
-                <pubDate>Tue, 23 Feb 2021 14:42:56 +0300</pubDate>
-                <link>http://localhost:4000/libreoffice-dev/2021/02/23/new.html</link>
-                <guid isPermaLink="true">http://localhost:4000/libreoffice-dev/2021/02/23/new.html</guid>
-                
-                
-                <category>libreoffice-dev</category>
-                
-            </item>
         
     </channel>
 </rss>
