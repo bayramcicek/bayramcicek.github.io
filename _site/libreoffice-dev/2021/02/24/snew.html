@@ -3,21 +3,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Contributing to LibreOffice: First patch | bayram cicek’s website</title>
+<title>Top innovations in technology. | bayram cicek’s website</title>
 <meta name="generator" content="Jekyll v4.0.1" />
-<meta property="og:title" content="Contributing to LibreOffice: First patch" />
+<meta property="og:title" content="Top innovations in technology." />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="I’m happy to announce that I made my first contribution on LibreOffice project." />
-<meta property="og:description" content="I’m happy to announce that I made my first contribution on LibreOffice project." />
-<link rel="canonical" href="http://localhost:4000/general/2020/11/25/libreoffice.html" />
-<meta property="og:url" content="http://localhost:4000/general/2020/11/25/libreoffice.html" />
+<meta name="description" content="As explained in this excellent blog post by Yongfu Liao, Jekyll Feed doesn’t allow you to generate an RSS feed for a particular tag or category of posts. However, there is a workaround which you can read more about here and here." />
+<meta property="og:description" content="As explained in this excellent blog post by Yongfu Liao, Jekyll Feed doesn’t allow you to generate an RSS feed for a particular tag or category of posts. However, there is a workaround which you can read more about here and here." />
+<link rel="canonical" href="http://localhost:4000/libreoffice-dev/2021/02/24/snew.html" />
+<meta property="og:url" content="http://localhost:4000/libreoffice-dev/2021/02/24/snew.html" />
 <meta property="og:site_name" content="bayram cicek’s website" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-11-25T20:01:12+03:00" />
+<meta property="article:published_time" content="2021-02-24T14:42:56+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Contributing to LibreOffice: First patch" />
+<meta property="twitter:title" content="Top innovations in technology." />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"I’m happy to announce that I made my first contribution on LibreOffice project.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2020/11/25/libreoffice.html"},"url":"http://localhost:4000/general/2020/11/25/libreoffice.html","headline":"Contributing to LibreOffice: First patch","dateModified":"2020-11-25T20:01:12+03:00","datePublished":"2020-11-25T20:01:12+03:00","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"As explained in this excellent blog post by Yongfu Liao, Jekyll Feed doesn’t allow you to generate an RSS feed for a particular tag or category of posts. However, there is a workaround which you can read more about here and here.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/libreoffice-dev/2021/02/24/snew.html"},"url":"http://localhost:4000/libreoffice-dev/2021/02/24/snew.html","headline":"Top innovations in technology.","dateModified":"2021-02-24T14:42:56+03:00","datePublished":"2021-02-24T14:42:56+03:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bayram cicek&apos;s website" /></head>
 <body><header class="site-header" role="banner">
@@ -40,25 +40,22 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Contributing to LibreOffice: First patch</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Top innovations in technology.</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2020-11-25T20:01:12+03:00" itemprop="datePublished">Nov 25, 2020
+      <time class="dt-published" datetime="2021-02-24T14:42:56+03:00" itemprop="datePublished">Feb 24, 2021
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>I’m happy to announce that I made my first contribution on <a href="https://www.libreoffice.org/">LibreOffice</a> project.</p>
+    <p>As explained in this excellent blog post by Yongfu Liao, Jekyll Feed doesn’t allow you to generate an RSS feed for a particular tag or category of posts. However, there is a workaround which you can read more about here and here.</p>
 
-<p>About 3 weeks ago, I attended <a href="https://github.com/mrkara/AcikKaynakGelistirme">Contributing Free and Open Source Projects with C++</a> course by Muhammet Kara. First 3 week of the course, we learned basics of C++. After that week, we sent our first patch with other attendees.</p>
+<p>Yongfu shares his modification of the original workaround on Github. This code is really nice because it provides exactly the format of the RSS feed required by R-Bloggers.</p>
 
-<p>The patch we sent was <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=124176">Bug 124176 - Use pragma once instead of include guards</a> which is an <a href="https://wiki.documentfoundation.org/Development/EasyHacks#Lists_of_Easy_Hacks">easy hack</a>. Easy hacks are great starting points for new developers.</p>
+<p>All you need to do is to take the code below, paste it into a text editor, and save it as an .xml file. For example, my file is called “feed.r.bloggers.xml.”</p>
 
-<p>After the first contribution was approved to merge into LibreOffice core repository, LibreOffice team sent an email to congratulate <a href="https://gerrit.libreoffice.org/c/core/+/106489">my first merged patch</a>.</p>
+<p>Make sure you change the “Author” section in the code to your email address (the name part is optional). Indicate the tag you will use to indicate that a given post is suitable for R-Bloggers. In the example below, I specify: [“R”], meaning all posts with this (case-sensitive) tag will be included in the RSS feed.</p>
 
-<p>I’m so proud of being a part of the project. Thanks to all LibreOffice teams and developers.</p>
-
-
-  </div><a class="u-url" href="/general/2020/11/25/libreoffice.html" hidden></a>
+  </div><a class="u-url" href="/libreoffice-dev/2021/02/24/snew.html" hidden></a>
 </article>
 
       </div>

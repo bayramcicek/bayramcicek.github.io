@@ -1,10 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-20T23:34:32+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Simian: copy/paste code detector/fixing</title><link href="http://localhost:4000/general/2021/02/20/simian.html" rel="alternate" type="text/html" title="Simian: copy/paste code detector/fixing" /><published>2021-02-20T18:03:46+03:00</published><updated>2021-02-20T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/02/20/simian</id><content type="html" xml:base="http://localhost:4000/general/2021/02/20/simian.html">&lt;p&gt;&lt;a href=&quot;https://www.harukizaemon.com/simian/&quot;&gt;Simian&lt;/a&gt; is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-07T15:19:01+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bayram cicek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">New tech to organize your daily tasks.</title><link href="http://localhost:4000/tech/2021/02/25/ssdnew.html" rel="alternate" type="text/html" title="New tech to organize your daily tasks." /><published>2021-02-25T14:42:56+03:00</published><updated>2021-02-25T14:42:56+03:00</updated><id>http://localhost:4000/tech/2021/02/25/ssdnew</id><content type="html" xml:base="http://localhost:4000/tech/2021/02/25/ssdnew.html"></content><author><name></name></author><category term="Tech" /><summary type="html"></summary></entry><entry><title type="html">Top innovations in technology.</title><link href="http://localhost:4000/libreoffice-dev/2021/02/24/snew.html" rel="alternate" type="text/html" title="Top innovations in technology." /><published>2021-02-24T14:42:56+03:00</published><updated>2021-02-24T14:42:56+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/02/24/snew</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/02/24/snew.html">&lt;p&gt;As explained in this excellent blog post by Yongfu Liao, Jekyll Feed doesn’t allow you to generate an RSS feed for a particular tag or category of posts. However, there is a workaround which you can read more about here and here.&lt;/p&gt;
+
+&lt;p&gt;Yongfu shares his modification of the original workaround on Github. This code is really nice because it provides exactly the format of the RSS feed required by R-Bloggers.&lt;/p&gt;
+
+&lt;p&gt;All you need to do is to take the code below, paste it into a text editor, and save it as an .xml file. For example, my file is called “feed.r.bloggers.xml.”&lt;/p&gt;
+
+&lt;p&gt;Make sure you change the “Author” section in the code to your email address (the name part is optional). Indicate the tag you will use to indicate that a given post is suitable for R-Bloggers. In the example below, I specify: [“R”], meaning all posts with this (case-sensitive) tag will be included in the RSS feed.&lt;/p&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">As explained in this excellent blog post by Yongfu Liao, Jekyll Feed doesn’t allow you to generate an RSS feed for a particular tag or category of posts. However, there is a workaround which you can read more about here and here.</summary></entry><entry><title type="html">My ways to live life.</title><link href="http://localhost:4000/libreoffice-dev/2021/02/23/new.html" rel="alternate" type="text/html" title="My ways to live life." /><published>2021-02-23T14:42:56+03:00</published><updated>2021-02-23T14:42:56+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/02/23/new</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/02/23/new.html">&lt;p&gt;HEY!&lt;/p&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">HEY!</summary></entry><entry><title type="html">Simian: copy/paste code detector/fixing</title><link href="http://localhost:4000/general/2021/02/20/simian.html" rel="alternate" type="text/html" title="Simian: copy/paste code detector/fixing" /><published>2021-02-20T18:03:46+03:00</published><updated>2021-02-20T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/02/20/simian</id><content type="html" xml:base="http://localhost:4000/general/2021/02/20/simian.html">&lt;p&gt;&lt;a href=&quot;https://www.harukizaemon.com/simian/&quot;&gt;Simian&lt;/a&gt; is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.&lt;/p&gt;
 
 &lt;p&gt;Here is a demonstrate of c/p detection on Libre Office bug &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=39593&quot;&gt;tdf#39593: copy/paste code detector/fixing&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;To get a space separated list of .cxx files, run:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find &amp;lt;directory&amp;gt; -name &quot;*.cxx&quot; | grep -v unxlng | tr '\n' ' ' &amp;gt; files
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find &amp;lt;directory&amp;gt; -name &quot;*.cxx&quot; | grep -v unxlng | tr &apos;\n&apos; &apos; &apos; &amp;gt; files
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;All .cxx file names have been written to &lt;code class=&quot;highlighter-rouge&quot;&gt;files.txt&lt;/code&gt;. The Simian call to get code pieces with at least 30 equivalent is for example:&lt;/p&gt;
 
@@ -43,7 +49,7 @@ Found 75 duplicate lines with fingerprint 026938a138dede7a72201d666a827760 in th
 
     &lt;span class=&quot;c1&quot;&gt;// negative time duration?&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bIsNegativeDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&apos;-&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
     &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
@@ -62,7 +68,7 @@ Found 75 duplicate lines with fingerprint 026938a138dede7a72201d666a827760 in th
 
     &lt;span class=&quot;c1&quot;&gt;// negative time duration?&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bIsNegativeDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&apos;-&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
     &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
@@ -78,12 +84,12 @@ convertDuration(double&amp;amp; rfTime, std::string_view rString)
 &lt;p&gt;Since two functions are include the same data type of &lt;code class=&quot;highlighter-rouge&quot;&gt;rfTime&lt;/code&gt; variables, there is no need to create a &lt;code class=&quot;highlighter-rouge&quot;&gt;template&lt;/code&gt;. However, data type of &lt;code class=&quot;highlighter-rouge&quot;&gt;rString&lt;/code&gt; variables are different. Consequently we have to create a template only for rString.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/** helper function of Converter::convertDuration */&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;convertDurationHelper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rfTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// negative time duration?&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bIsNegativeDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&apos;-&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
     &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
@@ -115,7 +121,7 @@ convertDuration(double&amp;amp; rfTime, std::string_view rString)
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertDurationHelper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rfTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The patch can be seen at &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/111008&quot;&gt;https://gerrit.libreoffice.org/c/core/+/111008&lt;/a&gt;. This was my first medium-size contribution to Libre Office.&lt;/p&gt;</content><author><name></name></author><summary type="html">Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.</summary></entry><entry><title type="html">Ddrescue ile HDD Verilerini Kurtarmak</title><link href="http://localhost:4000/general/2021/01/01/superblock-error-ddrescue.html" rel="alternate" type="text/html" title="Ddrescue ile HDD Verilerini Kurtarmak" /><published>2021-01-01T18:03:46+03:00</published><updated>2021-01-01T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/01/01/superblock-error-ddrescue</id><content type="html" xml:base="http://localhost:4000/general/2021/01/01/superblock-error-ddrescue.html">&lt;p&gt;GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde &lt;code class=&quot;highlighter-rouge&quot;&gt;...the superblock is corrupt...&lt;/code&gt; hatasını gördüm. Kullandığım HDD üzerinde daha önce &lt;a href=&quot;https://bayramcicek.com.tr/general/2020/07/11/disk-bad-sector.html&quot;&gt;bad sector&lt;/a&gt; problemi oluşmuştu ve sadece read-only hatası vermişti.&lt;/p&gt;
+&lt;p&gt;The patch can be seen at &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/111008&quot;&gt;https://gerrit.libreoffice.org/c/core/+/111008&lt;/a&gt;. This was my first medium-size contribution to Libre Office.&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.</summary></entry><entry><title type="html">Ddrescue ile HDD Verilerini Kurtarmak</title><link href="http://localhost:4000/general/2021/01/01/superblock-error-ddrescue.html" rel="alternate" type="text/html" title="Ddrescue ile HDD Verilerini Kurtarmak" /><published>2021-01-01T18:03:46+03:00</published><updated>2021-01-01T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/01/01/superblock-error-ddrescue</id><content type="html" xml:base="http://localhost:4000/general/2021/01/01/superblock-error-ddrescue.html">&lt;p&gt;GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde &lt;code class=&quot;highlighter-rouge&quot;&gt;...the superblock is corrupt...&lt;/code&gt; hatasını gördüm. Kullandığım HDD üzerinde daha önce &lt;a href=&quot;https://bayramcicek.com.tr/general/2020/07/11/disk-bad-sector.html&quot;&gt;bad sector&lt;/a&gt; problemi oluşmuştu ve sadece read-only hatası vermişti.&lt;/p&gt;
 
 &lt;p&gt;1TB ‘lık HDD içinden ayırdığım -temiz ve bad sector içermeyen- 100GB ‘lık alanda bu defasında -dosya sistemi ile ilgili metadata bilgilerini içeren- &lt;code class=&quot;highlighter-rouge&quot;&gt;superblock&lt;/code&gt; adı verilen bloklardan biri bozulmuştu. Bu blok bozulduğunda sisteminiz o bellek alanını tanıyamaz ve terminalden o alanı &lt;code class=&quot;highlighter-rouge&quot;&gt;mount&lt;/code&gt; etmek istediğinizde ise &lt;code class=&quot;highlighter-rouge&quot;&gt;the file system structure on disk is corrupt&lt;/code&gt; hatasını alırsınız.&lt;/p&gt;
 
@@ -161,7 +167,7 @@ Kurtarma işlemi bittiğinde &lt;code class=&quot;highlighter-rouge&quot;&gt;/de
 &lt;p&gt;&lt;br /&gt;
 Bellek alanınız ne kadar büyük olursa kurtarma ve bad block tarama işlemleri o kadar uzun sürer. Bu yüzden belleğinizi olabildiğince ufak bir alana ayırıp neredeyse hiç kullanmayacağınız alanları &lt;code class=&quot;highlighter-rouge&quot;&gt;unallocated&lt;/code&gt; olarak yapılandırmak diskinizin hatalara karşı daha hızlı cevap vermesini sağlayacaktır.&lt;/p&gt;
 
-&lt;p&gt;Yılın ilk günü hard diskinizin bozulması iyi bir yılbaşı hediyesi olmasa da &lt;code class=&quot;highlighter-rouge&quot;&gt;ddrescue&lt;/code&gt; ile verilerin nasıl kurtarılacağı konusunu öğrenmek iyi bir başlangıç olarak sayılabilir.&lt;/p&gt;</content><author><name></name></author><summary type="html">GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde ...the superblock is corrupt... hatasını gördüm. Kullandığım HDD üzerinde daha önce bad sector problemi oluşmuştu ve sadece read-only hatası vermişti.</summary></entry><entry><title type="html">Contributing to LibreOffice: First patch</title><link href="http://localhost:4000/general/2020/11/25/libreoffice.html" rel="alternate" type="text/html" title="Contributing to LibreOffice: First patch" /><published>2020-11-25T20:01:12+03:00</published><updated>2020-11-25T20:01:12+03:00</updated><id>http://localhost:4000/general/2020/11/25/libreoffice</id><content type="html" xml:base="http://localhost:4000/general/2020/11/25/libreoffice.html">&lt;p&gt;I’m happy to announce that I made my first contribution on &lt;a href=&quot;https://www.libreoffice.org/&quot;&gt;LibreOffice&lt;/a&gt; project.&lt;/p&gt;
+&lt;p&gt;Yılın ilk günü hard diskinizin bozulması iyi bir yılbaşı hediyesi olmasa da &lt;code class=&quot;highlighter-rouge&quot;&gt;ddrescue&lt;/code&gt; ile verilerin nasıl kurtarılacağı konusunu öğrenmek iyi bir başlangıç olarak sayılabilir.&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde ...the superblock is corrupt... hatasını gördüm. Kullandığım HDD üzerinde daha önce bad sector problemi oluşmuştu ve sadece read-only hatası vermişti.</summary></entry><entry><title type="html">Contributing to LibreOffice: First patch</title><link href="http://localhost:4000/general/2020/11/25/libreoffice.html" rel="alternate" type="text/html" title="Contributing to LibreOffice: First patch" /><published>2020-11-25T20:01:12+03:00</published><updated>2020-11-25T20:01:12+03:00</updated><id>http://localhost:4000/general/2020/11/25/libreoffice</id><content type="html" xml:base="http://localhost:4000/general/2020/11/25/libreoffice.html">&lt;p&gt;I’m happy to announce that I made my first contribution on &lt;a href=&quot;https://www.libreoffice.org/&quot;&gt;LibreOffice&lt;/a&gt; project.&lt;/p&gt;
 
 &lt;p&gt;About 3 weeks ago, I attended &lt;a href=&quot;https://github.com/mrkara/AcikKaynakGelistirme&quot;&gt;Contributing Free and Open Source Projects with C++&lt;/a&gt; course by Muhammet Kara. First 3 week of the course, we learned basics of C++. After that week, we sent our first patch with other attendees.&lt;/p&gt;
 
@@ -169,7 +175,7 @@ Bellek alanınız ne kadar büyük olursa kurtarma ve bad block tarama işlemler
 
 &lt;p&gt;After the first contribution was approved to merge into LibreOffice core repository, LibreOffice team sent an email to congratulate &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/106489&quot;&gt;my first merged patch&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I’m so proud of being a part of the project. Thanks to all LibreOffice teams and developers.&lt;/p&gt;</content><author><name></name></author><summary type="html">I’m happy to announce that I made my first contribution on LibreOffice project.</summary></entry><entry><title type="html">Git: Updating a forked repository</title><link href="http://localhost:4000/general/2020/11/07/sync-fork.html" rel="alternate" type="text/html" title="Git: Updating a forked repository" /><published>2020-11-07T12:34:14+03:00</published><updated>2020-11-07T12:34:14+03:00</updated><id>http://localhost:4000/general/2020/11/07/sync-fork</id><content type="html" xml:base="http://localhost:4000/general/2020/11/07/sync-fork.html">&lt;p&gt;Update your local repository to keep it up-to-date.&lt;/p&gt;
+&lt;p&gt;I’m so proud of being a part of the project. Thanks to all LibreOffice teams and developers.&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">I’m happy to announce that I made my first contribution on LibreOffice project.</summary></entry><entry><title type="html">Git: Updating a forked repository</title><link href="http://localhost:4000/general/2020/11/07/sync-fork.html" rel="alternate" type="text/html" title="Git: Updating a forked repository" /><published>2020-11-07T12:34:14+03:00</published><updated>2020-11-07T12:34:14+03:00</updated><id>http://localhost:4000/general/2020/11/07/sync-fork</id><content type="html" xml:base="http://localhost:4000/general/2020/11/07/sync-fork.html">&lt;p&gt;Update your local repository to keep it up-to-date.&lt;/p&gt;
 
 &lt;pre&gt;
 $ git pull origin main
@@ -193,7 +199,7 @@ Fast-forward
 &lt;pre&gt;
 $ git status
 On branch main
-Your branch is up to date with 'origin/main'.
+Your branch is up to date with &apos;origin/main&apos;.
 
 nothing to commit, working tree clean
 &lt;/pre&gt;
@@ -227,8 +233,8 @@ From https://&amp;lt;original_repo&amp;gt;
 &lt;p&gt;Switch to your master branch.&lt;/p&gt;
 &lt;pre&gt;
 $ git checkout main
-Already on 'main'
-Your branch is up to date with 'origin/main'.
+Already on &apos;main&apos;
+Your branch is up to date with &apos;origin/main&apos;.
 &lt;/pre&gt;
 
 &lt;p&gt;Apply upstream changes into your local repository.&lt;/p&gt;
@@ -241,7 +247,7 @@ Successfully rebased and updated refs/heads/main.
 &lt;pre&gt;
 $ git status
 On branch main
-Your branch is ahead of 'origin/main' by 11 commits.
+Your branch is ahead of &apos;origin/main&apos; by 11 commits.
   (use &quot;git push&quot; to publish your local commits)
 
 nothing to commit, working tree clean
@@ -250,7 +256,7 @@ nothing to commit, working tree clean
 &lt;p&gt;Force push the changes into your remote repository.&lt;/p&gt;
 &lt;pre&gt;
 $ git push -f origin main
-&lt;/pre&gt;</content><author><name></name></author><summary type="html">Update your local repository to keep it up-to-date.</summary></entry><entry><title type="html">Android Bluetooth Low Energy - BLE</title><link href="http://localhost:4000/general/2020/10/07/ble-android.html" rel="alternate" type="text/html" title="Android Bluetooth Low Energy - BLE" /><published>2020-10-07T12:01:12+03:00</published><updated>2020-10-07T12:01:12+03:00</updated><id>http://localhost:4000/general/2020/10/07/ble-android</id><content type="html" xml:base="http://localhost:4000/general/2020/10/07/ble-android.html">&lt;p&gt;Bluetooth Low Energy (BLE) (Bluetooth Düşük Enerji), yakın cihazlar arasında küçük miktardaki verilerin klasik Bluetooth’a göre hem daha hızlı transfer edilmesini sağlayan hem de daha az enerji gerektiren bir teknolojidir. Bu sayede BLE, nesnelerin interneti alanında oldukça fazla kullanılmaktadır.&lt;/p&gt;
+&lt;/pre&gt;</content><author><name></name></author><category term="general" /><summary type="html">Update your local repository to keep it up-to-date.</summary></entry><entry><title type="html">Android Bluetooth Low Energy - BLE</title><link href="http://localhost:4000/general/2020/10/07/ble-android.html" rel="alternate" type="text/html" title="Android Bluetooth Low Energy - BLE" /><published>2020-10-07T12:01:12+03:00</published><updated>2020-10-07T12:01:12+03:00</updated><id>http://localhost:4000/general/2020/10/07/ble-android</id><content type="html" xml:base="http://localhost:4000/general/2020/10/07/ble-android.html">&lt;p&gt;Bluetooth Low Energy (BLE) (Bluetooth Düşük Enerji), yakın cihazlar arasında küçük miktardaki verilerin klasik Bluetooth’a göre hem daha hızlı transfer edilmesini sağlayan hem de daha az enerji gerektiren bir teknolojidir. Bu sayede BLE, nesnelerin interneti alanında oldukça fazla kullanılmaktadır.&lt;/p&gt;
 
 &lt;p&gt;Çalıştığımız bir projede Android üzerinde BLE kullanmamız gerekti ve her ne kadar BLE’nin Android üzerinde uygulanışı biraz sancılı olsa da en azından verinin karşıdaki cihaza aktarımını gerçekleştirebildik.&lt;/p&gt;
 
@@ -326,7 +332,7 @@ $ git push -f origin main
             &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
                 &lt;span class=&quot;nc&quot;&gt;BluetoothProfile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;STATE_CONNECTED&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
                     &lt;span class=&quot;nc&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;STATE_CONNECTED&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;to  $deviceAddress&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;gatt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;requestMtu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;gatt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;requestMtu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
                 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
                 &lt;span class=&quot;nc&quot;&gt;BluetoothProfile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;STATE_DISCONNECTED&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
                     &lt;span class=&quot;nc&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;STATE_DIS_connected&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;STATE_DIS_connected&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -334,7 +340,7 @@ $ git push -f origin main
                 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;mDeviceState&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;mDeviceState&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
             &lt;span class=&quot;nc&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
                 &lt;span class=&quot;s&quot;&gt;&quot;onConnectionStateChange&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                 &lt;span class=&quot;s&quot;&gt;&quot;Error $status encountered for $deviceAddress! Disconnecting...&quot;&lt;/span&gt;
@@ -394,7 +400,7 @@ $ git push -f origin main
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-kotlin&quot; data-lang=&quot;kotlin&quot;&gt;&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;handler&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// Stops scanning after 10 seconds.&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;SCAN_PERIOD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10000&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;SCAN_PERIOD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;scanLeDevice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mScanning&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Stops scanning after a pre-defined scan period.&lt;/span&gt;
@@ -413,7 +419,7 @@ $ git push -f origin main
 &lt;p&gt;Bağlanılan cihaza gönderilecek veri &lt;code class=&quot;highlighter-rouge&quot;&gt;byte array&lt;/code&gt; tipine dönüştürülmesi gerekir.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-kotlin&quot; data-lang=&quot;kotlin&quot;&gt;&lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;byteArray&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&quot;{'data': '$data'}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toByteArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;{&apos;data&apos;: &apos;$data&apos;}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toByteArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Daha sonra &lt;code class=&quot;highlighter-rouge&quot;&gt;characteristic&lt;/code&gt; ve &lt;code class=&quot;highlighter-rouge&quot;&gt;mConnectedGatt&lt;/code&gt; değişkenleri &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; durumundan farklı ise veriyi BLE cihazına göndermek gerekir.&lt;/p&gt;
 
@@ -438,7 +444,7 @@ Kaynaklar:&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;https://punchthrough.com/android-ble-guide/&quot;&gt;https://punchthrough.com/android-ble-guide/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.bluetooth.com/specifications/GATT/&quot;&gt;https://www.bluetooth.com/specifications/GATT/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developer.android.com/guide/topics/connectivity/bluetooth-le&quot;&gt;https://developer.android.com/guide/topics/connectivity/bluetooth-le&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Bluetooth Low Energy (BLE) (Bluetooth Düşük Enerji), yakın cihazlar arasında küçük miktardaki verilerin klasik Bluetooth’a göre hem daha hızlı transfer edilmesini sağlayan hem de daha az enerji gerektiren bir teknolojidir. Bu sayede BLE, nesnelerin interneti alanında oldukça fazla kullanılmaktadır.</summary></entry><entry><title type="html">Disk ve Bad Sector Problemi</title><link href="http://localhost:4000/general/2020/07/11/disk-bad-sector.html" rel="alternate" type="text/html" title="Disk ve Bad Sector Problemi" /><published>2020-07-11T07:52:48+03:00</published><updated>2020-07-11T07:52:48+03:00</updated><id>http://localhost:4000/general/2020/07/11/disk-bad-sector</id><content type="html" xml:base="http://localhost:4000/general/2020/07/11/disk-bad-sector.html">&lt;p&gt;Kullandığım cihazda sürekli &lt;a href=&quot;https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system&quot;&gt;şuradaki&lt;/a&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;read-only file system&lt;/code&gt; problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve &lt;a href=&quot;https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system/1213927#1213927&quot;&gt;şurada&lt;/a&gt; yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki &lt;code class=&quot;highlighter-rouge&quot;&gt;fiziksel&lt;/code&gt; bir problem olabileceğini öğrendim.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="general" /><summary type="html">Bluetooth Low Energy (BLE) (Bluetooth Düşük Enerji), yakın cihazlar arasında küçük miktardaki verilerin klasik Bluetooth’a göre hem daha hızlı transfer edilmesini sağlayan hem de daha az enerji gerektiren bir teknolojidir. Bu sayede BLE, nesnelerin interneti alanında oldukça fazla kullanılmaktadır.</summary></entry><entry><title type="html">Disk ve Bad Sector Problemi</title><link href="http://localhost:4000/general/2020/07/11/disk-bad-sector.html" rel="alternate" type="text/html" title="Disk ve Bad Sector Problemi" /><published>2020-07-11T07:52:48+03:00</published><updated>2020-07-11T07:52:48+03:00</updated><id>http://localhost:4000/general/2020/07/11/disk-bad-sector</id><content type="html" xml:base="http://localhost:4000/general/2020/07/11/disk-bad-sector.html">&lt;p&gt;Kullandığım cihazda sürekli &lt;a href=&quot;https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system&quot;&gt;şuradaki&lt;/a&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;read-only file system&lt;/code&gt; problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve &lt;a href=&quot;https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system/1213927#1213927&quot;&gt;şurada&lt;/a&gt; yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki &lt;code class=&quot;highlighter-rouge&quot;&gt;fiziksel&lt;/code&gt; bir problem olabileceğini öğrendim.&lt;/p&gt;
 
 &lt;p&gt;HDD disklerindeki &lt;code class=&quot;highlighter-rouge&quot;&gt;sector&lt;/code&gt; kısımları zamanla fiziksel olarak zarar görebiliyor. &lt;code class=&quot;highlighter-rouge&quot;&gt;Bad sector&lt;/code&gt; kısımlarına veri okuma-yazma işlemleri yapılmak istendiğinde işletim sistemi bir problem olduğunu farkediyor ve güvenlik açısından kendisinin yüklü olduğu disk kısmını read-only haline getiriyor. Baştan beri yaşadığım problem buydu.&lt;/p&gt;
 
@@ -449,7 +455,7 @@ Kaynaklar:&lt;/p&gt;
 &lt;p&gt;Diskte ne kadar bad sector olduğunu bulmadan önce diskteki her bir sector’ün boyutunu öğrenmeliyiz.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo tune2fs -l /dev/sda1 | grep -i 'block size'&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo tune2fs -l /dev/sda1 | grep -i &apos;block size&apos;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p align=&quot;center&quot;&gt;
@@ -497,7 +503,7 @@ Son olarak diskin, hatalı blokları görmezden gelmesi sağlanmalıdır.&lt;/p&
 
 &lt;p align=&quot;center&quot;&gt;
   &lt;img src=&quot;https://bayramcicek.com.tr/folder/bad-blocks/6-badblocks-added.png&quot; alt=&quot;badblocks-added&quot; /&gt;
-&lt;/p&gt;</content><author><name></name></author><summary type="html">Kullandığım cihazda sürekli şuradaki read-only file system problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve şurada yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki fiziksel bir problem olabileceğini öğrendim.</summary></entry><entry><title type="html">HDD ve SSD Hız Karşılaştırması</title><link href="http://localhost:4000/general/2020/07/10/hdd-ssd.html" rel="alternate" type="text/html" title="HDD ve SSD Hız Karşılaştırması" /><published>2020-07-10T05:12:03+03:00</published><updated>2020-07-10T05:12:03+03:00</updated><id>http://localhost:4000/general/2020/07/10/hdd-ssd</id><content type="html" xml:base="http://localhost:4000/general/2020/07/10/hdd-ssd.html">&lt;p&gt;Bilgisayarları hızlandırmak için ek &lt;code class=&quot;highlighter-rouge&quot;&gt;RAM&lt;/code&gt; eklemek her zaman çözüm olmayabilir. Bir bilgisayarın &lt;code class=&quot;highlighter-rouge&quot;&gt;RAM&lt;/code&gt; hafızası yeterliyse ve &lt;code class=&quot;highlighter-rouge&quot;&gt;HDD&lt;/code&gt; ile çalıştırılıyor ise sadece &lt;code class=&quot;highlighter-rouge&quot;&gt;SSD&lt;/code&gt; eklenerek hızlandırılabilir.&lt;/p&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">Kullandığım cihazda sürekli şuradaki read-only file system problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve şurada yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki fiziksel bir problem olabileceğini öğrendim.</summary></entry><entry><title type="html">HDD ve SSD Hız Karşılaştırması</title><link href="http://localhost:4000/general/2020/07/10/hdd-ssd.html" rel="alternate" type="text/html" title="HDD ve SSD Hız Karşılaştırması" /><published>2020-07-10T05:12:03+03:00</published><updated>2020-07-10T05:12:03+03:00</updated><id>http://localhost:4000/general/2020/07/10/hdd-ssd</id><content type="html" xml:base="http://localhost:4000/general/2020/07/10/hdd-ssd.html">&lt;p&gt;Bilgisayarları hızlandırmak için ek &lt;code class=&quot;highlighter-rouge&quot;&gt;RAM&lt;/code&gt; eklemek her zaman çözüm olmayabilir. Bir bilgisayarın &lt;code class=&quot;highlighter-rouge&quot;&gt;RAM&lt;/code&gt; hafızası yeterliyse ve &lt;code class=&quot;highlighter-rouge&quot;&gt;HDD&lt;/code&gt; ile çalıştırılıyor ise sadece &lt;code class=&quot;highlighter-rouge&quot;&gt;SSD&lt;/code&gt; eklenerek hızlandırılabilir.&lt;/p&gt;
 
 &lt;p&gt;HDD’nin istenilen verilere erişmesi için arama başlığını &lt;code class=&quot;highlighter-rouge&quot;&gt;fiziksel&lt;/code&gt; olarak hareket ettirip doğru &lt;code class=&quot;highlighter-rouge&quot;&gt;track&lt;/code&gt; kısmını bulduktan sonra o track’teki doğru &lt;code class=&quot;highlighter-rouge&quot;&gt;sector&lt;/code&gt; kısmını bulmalıdır. Bu da çok fazla zaman kaybına yol açar. SDD ise bir veriye erişmek için verinin bulunduğu yere -hızlı fiziksel aracılar sayesinde- direkt bir &lt;code class=&quot;highlighter-rouge&quot;&gt;komut&lt;/code&gt; gönderir ve veri hazır hale gelir. Böylece SSD, bir veriye HDD disklerden daha hızlı erişim sağlar. SSD’nin bu üstünlükleri tabii ki fiyatlarına da yansır.&lt;/p&gt;
 
@@ -525,155 +531,4 @@ Son olarak diskin, hatalı blokları görmezden gelmesi sağlanmalıdır.&lt;/p&
       &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100−((30÷123)×100)&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;%75,6&lt;/code&gt; daha &lt;code class=&quot;highlighter-rouge&quot;&gt;hızlı&lt;/code&gt; kullanıma hazır olma.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Bilgisayarları hızlandırmak için ek RAM eklemek her zaman çözüm olmayabilir. Bir bilgisayarın RAM hafızası yeterliyse ve HDD ile çalıştırılıyor ise sadece SSD eklenerek hızlandırılabilir.</summary></entry><entry><title type="html">Git: commit’ler nasıl geri alınır/silinir?</title><link href="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html" rel="alternate" type="text/html" title="Git: commit'ler nasıl geri alınır/silinir?" /><published>2020-04-15T12:25:06+03:00</published><updated>2020-04-15T12:25:06+03:00</updated><id>http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir</id><content type="html" xml:base="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html">&lt;p&gt;Github üzerinde yaptığım son 10 commit’i geri almak yani silmek istedim. Bu işlemin Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Öncelikle uzak sunucudaki depoyu yerelinize kopyalayın ve depo dizinine girin:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git clone &amp;lt;link&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ cd ./&amp;lt;depo-adı&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sondan kaçıncı commit’ten itibaren silmeniz gerektiğini öğrenmek için ya Github vb. gibi bir uzak sunucudan bakmalısınız ya da komut satırından şu şekilde bakmalısınız:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git log&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Burada önünüze son commit’ten eskiye doğru giden bir sayfa gelmelidir. Burada kaç commit silmek istediğinizi belirleyin.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Son 10 commit’i silmek istediğimizi varsayalım.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Son 10 commit’i silmek için son 12. commit’in commit_ID’sini öğrenmek istiyor olalım:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git log -n 12&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Önünüze çıkan commit’lerde en aşağı indiğinizde bu 12. commit olacaktır. 12. commit’in ID’sini kopyalayın. (örn: df11d552bc6a38e7z3e229f969d44be65ed1998d)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Aşağıdaki komutu çalıştırdığınızda önünüze son 11 commit’in olduğu bir dosya açılacak:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase -i df11d552bc6a38e7z3e229f969d44be65ed1998d&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;(burada öğrenmiş oluyoruz ki &lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase -i &amp;lt;x'inci commit_ID&amp;gt;&lt;/code&gt;,  bize son &lt;code class=&quot;highlighter-rouge&quot;&gt;(x-1)&lt;/code&gt;‘inci commit’leri gösteriyor.)&lt;/p&gt;
-
-&lt;p&gt;Önünüzdeki dosyada en üstteki commit en eski commit, en alttaki de en yeni yapılmış(son) commit olacaktır. Biz son 10 commit’i silmek istiyorduk. Öyleyse en üstteki commit hariç(çünkü en üstteki commit son 11. commit), altındaki 10 commit’i silip dosyayı kaydedip kapatıyoruz.&lt;/p&gt;
-
-&lt;p&gt;(Aslında &lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase -i x&lt;/code&gt; yazarken sadece silmek istediğimiz commit’lerin gösterilmesini isteyebiliriz fakat son 10 commit’i silmek istediğimizde kalacak sonuncu commit’i görmek, hatalı bir işlem yapılması ihtimalinin önüne geçebilir.)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;İşlemin yapıldığından emin olmak için commit’leri kontrol edelim:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git status&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Burada yerelimizde bulunan commit’lerin uzak sunucudaki commit’lerden 10 geri(behind) olduğunu görmelisiniz ki istediğimiz şey de buydu zaten.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Son olarak değişiklikleri uzak sunucuya yollayıp uzak sunucudaki sayfanızı yenileyin:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git push -f origin master&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;i&gt;(-f -&amp;gt; force-push, –force)&lt;/i&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Github üzerinde yaptığım son 10 commit’i geri almak yani silmek istedim. Bu işlemin Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.</summary></entry><entry><title type="html">PCIe Bus Error: severity=Corrected problem after booting into Ubuntu</title><link href="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html" rel="alternate" type="text/html" title="PCIe Bus Error: severity=Corrected problem after booting into Ubuntu" /><published>2020-03-01T21:18:28+03:00</published><updated>2020-03-01T21:18:28+03:00</updated><id>http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected</id><content type="html" xml:base="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html">&lt;ul&gt;
-  &lt;li&gt;This post is the mirror of &lt;a href=&quot;https://askubuntu.com/a/1222375/829928&quot;&gt;my answer&lt;/a&gt; on StackOverFlow:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I always have the same issue when reinstall &lt;code class=&quot;highlighter-rouge&quot;&gt;Ubuntu 18.04.4&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;ASUS X555UQ Laptop&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Answers of &lt;a href=&quot;https://askubuntu.com/questions/771899/pcie-bus-error-severity-corrected&quot;&gt;this&lt;/a&gt; question on StackOverFlow helped me a lot about adding which parameter to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/default/grub/&lt;/code&gt; but I can’t reach terminal (also tty), because after installing OS via live usb, it gives a blank screen(or mentioned issue) instead of login screen.&lt;/p&gt;
-
-&lt;p&gt;Then I thought that I have to get to the GRUB menu at boot-time so, according to this link &lt;a href=&quot;https://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time&quot;&gt;how to get to the GRUB menu at boot-time&lt;/a&gt;, pressing &lt;code class=&quot;highlighter-rouge&quot;&gt;esc&lt;/code&gt; while booting did not cause the GRUB menu to appear. It shows &lt;code class=&quot;highlighter-rouge&quot;&gt;please select boot device&lt;/code&gt; section for me.&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/boot-device.jpg&quot; alt=&quot;boot-device&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Then I pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;Enter&lt;/code&gt; to boot again and while booting, pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;esc&lt;/code&gt; again. Finally it reached to the GRUB menu and I pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt; to edit the commands(this page starts with &lt;code class=&quot;highlighter-rouge&quot;&gt;set params 'Ubuntu'&lt;/code&gt;). Then I added &lt;code class=&quot;highlighter-rouge&quot;&gt;pci=nomsi&lt;/code&gt; to end of the line starting with &lt;code class=&quot;highlighter-rouge&quot;&gt;linux&lt;/code&gt; and pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;F10&lt;/code&gt; to boot.&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/grub.jpg&quot; alt=&quot;grub&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/params.jpg&quot; alt=&quot;params&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;After this operation, I was able to reach login screen and terminal. Then I followed the &lt;a href=&quot;https://askubuntu.com/a/926352/829928&quot;&gt;@Ujjal Kumar Das’s&lt;/a&gt; answer on StackOverFlow and updated my &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/default/grub/&lt;/code&gt; file permanently.&lt;/p&gt;
-
-&lt;p&gt;Maybe this method works for the users who have the same laptop model like me. I like using Ubuntu, but this issue is so annoying every time.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">This post is the mirror of my answer on StackOverFlow:</summary></entry><entry><title type="html">Heap ve Stack: Bellek Birimlerine Genel Bakış</title><link href="http://localhost:4000/general/2020/02/02/heap-vs-stack.html" rel="alternate" type="text/html" title="Heap ve Stack: Bellek Birimlerine Genel Bakış" /><published>2020-02-02T21:36:01+03:00</published><updated>2020-02-02T21:36:01+03:00</updated><id>http://localhost:4000/general/2020/02/02/heap-vs-stack</id><content type="html" xml:base="http://localhost:4000/general/2020/02/02/heap-vs-stack.html">&lt;ul&gt;
-  &lt;li&gt;Stack&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;stack&lt;/code&gt;, bilgisayar hafızasının özel bir bölümüdür. Bilgisayar tarafından
-kontrol edir yani otomatiktir ve programcı bu alana manuel olarak müdahale etmesi
-gerekmez. &lt;i&gt;main()&lt;/i&gt; fonksiyonu dahil fonksiyonların ürettiği geçici değerler tutulur.
-&lt;i&gt;LIFO (last in, first out)&lt;/i&gt; veri yapısına sahiptir.&lt;/p&gt;
-
-&lt;p&gt;Fonksiyonların &lt;i&gt;stack&lt;/i&gt; bölgesine eklediği veya çıkardığı geçici değişkenler
-ölçüsünde &lt;i&gt;stack&lt;/i&gt; bölgesi, genişler veya daralır. Değişkenler otomatik olarak tahsis
-edilir ve serbest bırakılır. İşletim sistemine bağlı olarak boyut sınırlara sahiptir. &lt;i&gt;Stack&lt;/i&gt;
-değişkenleri, onları oluşturan fonksiyonlar hayatta	 olduğu sürece vardır.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Heap&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;heap&lt;/code&gt;, bilgisayarın hafızasının otomatik olarak yönetilmediği bölümüdür.
-&lt;i&gt;Heap&lt;/i&gt; bölümünde bellek tahsisi için &lt;code class=&quot;highlighter-rouge&quot;&gt;malloc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;calloc&lt;/code&gt; veya &lt;code class=&quot;highlighter-rouge&quot;&gt;realloc&lt;/code&gt; fonksiyonları
-çağırılmalıdır. Tahsis edilen bellek ünitesi yine manuel olarak &lt;code class=&quot;highlighter-rouge&quot;&gt;free&lt;/code&gt; ile serbest
-bırakılması gerekir. Bu işlemler programcının sorumluluğundadır. Eğer bir hata
-çıkarsa buna &lt;i&gt;memory leak&lt;/i&gt; denir.&lt;/p&gt;
-
-&lt;p&gt;&lt;i&gt;Stack&lt;/i&gt; bölümünün aksine &lt;i&gt;heap&lt;/i&gt; bölümünde değişkenler üzerinde (fiziksel
-sınırlar dışında) bir sınırlama yoktur. &lt;i&gt;Heap&lt;/i&gt; bölgesi çok az da olsa &lt;i&gt;stack&lt;/i&gt; bölgesine göre
-daha yavaştır çünkü &lt;i&gt;heap&lt;/i&gt; bölgesine erişim için &lt;i&gt;pointer&lt;/i&gt;’lara ihtiyacınız vardır.&lt;/p&gt;
-
-&lt;p&gt;&lt;i&gt;Stack&lt;/i&gt; bölgesinin aksine &lt;i&gt;heap&lt;/i&gt; bölgesinde oluşturulan değişkenler programdaki
-herhangi bir fonksiyon tarafından erişilebilir. &lt;i&gt;Heap&lt;/i&gt; değişkenleri esasında global
-değişkenlerdir. &lt;i&gt;Heap&lt;/i&gt;, kendi bölgesinin en etkili bir biçimde kullanıldığını garanti
-etmez.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/heap_stack.png&quot; alt=&quot;heap_stack&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;stack--heap-kullanım-alanları--&quot;&gt;Stack – Heap Kullanım Alanları  &lt;br /&gt;&lt;/h3&gt;
-
-&lt;p&gt;Eğer hafızada büyük yer kaplayacak veri yapıları kullanacaksanız (mesela
-büyük diziler veya geniş struct yapıları) bu verileri uzun süre tutmak gerektiğinden
-heap üzerinde tutmak daha mantıklıdır.&lt;/p&gt;
-
-&lt;p&gt;Eğer sadece ilgili fonksiyon çalışırken kullanmamız gereken değişkenlere
-sahipsek bunları stack bölümünde tutabiliriz (bu daha hızlı ve basit olur).&lt;/p&gt;
-
-&lt;p&gt;Eğer diziler ve struct yapıları gibi boyutları değişmesi muhtemel olan
-yapılar kullanılacak ise bunları &lt;em&gt;heap&lt;/em&gt;	
-bölümünde tahsis etmeli ve dinamik bellek tahsisini manuel olarak yönetmemizi sağlayan 
-&lt;code class=&quot;highlighter-rouge&quot;&gt;malloc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;calloc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;realloc&lt;/code&gt; ve &lt;code class=&quot;highlighter-rouge&quot;&gt;free&lt;/code&gt; fonksiyonlarını kullanmamız gerekir.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;2019 güz döneminde hazırladığım dönem sonu bitirme projesinden alıntılanmıştır. Kaynaklar:&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Ritchie, D.M. ve Kernighan, B.W. 1988. &lt;em&gt;The C Programming Language&lt;/em&gt;.
-Prentice-Hall, Chapter 5, 7, 8 and Appendix B.5&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Gribble, P. (2012). &lt;em&gt;Memory: Stack vs Heap. Summer 2012&lt;/em&gt;, University of
-Western from &lt;a href=&quot;https://gribblelab.org/CBootCamp/7_Memory_Stack_vs_Heap.html&quot;&gt;https://gribblelab.org/CBootCamp/7_Memory_Stack_vs_Heap.html&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Stack</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="general" /><summary type="html">Bilgisayarları hızlandırmak için ek RAM eklemek her zaman çözüm olmayabilir. Bir bilgisayarın RAM hafızası yeterliyse ve HDD ile çalıştırılıyor ise sadece SSD eklenerek hızlandırılabilir.</summary></entry></feed>

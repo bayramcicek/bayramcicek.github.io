@@ -1,0 +1,8 @@
+---
+layout: post
+title: My ways to live life.
+date:   2021-02-23 14:42:56 +0300
+categories: libreoffice-dev
+---
+
+HEY!

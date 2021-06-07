@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Simian: copy/paste code detector/fixing | bayram cicek’s website</title>
-<meta name="generator" content="Jekyll v4.0.0" />
+<meta name="generator" content="Jekyll v4.0.1" />
 <meta property="og:title" content="Simian: copy/paste code detector/fixing" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files." />
@@ -14,10 +14,12 @@
 <meta property="og:site_name" content="bayram cicek’s website" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-02-20T18:03:46+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Simian: copy/paste code detector/fixing" />
 <script type="application/ld+json">
-{"headline":"Simian: copy/paste code detector/fixing","url":"http://localhost:4000/general/2021/02/20/simian.html","dateModified":"2021-02-20T18:03:46+03:00","datePublished":"2021-02-20T18:03:46+03:00","description":"Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2021/02/20/simian.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2021/02/20/simian.html"},"url":"http://localhost:4000/general/2021/02/20/simian.html","headline":"Simian: copy/paste code detector/fixing","dateModified":"2021-02-20T18:03:46+03:00","datePublished":"2021-02-20T18:03:46+03:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bayram cicek's website" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bayram cicek&apos;s website" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">bayram cicek&#39;s website</a><nav class="site-nav">
@@ -30,7 +32,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About / Hakkımda</a></div>
+        <div class="trigger"><a class="page-link" href="/libreoffice/">LibreOffice</a><a class="page-link" href="/about/">About / Hakkımda</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -125,7 +127,7 @@ convertDuration(double&amp; rfTime, std::string_view rString)
 <p>Since two functions are include the same data type of <code class="highlighter-rouge">rfTime</code> variables, there is no need to create a <code class="highlighter-rouge">template</code>. However, data type of <code class="highlighter-rouge">rString</code> variables are different. Consequently we have to create a template only for rString.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/** helper function of Converter::convertDuration */</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">V</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">V</span><span class="p">&gt;</span>
 <span class="k">static</span> <span class="kt">bool</span> <span class="nf">convertDurationHelper</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">rfTime</span><span class="p">,</span> <span class="n">V</span> <span class="n">pStr</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="c1">// negative time duration?</span>

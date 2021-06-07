@@ -4,7 +4,8 @@ title: About / Hakkımda
 permalink: /about/
 ---
 
-I'm currently working on IoT and LibreOffice.
+Hi. I'm Bayram Çiçek. <br>
+I'm currently doing my summer internship at LibreOffice as a Google Summer of Code Student.
 
 ___
 
@@ -19,6 +20,8 @@ ___
 github: [github.com/bayramcicek]
 
 gitlab: [gitlab.com/bayramcicek]
+
+libreoffice: [gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr]
 
 stackoverflow: [stackoverflow.com/users/10376542/bayramcicek]
 
@@ -58,6 +61,7 @@ You can find the source code for Jekyll at GitHub:
 
 [github.com/bayramcicek]: https://github.com/bayramcicek/
 [gitlab.com/bayramcicek]: https://gitlab.com/bayramcicek
+[gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr]: https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr
 [stackoverflow.com/users/10376542/bayramcicek]: https://stackoverflow.com/users/10376542/bayramcicek?tab=profile
 
 [linkedin.com/in/bayramcicek/]: https://www.linkedin.com/in/bayramcicek/
