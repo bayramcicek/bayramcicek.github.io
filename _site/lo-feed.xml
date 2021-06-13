@@ -5,14 +5,14 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.com.tr/libreoffice/</link>
         <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 13 Jun 2021 12:26:54 +0300</pubDate>
-        <lastBuildDate>Sun, 13 Jun 2021 12:26:54 +0300</lastBuildDate>
+        <pubDate>Sun, 13 Jun 2021 13:55:33 +0300</pubDate>
+        <lastBuildDate>Sun, 13 Jun 2021 13:55:33 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
         
             <item>
                 <title>Week #1 - GSoC Weekly Report - 100 Paper Cuts</title>
                 <author>Bayram Çiçek</author>
-                <description>&lt;p&gt;&lt;em&gt;Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews.&lt;/em&gt;&lt;/p&gt;
+                <description>&lt;p&gt;&lt;em&gt;Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews; and thanks to everyone who helped me a lot for finding code pointers.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Hi all. I want to share my current progress for week #1.&lt;/p&gt;
 

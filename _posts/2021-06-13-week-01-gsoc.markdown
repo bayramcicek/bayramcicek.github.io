@@ -5,7 +5,7 @@ date:   2021-06-13 08:30:12 +0300
 categories: libreoffice-dev
 ---
 
-_Thanks to my '100 Paper Cuts' project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews._
+_Thanks to my '100 Paper Cuts' project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews; and thanks to everyone who helped me a lot for finding code pointers._
 
 Hi all. I want to share my current progress for week #1.
 
