@@ -3,11 +3,157 @@
     <channel>
         <title>Bayram Çiçek&apos;s website</title>
         <description>All content written by me is by default released freely under the Public License.</description>
-        <link>https://bayramcicek.com.tr/</link>
+        <link>https://bayramcicek.com.tr/libreoffice/</link>
         <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 11 Jun 2021 01:48:35 +0300</pubDate>
-        <lastBuildDate>Fri, 11 Jun 2021 01:48:35 +0300</lastBuildDate>
+        <pubDate>Sun, 13 Jun 2021 12:26:54 +0300</pubDate>
+        <lastBuildDate>Sun, 13 Jun 2021 12:26:54 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>Week #1 - GSoC Weekly Report - 100 Paper Cuts</title>
+                <author>Bayram Çiçek</author>
+                <description>&lt;p&gt;&lt;em&gt;Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Hi all. I want to share my current progress for week #1.&lt;/p&gt;
+
+&lt;h3 id=&quot;mouseover-effect-added-to-palettes-in-the-area-tab&quot;&gt;Mouseover effect added to palettes in the Area tab&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=109388&quot;&gt;tdf#109388&lt;/a&gt; - UI:No mouseover effect for the different palettes in the Area tab&lt;/li&gt;
+  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116395&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116395&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Mouseover effect wasn’t showing in palettes on Color, Gradient, Bitmap, Pattern and Hatch sections. These sections are located at &lt;code class=&quot;highlighter-rouge&quot;&gt;Format &amp;gt; Page Style... &amp;gt; Area&lt;/code&gt; Tab.&lt;/p&gt;
+
+&lt;p&gt;Since &lt;code class=&quot;highlighter-rouge&quot;&gt;Font Color&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Highlight Color&lt;/code&gt; palettes have the mouseover effect, I tried to find code pointers for them to understand how mouseover effect is shown in the code.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// ValueSet&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;m_xValSetColorList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_xValSetColorList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;WB_FLATVALUESET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WB_ITEMBORDER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WB_NO_DIRECTSELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WB_TABSTOP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;WB(WinBits) are showing the styles of palettes and &lt;code class=&quot;highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt; does the mouseover effect on the palettes. In some sections &lt;code class=&quot;highlighter-rouge&quot;&gt;SetStyle()&lt;/code&gt; wasn’t set. The ones that have the SetStyle(), didn’t have the &lt;code class=&quot;highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt;. I just added the &lt;code class=&quot;highlighter-rouge&quot;&gt;SetStyle()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt; within it. Now, mouseover effect works fine on the Area Tab.&lt;/p&gt;
+
+&lt;p&gt;Before: No mouseover effect:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/before_hover.png&quot; alt=&quot;before_hover.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/after_hover.png&quot; alt=&quot;after_hover.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	***
+&lt;/p&gt;
+
+&lt;h3 id=&quot;fix-opposite-cropping-issue-on-flipped-images-in-writer&quot;&gt;Fix opposite cropping issue on flipped images in Writer&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=104995&quot;&gt;tdf#104995&lt;/a&gt; - Cropping flipped images occurs at the wrong side&lt;/li&gt;
+  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116770&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116770&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Another annoying issue in LibreOffice.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Add an image in Writer.&lt;/li&gt;
+  &lt;li&gt;Right-click &amp;gt; Rotate or Flip &amp;gt; Flip Vertically/Horizontally&lt;/li&gt;
+  &lt;li&gt;Try to crop the image.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Cropping will occur at the opposite side of the image.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If flipped vertically, trying to crop top will crop the bottom.&lt;/li&gt;
+  &lt;li&gt;If flipped horizontally, trying to crop right will crop the left.(the same goes to the other sides.)&lt;/li&gt;
+  &lt;li&gt;If flipped both vertically and horizontally, crop doesn’t work any side of the image.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’ve spend about 3-4 days to find code pointers because ‘flipping’ is mentioned as ‘mirroring’ in the code.&lt;/p&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;sw/source/core/graphic/ndgrf.cxx&lt;/code&gt;, flipping flags are set to &lt;code class=&quot;highlighter-rouge&quot;&gt;GraphicAttr&amp;amp; rGA&lt;/code&gt; in the function &lt;code class=&quot;highlighter-rouge&quot;&gt;SwGrfNode::GetGraphicAttr(...)&lt;/code&gt;. Crop values are applied to &lt;code class=&quot;highlighter-rouge&quot;&gt;rGA.SetCrop&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetMirrorFlags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nMirror&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwCropGrf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetCropGrf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetBottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then, I thought that what if we also mirror the &lt;code class=&quot;highlighter-rouge&quot;&gt;crop values&lt;/code&gt; alongside the image?&lt;/p&gt;
+
+&lt;p&gt;Assign Left, Top, Right and Bottom crop values to our new variables to work with easily:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropLeft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropTop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropRight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropBottom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetBottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then, mirror the crop values according to their flipping type:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;// take mirroring of crop values into consideration&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// while cropping a flipped image. otherwise,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// cropping will crop the opposite side of the image.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMirrorFlags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BmpMirrorFlags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vertical&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nCropTop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetBottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nCropBottom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMirrorFlags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BmpMirrorFlags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Horizontal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nCropLeft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nCropRight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Finally, set crop values:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropLeft&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropTop&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropRight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropBottom&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;2 bugs solved:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=109388&quot;&gt;tdf#109388&lt;/a&gt; - UI:No mouseover effect for the different palettes in the Area tab&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=104995&quot;&gt;tdf#104995&lt;/a&gt; - Cropping flipped images occurs at the wrong side&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Commits:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116395&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116395&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116770&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116770&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;current-status&quot;&gt;Current Status&lt;/h3&gt;
+
+&lt;p&gt;Currently, I’m working on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404&quot;&gt;tdf#98404 - UX - While objects on a slide are being edited, notably text boxes, the new slide sorter Ctrl+Shift shortcut combinations (see bug 91909) incorrectly receive focus and move the slide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fix &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404&quot;&gt;tdf#98404&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438 - [FORMATTING] group selection does not work with raster images&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+                <pubDate>Sun, 13 Jun 2021 08:30:12 +0300</pubDate>
+                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/06/13/week-01-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/06/13/week-01-gsoc.html</guid>
+                
+                
+                <category>libreoffice-dev</category>
+                
+            </item>
         
     </channel>
 </rss>

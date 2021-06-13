@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Week #1 - GSoC Weekly Report - 100 Paper Cuts | Bayram Çiçek’s website</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Week #1 - GSoC Weekly Report - 100 Paper Cuts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews." />
+<meta property="og:description" content="Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews." />
+<link rel="canonical" href="http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc.html" />
+<meta property="og:url" content="http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc.html" />
+<meta property="og:site_name" content="Bayram Çiçek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-13T08:30:12+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week #1 - GSoC Weekly Report - 100 Paper Cuts" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc.html"},"description":"Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews.","headline":"Week #1 - GSoC Weekly Report - 100 Paper Cuts","dateModified":"2021-06-13T08:30:12+03:00","url":"http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc.html","datePublished":"2021-06-13T08:30:12+03:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Bayram Çiçek&apos;s website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Bayram Çiçek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/libreoffice/">LibreOffice</a><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Week #1 - GSoC Weekly Report - 100 Paper Cuts</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-06-13T08:30:12+03:00" itemprop="datePublished">Jun 13, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><em>Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews.</em></p>
+
+<p>Hi all. I want to share my current progress for week #1.</p>
+
+<h3 id="mouseover-effect-added-to-palettes-in-the-area-tab">Mouseover effect added to palettes in the Area tab</h3>
+
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=109388">tdf#109388</a> - UI:No mouseover effect for the different palettes in the Area tab</li>
+  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/116395">https://gerrit.libreoffice.org/c/core/+/116395</a></li>
+</ul>
+
+<p>Mouseover effect wasn’t showing in palettes on Color, Gradient, Bitmap, Pattern and Hatch sections. These sections are located at <code class="highlighter-rouge">Format &gt; Page Style... &gt; Area</code> Tab.</p>
+
+<p>Since <code class="highlighter-rouge">Font Color</code> and <code class="highlighter-rouge">Highlight Color</code> palettes have the mouseover effect, I tried to find code pointers for them to understand how mouseover effect is shown in the code.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// ValueSet</span>
+<span class="n">m_xValSetColorList</span><span class="o">-&gt;</span><span class="n">SetStyle</span><span class="p">(</span><span class="n">m_xValSetColorList</span><span class="o">-&gt;</span><span class="n">GetStyle</span><span class="p">()</span> <span class="o">|</span>
+        <span class="n">WB_FLATVALUESET</span> <span class="o">|</span> <span class="n">WB_ITEMBORDER</span> <span class="o">|</span> <span class="n">WB_NO_DIRECTSELECT</span> <span class="o">|</span> <span class="n">WB_TABSTOP</span><span class="p">);</span></code></pre></figure>
+
+<p>WB(WinBits) are showing the styles of palettes and <code class="highlighter-rouge">WB_FLATVALUESET</code> does the mouseover effect on the palettes. In some sections <code class="highlighter-rouge">SetStyle()</code> wasn’t set. The ones that have the SetStyle(), didn’t have the <code class="highlighter-rouge">WB_FLATVALUESET</code>. I just added the <code class="highlighter-rouge">SetStyle()</code> and <code class="highlighter-rouge">WB_FLATVALUESET</code> within it. Now, mouseover effect works fine on the Area Tab.</p>
+
+<p>Before: No mouseover effect:</p>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/before_hover.png" alt="before_hover.png" />
+</p>
+
+<p>After:</p>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/after_hover.png" alt="after_hover.png" />
+</p>
+
+<p><br /></p>
+<p align="center">
+	***
+</p>
+
+<h3 id="fix-opposite-cropping-issue-on-flipped-images-in-writer">Fix opposite cropping issue on flipped images in Writer</h3>
+
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=104995">tdf#104995</a> - Cropping flipped images occurs at the wrong side</li>
+  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/116770">https://gerrit.libreoffice.org/c/core/+/116770</a></li>
+</ul>
+
+<p>Another annoying issue in LibreOffice.</p>
+
+<ol>
+  <li>Add an image in Writer.</li>
+  <li>Right-click &gt; Rotate or Flip &gt; Flip Vertically/Horizontally</li>
+  <li>Try to crop the image.</li>
+</ol>
+
+<p>Cropping will occur at the opposite side of the image.</p>
+
+<ul>
+  <li>If flipped vertically, trying to crop top will crop the bottom.</li>
+  <li>If flipped horizontally, trying to crop right will crop the left.(the same goes to the other sides.)</li>
+  <li>If flipped both vertically and horizontally, crop doesn’t work any side of the image.</li>
+</ul>
+
+<p>I’ve spend about 3-4 days to find code pointers because ‘flipping’ is mentioned as ‘mirroring’ in the code.</p>
+
+<p>In <code class="highlighter-rouge">sw/source/core/graphic/ndgrf.cxx</code>, flipping flags are set to <code class="highlighter-rouge">GraphicAttr&amp; rGA</code> in the function <code class="highlighter-rouge">SwGrfNode::GetGraphicAttr(...)</code>. Crop values are applied to <code class="highlighter-rouge">rGA.SetCrop</code>:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">rGA</span><span class="p">.</span><span class="n">SetMirrorFlags</span><span class="p">(</span> <span class="n">nMirror</span> <span class="p">);</span>
+
+    <span class="k">const</span> <span class="n">SwCropGrf</span><span class="o">&amp;</span> <span class="n">rCrop</span> <span class="o">=</span> <span class="n">rSet</span><span class="p">.</span><span class="n">GetCropGrf</span><span class="p">();</span>
+    <span class="n">rGA</span><span class="p">.</span><span class="n">SetCrop</span><span class="p">(</span> <span class="n">convertTwipToMm100</span><span class="p">(</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetLeft</span><span class="p">()</span> <span class="p">),</span>
+                 <span class="n">convertTwipToMm100</span><span class="p">(</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetTop</span><span class="p">()</span> <span class="p">),</span>
+                 <span class="n">convertTwipToMm100</span><span class="p">(</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetRight</span><span class="p">()</span> <span class="p">),</span>
+                 <span class="n">convertTwipToMm100</span><span class="p">(</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetBottom</span><span class="p">()</span> <span class="p">));</span></code></pre></figure>
+
+<p>Then, I thought that what if we also mirror the <code class="highlighter-rouge">crop values</code> alongside the image?</p>
+
+<p>Assign Left, Top, Right and Bottom crop values to our new variables to work with easily:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">tools</span><span class="o">::</span><span class="n">Long</span> <span class="n">nCropLeft</span> <span class="o">=</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetLeft</span><span class="p">();</span>
+    <span class="n">tools</span><span class="o">::</span><span class="n">Long</span> <span class="n">nCropTop</span> <span class="o">=</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetTop</span><span class="p">();</span>
+    <span class="n">tools</span><span class="o">::</span><span class="n">Long</span> <span class="n">nCropRight</span> <span class="o">=</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetRight</span><span class="p">();</span>
+    <span class="n">tools</span><span class="o">::</span><span class="n">Long</span> <span class="n">nCropBottom</span> <span class="o">=</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetBottom</span><span class="p">();</span></code></pre></figure>
+
+<p>Then, mirror the crop values according to their flipping type:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="c1">// take mirroring of crop values into consideration</span>
+    <span class="c1">// while cropping a flipped image. otherwise,</span>
+    <span class="c1">// cropping will crop the opposite side of the image.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rGA</span><span class="p">.</span><span class="n">GetMirrorFlags</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">BmpMirrorFlags</span><span class="o">::</span><span class="n">Vertical</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">nCropTop</span> <span class="o">=</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetBottom</span><span class="p">();</span>
+        <span class="n">nCropBottom</span> <span class="o">=</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetTop</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">rGA</span><span class="p">.</span><span class="n">GetMirrorFlags</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">BmpMirrorFlags</span><span class="o">::</span><span class="n">Horizontal</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">nCropLeft</span> <span class="o">=</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetRight</span><span class="p">();</span>
+        <span class="n">nCropRight</span> <span class="o">=</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetLeft</span><span class="p">();</span>
+    <span class="p">}</span></code></pre></figure>
+
+<p>Finally, set crop values:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">rGA</span><span class="p">.</span><span class="n">SetCrop</span><span class="p">(</span> <span class="n">convertTwipToMm100</span><span class="p">(</span> <span class="n">nCropLeft</span> <span class="p">),</span>
+                 <span class="n">convertTwipToMm100</span><span class="p">(</span> <span class="n">nCropTop</span> <span class="p">),</span>
+                 <span class="n">convertTwipToMm100</span><span class="p">(</span> <span class="n">nCropRight</span> <span class="p">),</span>
+                 <span class="n">convertTwipToMm100</span><span class="p">(</span> <span class="n">nCropBottom</span> <span class="p">));</span></code></pre></figure>
+
+<h3 id="summary">Summary</h3>
+
+<p>2 bugs solved:</p>
+
+<ul>
+  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=109388">tdf#109388</a> - UI:No mouseover effect for the different palettes in the Area tab</li>
+  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=104995">tdf#104995</a> - Cropping flipped images occurs at the wrong side</li>
+</ul>
+
+<p>Commits:</p>
+
+<ul>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/116395">https://gerrit.libreoffice.org/c/core/+/116395</a></li>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/116770">https://gerrit.libreoffice.org/c/core/+/116770</a></li>
+</ul>
+
+<h3 id="current-status">Current Status</h3>
+
+<p>Currently, I’m working on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404">tdf#98404 - UX - While objects on a slide are being edited, notably text boxes, the new slide sorter Ctrl+Shift shortcut combinations (see bug 91909) incorrectly receive focus and move the slide</a>.</p>
+
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
+
+<ul>
+  <li>Fix <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404">tdf#98404</a></li>
+  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438 - [FORMATTING] group selection does not work with raster images</a></li>
+</ul>
+
+
+  </div><a class="u-url" href="/libreoffice-dev/2021/06/13/week-01-gsoc.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Bayram Çiçek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Bayram Çiçek&#39;s website</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.twitter.com/bayramcicek21"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">bayramcicek21</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

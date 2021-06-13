@@ -1,4 +1,135 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-11T01:48:35+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Simian: copy/paste code detector/fixing</title><link href="http://localhost:4000/general/2021/02/20/simian.html" rel="alternate" type="text/html" title="Simian: copy/paste code detector/fixing" /><published>2021-02-20T18:03:46+03:00</published><updated>2021-02-20T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/02/20/simian</id><content type="html" xml:base="http://localhost:4000/general/2021/02/20/simian.html">&lt;p&gt;&lt;a href=&quot;https://www.harukizaemon.com/simian/&quot;&gt;Simian&lt;/a&gt; is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-13T12:26:54+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Week #1 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc.html" rel="alternate" type="text/html" title="Week #1 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-06-13T08:30:12+03:00</published><updated>2021-06-13T08:30:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc.html">&lt;p&gt;&lt;em&gt;Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Hi all. I want to share my current progress for week #1.&lt;/p&gt;
+
+&lt;h3 id=&quot;mouseover-effect-added-to-palettes-in-the-area-tab&quot;&gt;Mouseover effect added to palettes in the Area tab&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=109388&quot;&gt;tdf#109388&lt;/a&gt; - UI:No mouseover effect for the different palettes in the Area tab&lt;/li&gt;
+  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116395&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116395&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Mouseover effect wasn’t showing in palettes on Color, Gradient, Bitmap, Pattern and Hatch sections. These sections are located at &lt;code class=&quot;highlighter-rouge&quot;&gt;Format &amp;gt; Page Style... &amp;gt; Area&lt;/code&gt; Tab.&lt;/p&gt;
+
+&lt;p&gt;Since &lt;code class=&quot;highlighter-rouge&quot;&gt;Font Color&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Highlight Color&lt;/code&gt; palettes have the mouseover effect, I tried to find code pointers for them to understand how mouseover effect is shown in the code.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// ValueSet&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;m_xValSetColorList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_xValSetColorList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;WB_FLATVALUESET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WB_ITEMBORDER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WB_NO_DIRECTSELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WB_TABSTOP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;WB(WinBits) are showing the styles of palettes and &lt;code class=&quot;highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt; does the mouseover effect on the palettes. In some sections &lt;code class=&quot;highlighter-rouge&quot;&gt;SetStyle()&lt;/code&gt; wasn’t set. The ones that have the SetStyle(), didn’t have the &lt;code class=&quot;highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt;. I just added the &lt;code class=&quot;highlighter-rouge&quot;&gt;SetStyle()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt; within it. Now, mouseover effect works fine on the Area Tab.&lt;/p&gt;
+
+&lt;p&gt;Before: No mouseover effect:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/before_hover.png&quot; alt=&quot;before_hover.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/after_hover.png&quot; alt=&quot;after_hover.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	***
+&lt;/p&gt;
+
+&lt;h3 id=&quot;fix-opposite-cropping-issue-on-flipped-images-in-writer&quot;&gt;Fix opposite cropping issue on flipped images in Writer&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=104995&quot;&gt;tdf#104995&lt;/a&gt; - Cropping flipped images occurs at the wrong side&lt;/li&gt;
+  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116770&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116770&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Another annoying issue in LibreOffice.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Add an image in Writer.&lt;/li&gt;
+  &lt;li&gt;Right-click &amp;gt; Rotate or Flip &amp;gt; Flip Vertically/Horizontally&lt;/li&gt;
+  &lt;li&gt;Try to crop the image.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Cropping will occur at the opposite side of the image.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If flipped vertically, trying to crop top will crop the bottom.&lt;/li&gt;
+  &lt;li&gt;If flipped horizontally, trying to crop right will crop the left.(the same goes to the other sides.)&lt;/li&gt;
+  &lt;li&gt;If flipped both vertically and horizontally, crop doesn’t work any side of the image.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’ve spend about 3-4 days to find code pointers because ‘flipping’ is mentioned as ‘mirroring’ in the code.&lt;/p&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;sw/source/core/graphic/ndgrf.cxx&lt;/code&gt;, flipping flags are set to &lt;code class=&quot;highlighter-rouge&quot;&gt;GraphicAttr&amp;amp; rGA&lt;/code&gt; in the function &lt;code class=&quot;highlighter-rouge&quot;&gt;SwGrfNode::GetGraphicAttr(...)&lt;/code&gt;. Crop values are applied to &lt;code class=&quot;highlighter-rouge&quot;&gt;rGA.SetCrop&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetMirrorFlags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nMirror&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwCropGrf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetCropGrf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetBottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then, I thought that what if we also mirror the &lt;code class=&quot;highlighter-rouge&quot;&gt;crop values&lt;/code&gt; alongside the image?&lt;/p&gt;
+
+&lt;p&gt;Assign Left, Top, Right and Bottom crop values to our new variables to work with easily:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropLeft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropTop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropRight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropBottom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetBottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then, mirror the crop values according to their flipping type:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;// take mirroring of crop values into consideration&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// while cropping a flipped image. otherwise,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// cropping will crop the opposite side of the image.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMirrorFlags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BmpMirrorFlags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vertical&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nCropTop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetBottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nCropBottom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMirrorFlags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BmpMirrorFlags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Horizontal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nCropLeft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nCropRight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Finally, set crop values:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropLeft&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropTop&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropRight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nCropBottom&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;2 bugs solved:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=109388&quot;&gt;tdf#109388&lt;/a&gt; - UI:No mouseover effect for the different palettes in the Area tab&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=104995&quot;&gt;tdf#104995&lt;/a&gt; - Cropping flipped images occurs at the wrong side&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Commits:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116395&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116395&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116770&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116770&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;current-status&quot;&gt;Current Status&lt;/h3&gt;
+
+&lt;p&gt;Currently, I’m working on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404&quot;&gt;tdf#98404 - UX - While objects on a slide are being edited, notably text boxes, the new slide sorter Ctrl+Shift shortcut combinations (see bug 91909) incorrectly receive focus and move the slide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fix &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404&quot;&gt;tdf#98404&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438 - [FORMATTING] group selection does not work with raster images&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews.</summary></entry><entry><title type="html">Simian: copy/paste code detector/fixing</title><link href="http://localhost:4000/general/2021/02/20/simian.html" rel="alternate" type="text/html" title="Simian: copy/paste code detector/fixing" /><published>2021-02-20T18:03:46+03:00</published><updated>2021-02-20T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/02/20/simian</id><content type="html" xml:base="http://localhost:4000/general/2021/02/20/simian.html">&lt;p&gt;&lt;a href=&quot;https://www.harukizaemon.com/simian/&quot;&gt;Simian&lt;/a&gt; is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.&lt;/p&gt;
 
 &lt;p&gt;Here is a demonstrate of c/p detection on Libre Office bug &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=39593&quot;&gt;tdf#39593: copy/paste code detector/fixing&lt;/a&gt;.&lt;/p&gt;
 
@@ -610,70 +741,4 @@ Son olarak diskin, hatalı blokları görmezden gelmesi sağlanmalıdır.&lt;/p&
 
 &lt;p&gt;Maybe this method works for the users who have the same laptop model like me. I like using Ubuntu, but this issue is so annoying every time.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">This post is the mirror of my answer on StackOverFlow:</summary></entry><entry><title type="html">Heap ve Stack: Bellek Birimlerine Genel Bakış</title><link href="http://localhost:4000/general/2020/02/02/heap-vs-stack.html" rel="alternate" type="text/html" title="Heap ve Stack: Bellek Birimlerine Genel Bakış" /><published>2020-02-02T21:36:01+03:00</published><updated>2020-02-02T21:36:01+03:00</updated><id>http://localhost:4000/general/2020/02/02/heap-vs-stack</id><content type="html" xml:base="http://localhost:4000/general/2020/02/02/heap-vs-stack.html">&lt;ul&gt;
-  &lt;li&gt;Stack&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;stack&lt;/code&gt;, bilgisayar hafızasının özel bir bölümüdür. Bilgisayar tarafından
-kontrol edir yani otomatiktir ve programcı bu alana manuel olarak müdahale etmesi
-gerekmez. &lt;i&gt;main()&lt;/i&gt; fonksiyonu dahil fonksiyonların ürettiği geçici değerler tutulur.
-&lt;i&gt;LIFO (last in, first out)&lt;/i&gt; veri yapısına sahiptir.&lt;/p&gt;
-
-&lt;p&gt;Fonksiyonların &lt;i&gt;stack&lt;/i&gt; bölgesine eklediği veya çıkardığı geçici değişkenler
-ölçüsünde &lt;i&gt;stack&lt;/i&gt; bölgesi, genişler veya daralır. Değişkenler otomatik olarak tahsis
-edilir ve serbest bırakılır. İşletim sistemine bağlı olarak boyut sınırlara sahiptir. &lt;i&gt;Stack&lt;/i&gt;
-değişkenleri, onları oluşturan fonksiyonlar hayatta	 olduğu sürece vardır.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Heap&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;heap&lt;/code&gt;, bilgisayarın hafızasının otomatik olarak yönetilmediği bölümüdür.
-&lt;i&gt;Heap&lt;/i&gt; bölümünde bellek tahsisi için &lt;code class=&quot;highlighter-rouge&quot;&gt;malloc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;calloc&lt;/code&gt; veya &lt;code class=&quot;highlighter-rouge&quot;&gt;realloc&lt;/code&gt; fonksiyonları
-çağırılmalıdır. Tahsis edilen bellek ünitesi yine manuel olarak &lt;code class=&quot;highlighter-rouge&quot;&gt;free&lt;/code&gt; ile serbest
-bırakılması gerekir. Bu işlemler programcının sorumluluğundadır. Eğer bir hata
-çıkarsa buna &lt;i&gt;memory leak&lt;/i&gt; denir.&lt;/p&gt;
-
-&lt;p&gt;&lt;i&gt;Stack&lt;/i&gt; bölümünün aksine &lt;i&gt;heap&lt;/i&gt; bölümünde değişkenler üzerinde (fiziksel
-sınırlar dışında) bir sınırlama yoktur. &lt;i&gt;Heap&lt;/i&gt; bölgesi çok az da olsa &lt;i&gt;stack&lt;/i&gt; bölgesine göre
-daha yavaştır çünkü &lt;i&gt;heap&lt;/i&gt; bölgesine erişim için &lt;i&gt;pointer&lt;/i&gt;’lara ihtiyacınız vardır.&lt;/p&gt;
-
-&lt;p&gt;&lt;i&gt;Stack&lt;/i&gt; bölgesinin aksine &lt;i&gt;heap&lt;/i&gt; bölgesinde oluşturulan değişkenler programdaki
-herhangi bir fonksiyon tarafından erişilebilir. &lt;i&gt;Heap&lt;/i&gt; değişkenleri esasında global
-değişkenlerdir. &lt;i&gt;Heap&lt;/i&gt;, kendi bölgesinin en etkili bir biçimde kullanıldığını garanti
-etmez.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/heap_stack.png&quot; alt=&quot;heap_stack&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;stack--heap-kullanım-alanları--&quot;&gt;Stack – Heap Kullanım Alanları  &lt;br /&gt;&lt;/h3&gt;
-
-&lt;p&gt;Eğer hafızada büyük yer kaplayacak veri yapıları kullanacaksanız (mesela
-büyük diziler veya geniş struct yapıları) bu verileri uzun süre tutmak gerektiğinden
-heap üzerinde tutmak daha mantıklıdır.&lt;/p&gt;
-
-&lt;p&gt;Eğer sadece ilgili fonksiyon çalışırken kullanmamız gereken değişkenlere
-sahipsek bunları stack bölümünde tutabiliriz (bu daha hızlı ve basit olur).&lt;/p&gt;
-
-&lt;p&gt;Eğer diziler ve struct yapıları gibi boyutları değişmesi muhtemel olan
-yapılar kullanılacak ise bunları &lt;em&gt;heap&lt;/em&gt;	
-bölümünde tahsis etmeli ve dinamik bellek tahsisini manuel olarak yönetmemizi sağlayan 
-&lt;code class=&quot;highlighter-rouge&quot;&gt;malloc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;calloc&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;realloc&lt;/code&gt; ve &lt;code class=&quot;highlighter-rouge&quot;&gt;free&lt;/code&gt; fonksiyonlarını kullanmamız gerekir.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;2019 güz döneminde hazırladığım dönem sonu bitirme projesinden alıntılanmıştır. Kaynaklar:&lt;/em&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Ritchie, D.M. ve Kernighan, B.W. 1988. &lt;em&gt;The C Programming Language&lt;/em&gt;.
-Prentice-Hall, Chapter 5, 7, 8 and Appendix B.5&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Gribble, P. (2012). &lt;em&gt;Memory: Stack vs Heap. Summer 2012&lt;/em&gt;, University of
-Western from &lt;a href=&quot;https://gribblelab.org/CBootCamp/7_Memory_Stack_vs_Heap.html&quot;&gt;https://gribblelab.org/CBootCamp/7_Memory_Stack_vs_Heap.html&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="general" /><summary type="html">Stack</summary></entry></feed>
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">This post is the mirror of my answer on StackOverFlow:</summary></entry></feed>

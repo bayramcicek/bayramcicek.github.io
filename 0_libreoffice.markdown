@@ -4,7 +4,9 @@ title: LibreOffice
 permalink: /libreoffice/
 ---
 
-Category: LibreOffice-Dev
+Category: libreoffice-dev
+
+<b>Posts</b>
 
 <div id="archives">
 {% for post in site.categories.libreoffice-dev %}
