@@ -1,0 +1,98 @@
+---
+layout: post
+title:  "Week #2 - GSoC Weekly Report - 100 Paper Cuts"
+date:   2021-07-04 20:50:12 +0300
+categories: libreoffice-dev
+---
+
+GSoC progress for week #2.
+
+#### Disabling slide sorter shorcuts when in edit mode / Impress
+
+- Bug: [tdf#98404 - UX - While objects on a slide are being edited, notably text boxes, the new slide sorter Ctrl+Shift shortcut combinations (see bug 91909) incorrectly receive focus and move the slide][tdf#98404].
+
+In Impress, when editing a text on a slide, CTRL+SHIFT+(HOME/END/ArrowUP/ArrowDOWN) shortcuts doesn't select the text in the slide, but move the slide to the end of the slide stack.
+
+Solution is simple: Disable slide sorter shortcuts when in text edit mode. 
+<br>
+<p align="center">
+    ***
+</p>
+
+This week I tried to disable slide sorter shortcuts while in edit mode. However, I couldn't found a proper way to disable them.
+
+#### Code pointers:
+
+- edit mode in ./sd/source/ui/func/futext.cxx:1034: [https://opengrok.libreoffice.org/xref/core/sd/source/ui/func/futext.cxx?r=9090dc1f#1034][edit-mode]
+
+- SID_MOVE_PAGE_UP (LAST/DOWN/FIRST) state methods calls in: [https://opengrok.libreoffice.org/xref/core/sfx2/source/control/shell.cxx?r=a3d89265#492][SID_MOVE_PAGE_UP]
+
+- ExecMethod / StateMethod: [https://opengrok.libreoffice.org/xref/core/sd/sdi/SlideSorterController.sdi?r=951b243f#311][ExecMethod]
+
+- Slide functions: [https://opengrok.libreoffice.org/xref/core/sd/source/ui/slidesorter/shell/SlideSorterViewShell.cxx?r=9090dc1f#761][Slide-1]
+
+- [https://opengrok.libreoffice.org/xref/core/sd/sdi/sdraw.sdi?r=951b243f#4654][Slide-2]
+
+#### Potential solution
+
+In FuText:SetInEditMode, We should disable the global slide sorting shortcuts by something like:
+
+{% highlight cpp %}
+    SfxItemSet aSet(mpViewShell->GetPool());
+    aSet.DisableItem(SID_MOVE_PAGE_DOWN);  // and other SIDs: (LAST/UP/FIRST)
+{% endhighlight %}
+
+or:
+{% highlight cpp %}
+    SfxItemSet& rSet = mpView->GetStyleSheet()->GetItemSet();
+    rSet.DisableItem(SID_MOVE_PAGE_DOWN);
+{% endhighlight %}
+
+or:
+{% highlight cpp %}
+    SfxItemSet aSet(mpViewShell->GetPool(), svl::Items<EE_PARA_LRSPACE, EE_PARA_LRSPACE>{} );
+    aSet.DisableItem(SID_MOVE_PAGE_DOWN);
+{% endhighlight %}
+
+or:
+{% highlight cpp %}
+    auto pSet = std::make_unique<SfxItemSet>( mpViewShell->GetPool());
+    pSet->DisableItem(SID_MOVE_PAGE_DOWN);
+{% endhighlight %}
+
+or:
+{% highlight cpp %}
+    SfxItemSet aSet(mpViewShell->GetDoc()->GetPool());
+    aSet.DisableItem(SID_SLIDE_SORTER_MODE);
+{% endhighlight %}
+
+
+... However, none of them are worked, and I don't know if there is another way to make SIDs disable while in edit mode. Since we are in the GSoC period, I don't want to waste my time with a bug that I couldn't make progress. I will look again this bug after GSoC with a huge free time!.
+
+
+### Summary
+
+- Look [tdf#98404][tdf#98404] later. (most likely after GSoC)
+- Commented on bug page: [https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25][comment-98404]
+
+
+### Next Week TO-DO
+
+- Work on [tdf#34438 - [FORMATTING] group selection does not work with raster images][tdf#34438]
+
+
+[tdf#98404]: https://bugs.documentfoundation.org/show_bug.cgi?id=98404
+
+[edit-mode]: https://opengrok.libreoffice.org/xref/core/sd/source/ui/func/futext.cxx?r=9090dc1f#1034 
+
+[SID_MOVE_PAGE_UP]: https://opengrok.libreoffice.org/xref/core/sfx2/source/control/shell.cxx?r=a3d89265#492
+
+[ExecMethod]: https://opengrok.libreoffice.org/xref/core/sd/sdi/SlideSorterController.sdi?r=951b243f#311
+
+[Slide-1]: https://opengrok.libreoffice.org/xref/core/sd/source/ui/slidesorter/shell/SlideSorterViewShell.cxx?r=9090dc1f#761
+
+[Slide-2]: https://opengrok.libreoffice.org/xref/core/sd/sdi/sdraw.sdi?r=951b243f#4654
+
+[comment-98404]: https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25
+
+[tdf#34438]: https://bugs.documentfoundation.org/show_bug.cgi?id=34438

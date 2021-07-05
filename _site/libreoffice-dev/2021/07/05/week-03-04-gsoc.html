@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts | Bayram Çiçek’s website</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="GSoC progress for week #3 and week #4." />
+<meta property="og:description" content="GSoC progress for week #3 and week #4." />
+<link rel="canonical" href="http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html" />
+<meta property="og:url" content="http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html" />
+<meta property="og:site_name" content="Bayram Çiçek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-05T08:06:19+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"GSoC progress for week #3 and week #4.","headline":"Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts","dateModified":"2021-07-05T08:06:19+03:00","datePublished":"2021-07-05T08:06:19+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html"},"url":"http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Bayram Çiçek&apos;s website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Bayram Çiçek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/libreoffice/">LibreOffice</a><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-07-05T08:06:19+03:00" itemprop="datePublished">Jul 5, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>GSoC progress for week #3 and week #4.</p>
+
+<h4 id="group-selection-does-not-work-with-raster-images--writer">Group selection does not work with raster images / Writer</h4>
+
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438 (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images</a>.</li>
+</ul>
+
+<p>Writer can group <code class="highlighter-rouge">Drawing objects</code>. For example shapes(rectangles, circles), text boxes and draw images can be grouped together to drag &amp; drop.</p>
+
+<p>However, when copy/paste or drag&amp;drop an image into the writer document canvas, (raster/bitmap)images are handled as <code class="highlighter-rouge">Frame objects (holding images/bitmaps)</code>, not <code class="highlighter-rouge">Drawing objects</code>. Drawing objects have the group feature, but this feature is not implemented for Graphics(Frame objects/bitmap). This is why Writer can’t group raster images.</p>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/shapes-selected.png" alt="shapes-selected.png" />
+</p>
+
+<p><br /></p>
+<p align="center">
+    ***
+</p>
+
+<p>In week #3 and #4, I tried to understand the logic behind the grouping Drawing objects. It seems more complex than it looks. To keep the blog post simple and short, I will share only the key points of my research.</p>
+
+<h4 id="code-pointers">Code pointers:</h4>
+
+<ul>
+  <li>
+    <p>All CLICK and SHIFT+CLICK operations for grouping Drawing objects handled in ./sw/source/uibase/docvw/edtwin.cxx:2770 : <a href="https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#2770">https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#2770</a></p>
+  </li>
+  <li>
+    <p>SHIFT+CLICK occurs in: <a href="https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#3470">https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#3470</a></p>
+  </li>
+  <li>
+    <p>Select objects : SwFEShell::SelectObj: <a href="https://opengrok.libreoffice.org/xref/core/sw/source/core/frmedt/feshview.cxx?r=715797bc#177">https://opengrok.libreoffice.org/xref/core/sw/source/core/frmedt/feshview.cxx?r=715797bc#177</a></p>
+  </li>
+  <li>
+    <p>Marked object list: <a href="https://opengrok.libreoffice.org/xref/core/include/svx/svdmark.hxx?r=40595834#230">https://opengrok.libreoffice.org/xref/core/include/svx/svdmark.hxx?r=40595834#230</a></p>
+  </li>
+  <li>
+    <p>graph.hxx : <a href="https://opengrok.libreoffice.org/xref/core/include/vcl/graph.hxx?r=692c5df1#37">https://opengrok.libreoffice.org/xref/core/include/vcl/graph.hxx?r=692c5df1#37</a></p>
+  </li>
+  <li>
+    <p>Types of forms of content: <a href="https://opengrok.libreoffice.org/xref/core/sw/inc/editsh.hxx?r=1feb59c3#130">https://opengrok.libreoffice.org/xref/core/sw/inc/editsh.hxx?r=1feb59c3#130</a></p>
+  </li>
+  <li>
+    <p>Mark object: <a href="https://opengrok.libreoffice.org/xref/core/svx/source/svdraw/svdmrkv.cxx?r=8a850eed#1877">https://opengrok.libreoffice.org/xref/core/svx/source/svdraw/svdmrkv.cxx?r=8a850eed#1877</a></p>
+  </li>
+</ul>
+
+<h4 id="technical-details">Technical Details</h4>
+
+<p><code class="highlighter-rouge">SAL_DEBUG( rMrkList.GetMarkDescription() );</code> output: (in SwFEShell::SelectObj)</p>
+
+<p>For shapes: <code class="highlighter-rouge">shapes</code> <br />
+For 2+ shapes: <code class="highlighter-rouge">2 shapes</code> <br />
+For draw images: <code class="highlighter-rouge">Image with transparency</code> <br />
+For text box: <code class="highlighter-rouge">Text Frame</code><br />
+For raster images: <code class="highlighter-rouge">[Drawing object]</code> <br /></p>
+
+<p>Raster images seem to have <code class="highlighter-rouge">NONE</code> object name:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define STR_ObjNameSingulNONE    NC_("STR_ObjNameSingulNONE", "Drawing object")</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">rMrkList.GetMarkDescription()</code> can’t classify the raster images?</p>
+
+<p><code class="highlighter-rouge">SAL_DEBUG( rMrkList.GetMarkCount() );</code> always increases by <code class="highlighter-rouge">1</code> when selecting drawing objects via SHIFT+CLICK. But always gives <code class="highlighter-rouge">1</code> when selecting raster images.</p>
+
+<p>All selected objects store in <code class="highlighter-rouge">rMrkList</code> list:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">const</span> <span class="n">SdrMarkList</span> <span class="o">&amp;</span><span class="n">rMrkList</span> <span class="o">=</span> <span class="n">pDView</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">();</span></code></pre></figure>
+
+<p>This means raster images added to the list but always be unmarked when GetMarkCount reaches <code class="highlighter-rouge">1</code>. The actual reason of unmarking issue is:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// call Unmark when !bAddSelect or if fly was selected</span>
+<span class="kt">bool</span> <span class="n">bUnmark</span> <span class="o">=</span> <span class="o">!</span><span class="n">bAddSelect</span><span class="p">;</span> <span class="c1">// bUnmark is 'false' here </span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="n">rMrkList</span><span class="p">.</span><span class="n">GetMarkCount</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// if fly was selected, deselect it first</span>
+    <span class="n">pOldSelFly</span> <span class="o">=</span> <span class="o">::</span><span class="n">GetFlyFromMarked</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">rMrkList</span><span class="p">,</span> <span class="k">this</span> <span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">pOldSelFly</span> <span class="p">)</span>
+    <span class="p">{</span> 
+
+    <span class="cm">/* ... */</span>
+
+    <span class="n">bUnmark</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+    <span class="p">}</span>
+
+    <span class="cm">/* ... */</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">bUnmark</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">pDView</span><span class="o">-&gt;</span><span class="n">UnmarkAll</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pOldSelFly</span><span class="p">)</span>
+            <span class="n">pOldSelFly</span><span class="o">-&gt;</span><span class="n">SelectionHasChanged</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span></code></pre></figure>
+
+<p>With SHIFT+CLICK, <code class="highlighter-rouge">pOldSelFly = ::GetFlyFromMarked( &amp;rMrkList, this );</code> returns 0(null) when selecting the second, third … shape (which is expected); and it doesn’t set <code class="highlighter-rouge">bUnmark = true</code>, so it doesn’t execute <code class="highlighter-rouge">pDView-&gt;UnmarkAll()</code>.</p>
+
+<p>However, <code class="highlighter-rouge">pOldSelFly = ::GetFlyFromMarked( &amp;rMrkList, this );</code> always returns an address which is evaluated <code class="highlighter-rouge">true</code> in an <code class="highlighter-rouge">if ( pOldSelFly )</code> case. This causes <code class="highlighter-rouge">bUnmark = true;</code> and executes <code class="highlighter-rouge">if ( bUnmark )</code>. Therefore, when <code class="highlighter-rouge">rMrkList.GetMarkCount() == 1</code> and <code class="highlighter-rouge">::GetFlyFromMarked( &amp;rMrkList, this )</code> returns an address; <code class="highlighter-rouge">rMrkList</code> doesn’t add the second selected raster image to itself and do unmark it.</p>
+
+<h4 id="frame-is-not-accessible">Frame is not accessible</h4>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/frame-is-not-accessible.png" alt="frame-is-not-accessible.png" />
+</p>
+
+<p>Another interesting issue is when trying to add(select) a raster image to the shape list (unmarking disabled) debugging warns <code class="highlighter-rouge">warn: /*...*/ frame is not accessible</code>.</p>
+
+<p>SwAccessibleMap::InvalidateCursorPosition:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// ...</span>
+
+<span class="kt">bool</span> <span class="n">bShapeSelected</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+            <span class="k">else</span> <span class="nf">if</span><span class="p">(</span> <span class="n">pFESh</span><span class="o">-&gt;</span><span class="n">IsObjSelected</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">bShapeSelected</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+                <span class="n">aFrameOrObj</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">SwFrame</span> <span class="o">*&gt;</span><span class="p">(</span> <span class="nb">nullptr</span> <span class="p">);</span>
+            <span class="p">}</span>
+
+<span class="c1">// ... </span>
+
+    <span class="n">OSL_ENSURE</span><span class="p">(</span> <span class="n">bShapeSelected</span> <span class="o">||</span> <span class="n">aFrameOrObj</span><span class="p">.</span><span class="n">IsAccessible</span><span class="p">(</span><span class="n">GetShell</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">IsPreview</span><span class="p">()),</span>
+            <span class="s">"frame is not accessible"</span> <span class="p">);</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">pFESh-&gt;IsObjSelected()</code> should return <code class="highlighter-rouge">GetMarkCount()</code>, not <code class="highlighter-rouge">0</code>. Otherwise <code class="highlighter-rouge">bShapeSelected</code> stays <code class="highlighter-rouge">false</code> and <code class="highlighter-rouge">OSL_ENSURE</code> warns <code class="highlighter-rouge">"frame is not accessible"</code>.</p>
+
+<p>/sw/source/core/frmedt/feshview.cxx : <code class="highlighter-rouge">SwFEShell::IsObjSelected()</code> and <code class="highlighter-rouge">SwFEShell::IsFrameSelected()</code>:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">size_t</span> <span class="n">SwFEShell</span><span class="o">::</span><span class="n">IsObjSelected</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">IsFrameSelected</span><span class="p">()</span> <span class="o">||</span> <span class="o">!</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">HasDrawView</span><span class="p">()</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetDrawView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">().</span><span class="n">GetMarkCount</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">SwFEShell</span><span class="o">::</span><span class="n">IsFrameSelected</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">HasDrawView</span><span class="p">()</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="nb">nullptr</span> <span class="o">!=</span> <span class="o">::</span><span class="n">GetFlyFromMarked</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetDrawView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">(),</span>
+                                        <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">SwFEShell</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>When selecting raster images, in SwFEShell::IsFrameSelected():</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">return</span> <span class="nb">nullptr</span> <span class="o">!=</span> <span class="o">::</span><span class="n">GetFlyFromMarked</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetDrawView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">(),</span>
+                                        <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">SwFEShell</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">);</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">GetFlyFromMarked</code> should return <code class="highlighter-rouge">false</code> (0(null)), not an address which make <code class="highlighter-rouge">nullptr != 0x01...</code> <code class="highlighter-rouge">true</code>.
+<br /></p>
+<p align="center">
+    ***
+</p>
+
+<p>I also looked at Draw and Calc to see how images are handled. Images are converted a drawing objects and have the same attributes like shapes. But in Writer, images have different attributes and handling.</p>
+
+<h3 id="summary-of-last-2-weeks">Summary of last 2 weeks</h3>
+
+<ul>
+  <li>Tried to understand how shapes grouped together</li>
+  <li>Debugging</li>
+</ul>
+
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
+
+<ul>
+  <li>Make raster images selectable(group) with SHIFT+CLICK</li>
+</ul>
+
+
+  </div><a class="u-url" href="/libreoffice-dev/2021/07/05/week-03-04-gsoc.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Bayram Çiçek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Bayram Çiçek&#39;s website</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.twitter.com/bayramcicek21"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">bayramcicek21</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,4 +1,257 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-13T13:55:33+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Week #1 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc.html" rel="alternate" type="text/html" title="Week #1 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-06-13T08:30:12+03:00</published><updated>2021-06-13T08:30:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc.html">&lt;p&gt;&lt;em&gt;Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews; and thanks to everyone who helped me a lot for finding code pointers.&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-05T09:15:24+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html" rel="alternate" type="text/html" title="Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-05T08:06:19+03:00</published><updated>2021-07-05T08:06:19+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html">&lt;p&gt;GSoC progress for week #3 and week #4.&lt;/p&gt;
+
+&lt;h4 id=&quot;group-selection-does-not-work-with-raster-images--writer&quot;&gt;Group selection does not work with raster images / Writer&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438 (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Writer can group &lt;code class=&quot;highlighter-rouge&quot;&gt;Drawing objects&lt;/code&gt;. For example shapes(rectangles, circles), text boxes and draw images can be grouped together to drag &amp;amp; drop.&lt;/p&gt;
+
+&lt;p&gt;However, when copy/paste or drag&amp;amp;drop an image into the writer document canvas, (raster/bitmap)images are handled as &lt;code class=&quot;highlighter-rouge&quot;&gt;Frame objects (holding images/bitmaps)&lt;/code&gt;, not &lt;code class=&quot;highlighter-rouge&quot;&gt;Drawing objects&lt;/code&gt;. Drawing objects have the group feature, but this feature is not implemented for Graphics(Frame objects/bitmap). This is why Writer can’t group raster images.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/shapes-selected.png&quot; alt=&quot;shapes-selected.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;p&gt;In week #3 and #4, I tried to understand the logic behind the grouping Drawing objects. It seems more complex than it looks. To keep the blog post simple and short, I will share only the key points of my research.&lt;/p&gt;
+
+&lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;All CLICK and SHIFT+CLICK operations for grouping Drawing objects handled in ./sw/source/uibase/docvw/edtwin.cxx:2770 : &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#2770&quot;&gt;https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#2770&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SHIFT+CLICK occurs in: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#3470&quot;&gt;https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#3470&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Select objects : SwFEShell::SelectObj: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sw/source/core/frmedt/feshview.cxx?r=715797bc#177&quot;&gt;https://opengrok.libreoffice.org/xref/core/sw/source/core/frmedt/feshview.cxx?r=715797bc#177&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Marked object list: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/include/svx/svdmark.hxx?r=40595834#230&quot;&gt;https://opengrok.libreoffice.org/xref/core/include/svx/svdmark.hxx?r=40595834#230&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;graph.hxx : &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/include/vcl/graph.hxx?r=692c5df1#37&quot;&gt;https://opengrok.libreoffice.org/xref/core/include/vcl/graph.hxx?r=692c5df1#37&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Types of forms of content: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sw/inc/editsh.hxx?r=1feb59c3#130&quot;&gt;https://opengrok.libreoffice.org/xref/core/sw/inc/editsh.hxx?r=1feb59c3#130&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Mark object: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/svx/source/svdraw/svdmrkv.cxx?r=8a850eed#1877&quot;&gt;https://opengrok.libreoffice.org/xref/core/svx/source/svdraw/svdmrkv.cxx?r=8a850eed#1877&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SAL_DEBUG( rMrkList.GetMarkDescription() );&lt;/code&gt; output: (in SwFEShell::SelectObj)&lt;/p&gt;
+
+&lt;p&gt;For shapes: &lt;code class=&quot;highlighter-rouge&quot;&gt;shapes&lt;/code&gt; &lt;br /&gt;
+For 2+ shapes: &lt;code class=&quot;highlighter-rouge&quot;&gt;2 shapes&lt;/code&gt; &lt;br /&gt;
+For draw images: &lt;code class=&quot;highlighter-rouge&quot;&gt;Image with transparency&lt;/code&gt; &lt;br /&gt;
+For text box: &lt;code class=&quot;highlighter-rouge&quot;&gt;Text Frame&lt;/code&gt;&lt;br /&gt;
+For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing object]&lt;/code&gt; &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Raster images seem to have &lt;code class=&quot;highlighter-rouge&quot;&gt;NONE&lt;/code&gt; object name:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define STR_ObjNameSingulNONE    NC_(&quot;STR_ObjNameSingulNONE&quot;, &quot;Drawing object&quot;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList.GetMarkDescription()&lt;/code&gt; can’t classify the raster images?&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SAL_DEBUG( rMrkList.GetMarkCount() );&lt;/code&gt; always increases by &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; when selecting drawing objects via SHIFT+CLICK. But always gives &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; when selecting raster images.&lt;/p&gt;
+
+&lt;p&gt;All selected objects store in &lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList&lt;/code&gt; list:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SdrMarkList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rMrkList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pDView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkedObjectList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This means raster images added to the list but always be unmarked when GetMarkCount reaches &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt;. The actual reason of unmarking issue is:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// call Unmark when !bAddSelect or if fly was selected&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bUnmark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bAddSelect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// bUnmark is &apos;false&apos; here &lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rMrkList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// if fly was selected, deselect it first&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pOldSelFly&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetFlyFromMarked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rMrkList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pOldSelFly&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+
+    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;bUnmark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bUnmark&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pDView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UnmarkAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pOldSelFly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;pOldSelFly&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SelectionHasChanged&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;With SHIFT+CLICK, &lt;code class=&quot;highlighter-rouge&quot;&gt;pOldSelFly = ::GetFlyFromMarked( &amp;amp;rMrkList, this );&lt;/code&gt; returns 0(null) when selecting the second, third … shape (which is expected); and it doesn’t set &lt;code class=&quot;highlighter-rouge&quot;&gt;bUnmark = true&lt;/code&gt;, so it doesn’t execute &lt;code class=&quot;highlighter-rouge&quot;&gt;pDView-&amp;gt;UnmarkAll()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, &lt;code class=&quot;highlighter-rouge&quot;&gt;pOldSelFly = ::GetFlyFromMarked( &amp;amp;rMrkList, this );&lt;/code&gt; always returns an address which is evaluated &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; in an &lt;code class=&quot;highlighter-rouge&quot;&gt;if ( pOldSelFly )&lt;/code&gt; case. This causes &lt;code class=&quot;highlighter-rouge&quot;&gt;bUnmark = true;&lt;/code&gt; and executes &lt;code class=&quot;highlighter-rouge&quot;&gt;if ( bUnmark )&lt;/code&gt;. Therefore, when &lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList.GetMarkCount() == 1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;::GetFlyFromMarked( &amp;amp;rMrkList, this )&lt;/code&gt; returns an address; &lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList&lt;/code&gt; doesn’t add the second selected raster image to itself and do unmark it.&lt;/p&gt;
+
+&lt;h4 id=&quot;frame-is-not-accessible&quot;&gt;Frame is not accessible&lt;/h4&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/frame-is-not-accessible.png&quot; alt=&quot;frame-is-not-accessible.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Another interesting issue is when trying to add(select) a raster image to the shape list (unmarking disabled) debugging warns &lt;code class=&quot;highlighter-rouge&quot;&gt;warn: /*...*/ frame is not accessible&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;SwAccessibleMap::InvalidateCursorPosition:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bShapeSelected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pFESh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsObjSelected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;bShapeSelected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;aFrameOrObj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static_cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwFrame&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ... &lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;OSL_ENSURE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bShapeSelected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aFrameOrObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsAccessible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetShell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsPreview&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()),&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;&quot;frame is not accessible&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pFESh-&amp;gt;IsObjSelected()&lt;/code&gt; should return &lt;code class=&quot;highlighter-rouge&quot;&gt;GetMarkCount()&lt;/code&gt;, not &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt;. Otherwise &lt;code class=&quot;highlighter-rouge&quot;&gt;bShapeSelected&lt;/code&gt; stays &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;OSL_ENSURE&lt;/code&gt; warns &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;frame is not accessible&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;/sw/source/core/frmedt/feshview.cxx : &lt;code class=&quot;highlighter-rouge&quot;&gt;SwFEShell::IsObjSelected()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;SwFEShell::IsFrameSelected()&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwFEShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsObjSelected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IsFrameSelected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HasDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkedObjectList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwFEShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsFrameSelected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HasDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetFlyFromMarked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkedObjectList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+                                        &lt;span class=&quot;k&quot;&gt;const_cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SwFEShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;When selecting raster images, in SwFEShell::IsFrameSelected():&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetFlyFromMarked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkedObjectList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+                                        &lt;span class=&quot;k&quot;&gt;const_cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SwFEShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GetFlyFromMarked&lt;/code&gt; should return &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; (0(null)), not an address which make &lt;code class=&quot;highlighter-rouge&quot;&gt;nullptr != 0x01...&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;.
+&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;p&gt;I also looked at Draw and Calc to see how images are handled. Images are converted a drawing objects and have the same attributes like shapes. But in Writer, images have different attributes and handling.&lt;/p&gt;
+
+&lt;h3 id=&quot;summary-of-last-2-weeks&quot;&gt;Summary of last 2 weeks&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tried to understand how shapes grouped together&lt;/li&gt;
+  &lt;li&gt;Debugging&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Make raster images selectable(group) with SHIFT+CLICK&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">GSoC progress for week #3 and week #4.</summary></entry><entry><title type="html">Week #2 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc.html" rel="alternate" type="text/html" title="Week #2 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-04T20:50:12+03:00</published><updated>2021-07-04T20:50:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc.html">&lt;p&gt;GSoC progress for week #2.&lt;/p&gt;
+
+&lt;h4 id=&quot;disabling-slide-sorter-shorcuts-when-in-edit-mode--impress&quot;&gt;Disabling slide sorter shorcuts when in edit mode / Impress&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404&quot;&gt;tdf#98404 - UX - While objects on a slide are being edited, notably text boxes, the new slide sorter Ctrl+Shift shortcut combinations (see bug 91909) incorrectly receive focus and move the slide&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In Impress, when editing a text on a slide, CTRL+SHIFT+(HOME/END/ArrowUP/ArrowDOWN) shortcuts doesn’t select the text in the slide, but move the slide to the end of the slide stack.&lt;/p&gt;
+
+&lt;p&gt;Solution is simple: Disable slide sorter shortcuts when in text edit mode. 
+&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;p&gt;This week I tried to disable slide sorter shortcuts while in edit mode. However, I couldn’t found a proper way to disable them.&lt;/p&gt;
+
+&lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;edit mode in ./sd/source/ui/func/futext.cxx:1034: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sd/source/ui/func/futext.cxx?r=9090dc1f#1034&quot;&gt;https://opengrok.libreoffice.org/xref/core/sd/source/ui/func/futext.cxx?r=9090dc1f#1034&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SID_MOVE_PAGE_UP (LAST/DOWN/FIRST) state methods calls in: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sfx2/source/control/shell.cxx?r=a3d89265#492&quot;&gt;https://opengrok.libreoffice.org/xref/core/sfx2/source/control/shell.cxx?r=a3d89265#492&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ExecMethod / StateMethod: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sd/sdi/SlideSorterController.sdi?r=951b243f#311&quot;&gt;https://opengrok.libreoffice.org/xref/core/sd/sdi/SlideSorterController.sdi?r=951b243f#311&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Slide functions: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sd/source/ui/slidesorter/shell/SlideSorterViewShell.cxx?r=9090dc1f#761&quot;&gt;https://opengrok.libreoffice.org/xref/core/sd/source/ui/slidesorter/shell/SlideSorterViewShell.cxx?r=9090dc1f#761&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sd/sdi/sdraw.sdi?r=951b243f#4654&quot;&gt;https://opengrok.libreoffice.org/xref/core/sd/sdi/sdraw.sdi?r=951b243f#4654&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;potential-solution&quot;&gt;Potential solution&lt;/h4&gt;
+
+&lt;p&gt;In FuText:SetInEditMode, We should disable the global slide sorting shortcuts by something like:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mpViewShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_MOVE_PAGE_DOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// and other SIDs: (LAST/UP/FIRST)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;or:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mpView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetStyleSheet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetItemSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_MOVE_PAGE_DOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;or:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mpViewShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;svl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Items&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EE_PARA_LRSPACE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EE_PARA_LRSPACE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_MOVE_PAGE_DOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;or:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pSet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;make_unique&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mpViewShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_MOVE_PAGE_DOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;or:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mpViewShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetDoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_SLIDE_SORTER_MODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;… However, none of them are worked, and I don’t know if there is another way to make SIDs disable while in edit mode. Since we are in the GSoC period, I don’t want to waste my time with a bug that I couldn’t make progress. I will look again this bug after GSoC with a huge free time!.&lt;/p&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Look &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404&quot;&gt;tdf#98404&lt;/a&gt; later. (most likely after GSoC)&lt;/li&gt;
+  &lt;li&gt;Commented on bug page: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438 - [FORMATTING] group selection does not work with raster images&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">GSoC progress for week #2.</summary></entry><entry><title type="html">Week #1 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc.html" rel="alternate" type="text/html" title="Week #1 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-06-13T08:30:12+03:00</published><updated>2021-06-13T08:30:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/06/13/week-01-gsoc.html">&lt;p&gt;&lt;em&gt;Thanks to my ‘100 Paper Cuts’ project mentors Muhammet Kara and Heiko Tietze for their guidance and code reviews; and thanks to everyone who helped me a lot for finding code pointers.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Hi all. I want to share my current progress for week #1.&lt;/p&gt;
 
@@ -656,89 +909,4 @@ Son olarak diskin, hatalı blokları görmezden gelmesi sağlanmalıdır.&lt;/p&
       &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100−((30÷123)×100)&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;%75,6&lt;/code&gt; daha &lt;code class=&quot;highlighter-rouge&quot;&gt;hızlı&lt;/code&gt; kullanıma hazır olma.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="general" /><summary type="html">Bilgisayarları hızlandırmak için ek RAM eklemek her zaman çözüm olmayabilir. Bir bilgisayarın RAM hafızası yeterliyse ve HDD ile çalıştırılıyor ise sadece SSD eklenerek hızlandırılabilir.</summary></entry><entry><title type="html">Git: commit’ler nasıl geri alınır/silinir?</title><link href="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html" rel="alternate" type="text/html" title="Git: commit’ler nasıl geri alınır/silinir?" /><published>2020-04-15T12:25:06+03:00</published><updated>2020-04-15T12:25:06+03:00</updated><id>http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir</id><content type="html" xml:base="http://localhost:4000/general/2020/04/15/commit-nasil-geri-alinir.html">&lt;p&gt;Github üzerinde yaptığım son 10 commit’i geri almak yani silmek istedim. Bu işlemin Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Öncelikle uzak sunucudaki depoyu yerelinize kopyalayın ve depo dizinine girin:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git clone &amp;lt;link&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ cd ./&amp;lt;depo-adı&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sondan kaçıncı commit’ten itibaren silmeniz gerektiğini öğrenmek için ya Github vb. gibi bir uzak sunucudan bakmalısınız ya da komut satırından şu şekilde bakmalısınız:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git log&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Burada önünüze son commit’ten eskiye doğru giden bir sayfa gelmelidir. Burada kaç commit silmek istediğinizi belirleyin.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Son 10 commit’i silmek istediğimizi varsayalım.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Son 10 commit’i silmek için son 12. commit’in commit_ID’sini öğrenmek istiyor olalım:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git log -n 12&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Önünüze çıkan commit’lerde en aşağı indiğinizde bu 12. commit olacaktır. 12. commit’in ID’sini kopyalayın. (örn: df11d552bc6a38e7z3e229f969d44be65ed1998d)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Aşağıdaki komutu çalıştırdığınızda önünüze son 11 commit’in olduğu bir dosya açılacak:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase -i df11d552bc6a38e7z3e229f969d44be65ed1998d&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;(burada öğrenmiş oluyoruz ki &lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase -i &amp;lt;x&apos;inci commit_ID&amp;gt;&lt;/code&gt;,  bize son &lt;code class=&quot;highlighter-rouge&quot;&gt;(x-1)&lt;/code&gt;‘inci commit’leri gösteriyor.)&lt;/p&gt;
-
-&lt;p&gt;Önünüzdeki dosyada en üstteki commit en eski commit, en alttaki de en yeni yapılmış(son) commit olacaktır. Biz son 10 commit’i silmek istiyorduk. Öyleyse en üstteki commit hariç(çünkü en üstteki commit son 11. commit), altındaki 10 commit’i silip dosyayı kaydedip kapatıyoruz.&lt;/p&gt;
-
-&lt;p&gt;(Aslında &lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase -i x&lt;/code&gt; yazarken sadece silmek istediğimiz commit’lerin gösterilmesini isteyebiliriz fakat son 10 commit’i silmek istediğimizde kalacak sonuncu commit’i görmek, hatalı bir işlem yapılması ihtimalinin önüne geçebilir.)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;İşlemin yapıldığından emin olmak için commit’leri kontrol edelim:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git status&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Burada yerelimizde bulunan commit’lerin uzak sunucudaki commit’lerden 10 geri(behind) olduğunu görmelisiniz ki istediğimiz şey de buydu zaten.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Son olarak değişiklikleri uzak sunucuya yollayıp uzak sunucudaki sayfanızı yenileyin:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ git push -f origin master&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;i&gt;(-f -&amp;gt; force-push, –force)&lt;/i&gt;&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">Github üzerinde yaptığım son 10 commit’i geri almak yani silmek istedim. Bu işlemin Git versiyon kontrol sistemi üzerinde nasıl yapıldığını araştırdım.</summary></entry><entry><title type="html">PCIe Bus Error: severity=Corrected problem after booting into Ubuntu</title><link href="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html" rel="alternate" type="text/html" title="PCIe Bus Error: severity=Corrected problem after booting into Ubuntu" /><published>2020-03-01T21:18:28+03:00</published><updated>2020-03-01T21:18:28+03:00</updated><id>http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected</id><content type="html" xml:base="http://localhost:4000/general/2020/03/01/pcie-bus-error-severity-corrected.html">&lt;ul&gt;
-  &lt;li&gt;This post is the mirror of &lt;a href=&quot;https://askubuntu.com/a/1222375/829928&quot;&gt;my answer&lt;/a&gt; on StackOverFlow:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I always have the same issue when reinstall &lt;code class=&quot;highlighter-rouge&quot;&gt;Ubuntu 18.04.4&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;ASUS X555UQ Laptop&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Answers of &lt;a href=&quot;https://askubuntu.com/questions/771899/pcie-bus-error-severity-corrected&quot;&gt;this&lt;/a&gt; question on StackOverFlow helped me a lot about adding which parameter to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/default/grub/&lt;/code&gt; but I can’t reach terminal (also tty), because after installing OS via live usb, it gives a blank screen(or mentioned issue) instead of login screen.&lt;/p&gt;
-
-&lt;p&gt;Then I thought that I have to get to the GRUB menu at boot-time so, according to this link &lt;a href=&quot;https://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time&quot;&gt;how to get to the GRUB menu at boot-time&lt;/a&gt;, pressing &lt;code class=&quot;highlighter-rouge&quot;&gt;esc&lt;/code&gt; while booting did not cause the GRUB menu to appear. It shows &lt;code class=&quot;highlighter-rouge&quot;&gt;please select boot device&lt;/code&gt; section for me.&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/boot-device.jpg&quot; alt=&quot;boot-device&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Then I pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;Enter&lt;/code&gt; to boot again and while booting, pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;esc&lt;/code&gt; again. Finally it reached to the GRUB menu and I pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt; to edit the commands(this page starts with &lt;code class=&quot;highlighter-rouge&quot;&gt;set params &apos;Ubuntu&apos;&lt;/code&gt;). Then I added &lt;code class=&quot;highlighter-rouge&quot;&gt;pci=nomsi&lt;/code&gt; to end of the line starting with &lt;code class=&quot;highlighter-rouge&quot;&gt;linux&lt;/code&gt; and pressed &lt;code class=&quot;highlighter-rouge&quot;&gt;F10&lt;/code&gt; to boot.&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/grub.jpg&quot; alt=&quot;grub&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/params.jpg&quot; alt=&quot;params&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;After this operation, I was able to reach login screen and terminal. Then I followed the &lt;a href=&quot;https://askubuntu.com/a/926352/829928&quot;&gt;@Ujjal Kumar Das’s&lt;/a&gt; answer on StackOverFlow and updated my &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/default/grub/&lt;/code&gt; file permanently.&lt;/p&gt;
-
-&lt;p&gt;Maybe this method works for the users who have the same laptop model like me. I like using Ubuntu, but this issue is so annoying every time.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">This post is the mirror of my answer on StackOverFlow:</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="general" /><summary type="html">Bilgisayarları hızlandırmak için ek RAM eklemek her zaman çözüm olmayabilir. Bir bilgisayarın RAM hafızası yeterliyse ve HDD ile çalıştırılıyor ise sadece SSD eklenerek hızlandırılabilir.</summary></entry></feed>
