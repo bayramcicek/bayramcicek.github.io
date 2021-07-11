@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Week #5 - GSoC Weekly Report - 100 Paper Cuts | Bayram Çiçek’s website</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Week #5 - GSoC Weekly Report - 100 Paper Cuts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="GSoC progress for week #5." />
+<meta property="og:description" content="GSoC progress for week #5." />
+<link rel="canonical" href="http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc.html" />
+<meta property="og:url" content="http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc.html" />
+<meta property="og:site_name" content="Bayram Çiçek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-11T09:24:45+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week #5 - GSoC Weekly Report - 100 Paper Cuts" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"GSoC progress for week #5.","headline":"Week #5 - GSoC Weekly Report - 100 Paper Cuts","dateModified":"2021-07-11T09:24:45+03:00","datePublished":"2021-07-11T09:24:45+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc.html"},"url":"http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Bayram Çiçek&apos;s website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Bayram Çiçek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/libreoffice/">LibreOffice</a><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Week #5 - GSoC Weekly Report - 100 Paper Cuts</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-07-11T09:24:45+03:00" itemprop="datePublished">Jul 11, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>GSoC progress for week #5.</p>
+
+<h1 id="get-rid-of-writer-images">Get rid of Writer-Images</h1>
+
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438</a> (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images.</li>
+</ul>
+
+<p>Last week I shared a blog post of my research on this bug <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html">here</a> and this week I posted a comment about my 2-week research on the bug page of tdf#34438 <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47">here</a>, and Regina Henschel replied with a comment <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c48">here</a> (thanks for the reply):</p>
+
+<blockquote>
+  <p>[…] So from my point of view we should get rid of Writer-images. But that is a long way. […] So to get rid of Writer-images it would be necessary to implement the services, which are provided by Writer-images for Draw-images too …</p>
+</blockquote>
+
+<p>So, the last decision is: get rid of writer-images. Convert them into drawing objects ,but also implement the writer-images services/attributes to drawing-images. Since there are lots of things to do and we have only 5 week left after the first evaluations week, I prefer to work on this issue after GSoC with a huge free time. Also, I want to work on other bugs too, not only one.</p>
+
+<h1 id="prevent-jump-to-top-of-the-comment-view--writer-comments">Prevent jump to top of the comment view / Writer-comments</h1>
+
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=91519">tdf#91519</a>: Jump of document canvas view to the top of the comment disrupts editing of long comments.</li>
+  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/118638">https://gerrit.libreoffice.org/c/core/+/118638</a> (<em>waiting for review</em>)</li>
+</ul>
+
+<p>In Writer,
+there are 3 issues about comment section:</p>
+
+<ul>
+  <li>
+    <p>comment section scrolls to top of its view when clicking inside a comment view.</p>
+  </li>
+  <li>
+    <p>clicking inside a comment view, scrolls the view to old cursor location automatically (if old cursor out of the visible area).</p>
+  </li>
+  <li>
+    <p>comment section scrolls automatically to the old <em>selected</em> text (if it’s out of visible area) when clicking inside the Writer canvas view.</p>
+  </li>
+</ul>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/comment-multi-selection.png" alt="comment-multi-selection.png" />
+</p>
+
+<p align="center">
+    <i>Another annoying issue: multi-selection (after a certain changes in the code)</i>
+</p>
+
+<h1 id="technical-details">Technical Details</h1>
+
+<ul>
+  <li><b>Fix for “autoscroll to old cursor location”</b></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">ActivatePostIt</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="cm">/*...*/</span>
+
+    <span class="c1">// prevent autoscroll to the old cursor location</span>
+    <span class="c1">// when cursor out of visible area</span>
+    <span class="n">GetOutlinerView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">ShowCursor</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+
+    <span class="cm">/*...*/</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">GetOutlinerView()-&gt;ShowCursor();</code> has a default value <code class="highlighter-rouge">true</code> if no argument passed in. I realized that this line causes the autoscroll to the old cursor location, and setting it to <code class="highlighter-rouge">false</code> solved the issue.</p>
+
+<ul>
+  <li><b>Fix for “jumping to the top of comment view”</b></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">bool</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">SetActiveSidebarWin</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mrMgr</span><span class="p">.</span><span class="n">GetActiveSidebarWin</span><span class="p">()</span> <span class="o">==</span> <span class="k">this</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">bool</span> <span class="n">bLockView</span> <span class="o">=</span> <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">IsViewLocked</span><span class="p">();</span>
+    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="nb">true</span> <span class="p">);</span>
+    <span class="n">mrMgr</span><span class="p">.</span><span class="n">SetActiveSidebarWin</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+    <span class="c1">// don't understand why we set `bLockView` here?</span>
+    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="n">bLockView</span> <span class="p">);</span>
+    
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Just remove unnecessary <code class="highlighter-rouge">const bool bLockView = mrView.GetWrtShell().IsViewLocked();</code> line, set <code class="highlighter-rouge">.LockView( bLockView );</code> to <code class="highlighter-rouge">.LockView( true );</code> because we activating <code class="highlighter-rouge">SetActiveSidebarWin</code> here, it should be <code class="highlighter-rouge">true</code> and this fixes the jumping to the top of comment view issue with:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">UnsetActiveSidebarWin</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mrMgr</span><span class="p">.</span><span class="n">GetActiveSidebarWin</span><span class="p">()</span> <span class="o">!=</span> <span class="k">this</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="nb">true</span> <span class="p">);</span>
+    <span class="n">mrMgr</span><span class="p">.</span><span class="n">SetActiveSidebarWin</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="nb">false</span> <span class="p">);</span> <span class="c1">// set false</span>
+<span class="p">}</span></code></pre></figure>
+
+<ul>
+  <li><b>Fix for “scrolling automatically to the old <em>selected</em> text”</b></li>
+</ul>
+
+<p>Steps to reproduce: (in comments section)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- select text (2-3 words for example)
+- scroll selected text to unvisible area (up or down)
+- click into the writer document canvas
+</code></pre></div></div>
+
+<p><strong>Result</strong>: comment writing area scrolls to unvisible selected text(s) (it becomes visible)</p>
+
+<p><strong>Expected result</strong>: don’t scroll to the selected area, just make it unmarked.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">EditView</span><span class="o">::</span><span class="n">SetSelection</span><span class="p">(</span> <span class="k">const</span> <span class="n">ESelection</span><span class="o">&amp;</span> <span class="n">rESel</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/*...*/</span>
+
+    <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">DrawSelectionXOR</span><span class="p">();</span>
+    <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">SetEditSelection</span><span class="p">(</span> <span class="n">aNewSelection</span> <span class="p">);</span>
+    <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">DrawSelectionXOR</span><span class="p">();</span>
+    <span class="kt">bool</span> <span class="n">bGotoCursor</span> <span class="o">=</span> <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">DoAutoScroll</span><span class="p">();</span>
+
+    <span class="n">ShowCursor</span><span class="p">(</span> <span class="n">bGotoCursor</span> <span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">ShowCursor( bGotoCursor );</code> causes the jumping when deactivating the comment canvas (when clicking into writer document canvas).</p>
+
+<p>Just made it to:</p>
+<pre>
+    if (HasSelection())
+        ShowCursor( bGotoCursor );
+</pre>
+
+<p>and it’s solved.</p>
+
+<ul>
+  <li><b>When typing, current view have to jump to typing location</b></li>
+</ul>
+
+<p>After the certain changes in the code, I realized that the writer document canvas doesn’t jump to typing location. After a long process of debugging in the code base, found that comment section LockView doesn’t set to false:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SidebarTextControl</span><span class="o">::</span><span class="n">LoseFocus</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// write the visible text back into the SwField</span>
+    <span class="n">mrSidebarWin</span><span class="p">.</span><span class="n">UpdateData</span><span class="p">();</span>
+
+    <span class="n">WeldEditView</span><span class="o">::</span><span class="n">LoseFocus</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">mrSidebarWin</span><span class="p">.</span><span class="n">IsMouseOver</span><span class="p">()</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Invalidate</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// I just added this line here and set it to false.</span>
+    <span class="n">mrSidebarWin</span><span class="p">.</span><span class="n">LockView</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Before the <code class="highlighter-rouge">mrSidebarWin.LockView();</code>, I created a new method in <code class="highlighter-rouge">sw/source/uibase/docvw/AnnotationWin2.cxx</code> to have access <code class="highlighter-rouge">LockView()</code>:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">LockView</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bLock</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="n">bLock</span> <span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p align="center">
+    ***
+</p>
+
+<h3 id="summary-of-week-5">Summary of week #5</h3>
+
+<ul>
+  <li>We decided that we should get rid of writer-images and convert them into the drawing objects without losing the services of writer-images</li>
+  <li>Sent a patch about tdf#91519: <a href="https://gerrit.libreoffice.org/c/core/+/118638">https://gerrit.libreoffice.org/c/core/+/118638</a></li>
+</ul>
+
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
+
+<ul>
+  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
+  <li>Update the UI for diagonal borders</li>
+</ul>
+
+
+  </div><a class="u-url" href="/libreoffice-dev/2021/07/11/week-05-gsoc.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Bayram Çiçek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Bayram Çiçek&#39;s website</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.twitter.com/bayramcicek21"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">bayramcicek21</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

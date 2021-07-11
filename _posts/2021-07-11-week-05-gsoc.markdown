@@ -1,0 +1,187 @@
+---
+layout: post
+title:  "Week #5 - GSoC Weekly Report - 100 Paper Cuts"
+date:   2021-07-11 09:24:45 +0300
+categories: libreoffice-dev
+---
+
+GSoC progress for week #5.
+
+# Get rid of Writer-Images
+
+- Bug: [tdf#34438][tdf#34438] (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images.
+
+Last week I shared a blog post of my research on this bug [here][gsoc-w3-4] and this week I posted a comment about my 2-week research on the bug page of tdf#34438 [here][comment-me], and Regina Henschel replied with a comment [here][comment-regina] (thanks for the reply):
+
+> [...] So from my point of view we should get rid of Writer-images. But that is a long way. [...] So to get rid of Writer-images it would be necessary to implement the services, which are provided by Writer-images for Draw-images too ...
+
+So, the last decision is: get rid of writer-images. Convert them into drawing objects ,but also implement the writer-images services/attributes to drawing-images. Since there are lots of things to do and we have only 5 week left after the first evaluations week, I prefer to work on this issue after GSoC with a huge free time. Also, I want to work on other bugs too, not only one.
+
+# Prevent jump to top of the comment view / Writer-comments
+
+- Bug: [tdf#91519][tdf#91519]: Jump of document canvas view to the top of the comment disrupts editing of long comments.
+- Commit: [https://gerrit.libreoffice.org/c/core/+/118638][tdf#91519-commit] (_waiting for review_)
+
+In Writer,
+there are 3 issues about comment section:
+
+- comment section scrolls to top of its view when clicking inside a comment view.
+
+- clicking inside a comment view, scrolls the view to old cursor location automatically (if old cursor out of the visible area).
+
+- comment section scrolls automatically to the old *selected* text (if it's out of visible area) when clicking inside the Writer canvas view.
+
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/comment-multi-selection.png" alt="comment-multi-selection.png"/>
+</p>
+
+<p align="center">
+    <i>Another annoying issue: multi-selection (after a certain changes in the code)</i>
+</p>
+
+# Technical Details
+
+- <b>Fix for "autoscroll to old cursor location"</b>
+
+{% highlight cpp %}
+void SwAnnotationWin::ActivatePostIt()
+{
+    /*...*/
+
+    // prevent autoscroll to the old cursor location
+    // when cursor out of visible area
+    GetOutlinerView()->ShowCursor(false);
+
+    /*...*/
+}
+{% endhighlight %}
+
+`GetOutlinerView()->ShowCursor();` has a default value `true` if no argument passed in. I realized that this line causes the autoscroll to the old cursor location, and setting it to `false` solved the issue.
+
+- <b>Fix for "jumping to the top of comment view"</b>
+
+{% highlight cpp %}
+bool SwAnnotationWin::SetActiveSidebarWin()
+{
+    if (mrMgr.GetActiveSidebarWin() == this)
+        return false;
+    const bool bLockView = mrView.GetWrtShell().IsViewLocked();
+    mrView.GetWrtShell().LockView( true );
+    mrMgr.SetActiveSidebarWin(this);
+
+    // don't understand why we set `bLockView` here?
+    mrView.GetWrtShell().LockView( bLockView );
+    
+    return true;
+}
+{% endhighlight %}
+
+Just remove unnecessary `const bool bLockView = mrView.GetWrtShell().IsViewLocked();` line, set `.LockView( bLockView );` to `.LockView( true );` because we activating `SetActiveSidebarWin` here, it should be `true` and this fixes the jumping to the top of comment view issue with:
+
+{% highlight cpp %}
+void SwAnnotationWin::UnsetActiveSidebarWin()
+{
+    if (mrMgr.GetActiveSidebarWin() != this)
+        return;
+    mrView.GetWrtShell().LockView( true );
+    mrMgr.SetActiveSidebarWin(nullptr);
+    mrView.GetWrtShell().LockView( false ); // set false
+}
+{% endhighlight %}
+
+- <b>Fix for "scrolling automatically to the old *selected* text"</b>
+
+Steps to reproduce: (in comments section)
+
+    - select text (2-3 words for example)
+    - scroll selected text to unvisible area (up or down)
+    - click into the writer document canvas
+
+**Result**: comment writing area scrolls to unvisible selected text(s) (it becomes visible)
+
+**Expected result**: don't scroll to the selected area, just make it unmarked.
+
+{% highlight cpp %}
+void EditView::SetSelection( const ESelection& rESel )
+{
+    /*...*/
+
+    pImpEditView->DrawSelectionXOR();
+    pImpEditView->SetEditSelection( aNewSelection );
+    pImpEditView->DrawSelectionXOR();
+    bool bGotoCursor = pImpEditView->DoAutoScroll();
+
+    ShowCursor( bGotoCursor );
+}
+{% endhighlight %}
+
+`ShowCursor( bGotoCursor );` causes the jumping when deactivating the comment canvas (when clicking into writer document canvas).
+
+Just made it to:
+<pre>
+    if (HasSelection())
+        ShowCursor( bGotoCursor );
+</pre>
+
+and it's solved.
+
+- <b>When typing, current view have to jump to typing location</b>
+
+After the certain changes in the code, I realized that the writer document canvas doesn't jump to typing location. After a long process of debugging in the code base, found that comment section LockView doesn't set to false: 
+
+{% highlight cpp %}
+void SidebarTextControl::LoseFocus()
+{
+    // write the visible text back into the SwField
+    mrSidebarWin.UpdateData();
+
+    WeldEditView::LoseFocus();
+    if ( !mrSidebarWin.IsMouseOver() )
+    {
+        Invalidate();
+    }
+
+    // I just added this line here and set it to false.
+    mrSidebarWin.LockView(false);
+}
+{% endhighlight %}
+
+Before the `mrSidebarWin.LockView();`, I created a new method in `sw/source/uibase/docvw/AnnotationWin2.cxx` to have access `LockView()`:
+
+{% highlight cpp %}
+void SwAnnotationWin::LockView(bool bLock)
+{
+    mrView.GetWrtShell().LockView( bLock );
+}
+{% endhighlight %}
+
+<p align="center">
+    ***
+</p>
+
+### Summary of week #5
+
+- We decided that we should get rid of writer-images and convert them into the drawing objects without losing the services of writer-images
+- Sent a patch about tdf#91519: [https://gerrit.libreoffice.org/c/core/+/118638][tdf#91519-commit]
+
+
+### Next Week TO-DO
+
+- Work on [tdf#51665][tdf#51665]: Support diagonal borders in TABLEs
+- Update the UI for diagonal borders
+
+
+[tdf#34438]: https://bugs.documentfoundation.org/show_bug.cgi?id=34438
+
+[gsoc-w3-4]: https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html
+
+[comment-me]: https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47
+
+[comment-regina]: https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c48
+
+[tdf#91519]: https://bugs.documentfoundation.org/show_bug.cgi?id=91519
+
+[tdf#91519-commit]: https://gerrit.libreoffice.org/c/core/+/118638
+
+[tdf#51665]: https://bugs.documentfoundation.org/show_bug.cgi?id=51665
