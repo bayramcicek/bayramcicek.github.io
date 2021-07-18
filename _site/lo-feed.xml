@@ -5,16 +5,159 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.com.tr/libreoffice/</link>
         <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 11 Jul 2021 13:06:29 +0300</pubDate>
-        <lastBuildDate>Sun, 11 Jul 2021 13:06:29 +0300</lastBuildDate>
+        <pubDate>Sun, 18 Jul 2021 11:16:59 +0300</pubDate>
+        <lastBuildDate>Sun, 18 Jul 2021 11:16:59 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>Week #6 - GSoC Weekly Report - 100 Paper Cuts</title>
+                <author>Bayram Çiçek</author>
+                <description>&lt;p&gt;GSoC progress for week #6. (first evaluations week)&lt;/p&gt;
+
+&lt;h3 id=&quot;new-icons-for-diagonal-borders&quot;&gt;New icons for diagonal borders&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&quot;&gt;tdf#143300&lt;/a&gt;: Add icons for diagonal borders&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I wanted to add diagonal borders to the &lt;code class=&quot;highlighter-rouge&quot;&gt;table toolbar &amp;gt; borders&lt;/code&gt; but realized that LO doesn’t have diagonal left and diagonal right borders under &lt;code class=&quot;highlighter-rouge&quot;&gt;./icon-themes/*/svx/res/*&lt;/code&gt;. Then on the &lt;em&gt;LibreOffice Design EN&lt;/em&gt; telegram channel, I said that these icons are necessary for tdf#51665. Designers wanted me to open a new report dedicated for the icons, so that &lt;em&gt;Rizal Muttaqin&lt;/em&gt;(huge thanks for the icons) could draw them. Diagonal border icons will be added for all themes soon.&lt;/p&gt;
+
+&lt;h3 id=&quot;ui---add-diagonal-borders-in-table-toolbar&quot;&gt;UI - add diagonal borders in Table toolbar&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;: Support diagonal borders in TABLEs&lt;/li&gt;
+  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118951&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118951&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In order to work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;, I added diagonal borders to &lt;code class=&quot;highlighter-rouge&quot;&gt;table toolbar &amp;gt; borders&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/one_cell_border_0.png&quot; alt=&quot;one_cell_border_0.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+    &lt;i&gt;One cell selected (standard view)&lt;/i&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/multi_cell_border_1.png&quot; alt=&quot;multi_cell_border_1.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+    &lt;i&gt;Multiple cell selected&lt;/i&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tooltips&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Added tooltip &lt;em&gt;“Set Diagonal Left Border”&lt;/em&gt; for diagonal LEFT border.&lt;br /&gt;
+Added tooltip &lt;em&gt;“Set Diagonal Right Border”&lt;/em&gt; for for diagonal RIGHT border.&lt;/p&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;include/svx/strings.hrc&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define RID_SVXSTR_PARA_PRESET_DIAGONALLEFT         NC_(&quot;RID_SVXSTR_PARA_PRESET_DIAGONALLEFT&quot;, &quot;Set Diagonal Left Border&quot;)
+#define RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT        NC_(&quot;RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT&quot;, &quot;Set Diagonal Right Border&quot;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Icons&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Added diagonal Left and Right borders to the &lt;code class=&quot;highlighter-rouge&quot;&gt;svx/inc/bitmaps.hlst&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fr013.png&lt;/code&gt; -&amp;gt; Right Diagonal Border&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;fr014.png&lt;/code&gt; -&amp;gt; Left Diagonal Border&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define RID_SVXBMP_FRAME13                          &quot;svx/res/fr013.png&quot;
+#define RID_SVXBMP_FRAME14                          &quot;svx/res/fr014.png&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Update &lt;em&gt;for loops&lt;/em&gt; and &lt;em&gt;switch cases&lt;/em&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Increased all for loops limits by 2. &lt;code class=&quot;highlighter-rouge&quot;&gt;svx/source/tbxctrls/tbcontrl.cxx&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//bParagraphMode should have been set in StateChanged&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bParagraphMode&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// made -&amp;gt; for ( i = 11; i &amp;lt; 15; i++ )&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;mxFrameSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InsertItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aImgVec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aImgVec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Updated &lt;code class=&quot;highlighter-rouge&quot;&gt;mxFrameSet-&amp;gt;SetColCount( 4 );&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;mxFrameSet-&amp;gt;SetColCount( 5 );&lt;/code&gt;, because column size should be 5 after adding the diagonal borders to the 5.th and 10.th order:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;svx/source/tbxctrls/tbcontrl.cxx&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// DIAGONAL LEFT&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pTop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;theDefLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nValidFlags&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FrmValidFlags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// TOP&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/*...*/&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// DIAGONAL RIGHT&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Add them in correct order:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxFrameWindow_Impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InitImageList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;aImgVec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_TABLE_PRESET_NONE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_ONLYLEFT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_ONLYRIGHT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_LEFTRIGHT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// diagonal left border&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_DIAGONALLEFT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_ONLYTOP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_ONLYTBOTTOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_TOPBOTTOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_TABLE_PRESET_ONLYOUTER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// diagonal right border&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_TOPBOTTOMHORI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_TABLE_PRESET_OUTERHORI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_TABLE_PRESET_OUTERVERI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_TABLE_PRESET_OUTERALL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;h3 id=&quot;summary-of-week-6&quot;&gt;Summary of week #6&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I opened a new report in Bugzilla for the icons: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&quot;&gt;tdf#143300&lt;/a&gt;: Add icons for diagonal borders&lt;/li&gt;
+  &lt;li&gt;Added UI of the floating widget. Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118951&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118951&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;: Support diagonal borders in TABLEs&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+                <pubDate>Sun, 18 Jul 2021 09:41:13 +0300</pubDate>
+                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/07/18/week-06-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/07/18/week-06-gsoc.html</guid>
+                
+                
+                <category>libreoffice-dev</category>
+                
+            </item>
         
             <item>
                 <title>Week #5 - GSoC Weekly Report - 100 Paper Cuts</title>
                 <author>Bayram Çiçek</author>
                 <description>&lt;p&gt;GSoC progress for week #5.&lt;/p&gt;
 
-&lt;h1 id=&quot;get-rid-of-writer-images&quot;&gt;Get rid of Writer-Images&lt;/h1&gt;
+&lt;h3 id=&quot;get-rid-of-writer-images&quot;&gt;Get rid of Writer-Images&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438&lt;/a&gt; (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images.&lt;/li&gt;
@@ -28,7 +171,7 @@
 
 &lt;p&gt;So, the last decision is: get rid of writer-images. Convert them into drawing objects ,but also implement the writer-images services/attributes to drawing-images. Since there are lots of things to do and we have only 5 week left after the first evaluations week, I prefer to work on this issue after GSoC with a huge free time. Also, I want to work on other bugs too, not only one.&lt;/p&gt;
 
-&lt;h1 id=&quot;prevent-jump-to-top-of-the-comment-view--writer-comments&quot;&gt;Prevent jump to top of the comment view / Writer-comments&lt;/h1&gt;
+&lt;h3 id=&quot;prevent-jump-to-top-of-the-comment-view--writer-comments&quot;&gt;Prevent jump to top of the comment view / Writer-comments&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=91519&quot;&gt;tdf#91519&lt;/a&gt;: Jump of document canvas view to the top of the comment disrupts editing of long comments.&lt;/li&gt;
@@ -58,7 +201,7 @@ there are 3 issues about comment section:&lt;/p&gt;
     &lt;i&gt;Another annoying issue: multi-selection (after a certain changes in the code)&lt;/i&gt;
 &lt;/p&gt;
 
-&lt;h1 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h1&gt;
+&lt;h3 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;b&gt;Fix for “autoscroll to old cursor location”&lt;/b&gt;&lt;/li&gt;

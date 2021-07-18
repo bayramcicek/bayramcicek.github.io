@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Week #6 - GSoC Weekly Report - 100 Paper Cuts | Bayram Çiçek’s website</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Week #6 - GSoC Weekly Report - 100 Paper Cuts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="GSoC progress for week #6. (first evaluations week)" />
+<meta property="og:description" content="GSoC progress for week #6. (first evaluations week)" />
+<link rel="canonical" href="http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc.html" />
+<meta property="og:url" content="http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc.html" />
+<meta property="og:site_name" content="Bayram Çiçek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-18T09:41:13+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week #6 - GSoC Weekly Report - 100 Paper Cuts" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"GSoC progress for week #6. (first evaluations week)","headline":"Week #6 - GSoC Weekly Report - 100 Paper Cuts","dateModified":"2021-07-18T09:41:13+03:00","datePublished":"2021-07-18T09:41:13+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc.html"},"url":"http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Bayram Çiçek&apos;s website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Bayram Çiçek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/libreoffice/">LibreOffice</a><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Week #6 - GSoC Weekly Report - 100 Paper Cuts</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-07-18T09:41:13+03:00" itemprop="datePublished">Jul 18, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>GSoC progress for week #6. (first evaluations week)</p>
+
+<h3 id="new-icons-for-diagonal-borders">New icons for diagonal borders</h3>
+
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143300">tdf#143300</a>: Add icons for diagonal borders</li>
+</ul>
+
+<p>I wanted to add diagonal borders to the <code class="highlighter-rouge">table toolbar &gt; borders</code> but realized that LO doesn’t have diagonal left and diagonal right borders under <code class="highlighter-rouge">./icon-themes/*/svx/res/*</code>. Then on the <em>LibreOffice Design EN</em> telegram channel, I said that these icons are necessary for tdf#51665. Designers wanted me to open a new report dedicated for the icons, so that <em>Rizal Muttaqin</em>(huge thanks for the icons) could draw them. Diagonal border icons will be added for all themes soon.</p>
+
+<h3 id="ui---add-diagonal-borders-in-table-toolbar">UI - add diagonal borders in Table toolbar</h3>
+
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
+  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/118951">https://gerrit.libreoffice.org/c/core/+/118951</a></li>
+</ul>
+
+<p>In order to work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>, I added diagonal borders to <code class="highlighter-rouge">table toolbar &gt; borders</code>.</p>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/one_cell_border_0.png" alt="one_cell_border_0.png" />
+</p>
+
+<p align="center">
+    <i>One cell selected (standard view)</i>
+</p>
+
+<p><br /></p>
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/multi_cell_border_1.png" alt="multi_cell_border_1.png" />
+</p>
+
+<p align="center">
+    <i>Multiple cell selected</i>
+</p>
+
+<h3 id="technical-details">Technical Details</h3>
+
+<ul>
+  <li>Tooltips</li>
+</ul>
+
+<p>Added tooltip <em>“Set Diagonal Left Border”</em> for diagonal LEFT border.<br />
+Added tooltip <em>“Set Diagonal Right Border”</em> for for diagonal RIGHT border.</p>
+
+<p>In <code class="highlighter-rouge">include/svx/strings.hrc</code>:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define RID_SVXSTR_PARA_PRESET_DIAGONALLEFT         NC_("RID_SVXSTR_PARA_PRESET_DIAGONALLEFT", "Set Diagonal Left Border")
+#define RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT        NC_("RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT", "Set Diagonal Right Border")</span></code></pre></figure>
+
+<ul>
+  <li>Icons</li>
+</ul>
+
+<p>Added diagonal Left and Right borders to the <code class="highlighter-rouge">svx/inc/bitmaps.hlst</code>:</p>
+
+<p><code class="highlighter-rouge">fr013.png</code> -&gt; Right Diagonal Border<br />
+<code class="highlighter-rouge">fr014.png</code> -&gt; Left Diagonal Border</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define RID_SVXBMP_FRAME13                          "svx/res/fr013.png"
+#define RID_SVXBMP_FRAME14                          "svx/res/fr014.png"</span></code></pre></figure>
+
+<ul>
+  <li>Update <em>for loops</em> and <em>switch cases</em>:</li>
+</ul>
+
+<p>Increased all for loops limits by 2. <code class="highlighter-rouge">svx/source/tbxctrls/tbcontrl.cxx</code>:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">//bParagraphMode should have been set in StateChanged</span>
+<span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">bParagraphMode</span> <span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="c1">// made -&gt; for ( i = 11; i &lt; 15; i++ )</span>
+        <span class="n">mxFrameSet</span><span class="o">-&gt;</span><span class="n">InsertItem</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Image</span><span class="p">(</span><span class="n">aImgVec</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">first</span><span class="p">),</span> <span class="n">aImgVec</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">second</span><span class="p">);</span> </code></pre></figure>
+
+<p>Updated <code class="highlighter-rouge">mxFrameSet-&gt;SetColCount( 4 );</code> to <code class="highlighter-rouge">mxFrameSet-&gt;SetColCount( 5 );</code>, because column size should be 5 after adding the diagonal borders to the 5.th and 10.th order:</p>
+
+<p><code class="highlighter-rouge">svx/source/tbxctrls/tbcontrl.cxx</code>:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">case</span> <span class="mi">5</span><span class="p">:</span> <span class="k">break</span><span class="p">;</span>  <span class="c1">// DIAGONAL LEFT</span>
+
+<span class="k">case</span> <span class="mi">6</span><span class="p">:</span> <span class="n">pTop</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">theDefLine</span><span class="p">;</span>
+        <span class="n">nValidFlags</span> <span class="o">|=</span> <span class="n">FrmValidFlags</span><span class="o">::</span><span class="n">Top</span><span class="p">;</span>
+<span class="k">break</span><span class="p">;</span>  <span class="c1">// TOP</span>
+
+<span class="cm">/*...*/</span>
+
+<span class="k">case</span> <span class="mi">10</span><span class="p">:</span> <span class="k">break</span><span class="p">;</span>  <span class="c1">// DIAGONAL RIGHT</span></code></pre></figure>
+
+<p>Add them in correct order:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SvxFrameWindow_Impl</span><span class="o">::</span><span class="n">InitImageList</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">aImgVec</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME1</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_NONE</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME2</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYLEFT</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME3</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYRIGHT</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME4</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_LEFTRIGHT</span><span class="p">)},</span>
+        <span class="c1">// diagonal left border</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME14</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_DIAGONALLEFT</span><span class="p">)},</span>
+
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME5</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYTOP</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME6</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYTBOTTOM</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME7</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_TOPBOTTOM</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME8</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_ONLYOUTER</span><span class="p">)},</span>
+        <span class="c1">// diagonal right border</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME13</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT</span><span class="p">)},</span>
+
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME9</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_TOPBOTTOMHORI</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME10</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_OUTERHORI</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME11</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_OUTERVERI</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME12</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_OUTERALL</span><span class="p">)}</span>
+    <span class="p">};</span>
+<span class="p">}</span></code></pre></figure>
+
+<p align="center">
+    ***
+</p>
+
+<h3 id="summary-of-week-6">Summary of week #6</h3>
+
+<ul>
+  <li>I opened a new report in Bugzilla for the icons: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143300">tdf#143300</a>: Add icons for diagonal borders</li>
+  <li>Added UI of the floating widget. Commit: <a href="https://gerrit.libreoffice.org/c/core/+/118951">https://gerrit.libreoffice.org/c/core/+/118951</a></li>
+</ul>
+
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
+
+<ul>
+  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
+</ul>
+
+
+  </div><a class="u-url" href="/libreoffice-dev/2021/07/18/week-06-gsoc.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Bayram Çiçek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Bayram Çiçek&#39;s website</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.twitter.com/bayramcicek21"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">bayramcicek21</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

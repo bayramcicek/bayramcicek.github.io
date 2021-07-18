@@ -7,7 +7,7 @@ categories: libreoffice-dev
 
 GSoC progress for week #5.
 
-# Get rid of Writer-Images
+### Get rid of Writer-Images
 
 - Bug: [tdf#34438][tdf#34438] (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images.
 
@@ -17,7 +17,7 @@ Last week I shared a blog post of my research on this bug [here][gsoc-w3-4] and 
 
 So, the last decision is: get rid of writer-images. Convert them into drawing objects ,but also implement the writer-images services/attributes to drawing-images. Since there are lots of things to do and we have only 5 week left after the first evaluations week, I prefer to work on this issue after GSoC with a huge free time. Also, I want to work on other bugs too, not only one.
 
-# Prevent jump to top of the comment view / Writer-comments
+### Prevent jump to top of the comment view / Writer-comments
 
 - Bug: [tdf#91519][tdf#91519]: Jump of document canvas view to the top of the comment disrupts editing of long comments.
 - Commit: [https://gerrit.libreoffice.org/c/core/+/118638][tdf#91519-commit] (_waiting for review_)
@@ -40,7 +40,7 @@ there are 3 issues about comment section:
     <i>Another annoying issue: multi-selection (after a certain changes in the code)</i>
 </p>
 
-# Technical Details
+### Technical Details
 
 - <b>Fix for "autoscroll to old cursor location"</b>
 
