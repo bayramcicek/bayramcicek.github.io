@@ -5,9 +5,70 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.com.tr/libreoffice/</link>
         <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 18 Jul 2021 11:16:59 +0300</pubDate>
-        <lastBuildDate>Sun, 18 Jul 2021 11:16:59 +0300</lastBuildDate>
+        <pubDate>Sun, 01 Aug 2021 11:58:18 +0300</pubDate>
+        <lastBuildDate>Sun, 01 Aug 2021 11:58:18 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts</title>
+                <author>Bayram Çiçek</author>
+                <description>&lt;p&gt;GSoC progress for week #7 and week #8.&lt;/p&gt;
+
+&lt;h4 id=&quot;made-research-on-borders-in-writer-tables&quot;&gt;Made research on borders in Writer-Tables&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt; - Support diagonal borders in TABLEs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;Table Toolbar &amp;gt; Bordes&lt;/code&gt;, Writer has 8 border frames for each cell, and has 12 border frames for multiple selected cells. With 2 new borders (Diagonal Left/Right), Writer has 14 border frames.&lt;/p&gt;
+
+&lt;p&gt;I made research about how applying borders works in Writer-Tables. Then I started to work on it with sending first patchsets as WIP:: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I realized that Calc has diagonal borders feature in both &lt;code class=&quot;highlighter-rouge&quot;&gt;Format &amp;gt; Cells... &amp;gt; Borders tab&lt;/code&gt; and (Sidebar Tab) &lt;code class=&quot;highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;. Next week, I will try to understand how diagonal borders work in Calc cells and will try to implement them in Writer-Tables.&lt;/p&gt;
+
+&lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;sw/source/core/layout/paintfrm.cxx&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;sw/source/core/doc/tblafmt.cxx&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;svx/source/tbxctrls/tbcontrl.cxx: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221&quot;&gt;https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;sc/source/ui/sidebar/CellBorderStyleControl.cxx:133 : &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellBorderStyleControl.cxx?r=f3fc16f4#133&quot;&gt;https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellBorderStyleControl.cxx?r=f3fc16f4#133&lt;/a&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;h3 id=&quot;summary-of-last-2-weeks&quot;&gt;Summary of last 2 weeks&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Worked on Writer-Tables&lt;/li&gt;
+  &lt;li&gt;commit: (WIP) Support diagonal borders in Writer-Tables : &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Work on Calc diagonal borders and try to implement them in Writer-Tables&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+                <pubDate>Sun, 01 Aug 2021 09:04:42 +0300</pubDate>
+                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/08/01/week-07-08-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/08/01/week-07-08-gsoc.html</guid>
+                
+                
+                <category>libreoffice-dev</category>
+                
+            </item>
         
             <item>
                 <title>Week #6 - GSoC Weekly Report - 100 Paper Cuts</title>
