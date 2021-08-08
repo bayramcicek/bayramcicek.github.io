@@ -5,9 +5,53 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.com.tr/libreoffice/</link>
         <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 01 Aug 2021 11:58:18 +0300</pubDate>
-        <lastBuildDate>Sun, 01 Aug 2021 11:58:18 +0300</lastBuildDate>
+        <pubDate>Sun, 08 Aug 2021 12:47:09 +0300</pubDate>
+        <lastBuildDate>Sun, 08 Aug 2021 12:47:09 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>Week #9 - GSoC Weekly Report - 100 Paper Cuts</title>
+                <author>Bayram Çiçek</author>
+                <description>&lt;p&gt;GSoC progress for week #9.&lt;/p&gt;
+
+&lt;h4 id=&quot;diagonal-borders-now-accessible-from-table-toolbar--borders-tab-in-calc&quot;&gt;Diagonal borders now accessible from “Table Toolbar &amp;gt; Borders” tab in Calc&lt;/h4&gt;
+
+&lt;p&gt;Calc has diagonal borders feature in &lt;code class=&quot;highlighter-rouge&quot;&gt;Format &amp;gt; Cells... &amp;gt; Borders tab&lt;/code&gt; and (Sidebar Tab) &lt;code class=&quot;highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;. However, this feature wasn’t exist in “Table Toolbar &amp;gt; Borders” tab. With commit &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;, Calc can draw diagonal left and diagonal right borders from table toolbar. \o/&lt;/p&gt;
+
+&lt;p&gt;This &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt; commit had “&lt;em&gt;(WIP) Support diagonal borders in Writer-Tables&lt;/em&gt;” name before, and I sent 3-4 patchsets for Writer-diagonal-borders, but I made it Calc-specific and changed the title as “&lt;em&gt;Calc: made diagonal borders accessible in Toolbar&amp;gt;Borders&lt;/em&gt;”. The reason of this change is: Writer and Calc use the same Border tab in Table toolbar (svx/source/tbxctrls/tbcontrl.cxx). Therefore I will leave the commit as Calc-specific and will submit a new commit just for Writer-specific. But first, I want to write UItest for Calc-diagonal-borders next week.&lt;/p&gt;
+
+&lt;p&gt;Additionaly I want to work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34689&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=34689&lt;/a&gt; - UI scroll problem: Cell with dimensions exceeding screen dimensions impossible to work with.&lt;/p&gt;
+
+&lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;svx/source/tbxctrls/tbcontrl.cxx: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221&quot;&gt;https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;summary-of-week-9&quot;&gt;Summary of week #9&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Worked on Writer-Tables and Calc-Borders&lt;/li&gt;
+  &lt;li&gt;Made diagonal borders accessible in Toolbar&amp;gt;Borders / Calc&lt;/li&gt;
+  &lt;li&gt;Sent new patchsets in commit : &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Write UItest for Calc diagonal-borders.&lt;/li&gt;
+  &lt;li&gt;Work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34689&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=34689&lt;/a&gt; - UI scroll problem: Cell with dimensions exceeding screen dimensions impossible to work with.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+                <pubDate>Sun, 08 Aug 2021 11:34:53 +0300</pubDate>
+                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/08/08/week-09-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/08/08/week-09-gsoc.html</guid>
+                
+                
+                <category>libreoffice-dev</category>
+                
+            </item>
         
             <item>
                 <title>Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts</title>
@@ -22,7 +66,7 @@
 
 &lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;Table Toolbar &amp;gt; Bordes&lt;/code&gt;, Writer has 8 border frames for each cell, and has 12 border frames for multiple selected cells. With 2 new borders (Diagonal Left/Right), Writer has 14 border frames.&lt;/p&gt;
 
-&lt;p&gt;I made research about how applying borders works in Writer-Tables. Then I started to work on it with sending first patchsets as WIP:: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I made research about how applying borders works in Writer-Tables. Then I started to work on it with sending first patchsets as WIP: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I realized that Calc has diagonal borders feature in both &lt;code class=&quot;highlighter-rouge&quot;&gt;Format &amp;gt; Cells... &amp;gt; Borders tab&lt;/code&gt; and (Sidebar Tab) &lt;code class=&quot;highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;. Next week, I will try to understand how diagonal borders work in Calc cells and will try to implement them in Writer-Tables.&lt;/p&gt;
 

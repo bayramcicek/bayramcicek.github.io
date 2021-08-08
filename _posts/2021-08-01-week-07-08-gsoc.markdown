@@ -13,7 +13,7 @@ GSoC progress for week #7 and week #8.
 
 In `Table Toolbar > Bordes`, Writer has 8 border frames for each cell, and has 12 border frames for multiple selected cells. With 2 new borders (Diagonal Left/Right), Writer has 14 border frames.
 
-I made research about how applying borders works in Writer-Tables. Then I started to work on it with sending first patchsets as WIP:: [https://gerrit.libreoffice.org/c/core/+/119685][gerrit-119685]
+I made research about how applying borders works in Writer-Tables. Then I started to work on it with sending first patchsets as WIP: [https://gerrit.libreoffice.org/c/core/+/119685][gerrit-119685]
 
 I realized that Calc has diagonal borders feature in both `Format > Cells... > Borders tab` and (Sidebar Tab) `Properties > Cell Appearance`. Next week, I will try to understand how diagonal borders work in Calc cells and will try to implement them in Writer-Tables.
 
