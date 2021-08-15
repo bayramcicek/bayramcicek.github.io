@@ -1,4 +1,151 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-08T12:47:09+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Week #9 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc.html" rel="alternate" type="text/html" title="Week #9 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-08T11:34:53+03:00</published><updated>2021-08-08T11:34:53+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc.html">&lt;p&gt;GSoC progress for week #9.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-16T02:17:19+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Week #10 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html" rel="alternate" type="text/html" title="Week #10 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-16T01:01:36+03:00</published><updated>2021-08-16T01:01:36+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html">&lt;p&gt;GSoC progress for week #10.&lt;/p&gt;
+
+&lt;h4 id=&quot;calc-border-preview-doesnt-show-the-diagonal-borders-in-cell-appearance-section&quot;&gt;Calc: Border preview doesn’t show the diagonal borders in Cell Appearance section&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143890&quot;&gt;tdf#143890&lt;/a&gt; - Border preview doesn’t show the diagonal borders&lt;/li&gt;
+  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120519&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In (Sidebar Tab) &lt;code class=&quot;highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;, Calc always shows preview of the selected cell borders.&lt;/p&gt;
+
+&lt;p&gt;For example; if LEFT border set in a cell, the preview shows LEFT border (as expected). But this feature doesn’t show the preview of diagonal borders. When we set (e.g.)diagonal RIGHT border in a cell, the preview doesn’t update itself to show diagonal RIGHT border.&lt;/p&gt;
+
+&lt;p&gt;Steps to Reproduce:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;open Calc and select a cell&lt;/li&gt;
+  &lt;li&gt;(in Sidebar) go to “Properties &amp;gt; Cell Appearance”&lt;/li&gt;
+  &lt;li&gt;select Diagonal Up (and/or Down) border&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Actual Results:
+Preview doesn’t show diagonal borders&lt;/p&gt;
+
+&lt;p&gt;Expected Results:
+Diagonal borders should be shown in the preview (as other borders).&lt;/p&gt;
+
+&lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx?r=1653bb9b#467&quot;&gt;https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx?r=1653bb9b#467&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;sc/source/ui/sidebar/CellAppearancePropertyPanel.hxx&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h4&gt;
+
+&lt;p&gt;Line preview is drawn in:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CellAppearancePropertyPanel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UpdateCellBorder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                                                   &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bVer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bHor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aBL&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aBR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aTR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aBL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aBR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bVer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aVT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aVB&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DrawLine()&lt;/code&gt; method draws the lines. Here, lines for diagonal borders are missing. We need to add &lt;code class=&quot;highlighter-rouge&quot;&gt;DrawLine()&lt;/code&gt; method for them and update the parameters of the &lt;code class=&quot;highlighter-rouge&quot;&gt;UpdateCellBorder(...)&lt;/code&gt; function:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CellAppearancePropertyPanel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UpdateCellBorder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                                                   &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bVer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bHor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                                                   &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bTLBR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bBLTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;                                             
+
+    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bTLBR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aBR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bBLTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aBL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aTR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+	***
+&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/calc_before_preview.png&quot; alt=&quot;calc_before_preview.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/calc_after_preview.png&quot; alt=&quot;calc_after_preview.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+	***
+&lt;/p&gt;
+
+&lt;h4 id=&quot;created-a-new-commit-for-tdf51665-wip-support-diagonal-borders-in-writer-tables&quot;&gt;Created a new commit for tdf#51665: (WIP) Support diagonal borders in Writer-Tables&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt; - Support diagonal borders in TABLEs&lt;/li&gt;
+  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120262&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120262&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;patchset1:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;implement RES_BOX_TLBR attribute&lt;/li&gt;
+  &lt;li&gt;add SID_ATTR_BORDER_DIAG_TLBR&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;patchset2:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;improve case SID_ATTR_BORDER_DIAG_TLBR (tabsh.cxx)&lt;/li&gt;
+  &lt;li&gt;add diagonal left condition in ndtbl1.cxx&lt;/li&gt;
+  &lt;li&gt;try to draw diagonal left border:
+    &lt;ul&gt;
+      &lt;li&gt;drawing in a cell seems complicated.&lt;/li&gt;
+      &lt;li&gt;currently it draw TLBR line on the document
+layout, not in current cell.&lt;/li&gt;
+      &lt;li&gt;we have to draw TLBR line in current cell.
+(needs improvement)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;IMHO, I think tdf#51665 can be a standalone GSoC project itself. In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase and we need more time.&lt;/p&gt;
+
+&lt;h3 id=&quot;summary-of-week-10&quot;&gt;Summary of week #10&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fixed: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143890&quot;&gt;tdf#143890&lt;/a&gt; - Border preview doesn’t show the diagonal borders&lt;/li&gt;
+  &lt;li&gt;Worked on diagonal borders in Writer-Tables, and published 2 new patchsets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Commits&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120519&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120262&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120262&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Write “Final Report” blog post&lt;/li&gt;
+  &lt;li&gt;Make last changes on patches that on gerrit&lt;/li&gt;
+  &lt;li&gt;try to draw diagonal borders for Writer-Tables.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">GSoC progress for week #10.</summary></entry><entry><title type="html">Week #9 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc.html" rel="alternate" type="text/html" title="Week #9 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-08T11:34:53+03:00</published><updated>2021-08-08T11:34:53+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc.html">&lt;p&gt;GSoC progress for week #9.&lt;/p&gt;
 
 &lt;h4 id=&quot;diagonal-borders-now-accessible-from-table-toolbar--borders-tab-in-calc&quot;&gt;Diagonal borders now accessible from “Table Toolbar &amp;gt; Borders” tab in Calc&lt;/h4&gt;
 
@@ -923,12 +1070,4 @@ Kurtarma işlemi bittiğinde &lt;code class=&quot;highlighter-rouge&quot;&gt;/de
 &lt;p&gt;&lt;br /&gt;
 Bellek alanınız ne kadar büyük olursa kurtarma ve bad block tarama işlemleri o kadar uzun sürer. Bu yüzden belleğinizi olabildiğince ufak bir alana ayırıp neredeyse hiç kullanmayacağınız alanları &lt;code class=&quot;highlighter-rouge&quot;&gt;unallocated&lt;/code&gt; olarak yapılandırmak diskinizin hatalara karşı daha hızlı cevap vermesini sağlayacaktır.&lt;/p&gt;
 
-&lt;p&gt;Yılın ilk günü hard diskinizin bozulması iyi bir yılbaşı hediyesi olmasa da &lt;code class=&quot;highlighter-rouge&quot;&gt;ddrescue&lt;/code&gt; ile verilerin nasıl kurtarılacağı konusunu öğrenmek iyi bir başlangıç olarak sayılabilir.&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde ...the superblock is corrupt... hatasını gördüm. Kullandığım HDD üzerinde daha önce bad sector problemi oluşmuştu ve sadece read-only hatası vermişti.</summary></entry><entry><title type="html">Contributing to LibreOffice: First patch</title><link href="http://localhost:4000/general/2020/11/25/libreoffice.html" rel="alternate" type="text/html" title="Contributing to LibreOffice: First patch" /><published>2020-11-25T20:01:12+03:00</published><updated>2020-11-25T20:01:12+03:00</updated><id>http://localhost:4000/general/2020/11/25/libreoffice</id><content type="html" xml:base="http://localhost:4000/general/2020/11/25/libreoffice.html">&lt;p&gt;I’m happy to announce that I made my first contribution on &lt;a href=&quot;https://www.libreoffice.org/&quot;&gt;LibreOffice&lt;/a&gt; project.&lt;/p&gt;
-
-&lt;p&gt;About 3 weeks ago, I attended &lt;a href=&quot;https://github.com/mrkara/AcikKaynakGelistirme&quot;&gt;Contributing Free and Open Source Projects with C++&lt;/a&gt; course by Muhammet Kara. First 3 week of the course, we learned basics of C++. After that week, we sent our first patch with other attendees.&lt;/p&gt;
-
-&lt;p&gt;The patch we sent was &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=124176&quot;&gt;Bug 124176 - Use pragma once instead of include guards&lt;/a&gt; which is an &lt;a href=&quot;https://wiki.documentfoundation.org/Development/EasyHacks#Lists_of_Easy_Hacks&quot;&gt;easy hack&lt;/a&gt;. Easy hacks are great starting points for new developers.&lt;/p&gt;
-
-&lt;p&gt;After the first contribution was approved to merge into LibreOffice core repository, LibreOffice team sent an email to congratulate &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/106489&quot;&gt;my first merged patch&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I’m so proud of being a part of the project. Thanks to all LibreOffice teams and developers.&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">I’m happy to announce that I made my first contribution on LibreOffice project.</summary></entry></feed>
+&lt;p&gt;Yılın ilk günü hard diskinizin bozulması iyi bir yılbaşı hediyesi olmasa da &lt;code class=&quot;highlighter-rouge&quot;&gt;ddrescue&lt;/code&gt; ile verilerin nasıl kurtarılacağı konusunu öğrenmek iyi bir başlangıç olarak sayılabilir.&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde ...the superblock is corrupt... hatasını gördüm. Kullandığım HDD üzerinde daha önce bad sector problemi oluşmuştu ve sadece read-only hatası vermişti.</summary></entry></feed>

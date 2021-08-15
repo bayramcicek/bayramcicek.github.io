@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Week #10 - GSoC Weekly Report - 100 Paper Cuts | Bayram Çiçek’s website</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Week #10 - GSoC Weekly Report - 100 Paper Cuts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="GSoC progress for week #10." />
+<meta property="og:description" content="GSoC progress for week #10." />
+<link rel="canonical" href="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html" />
+<meta property="og:url" content="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html" />
+<meta property="og:site_name" content="Bayram Çiçek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-16T01:01:36+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week #10 - GSoC Weekly Report - 100 Paper Cuts" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"GSoC progress for week #10.","headline":"Week #10 - GSoC Weekly Report - 100 Paper Cuts","dateModified":"2021-08-16T01:01:36+03:00","datePublished":"2021-08-16T01:01:36+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html"},"url":"http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Bayram Çiçek&apos;s website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Bayram Çiçek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/libreoffice/">LibreOffice</a><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Week #10 - GSoC Weekly Report - 100 Paper Cuts</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-08-16T01:01:36+03:00" itemprop="datePublished">Aug 16, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>GSoC progress for week #10.</p>
+
+<h4 id="calc-border-preview-doesnt-show-the-diagonal-borders-in-cell-appearance-section">Calc: Border preview doesn’t show the diagonal borders in Cell Appearance section</h4>
+
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143890">tdf#143890</a> - Border preview doesn’t show the diagonal borders</li>
+  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/120519">https://gerrit.libreoffice.org/c/core/+/120519</a></li>
+</ul>
+
+<p>In (Sidebar Tab) <code class="highlighter-rouge">Properties &gt; Cell Appearance</code>, Calc always shows preview of the selected cell borders.</p>
+
+<p>For example; if LEFT border set in a cell, the preview shows LEFT border (as expected). But this feature doesn’t show the preview of diagonal borders. When we set (e.g.)diagonal RIGHT border in a cell, the preview doesn’t update itself to show diagonal RIGHT border.</p>
+
+<p>Steps to Reproduce:</p>
+<ol>
+  <li>open Calc and select a cell</li>
+  <li>(in Sidebar) go to “Properties &gt; Cell Appearance”</li>
+  <li>select Diagonal Up (and/or Down) border</li>
+</ol>
+
+<p>Actual Results:
+Preview doesn’t show diagonal borders</p>
+
+<p>Expected Results:
+Diagonal borders should be shown in the preview (as other borders).</p>
+
+<h4 id="code-pointers">Code pointers:</h4>
+
+<ul>
+  <li>
+    <p>sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx: <a href="https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx?r=1653bb9b#467">https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx?r=1653bb9b#467</a></p>
+  </li>
+  <li>
+    <p>sc/source/ui/sidebar/CellAppearancePropertyPanel.hxx</p>
+  </li>
+</ul>
+
+<h4 id="technical-details">Technical Details</h4>
+
+<p>Line preview is drawn in:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">CellAppearancePropertyPanel</span><span class="o">::</span><span class="n">UpdateCellBorder</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bTop</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bBot</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bLeft</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bRight</span><span class="p">,</span>
+                                                   <span class="kt">bool</span> <span class="n">bVer</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bHor</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="cm">/* ... */</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">bLeft</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTL</span><span class="p">,</span><span class="n">aBL</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">bRight</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTR</span><span class="p">,</span><span class="n">aBR</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">bTop</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTL</span><span class="p">,</span><span class="n">aTR</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">bBot</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aBL</span><span class="p">,</span><span class="n">aBR</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">bVer</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aVT</span><span class="p">,</span><span class="n">aVB</span> <span class="p">);</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">DrawLine()</code> method draws the lines. Here, lines for diagonal borders are missing. We need to add <code class="highlighter-rouge">DrawLine()</code> method for them and update the parameters of the <code class="highlighter-rouge">UpdateCellBorder(...)</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">CellAppearancePropertyPanel</span><span class="o">::</span><span class="n">UpdateCellBorder</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bTop</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bBot</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bLeft</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bRight</span><span class="p">,</span>
+                                                   <span class="kt">bool</span> <span class="n">bVer</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bHor</span><span class="p">,</span>
+                                                   <span class="kt">bool</span> <span class="n">bTLBR</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bBLTR</span><span class="p">)</span>
+<span class="p">{</span>                                             
+
+    <span class="cm">/* ... */</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">bTLBR</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTL</span><span class="p">,</span><span class="n">aBR</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">bBLTR</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aBL</span><span class="p">,</span><span class="n">aTR</span> <span class="p">);</span>
+
+    <span class="cm">/* ... */</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<p align="center">
+	***
+</p>
+
+<p>Before:</p>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/calc_before_preview.png" alt="calc_before_preview.png" />
+</p>
+
+<p>After:</p>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/calc_after_preview.png" alt="calc_after_preview.png" />
+</p>
+
+<p><br /></p>
+<p align="center">
+	***
+</p>
+
+<h4 id="created-a-new-commit-for-tdf51665-wip-support-diagonal-borders-in-writer-tables">Created a new commit for tdf#51665: (WIP) Support diagonal borders in Writer-Tables</h4>
+
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a> - Support diagonal borders in TABLEs</li>
+  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/120262">https://gerrit.libreoffice.org/c/core/+/120262</a></li>
+</ul>
+
+<p>patchset1:</p>
+<ul>
+  <li>implement RES_BOX_TLBR attribute</li>
+  <li>add SID_ATTR_BORDER_DIAG_TLBR</li>
+</ul>
+
+<p>patchset2:</p>
+<ul>
+  <li>improve case SID_ATTR_BORDER_DIAG_TLBR (tabsh.cxx)</li>
+  <li>add diagonal left condition in ndtbl1.cxx</li>
+  <li>try to draw diagonal left border:
+    <ul>
+      <li>drawing in a cell seems complicated.</li>
+      <li>currently it draw TLBR line on the document
+layout, not in current cell.</li>
+      <li>we have to draw TLBR line in current cell.
+(needs improvement)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>IMHO, I think tdf#51665 can be a standalone GSoC project itself. In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase and we need more time.</p>
+
+<h3 id="summary-of-week-10">Summary of week #10</h3>
+
+<ul>
+  <li>Fixed: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143890">tdf#143890</a> - Border preview doesn’t show the diagonal borders</li>
+  <li>Worked on diagonal borders in Writer-Tables, and published 2 new patchsets</li>
+</ul>
+
+<p>Commits</p>
+<ul>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/120519">https://gerrit.libreoffice.org/c/core/+/120519</a></li>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/120262">https://gerrit.libreoffice.org/c/core/+/120262</a></li>
+</ul>
+
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
+
+<ul>
+  <li>Write “Final Report” blog post</li>
+  <li>Make last changes on patches that on gerrit</li>
+  <li>try to draw diagonal borders for Writer-Tables.</li>
+</ul>
+
+
+  </div><a class="u-url" href="/libreoffice-dev/2021/08/16/week-10-gsoc.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Bayram Çiçek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Bayram Çiçek&#39;s website</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.twitter.com/bayramcicek21"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">bayramcicek21</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
