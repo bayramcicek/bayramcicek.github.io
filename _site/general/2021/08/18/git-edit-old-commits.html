@@ -3,21 +3,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Contributing to LibreOffice: First patch | Bayram Çiçek’s website</title>
+<title>Git: editing old commits | Bayram Çiçek’s website</title>
 <meta name="generator" content="Jekyll v4.0.1" />
-<meta property="og:title" content="Contributing to LibreOffice: First patch" />
+<meta property="og:title" content="Git: editing old commits" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="I’m happy to announce that I made my first contribution on LibreOffice project." />
-<meta property="og:description" content="I’m happy to announce that I made my first contribution on LibreOffice project." />
-<link rel="canonical" href="http://localhost:4000/general/2020/11/25/libreoffice.html" />
-<meta property="og:url" content="http://localhost:4000/general/2020/11/25/libreoffice.html" />
+<meta name="description" content="list commit log $ git log or $ git log --oneline" />
+<meta property="og:description" content="list commit log $ git log or $ git log --oneline" />
+<link rel="canonical" href="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html" />
+<meta property="og:url" content="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html" />
 <meta property="og:site_name" content="Bayram Çiçek’s website" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-11-25T20:01:12+03:00" />
+<meta property="article:published_time" content="2021-08-18T12:37:43+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Contributing to LibreOffice: First patch" />
+<meta property="twitter:title" content="Git: editing old commits" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2020/11/25/libreoffice.html"},"dateModified":"2020-11-25T20:01:12+03:00","description":"I’m happy to announce that I made my first contribution on LibreOffice project.","url":"http://localhost:4000/general/2020/11/25/libreoffice.html","headline":"Contributing to LibreOffice: First patch","datePublished":"2020-11-25T20:01:12+03:00","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/2021/08/18/git-edit-old-commits.html"},"dateModified":"2021-08-18T12:37:43+03:00","description":"list commit log $ git log or $ git log --oneline","url":"http://localhost:4000/general/2021/08/18/git-edit-old-commits.html","headline":"Git: editing old commits","datePublished":"2021-08-18T12:37:43+03:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Bayram Çiçek&apos;s website" /></head>
 <body><header class="site-header" role="banner">
@@ -40,25 +40,72 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Contributing to LibreOffice: First patch</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Git: editing old commits</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2020-11-25T20:01:12+03:00" itemprop="datePublished">Nov 25, 2020
+      <time class="dt-published" datetime="2021-08-18T12:37:43+03:00" itemprop="datePublished">Aug 18, 2021
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>I’m happy to announce that I made my first contribution on <a href="https://www.libreoffice.org/">LibreOffice</a> project.</p>
+    <ul>
+  <li>list commit log</li>
+</ul>
+<pre>
+$ git log
+or
+$ git log --oneline</pre>
 
-<p>About 3 weeks ago, I attended <a href="https://github.com/mrkara/AcikKaynakGelistirme">Contributing Free and Open Source Projects with C++</a> course by Muhammet Kara. First 3 week of the course, we learned basics of C++. After that week, we sent our first patch with other attendees.</p>
+<ul>
+  <li>find SHA-ID of your commit, then:</li>
+</ul>
+<pre>
+$ git rebase --interactive $SHA^
+or
+(list last e.g. 3 commit)
+$ git rebase -i HEAD~3
+</pre>
 
-<p>The patch we sent was <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=124176">Bug 124176 - Use pragma once instead of include guards</a> which is an <a href="https://wiki.documentfoundation.org/Development/EasyHacks#Lists_of_Easy_Hacks">easy hack</a>. Easy hacks are great starting points for new developers.</p>
+<ul>
+  <li>
+    <p>Change ‘pick’ to ‘edit’ for your commit that you want to edit</p>
+  </li>
+  <li>
+    <p>make your changes in files etc.</p>
+  </li>
+  <li>
+    <p>add your changes &amp; edit commit message:</p>
+  </li>
+</ul>
 
-<p>After the first contribution was approved to merge into LibreOffice core repository, LibreOffice team sent an email to congratulate <a href="https://gerrit.libreoffice.org/c/core/+/106489">my first merged patch</a>.</p>
+<pre>
+$ git commit -a --amend
+</pre>
 
-<p>I’m so proud of being a part of the project. Thanks to all LibreOffice teams and developers.</p>
+<ul>
+  <li>end rebase</li>
+</ul>
 
+<pre>
+$ git rebase --continue
+</pre>
 
-  </div><a class="u-url" href="/general/2020/11/25/libreoffice.html" hidden></a>
+<ul>
+  <li>or cancel</li>
+</ul>
+<pre>
+$ git rebase --abort
+</pre>
+
+<ul>
+  <li>push changes to remote server</li>
+</ul>
+<pre>
+git push --force-with-lease &lt;origin&gt; &lt;test-branch&gt;
+</pre>
+
+<p>(or <code class="highlighter-rouge">$ ./logerrit submit master</code> for LibreOffice)</p>
+
+  </div><a class="u-url" href="/general/2021/08/18/git-edit-old-commits.html" hidden></a>
 </article>
 
       </div>

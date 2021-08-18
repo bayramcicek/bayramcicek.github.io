@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-16T02:17:19+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Week #10 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html" rel="alternate" type="text/html" title="Week #10 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-16T01:01:36+03:00</published><updated>2021-08-16T01:01:36+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html">&lt;p&gt;GSoC progress for week #10.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-18T13:16:05+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Git: editing old commits</title><link href="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html" rel="alternate" type="text/html" title="Git: editing old commits" /><published>2021-08-18T12:37:43+03:00</published><updated>2021-08-18T12:37:43+03:00</updated><id>http://localhost:4000/general/2021/08/18/git-edit-old-commits</id><content type="html" xml:base="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html">&lt;ul&gt;
+  &lt;li&gt;list commit log&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+$ git log
+or
+$ git log --oneline&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;find SHA-ID of your commit, then:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+$ git rebase --interactive $SHA^
+or
+(list last e.g. 3 commit)
+$ git rebase -i HEAD~3
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Change ‘pick’ to ‘edit’ for your commit that you want to edit&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;make your changes in files etc.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;add your changes &amp;amp; edit commit message:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+$ git commit -a --amend
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;end rebase&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+$ git rebase --continue
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;or cancel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+$ git rebase --abort
+&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;push changes to remote server&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;
+git push --force-with-lease &amp;lt;origin&amp;gt; &amp;lt;test-branch&amp;gt;
+&lt;/pre&gt;
+
+&lt;p&gt;(or &lt;code class=&quot;highlighter-rouge&quot;&gt;$ ./logerrit submit master&lt;/code&gt; for LibreOffice)&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">list commit log $ git log or $ git log --oneline</summary></entry><entry><title type="html">Week #10 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html" rel="alternate" type="text/html" title="Week #10 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-16T01:01:36+03:00</published><updated>2021-08-16T01:01:36+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html">&lt;p&gt;GSoC progress for week #10.&lt;/p&gt;
 
 &lt;h4 id=&quot;calc-border-preview-doesnt-show-the-diagonal-borders-in-cell-appearance-section&quot;&gt;Calc: Border preview doesn’t show the diagonal borders in Cell Appearance section&lt;/h4&gt;
 
@@ -1024,50 +1080,4 @@ convertDuration(double&amp;amp; rfTime, std::string_view rString)
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertDurationHelper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rfTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The patch can be seen at &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/111008&quot;&gt;https://gerrit.libreoffice.org/c/core/+/111008&lt;/a&gt;. This was my first medium-size contribution to Libre Office.&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.</summary></entry><entry><title type="html">Ddrescue ile HDD Verilerini Kurtarmak</title><link href="http://localhost:4000/general/2021/01/01/superblock-error-ddrescue.html" rel="alternate" type="text/html" title="Ddrescue ile HDD Verilerini Kurtarmak" /><published>2021-01-01T18:03:46+03:00</published><updated>2021-01-01T18:03:46+03:00</updated><id>http://localhost:4000/general/2021/01/01/superblock-error-ddrescue</id><content type="html" xml:base="http://localhost:4000/general/2021/01/01/superblock-error-ddrescue.html">&lt;p&gt;GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde &lt;code class=&quot;highlighter-rouge&quot;&gt;...the superblock is corrupt...&lt;/code&gt; hatasını gördüm. Kullandığım HDD üzerinde daha önce &lt;a href=&quot;https://bayramcicek.com.tr/general/2020/07/11/disk-bad-sector.html&quot;&gt;bad sector&lt;/a&gt; problemi oluşmuştu ve sadece read-only hatası vermişti.&lt;/p&gt;
-
-&lt;p&gt;1TB ‘lık HDD içinden ayırdığım -temiz ve bad sector içermeyen- 100GB ‘lık alanda bu defasında -dosya sistemi ile ilgili metadata bilgilerini içeren- &lt;code class=&quot;highlighter-rouge&quot;&gt;superblock&lt;/code&gt; adı verilen bloklardan biri bozulmuştu. Bu blok bozulduğunda sisteminiz o bellek alanını tanıyamaz ve terminalden o alanı &lt;code class=&quot;highlighter-rouge&quot;&gt;mount&lt;/code&gt; etmek istediğinizde ise &lt;code class=&quot;highlighter-rouge&quot;&gt;the file system structure on disk is corrupt&lt;/code&gt; hatasını alırsınız.&lt;/p&gt;
-
-&lt;p&gt;Bu 100GB bozuk bellek alanına erişimim kaybolduğundan &lt;code class=&quot;highlighter-rouge&quot;&gt;unallocated&lt;/code&gt; olarak bıraktığım 900GB alanın 150GB ‘lık alanını ext4 olarak ayırdım. Bu hatalı belleğin temiz alanlarını 150GB ‘lık bellek alanına &lt;code class=&quot;highlighter-rouge&quot;&gt;ddrescue&lt;/code&gt; ile kopyalayarak kurtarmayı düşündüm.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo fdisk -l&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;
-Device         Start       End    Sectors  Size  Type
-/dev/sdb1       2048 209717247  209715200  100G  Linux filesystem
-/dev/sdb2  209717248 524290047  314572800  150G  Linux filesystem
-&lt;/pre&gt;
-
-&lt;p&gt;Hatalı alan &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/sbd1&lt;/code&gt;, yeni alan ise &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/sdb2&lt;/code&gt;. Öyleyse &lt;code class=&quot;highlighter-rouge&quot;&gt;sdb1&lt;/code&gt; alanını &lt;code class=&quot;highlighter-rouge&quot;&gt;sdb2&lt;/code&gt; alanına kopyalamak gerekir.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo ddrescue -f -n /dev/sdb1 /dev/sdb2 /root/recovery.log&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/ddrescue/ddrescue_0.png&quot; alt=&quot;ddrescue_2&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Kurtarma işlemi bittiğinde &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/sdb2&lt;/code&gt; belleğini mount etmek istediğimde &lt;code class=&quot;highlighter-rouge&quot;&gt;unable to access location: Structure needs cleaning&lt;/code&gt; hatası ortaya çıktı. Öyleyse dosya sistemini yeniden yapılandırmak gerekir.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo fsck.ext4 -y /dev/sdb2&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Bu işlemi yaptıktan bir süre sonra &lt;code class=&quot;highlighter-rouge&quot;&gt;sdb2&lt;/code&gt; tekrar hata vermeye başladı. Bu alan çok büyük olduğundan 50GB ‘lık yeni bir bellek alanı oluşturup &lt;code class=&quot;highlighter-rouge&quot;&gt;bad block&lt;/code&gt; içermediğini kontrol ettikten sonra 150GB bellek alanındaki çok az yer kaplayan verileri bu alana kopyalamanın daha sağlıklı olacağını düşündüm. Bu alanda herhangi bir hata olmadığı için problem çözülmüş oldu.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo badblocks -b 4096 -vs /dev/sdb3 &amp;gt; ./bad_blocks.txt&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/ddrescue/ddrescue_1.png&quot; alt=&quot;ddrescue_2&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Bellek alanınız ne kadar büyük olursa kurtarma ve bad block tarama işlemleri o kadar uzun sürer. Bu yüzden belleğinizi olabildiğince ufak bir alana ayırıp neredeyse hiç kullanmayacağınız alanları &lt;code class=&quot;highlighter-rouge&quot;&gt;unallocated&lt;/code&gt; olarak yapılandırmak diskinizin hatalara karşı daha hızlı cevap vermesini sağlayacaktır.&lt;/p&gt;
-
-&lt;p&gt;Yılın ilk günü hard diskinizin bozulması iyi bir yılbaşı hediyesi olmasa da &lt;code class=&quot;highlighter-rouge&quot;&gt;ddrescue&lt;/code&gt; ile verilerin nasıl kurtarılacağı konusunu öğrenmek iyi bir başlangıç olarak sayılabilir.&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde ...the superblock is corrupt... hatasını gördüm. Kullandığım HDD üzerinde daha önce bad sector problemi oluşmuştu ve sadece read-only hatası vermişti.</summary></entry></feed>
+&lt;p&gt;The patch can be seen at &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/111008&quot;&gt;https://gerrit.libreoffice.org/c/core/+/111008&lt;/a&gt;. This was my first medium-size contribution to Libre Office.&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">Simian is a software that detects duplicates in files such as C, C++, Java etc. programming languages and even plain text files.</summary></entry></feed>
