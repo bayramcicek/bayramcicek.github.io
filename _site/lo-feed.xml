@@ -5,8 +5,8 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.com.tr/libreoffice/</link>
         <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 21 Aug 2021 17:54:17 +0300</pubDate>
-        <lastBuildDate>Sat, 21 Aug 2021 17:54:17 +0300</lastBuildDate>
+        <pubDate>Sat, 21 Aug 2021 18:13:35 +0300</pubDate>
+        <lastBuildDate>Sat, 21 Aug 2021 18:13:35 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
         
             <item>
@@ -112,8 +112,8 @@
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120262&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120262&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;This bug has 2 step: a) implement diagonal borders, b) draw them.&lt;/li&gt;
-      &lt;li&gt;I’m workink on this bug for ~4 weeks and it is Work in Progress. Writer-Tables doesn’t have diagonal borders feature. I implement RES_BOX_TLBR attribute and added SID_ATTR_BORDER_DIAG_TLBR for now. After that, we should try to draw them. I’m trying to draw diagonal LEFT border first. If we can draw that, then it becomes easy to apply all the changes to diagonal RIGHT border.&lt;/li&gt;
-      &lt;li&gt;If we can add diagonal borders feature, we can also implement criss-cross feature.&lt;/li&gt;
+      &lt;li&gt;I’m workink on this bug for ~4 weeks and it is Work in Progress. Writer-Tables doesn’t have diagonal borders feature. I implemented RES_BOX_TLBR attribute and added SID_ATTR_BORDER_DIAG_TLBR for now. After that, we should try to draw them. I’m trying to draw diagonal LEFT border first. If we can draw that, then it becomes easy to apply all the changes to diagonal RIGHT border.&lt;/li&gt;
+      &lt;li&gt;If we can add diagonal borders feature, we can also implement criss-cross border feature.&lt;/li&gt;
       &lt;li&gt;In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase. Therefore I think &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt; can be a standalone GSoC project itself :) &lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -150,11 +150,11 @@
 
 &lt;h3 id=&quot;thanks&quot;&gt;Thanks&lt;/h3&gt;
 
-&lt;p&gt;I’m really thankful to LibreOffice and GSoC for providing us this such a great opportunity which helped me gain this amazing experince!&lt;/p&gt;
+&lt;p&gt;I’m really thankful to LibreOffice and GSoC for providing us this such a great opportunity which helped me gain this amazing experience!&lt;/p&gt;
 
 &lt;p&gt;I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.&lt;/p&gt;
 
-&lt;p&gt;And most importantly, greatly thankful to &lt;em&gt;Muhammet Kara&lt;/em&gt; and &lt;em&gt;Heiko Tietze&lt;/em&gt; which was my mentors throughout the GSoC period. They always guided me everthing about my guestions. Thank you so much for your guidance, code reviews, time and everything.&lt;/p&gt;
+&lt;p&gt;And most importantly, greatly thankful to &lt;em&gt;Muhammet Kara&lt;/em&gt; and &lt;em&gt;Heiko Tietze&lt;/em&gt; which were my mentors throughout the GSoC period. They always guided me everything about my questions. Thank you so much for your guidance, code reviews, time and everything.&lt;/p&gt;
 
 &lt;p&gt;Thanks to everyone in the LibreOffice community for their help, I learned a lot from you :)&lt;/p&gt;
 

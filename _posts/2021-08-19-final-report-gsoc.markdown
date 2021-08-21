@@ -77,8 +77,8 @@ Main goal was to solve as many bugs as I can, but at least 5 bugs, during GSoC.
 - [tdf#51665][tdf#51665]: (WIP) Support diagonal borders in Writer-Tables
 	- [https://gerrit.libreoffice.org/c/core/+/120262][commit120262]
 	- This bug has 2 step: a) implement diagonal borders, b) draw them.
-	- I'm workink on this bug for ~4 weeks and it is Work in Progress. Writer-Tables doesn't have diagonal borders feature. I implement RES_BOX_TLBR attribute and added SID_ATTR_BORDER_DIAG_TLBR for now. After that, we should try to draw them. I'm trying to draw diagonal LEFT border first. If we can draw that, then it becomes easy to apply all the changes to diagonal RIGHT border.
-	- If we can add diagonal borders feature, we can also implement criss-cross feature.
+	- I'm workink on this bug for ~4 weeks and it is Work in Progress. Writer-Tables doesn't have diagonal borders feature. I implemented RES_BOX_TLBR attribute and added SID_ATTR_BORDER_DIAG_TLBR for now. After that, we should try to draw them. I'm trying to draw diagonal LEFT border first. If we can draw that, then it becomes easy to apply all the changes to diagonal RIGHT border.
+	- If we can add diagonal borders feature, we can also implement criss-cross border feature.
 	- In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase. Therefore I think [tdf#51665][tdf#51665] can be a standalone GSoC project itself :) <br><br>
 
 - [tdf#84099][tdf#84099] - Calc can't handle very high rows
@@ -106,11 +106,11 @@ I learned a lot of things during the GSoC. Although GSoC is finished, I will def
 
 ### Thanks
 
-I’m really thankful to LibreOffice and GSoC for providing us this such a great opportunity which helped me gain this amazing experince!
+I’m really thankful to LibreOffice and GSoC for providing us this such a great opportunity which helped me gain this amazing experience!
 
 I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.
 
-And most importantly, greatly thankful to _Muhammet Kara_ and _Heiko Tietze_ which was my mentors throughout the GSoC period. They always guided me everthing about my guestions. Thank you so much for your guidance, code reviews, time and everything.
+And most importantly, greatly thankful to _Muhammet Kara_ and _Heiko Tietze_ which were my mentors throughout the GSoC period. They always guided me everything about my questions. Thank you so much for your guidance, code reviews, time and everything.
 
 Thanks to everyone in the LibreOffice community for their help, I learned a lot from you :)
 
