@@ -5,9 +5,192 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.com.tr/libreoffice/</link>
         <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 18 Aug 2021 13:16:05 +0300</pubDate>
-        <lastBuildDate>Wed, 18 Aug 2021 13:16:05 +0300</lastBuildDate>
+        <pubDate>Sat, 21 Aug 2021 17:54:17 +0300</pubDate>
+        <lastBuildDate>Sat, 21 Aug 2021 17:54:17 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>Final Report - GSoC - 100 Paper Cuts</title>
+                <author>Bayram Çiçek</author>
+                <description>&lt;h3 id=&quot;about-project&quot;&gt;About project&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;100 Paper Cuts&lt;/em&gt; project aims for improving user interface, implementing enhancement requests and solving most-annoying issues on the UX side of LibreOffice. &lt;em&gt;100 Paper Cuts&lt;/em&gt; is a list of bugs and enhancement requests relating to LibreOffice’s user experience: &lt;a href=&quot;https://wiki.documentfoundation.org/100_Paper_Cuts&quot;&gt;https://wiki.documentfoundation.org/100_Paper_Cuts&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;goal&quot;&gt;Goal&lt;/h3&gt;
+
+&lt;p&gt;Main goal was to solve as many bugs as I can, but at least 5 bugs, during GSoC.&lt;/p&gt;
+
+&lt;h3 id=&quot;my-work&quot;&gt;My Work&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;In ‘Format &amp;gt; Page Style… &amp;gt; Area’ Tab, Mouseover effect added to the palettes on Color, Gradient, Bitmap, Pattern and Hatch sections.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Fixed opposite cropping issue on flipped images in Writer&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In Writer, 3 issues about comment section fixed:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;comment section scrolls to top of its view
+  when clicking inside a comment view.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;clicking inside a comment view, scrolls the
+  view to old cursor location automatically
+  (if old cursor out of the visible area)&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;comment section scrolls automatically to the
+  old &lt;em&gt;selected&lt;/em&gt; text (if it’s out of visible area)
+  when clicking inside the Writer canvas view&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In “Properties sidebar &amp;gt; Cell Appearance”, Calc shows preview of the selected cell borders. This feature also added for diagonal borders.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Calc: added diagonal borders in Toolbar&amp;gt;Borders&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;added diagonal left, diagonal right border and criss-cross border icon to Borders tab&lt;/li&gt;
+      &lt;li&gt;added diagonal left and diagonal right borders feature&lt;/li&gt;
+      &lt;li&gt;implemented removing diagonal borders when set “no border”&lt;/li&gt;
+      &lt;li&gt;added criss-cross line feature&lt;/li&gt;
+      &lt;li&gt;added a unit test for diagonal borders&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;commits&quot;&gt;Commits&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116395&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116395&lt;/a&gt; (merged)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116770&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116770&lt;/a&gt; (merged)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118638&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118638&lt;/a&gt; (merged)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120519&lt;/a&gt; (merged)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118951&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118951&lt;/a&gt; (-)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120262&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120262&lt;/a&gt; (WIP)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bugs&quot;&gt;Bugs&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=109388&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=109388&lt;/a&gt; (fixed)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=104995&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=104995&lt;/a&gt; (fixed)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=91519&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=91519&lt;/a&gt; (fixed)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143890&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=143890&lt;/a&gt; (fixed)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143919&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=143919&lt;/a&gt; (-)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&lt;/a&gt; (reported)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;(Work In Progress): &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;: (WIP) Support diagonal borders in Writer-Tables&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;(worked on): &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438&lt;/a&gt; - group selection does not work with raster images
+    &lt;ul&gt;
+      &lt;li&gt;commented: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;developers decided that get rid of Writer-Images&lt;/li&gt;
+      &lt;li&gt;this bug should be done by an experienced developer&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;(worked on): &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404&quot;&gt;tdf#98404&lt;/a&gt; - UX - While objects on a slide are being edited, the new slide sorter Ctrl+Shift shortcut combinations incorrectly receive focus and move the slide
+    &lt;ul&gt;
+      &lt;li&gt;commented: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;whats-left-to-do-or-can-be-done&quot;&gt;Whats left to do or can be done?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;: (WIP) Support diagonal borders in Writer-Tables
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120262&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120262&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;This bug has 2 step: a) implement diagonal borders, b) draw them.&lt;/li&gt;
+      &lt;li&gt;I’m workink on this bug for ~4 weeks and it is Work in Progress. Writer-Tables doesn’t have diagonal borders feature. I implement RES_BOX_TLBR attribute and added SID_ATTR_BORDER_DIAG_TLBR for now. After that, we should try to draw them. I’m trying to draw diagonal LEFT border first. If we can draw that, then it becomes easy to apply all the changes to diagonal RIGHT border.&lt;/li&gt;
+      &lt;li&gt;If we can add diagonal borders feature, we can also implement criss-cross feature.&lt;/li&gt;
+      &lt;li&gt;In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase. Therefore I think &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt; can be a standalone GSoC project itself :) &lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=84099&quot;&gt;tdf#84099&lt;/a&gt; - Calc can’t handle very high rows
+    &lt;ul&gt;
+      &lt;li&gt;Scrolling in spreadsheets on Calc is designed to snap to rows. Therefore, this makes it hard to work with spreadsheets with large row heights. This annoying issue is not only specific for vertical scroll but also affects horizontal scroll. If we can add &lt;em&gt;smooth scroll&lt;/em&gt; feature, it will likely solve the &lt;em&gt;height&lt;/em&gt; issue on both rows and columns. &lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=90253&quot;&gt;tdf#90253&lt;/a&gt; - Drawing a textbox in Impress doesn’t retain its height
+    &lt;ul&gt;
+      &lt;li&gt;And, this is another bug that I want to work on it.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;total bugs : 8&lt;/li&gt;
+  &lt;li&gt;fixed : 5&lt;/li&gt;
+  &lt;li&gt;WIP : 1&lt;/li&gt;
+  &lt;li&gt;worked on but couldn’t fixed : 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I learned lots of things even from the bugs that I couldn’t fixed. At least, I informed the LibreOffice community about my research and shared the code pointers by commenting on the bug page. Therefore, someone who will work on the bugs that I commented, can easily see the code pointers and my works on it.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;p&gt;I’m very happy that we all reached the end of GSoC. During that time, I know that I had a responsibility for doing everything that I can. Therefore I worked hard, tried to get familiar with the LibreOffice community and worked on as many bugs as I can.&lt;/p&gt;
+
+&lt;p&gt;I learned a lot of things during the GSoC. Although GSoC is finished, I will definitely continue to contribute to LibreOffice. I am really happy to be a part of the LibreOffice community and GSoC.&lt;/p&gt;
+
+&lt;h3 id=&quot;thanks&quot;&gt;Thanks&lt;/h3&gt;
+
+&lt;p&gt;I’m really thankful to LibreOffice and GSoC for providing us this such a great opportunity which helped me gain this amazing experince!&lt;/p&gt;
+
+&lt;p&gt;I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.&lt;/p&gt;
+
+&lt;p&gt;And most importantly, greatly thankful to &lt;em&gt;Muhammet Kara&lt;/em&gt; and &lt;em&gt;Heiko Tietze&lt;/em&gt; which was my mentors throughout the GSoC period. They always guided me everthing about my guestions. Thank you so much for your guidance, code reviews, time and everything.&lt;/p&gt;
+
+&lt;p&gt;Thanks to everyone in the LibreOffice community for their help, I learned a lot from you :)&lt;/p&gt;
+
+&lt;h3 id=&quot;all-weekly-gsoc-reports&quot;&gt;All weekly GSoC reports&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;16 Aug 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/08/16/week-10-gsoc.html&quot;&gt;Week #10 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;08 Aug 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/08/08/week-09-gsoc.html&quot;&gt;Week #9 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;01 Aug 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/08/01/week-07-08-gsoc.html&quot;&gt;Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;18 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/18/week-06-gsoc.html&quot;&gt;Week #6 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;11 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/11/week-05-gsoc.html&quot;&gt;Week #5 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;05 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html&quot;&gt;Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;04 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/04/week-02-gsoc.html&quot;&gt;Week #2 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;13 Jun 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/06/13/week-01-gsoc.html&quot;&gt;Week #1 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Useful links:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr&quot;&gt;https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr&lt;/a&gt; (my all contributions to LibreOffice)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://bayramcicek.com.tr/libreoffice/&quot;&gt;https://bayramcicek.com.tr/libreoffice/&lt;/a&gt; (all blog posts related to LibreOffice development)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+                <pubDate>Thu, 19 Aug 2021 09:03:12 +0300</pubDate>
+                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/08/19/final-report-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/08/19/final-report-gsoc.html</guid>
+                
+                
+                <category>libreoffice-dev</category>
+                
+            </item>
         
             <item>
                 <title>Week #10 - GSoC Weekly Report - 100 Paper Cuts</title>
