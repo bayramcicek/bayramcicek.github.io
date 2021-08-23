@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Final Report - GSoC - 100 Paper Cuts"
-date:   2021-08-19 09:03:12 +0300
+date:   2021-08-23 09:03:12 +0300
 categories: libreoffice-dev
 ---
 
@@ -48,7 +48,7 @@ Main goal was to solve as many bugs as I can, but at least 5 bugs, during GSoC.
 - [https://gerrit.libreoffice.org/c/core/+/116770][commit116770] (merged)
 - [https://gerrit.libreoffice.org/c/core/+/118638][commit118638] (merged)
 - [https://gerrit.libreoffice.org/c/core/+/120519][commit120519] (merged)
-- [https://gerrit.libreoffice.org/c/core/+/118951][commit118951] (-)
+- [https://gerrit.libreoffice.org/c/core/+/118951][commit118951] (merged)
 - [https://gerrit.libreoffice.org/c/core/+/120262][commit120262] (WIP)
 
 ### Bugs
@@ -57,7 +57,7 @@ Main goal was to solve as many bugs as I can, but at least 5 bugs, during GSoC.
 - [https://bugs.documentfoundation.org/show_bug.cgi?id=104995][bug104995] (fixed)
 - [https://bugs.documentfoundation.org/show_bug.cgi?id=91519][bug91519] (fixed)
 - [https://bugs.documentfoundation.org/show_bug.cgi?id=143890][bug143890] (fixed)
-- [https://bugs.documentfoundation.org/show_bug.cgi?id=143919][bug143919] (-)
+- [https://bugs.documentfoundation.org/show_bug.cgi?id=143919][bug143919] (fixed)
 
 - [https://bugs.documentfoundation.org/show_bug.cgi?id=143300][143300] (reported)
 
@@ -92,9 +92,9 @@ Main goal was to solve as many bugs as I can, but at least 5 bugs, during GSoC.
 - total bugs : 8
 - fixed : 5
 - WIP : 1
-- worked on but couldn't fixed : 2
+- worked on but couldn't fix : 2
 
-I learned lots of things even from the bugs that I couldn't fixed. At least, I informed the LibreOffice community about my research and shared the code pointers by commenting on the bug page. Therefore, someone who will work on the bugs that I commented, can easily see the code pointers and my works on it.
+I learned lots of things even from the bugs that I couldn't fix. At least, I informed the LibreOffice community about my research and shared the code pointers by commenting on the bug page. Therefore, someone who will work on the bugs that I commented, can easily see the code pointers and my works on it.
 
 <p align="center">
     ***
@@ -106,7 +106,7 @@ I learned a lot of things during the GSoC. Although GSoC is finished, I will def
 
 ### Thanks
 
-I’m really thankful to LibreOffice and GSoC for providing us this such a great opportunity which helped me gain this amazing experience!
+I’m really thankful to LibreOffice and Google for providing us this such a great opportunity which helped me gain this amazing experience!
 
 I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.
 
@@ -128,8 +128,9 @@ Thanks to everyone in the LibreOffice community for their help, I learned a lot 
 **Useful links:**
 
 - [https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr][all-lo-commits] (my all contributions to LibreOffice)
-
+- [https://translations.documentfoundation.org/user/bayramcicek/][weblate] (my translations in LibreOffice)
 - [https://bayramcicek.com.tr/libreoffice/][lo-category] (all blog posts related to LibreOffice development)
+- [https://summerofcode.withgoogle.com/projects/#4776372494401536][gsoc_page] (Google Summer of Code - Project page)
 
 [paper-cuts]: https://wiki.documentfoundation.org/100_Paper_Cuts
 
@@ -167,4 +168,6 @@ Thanks to everyone in the LibreOffice community for their help, I learned a lot 
 [w10]: https://bayramcicek.com.tr/libreoffice-dev/2021/08/16/week-10-gsoc.html
 
 [all-lo-commits]: https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr
+[weblate]: https://translations.documentfoundation.org/user/bayramcicek/
 [lo-category]: https://bayramcicek.com.tr/libreoffice/
+[gsoc_page]: https://summerofcode.withgoogle.com/projects/#4776372494401536

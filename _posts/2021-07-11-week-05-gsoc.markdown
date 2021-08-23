@@ -15,7 +15,7 @@ Last week I shared a blog post of my research on this bug [here][gsoc-w3-4] and 
 
 > [...] So from my point of view we should get rid of Writer-images. But that is a long way. [...] So to get rid of Writer-images it would be necessary to implement the services, which are provided by Writer-images for Draw-images too ...
 
-So, the last decision is: get rid of writer-images. Convert them into drawing objects ,but also implement the writer-images services/attributes to drawing-images. Since there are lots of things to do and we have only 5 week left after the first evaluations week, I prefer to work on this issue after GSoC with a huge free time. Also, I want to work on other bugs too, not only one.
+So, the last decision is: get rid of writer-images. Convert them into drawing objects, but also implement the writer-images' services/attributes to drawing-images. 
 
 ### Prevent jump to top of the comment view / Writer-comments
 

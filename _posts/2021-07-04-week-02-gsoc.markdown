@@ -67,7 +67,7 @@ or:
 {% endhighlight %}
 
 
-... However, none of them are worked, and I don't know if there is another way to make SIDs disable while in edit mode. Since we are in the GSoC period, I don't want to waste my time with a bug that I couldn't make progress. I will look again this bug after GSoC with a huge free time!.
+... However, none of them are worked, and I don't know if there is another way to make SIDs disable while in edit mode. Since we are in the GSoC period, I don't want to waste my time with a bug that I couldn't make progress. I will look again this bug after GSoC with a huge free time.
 
 
 ### Summary

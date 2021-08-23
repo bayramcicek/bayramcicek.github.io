@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-21T18:13:35+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Final Report - GSoC - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/19/final-report-gsoc.html" rel="alternate" type="text/html" title="Final Report - GSoC - 100 Paper Cuts" /><published>2021-08-19T09:03:12+03:00</published><updated>2021-08-19T09:03:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/19/final-report-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/19/final-report-gsoc.html">&lt;h3 id=&quot;about-project&quot;&gt;About project&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-23T14:33:22+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Final Report - GSoC - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc.html" rel="alternate" type="text/html" title="Final Report - GSoC - 100 Paper Cuts" /><published>2021-08-23T09:03:12+03:00</published><updated>2021-08-23T09:03:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc.html">&lt;h3 id=&quot;about-project&quot;&gt;About project&lt;/h3&gt;
 
 &lt;p&gt;&lt;em&gt;100 Paper Cuts&lt;/em&gt; project aims for improving user interface, implementing enhancement requests and solving most-annoying issues on the UX side of LibreOffice. &lt;em&gt;100 Paper Cuts&lt;/em&gt; is a list of bugs and enhancement requests relating to LibreOffice’s user experience: &lt;a href=&quot;https://wiki.documentfoundation.org/100_Paper_Cuts&quot;&gt;https://wiki.documentfoundation.org/100_Paper_Cuts&lt;/a&gt;&lt;/p&gt;
 
@@ -57,7 +57,7 @@
   &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116770&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116770&lt;/a&gt; (merged)&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118638&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118638&lt;/a&gt; (merged)&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120519&lt;/a&gt; (merged)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118951&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118951&lt;/a&gt; (-)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118951&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118951&lt;/a&gt; (merged)&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120262&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120262&lt;/a&gt; (WIP)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -69,7 +69,7 @@
   &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=91519&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=91519&lt;/a&gt; (fixed)&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143890&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=143890&lt;/a&gt; (fixed)&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143919&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=143919&lt;/a&gt; (-)&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143919&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=143919&lt;/a&gt; (fixed)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&lt;/a&gt; (reported)&lt;/p&gt;
@@ -121,10 +121,10 @@
   &lt;li&gt;total bugs : 8&lt;/li&gt;
   &lt;li&gt;fixed : 5&lt;/li&gt;
   &lt;li&gt;WIP : 1&lt;/li&gt;
-  &lt;li&gt;worked on but couldn’t fixed : 2&lt;/li&gt;
+  &lt;li&gt;worked on but couldn’t fix : 2&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I learned lots of things even from the bugs that I couldn’t fixed. At least, I informed the LibreOffice community about my research and shared the code pointers by commenting on the bug page. Therefore, someone who will work on the bugs that I commented, can easily see the code pointers and my works on it.&lt;/p&gt;
+&lt;p&gt;I learned lots of things even from the bugs that I couldn’t fix. At least, I informed the LibreOffice community about my research and shared the code pointers by commenting on the bug page. Therefore, someone who will work on the bugs that I commented, can easily see the code pointers and my works on it.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
     ***
@@ -136,7 +136,7 @@
 
 &lt;h3 id=&quot;thanks&quot;&gt;Thanks&lt;/h3&gt;
 
-&lt;p&gt;I’m really thankful to LibreOffice and GSoC for providing us this such a great opportunity which helped me gain this amazing experience!&lt;/p&gt;
+&lt;p&gt;I’m really thankful to LibreOffice and Google for providing us this such a great opportunity which helped me gain this amazing experience!&lt;/p&gt;
 
 &lt;p&gt;I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.&lt;/p&gt;
 
@@ -160,12 +160,10 @@
 &lt;p&gt;&lt;strong&gt;Useful links:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr&quot;&gt;https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr&lt;/a&gt; (my all contributions to LibreOffice)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://bayramcicek.com.tr/libreoffice/&quot;&gt;https://bayramcicek.com.tr/libreoffice/&lt;/a&gt; (all blog posts related to LibreOffice development)&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr&quot;&gt;https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr&lt;/a&gt; (my all contributions to LibreOffice)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://translations.documentfoundation.org/user/bayramcicek/&quot;&gt;https://translations.documentfoundation.org/user/bayramcicek/&lt;/a&gt; (my translations in LibreOffice)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bayramcicek.com.tr/libreoffice/&quot;&gt;https://bayramcicek.com.tr/libreoffice/&lt;/a&gt; (all blog posts related to LibreOffice development)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://summerofcode.withgoogle.com/projects/#4776372494401536&quot;&gt;https://summerofcode.withgoogle.com/projects/#4776372494401536&lt;/a&gt; (Google Summer of Code - Project page)&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">About project</summary></entry><entry><title type="html">Git: editing old commits</title><link href="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html" rel="alternate" type="text/html" title="Git: editing old commits" /><published>2021-08-18T12:37:43+03:00</published><updated>2021-08-18T12:37:43+03:00</updated><id>http://localhost:4000/general/2021/08/18/git-edit-old-commits</id><content type="html" xml:base="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html">&lt;ul&gt;
   &lt;li&gt;list commit log&lt;/li&gt;
 &lt;/ul&gt;
@@ -586,7 +584,7 @@ Added tooltip &lt;em&gt;“Set Diagonal Right Border”&lt;/em&gt; for for diago
   &lt;p&gt;[…] So from my point of view we should get rid of Writer-images. But that is a long way. […] So to get rid of Writer-images it would be necessary to implement the services, which are provided by Writer-images for Draw-images too …&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;So, the last decision is: get rid of writer-images. Convert them into drawing objects ,but also implement the writer-images services/attributes to drawing-images. Since there are lots of things to do and we have only 5 week left after the first evaluations week, I prefer to work on this issue after GSoC with a huge free time. Also, I want to work on other bugs too, not only one.&lt;/p&gt;
+&lt;p&gt;So, the last decision is: get rid of writer-images. Convert them into drawing objects, but also implement the writer-images’ services/attributes to drawing-images.&lt;/p&gt;
 
 &lt;h3 id=&quot;prevent-jump-to-top-of-the-comment-view--writer-comments&quot;&gt;Prevent jump to top of the comment view / Writer-comments&lt;/h3&gt;
 
@@ -987,7 +985,7 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mpViewShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetDoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_SLIDE_SORTER_MODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;… However, none of them are worked, and I don’t know if there is another way to make SIDs disable while in edit mode. Since we are in the GSoC period, I don’t want to waste my time with a bug that I couldn’t make progress. I will look again this bug after GSoC with a huge free time!.&lt;/p&gt;
+&lt;p&gt;… However, none of them are worked, and I don’t know if there is another way to make SIDs disable while in edit mode. Since we are in the GSoC period, I don’t want to waste my time with a bug that I couldn’t make progress. I will look again this bug after GSoC with a huge free time.&lt;/p&gt;
 
 &lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
 
