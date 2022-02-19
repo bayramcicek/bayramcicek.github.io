@@ -22,7 +22,7 @@ github: [github.com/bayramcicek]
 
 gitlab: [gitlab.com/bayramcicek]
 
-libreoffice: [gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr]
+libreoffice: [gerrit.libreoffice.org/q/owner:bayram.cicek%2540libreoffice.org]
 
 stackoverflow: [stackoverflow.com/users/10376542/bayramcicek]
 
@@ -62,7 +62,7 @@ You can find the source code for Jekyll at GitHub:
 
 [github.com/bayramcicek]: https://github.com/bayramcicek/
 [gitlab.com/bayramcicek]: https://gitlab.com/bayramcicek
-[gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr]: https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr
+[gerrit.libreoffice.org/q/owner:bayram.cicek%2540libreoffice.org]: https://gerrit.libreoffice.org/q/owner:bayram.cicek%2540libreoffice.org
 [stackoverflow.com/users/10376542/bayramcicek]: https://stackoverflow.com/users/10376542/bayramcicek?tab=profile
 
 [linkedin.com/in/bayramcicek/]: https://www.linkedin.com/in/bayramcicek/
