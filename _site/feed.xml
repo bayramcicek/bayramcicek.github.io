@@ -1,1021 +1,1021 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-27T19:44:06+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Mini-interview with LibreOffice &amp;amp; The Document Foundation membership</title><link href="http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership.html" rel="alternate" type="text/html" title="Mini-interview with LibreOffice &amp;amp; The Document Foundation membership" /><published>2021-11-27T17:18:51+03:00</published><updated>2021-11-27T17:18:51+03:00</updated><id>http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership</id><content type="html" xml:base="http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership.html">&lt;h4 id=&quot;heres-the-latest-developments-on-my-libreoffice-journey---after-google-summer-of-code-2021&quot;&gt;Here’s the latest developments on my LibreOffice journey - after Google Summer of Code 2021:&lt;/h4&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-02-19T14:45:38+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><entry><title type="html">Mini-interview with LibreOffice &amp;amp; The Document Foundation membership</title><link href="http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership.html" rel="alternate" type="text/html" title="Mini-interview with LibreOffice &amp;amp; The Document Foundation membership" /><published>2021-11-27T17:18:51+03:00</published><updated>2021-11-27T17:18:51+03:00</updated><id>http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership</id><content type="html" xml:base="http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership.html"><![CDATA[<h4 id="heres-the-latest-developments-on-my-libreoffice-journey---after-google-summer-of-code-2021">Here’s the latest developments on my LibreOffice journey - after Google Summer of Code 2021:</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;I’m a TDF member since October 2021.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://www.documentfoundation.org/governance/members/&quot;&gt;https://www.documentfoundation.org/governance/members/&lt;/a&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;You can read the mini-interview about my contributions to LibreOffice and thoughts about TDF membership - on The Document Foundation blog:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://blog.documentfoundation.org/blog/2021/11/22/community-member-monday-bayram-cicek/&quot;&gt;https://blog.documentfoundation.org/blog/2021/11/22/community-member-monday-bayram-cicek/&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>I’m a TDF member since October 2021.
+    <ul>
+      <li><a href="https://www.documentfoundation.org/governance/members/">https://www.documentfoundation.org/governance/members/</a>
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>You can read the mini-interview about my contributions to LibreOffice and thoughts about TDF membership - on The Document Foundation blog:
+    <ul>
+      <li><a href="https://blog.documentfoundation.org/blog/2021/11/22/community-member-monday-bayram-cicek/">https://blog.documentfoundation.org/blog/2021/11/22/community-member-monday-bayram-cicek/</a></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h4 id=&quot;exactly-1-year-after-first-patch&quot;&gt;Exactly 1 year after first patch&lt;/h4&gt;
+<h4 id="exactly-1-year-after-first-patch">Exactly 1 year after first patch</h4>
 
-&lt;p&gt;One year ago this month, I sent my &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/106489&quot;&gt;first patch to LibreOffice/core&lt;/a&gt; and announced it with a blog post titled &lt;a href=&quot;https://bayramcicek.com.tr/general/2020/11/25/libreoffice.html&quot;&gt;Contributing to LibreOffice: First patch&lt;/a&gt;. In that day, I couldn’t imagine that I would successfully complete GSoC’21 and become a TDF member within 1 year.&lt;/p&gt;
+<p>One year ago this month, I sent my <a href="https://gerrit.libreoffice.org/c/core/+/106489">first patch to LibreOffice/core</a> and announced it with a blog post titled <a href="https://bayramcicek.com.tr/general/2020/11/25/libreoffice.html">Contributing to LibreOffice: First patch</a>. In that day, I couldn’t imagine that I would successfully complete GSoC’21 and become a TDF member within 1 year.</p>
 
-&lt;p&gt;Thanks to LibreOffice community, mentors and developers for their help throughout the journey. Without your help, I couldn’t do it.&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">Here’s the latest developments on my LibreOffice journey - after Google Summer of Code 2021:</summary></entry><entry><title type="html">Final Report - GSoC - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc.html" rel="alternate" type="text/html" title="Final Report - GSoC - 100 Paper Cuts" /><published>2021-08-23T09:03:12+03:00</published><updated>2021-08-23T09:03:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc.html">&lt;h3 id=&quot;about-project&quot;&gt;About project&lt;/h3&gt;
+<p>Thanks to LibreOffice community, mentors and developers for their help throughout the journey. Without your help, I couldn’t do it.</p>]]></content><author><name></name></author><category term="general" /><summary type="html"><![CDATA[Here’s the latest developments on my LibreOffice journey - after Google Summer of Code 2021:]]></summary></entry><entry><title type="html">Final Report - GSoC - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc.html" rel="alternate" type="text/html" title="Final Report - GSoC - 100 Paper Cuts" /><published>2021-08-23T09:03:12+03:00</published><updated>2021-08-23T09:03:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc.html"><![CDATA[<h3 id="about-project">About project</h3>
 
-&lt;p&gt;&lt;em&gt;100 Paper Cuts&lt;/em&gt; project aims for improving user interface, implementing enhancement requests and solving most-annoying issues on the UX side of LibreOffice. &lt;em&gt;100 Paper Cuts&lt;/em&gt; is a list of bugs and enhancement requests relating to LibreOffice’s user experience: &lt;a href=&quot;https://wiki.documentfoundation.org/100_Paper_Cuts&quot;&gt;https://wiki.documentfoundation.org/100_Paper_Cuts&lt;/a&gt;&lt;/p&gt;
+<p><em>100 Paper Cuts</em> project aims for improving user interface, implementing enhancement requests and solving most-annoying issues on the UX side of LibreOffice. <em>100 Paper Cuts</em> is a list of bugs and enhancement requests relating to LibreOffice’s user experience: <a href="https://wiki.documentfoundation.org/100_Paper_Cuts">https://wiki.documentfoundation.org/100_Paper_Cuts</a></p>
 
-&lt;h3 id=&quot;goal&quot;&gt;Goal&lt;/h3&gt;
+<h3 id="goal">Goal</h3>
 
-&lt;p&gt;Main goal was to solve as many bugs as I can, but at least 5 bugs, during GSoC.&lt;/p&gt;
+<p>Main goal was to solve as many bugs as I can, but at least 5 bugs, during GSoC.</p>
 
-&lt;h3 id=&quot;my-work&quot;&gt;My Work&lt;/h3&gt;
+<h3 id="my-work">My Work</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;In ‘Format &amp;gt; Page Style… &amp;gt; Area’ Tab, Mouseover effect added to the palettes on Color, Gradient, Bitmap, Pattern and Hatch sections.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Fixed opposite cropping issue on flipped images in Writer&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In Writer, 3 issues about comment section fixed:&lt;/p&gt;
+<ul>
+  <li>
+    <p>In ‘Format &gt; Page Style… &gt; Area’ Tab, Mouseover effect added to the palettes on Color, Gradient, Bitmap, Pattern and Hatch sections.</p>
+  </li>
+  <li>
+    <p>Fixed opposite cropping issue on flipped images in Writer</p>
+  </li>
+  <li>
+    <p>In Writer, 3 issues about comment section fixed:</p>
 
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;comment section scrolls to top of its view
-  when clicking inside a comment view.&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;clicking inside a comment view, scrolls the
+    <ul>
+      <li>
+        <p>comment section scrolls to top of its view
+  when clicking inside a comment view.</p>
+      </li>
+      <li>
+        <p>clicking inside a comment view, scrolls the
   view to old cursor location automatically
-  (if old cursor out of the visible area)&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;comment section scrolls automatically to the
-  old &lt;em&gt;selected&lt;/em&gt; text (if it’s out of visible area)
-  when clicking inside the Writer canvas view&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In “Properties sidebar &amp;gt; Cell Appearance”, Calc shows preview of the selected cell borders. This feature also added for diagonal borders.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Calc: added diagonal borders in Toolbar&amp;gt;Borders&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;added diagonal left, diagonal right border and criss-cross border icon to Borders tab&lt;/li&gt;
-      &lt;li&gt;added diagonal left and diagonal right borders feature&lt;/li&gt;
-      &lt;li&gt;implemented removing diagonal borders when set “no border”&lt;/li&gt;
-      &lt;li&gt;added criss-cross line feature&lt;/li&gt;
-      &lt;li&gt;added a unit test for diagonal borders&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+  (if old cursor out of the visible area)</p>
+      </li>
+      <li>
+        <p>comment section scrolls automatically to the
+  old <em>selected</em> text (if it’s out of visible area)
+  when clicking inside the Writer canvas view</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>In “Properties sidebar &gt; Cell Appearance”, Calc shows preview of the selected cell borders. This feature also added for diagonal borders.</p>
+  </li>
+  <li>
+    <p>Calc: added diagonal borders in Toolbar&gt;Borders</p>
+    <ul>
+      <li>added diagonal left, diagonal right border and criss-cross border icon to Borders tab</li>
+      <li>added diagonal left and diagonal right borders feature</li>
+      <li>implemented removing diagonal borders when set “no border”</li>
+      <li>added criss-cross line feature</li>
+      <li>added a unit test for diagonal borders</li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;commits&quot;&gt;Commits&lt;/h3&gt;
+<h3 id="commits">Commits</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116395&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116395&lt;/a&gt; (merged)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116770&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116770&lt;/a&gt; (merged)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118638&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118638&lt;/a&gt; (merged)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120519&lt;/a&gt; (merged)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118951&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118951&lt;/a&gt; (merged)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120262&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120262&lt;/a&gt; (WIP)&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/116395">https://gerrit.libreoffice.org/c/core/+/116395</a> (merged)</li>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/116770">https://gerrit.libreoffice.org/c/core/+/116770</a> (merged)</li>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/118638">https://gerrit.libreoffice.org/c/core/+/118638</a> (merged)</li>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/120519">https://gerrit.libreoffice.org/c/core/+/120519</a> (merged)</li>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/118951">https://gerrit.libreoffice.org/c/core/+/118951</a> (merged)</li>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/120262">https://gerrit.libreoffice.org/c/core/+/120262</a> (WIP)</li>
+</ul>
 
-&lt;h3 id=&quot;bugs&quot;&gt;Bugs&lt;/h3&gt;
+<h3 id="bugs">Bugs</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=109388&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=109388&lt;/a&gt; (fixed)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=104995&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=104995&lt;/a&gt; (fixed)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=91519&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=91519&lt;/a&gt; (fixed)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143890&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=143890&lt;/a&gt; (fixed)&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143919&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=143919&lt;/a&gt; (fixed)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&lt;/a&gt; (reported)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;(Work In Progress): &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;: (WIP) Support diagonal borders in Writer-Tables&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;(worked on): &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438&lt;/a&gt; - group selection does not work with raster images
-    &lt;ul&gt;
-      &lt;li&gt;commented: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;developers decided that get rid of Writer-Images&lt;/li&gt;
-      &lt;li&gt;this bug should be done by an experienced developer&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;(worked on): &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404&quot;&gt;tdf#98404&lt;/a&gt; - UX - While objects on a slide are being edited, the new slide sorter Ctrl+Shift shortcut combinations incorrectly receive focus and move the slide
-    &lt;ul&gt;
-      &lt;li&gt;commented: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=109388">https://bugs.documentfoundation.org/show_bug.cgi?id=109388</a> (fixed)</li>
+  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=104995">https://bugs.documentfoundation.org/show_bug.cgi?id=104995</a> (fixed)</li>
+  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=91519">https://bugs.documentfoundation.org/show_bug.cgi?id=91519</a> (fixed)</li>
+  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143890">https://bugs.documentfoundation.org/show_bug.cgi?id=143890</a> (fixed)</li>
+  <li>
+    <p><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143919">https://bugs.documentfoundation.org/show_bug.cgi?id=143919</a> (fixed)</p>
+  </li>
+  <li>
+    <p><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143300">https://bugs.documentfoundation.org/show_bug.cgi?id=143300</a> (reported)</p>
+  </li>
+  <li>
+    <p>(Work In Progress): <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: (WIP) Support diagonal borders in Writer-Tables</p>
+  </li>
+  <li>(worked on): <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438</a> - group selection does not work with raster images
+    <ul>
+      <li>commented: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47">https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47</a></li>
+      <li>developers decided that get rid of Writer-Images</li>
+      <li>this bug should be done by an experienced developer<br /><br /></li>
+    </ul>
+  </li>
+  <li>(worked on): <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404">tdf#98404</a> - UX - While objects on a slide are being edited, the new slide sorter Ctrl+Shift shortcut combinations incorrectly receive focus and move the slide
+    <ul>
+      <li>commented: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25">https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25</a></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;whats-left-to-do-or-can-be-done&quot;&gt;Whats left to do or can be done?&lt;/h3&gt;
+<h3 id="whats-left-to-do-or-can-be-done">Whats left to do or can be done?</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;: (WIP) Support diagonal borders in Writer-Tables
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120262&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120262&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;This bug has 2 step: a) implement diagonal borders, b) draw them.&lt;/li&gt;
-      &lt;li&gt;I’m workink on this bug for ~4 weeks and it is Work in Progress. Writer-Tables doesn’t have diagonal borders feature. I implemented RES_BOX_TLBR attribute and added SID_ATTR_BORDER_DIAG_TLBR for now. After that, we should try to draw them. I’m trying to draw diagonal LEFT border first. If we can draw that, then it becomes easy to apply all the changes to diagonal RIGHT border.&lt;/li&gt;
-      &lt;li&gt;If we can add diagonal borders feature, we can also implement criss-cross border feature.&lt;/li&gt;
-      &lt;li&gt;In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase. Therefore I think &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt; can be a standalone GSoC project itself :) &lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=84099&quot;&gt;tdf#84099&lt;/a&gt; - Calc can’t handle very high rows
-    &lt;ul&gt;
-      &lt;li&gt;Scrolling in spreadsheets on Calc is designed to snap to rows. Therefore, this makes it hard to work with spreadsheets with large row heights. This annoying issue is not only specific for vertical scroll but also affects horizontal scroll. If we can add &lt;em&gt;smooth scroll&lt;/em&gt; feature, it will likely solve the &lt;em&gt;height&lt;/em&gt; issue on both rows and columns. &lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=90253&quot;&gt;tdf#90253&lt;/a&gt; - Drawing a textbox in Impress doesn’t retain its height
-    &lt;ul&gt;
-      &lt;li&gt;And, this is another bug that I want to work on it.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: (WIP) Support diagonal borders in Writer-Tables
+    <ul>
+      <li><a href="https://gerrit.libreoffice.org/c/core/+/120262">https://gerrit.libreoffice.org/c/core/+/120262</a></li>
+      <li>This bug has 2 step: a) implement diagonal borders, b) draw them.</li>
+      <li>I’m workink on this bug for ~4 weeks and it is Work in Progress. Writer-Tables doesn’t have diagonal borders feature. I implemented RES_BOX_TLBR attribute and added SID_ATTR_BORDER_DIAG_TLBR for now. After that, we should try to draw them. I’m trying to draw diagonal LEFT border first. If we can draw that, then it becomes easy to apply all the changes to diagonal RIGHT border.</li>
+      <li>If we can add diagonal borders feature, we can also implement criss-cross border feature.</li>
+      <li>In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase. Therefore I think <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a> can be a standalone GSoC project itself :) <br /><br /></li>
+    </ul>
+  </li>
+  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=84099">tdf#84099</a> - Calc can’t handle very high rows
+    <ul>
+      <li>Scrolling in spreadsheets on Calc is designed to snap to rows. Therefore, this makes it hard to work with spreadsheets with large row heights. This annoying issue is not only specific for vertical scroll but also affects horizontal scroll. If we can add <em>smooth scroll</em> feature, it will likely solve the <em>height</em> issue on both rows and columns. <br /><br /></li>
+    </ul>
+  </li>
+  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=90253">tdf#90253</a> - Drawing a textbox in Impress doesn’t retain its height
+    <ul>
+      <li>And, this is another bug that I want to work on it.</li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+<h3 id="summary">Summary</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;total bugs : 8&lt;/li&gt;
-  &lt;li&gt;fixed : 5&lt;/li&gt;
-  &lt;li&gt;WIP : 1&lt;/li&gt;
-  &lt;li&gt;worked on but couldn’t fix : 2&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>total bugs : 8</li>
+  <li>fixed : 5</li>
+  <li>WIP : 1</li>
+  <li>worked on but couldn’t fix : 2</li>
+</ul>
 
-&lt;p&gt;I learned lots of things even from the bugs that I couldn’t fix. At least, I informed the LibreOffice community about my research and shared the code pointers by commenting on the bug page. Therefore, someone who will work on the bugs that I commented, can easily see the code pointers and my works on it.&lt;/p&gt;
+<p>I learned lots of things even from the bugs that I couldn’t fix. At least, I informed the LibreOffice community about my research and shared the code pointers by commenting on the bug page. Therefore, someone who will work on the bugs that I commented, can easily see the code pointers and my works on it.</p>
 
-&lt;p align=&quot;center&quot;&gt;
+<p align="center">
     ***
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;I’m very happy that we all reached the end of GSoC. During that time, I know that I had a responsibility for doing everything that I can. Therefore I worked hard, tried to get familiar with the LibreOffice community and worked on as many bugs as I can.&lt;/p&gt;
+<p>I’m very happy that we all reached the end of GSoC. During that time, I know that I had a responsibility for doing everything that I can. Therefore I worked hard, tried to get familiar with the LibreOffice community and worked on as many bugs as I can.</p>
 
-&lt;p&gt;I learned a lot of things during the GSoC. Although GSoC is finished, I will definitely continue to contribute to LibreOffice. I am really happy to be a part of the LibreOffice community and GSoC.&lt;/p&gt;
+<p>I learned a lot of things during the GSoC. Although GSoC is finished, I will definitely continue to contribute to LibreOffice. I am really happy to be a part of the LibreOffice community and GSoC.</p>
 
-&lt;h3 id=&quot;thanks&quot;&gt;Thanks&lt;/h3&gt;
+<h3 id="thanks">Thanks</h3>
 
-&lt;p&gt;I’m really thankful to LibreOffice and Google for providing us this such a great opportunity which helped me gain this amazing experience!&lt;/p&gt;
+<p>I’m really thankful to LibreOffice and Google for providing us this such a great opportunity which helped me gain this amazing experience!</p>
 
-&lt;p&gt;I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.&lt;/p&gt;
+<p>I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.</p>
 
-&lt;p&gt;And most importantly, greatly thankful to &lt;em&gt;Muhammet Kara&lt;/em&gt; and &lt;em&gt;Heiko Tietze&lt;/em&gt; which were my mentors throughout the GSoC period. They always guided me everything about my questions. Thank you so much for your guidance, code reviews, time and everything.&lt;/p&gt;
+<p>And most importantly, greatly thankful to <em>Muhammet Kara</em> and <em>Heiko Tietze</em> which were my mentors throughout the GSoC period. They always guided me everything about my questions. Thank you so much for your guidance, code reviews, time and everything.</p>
 
-&lt;p&gt;Thanks to everyone in the LibreOffice community for their help, I learned a lot from you :)&lt;/p&gt;
+<p>Thanks to everyone in the LibreOffice community for their help, I learned a lot from you :)</p>
 
-&lt;h3 id=&quot;all-weekly-gsoc-reports&quot;&gt;All weekly GSoC reports&lt;/h3&gt;
+<h3 id="all-weekly-gsoc-reports">All weekly GSoC reports</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;16 Aug 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/08/16/week-10-gsoc.html&quot;&gt;Week #10 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;08 Aug 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/08/08/week-09-gsoc.html&quot;&gt;Week #9 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;01 Aug 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/08/01/week-07-08-gsoc.html&quot;&gt;Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;18 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/18/week-06-gsoc.html&quot;&gt;Week #6 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;11 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/11/week-05-gsoc.html&quot;&gt;Week #5 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;05 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html&quot;&gt;Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;04 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/04/week-02-gsoc.html&quot;&gt;Week #2 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;13 Jun 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/06/13/week-01-gsoc.html&quot;&gt;Week #1 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>16 Aug 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/08/16/week-10-gsoc.html">Week #10 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>08 Aug 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/08/08/week-09-gsoc.html">Week #9 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>01 Aug 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/08/01/week-07-08-gsoc.html">Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>18 Jul 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/18/week-06-gsoc.html">Week #6 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>11 Jul 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/11/week-05-gsoc.html">Week #5 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>05 Jul 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html">Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>04 Jul 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/04/week-02-gsoc.html">Week #2 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>13 Jun 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/06/13/week-01-gsoc.html">Week #1 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+</ul>
 
-&lt;p&gt;&lt;strong&gt;Useful links:&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Useful links:</strong></p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr&quot;&gt;https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr&lt;/a&gt; (my all contributions to LibreOffice)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://translations.documentfoundation.org/user/bayramcicek/&quot;&gt;https://translations.documentfoundation.org/user/bayramcicek/&lt;/a&gt; (my translations in LibreOffice)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bayramcicek.com.tr/libreoffice/&quot;&gt;https://bayramcicek.com.tr/libreoffice/&lt;/a&gt; (all blog posts related to LibreOffice development)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://summerofcode.withgoogle.com/projects/#4776372494401536&quot;&gt;https://summerofcode.withgoogle.com/projects/#4776372494401536&lt;/a&gt; (Google Summer of Code - Project page)&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">About project</summary></entry><entry><title type="html">Git: editing old commits</title><link href="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html" rel="alternate" type="text/html" title="Git: editing old commits" /><published>2021-08-18T12:37:43+03:00</published><updated>2021-08-18T12:37:43+03:00</updated><id>http://localhost:4000/general/2021/08/18/git-edit-old-commits</id><content type="html" xml:base="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html">&lt;ul&gt;
-  &lt;li&gt;list commit log&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;
+<ul>
+  <li><a href="https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr">https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr</a> (my all contributions to LibreOffice)</li>
+  <li><a href="https://translations.documentfoundation.org/user/bayramcicek/">https://translations.documentfoundation.org/user/bayramcicek/</a> (my translations in LibreOffice)</li>
+  <li><a href="https://bayramcicek.com.tr/libreoffice/">https://bayramcicek.com.tr/libreoffice/</a> (all blog posts related to LibreOffice development)</li>
+  <li><a href="https://summerofcode.withgoogle.com/projects/#4776372494401536">https://summerofcode.withgoogle.com/projects/#4776372494401536</a> (Google Summer of Code - Project page)</li>
+</ul>]]></content><author><name></name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[About project]]></summary></entry><entry><title type="html">Git: editing old commits</title><link href="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html" rel="alternate" type="text/html" title="Git: editing old commits" /><published>2021-08-18T12:37:43+03:00</published><updated>2021-08-18T12:37:43+03:00</updated><id>http://localhost:4000/general/2021/08/18/git-edit-old-commits</id><content type="html" xml:base="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html"><![CDATA[<ul>
+  <li>list commit log</li>
+</ul>
+<pre>
 $ git log
 or
-$ git log --oneline&lt;/pre&gt;
+$ git log --oneline</pre>
 
-&lt;ul&gt;
-  &lt;li&gt;find SHA-ID of your commit, then:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;
+<ul>
+  <li>find SHA-ID of your commit, then:</li>
+</ul>
+<pre>
 $ git rebase --interactive $SHA^
 or
 (list last e.g. 3 commit)
 $ git rebase -i HEAD~3
-&lt;/pre&gt;
+</pre>
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Change ‘pick’ to ‘edit’ for your commit that you want to edit&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;make your changes in files etc.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;add your changes &amp;amp; edit commit message:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>
+    <p>Change ‘pick’ to ‘edit’ for your commit that you want to edit</p>
+  </li>
+  <li>
+    <p>make your changes in files etc.</p>
+  </li>
+  <li>
+    <p>add your changes &amp; edit commit message:</p>
+  </li>
+</ul>
 
-&lt;pre&gt;
+<pre>
 $ git commit -a --amend
-&lt;/pre&gt;
+</pre>
 
-&lt;ul&gt;
-  &lt;li&gt;end rebase&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>end rebase</li>
+</ul>
 
-&lt;pre&gt;
+<pre>
 $ git rebase --continue
-&lt;/pre&gt;
+</pre>
 
-&lt;ul&gt;
-  &lt;li&gt;or cancel&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;
+<ul>
+  <li>or cancel</li>
+</ul>
+<pre>
 $ git rebase --abort
-&lt;/pre&gt;
+</pre>
 
-&lt;ul&gt;
-  &lt;li&gt;push changes to remote server&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;
-git push --force-with-lease &amp;lt;origin&amp;gt; &amp;lt;test-branch&amp;gt;
-&lt;/pre&gt;
+<ul>
+  <li>push changes to remote server</li>
+</ul>
+<pre>
+git push --force-with-lease &lt;origin&gt; &lt;test-branch&gt;
+</pre>
 
-&lt;p&gt;(or &lt;code class=&quot;highlighter-rouge&quot;&gt;$ ./logerrit submit master&lt;/code&gt; for LibreOffice)&lt;/p&gt;</content><author><name></name></author><category term="general" /><summary type="html">list commit log $ git log or $ git log --oneline</summary></entry><entry><title type="html">Week #10 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html" rel="alternate" type="text/html" title="Week #10 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-16T01:01:36+03:00</published><updated>2021-08-16T01:01:36+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html">&lt;p&gt;GSoC progress for week #10.&lt;/p&gt;
+<p>(or <code class="highlighter-rouge">$ ./logerrit submit master</code> for LibreOffice)</p>]]></content><author><name></name></author><category term="general" /><summary type="html"><![CDATA[list commit log $ git log or $ git log --oneline]]></summary></entry><entry><title type="html">Week #10 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html" rel="alternate" type="text/html" title="Week #10 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-16T01:01:36+03:00</published><updated>2021-08-16T01:01:36+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html"><![CDATA[<p>GSoC progress for week #10.</p>
 
-&lt;h4 id=&quot;calc-border-preview-doesnt-show-the-diagonal-borders-in-cell-appearance-section&quot;&gt;Calc: Border preview doesn’t show the diagonal borders in Cell Appearance section&lt;/h4&gt;
+<h4 id="calc-border-preview-doesnt-show-the-diagonal-borders-in-cell-appearance-section">Calc: Border preview doesn’t show the diagonal borders in Cell Appearance section</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143890&quot;&gt;tdf#143890&lt;/a&gt; - Border preview doesn’t show the diagonal borders&lt;/li&gt;
-  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120519&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143890">tdf#143890</a> - Border preview doesn’t show the diagonal borders</li>
+  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/120519">https://gerrit.libreoffice.org/c/core/+/120519</a></li>
+</ul>
 
-&lt;p&gt;In (Sidebar Tab) &lt;code class=&quot;highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;, Calc always shows preview of the selected cell borders.&lt;/p&gt;
+<p>In (Sidebar Tab) <code class="highlighter-rouge">Properties &gt; Cell Appearance</code>, Calc always shows preview of the selected cell borders.</p>
 
-&lt;p&gt;For example; if LEFT border set in a cell, the preview shows LEFT border (as expected). But this feature doesn’t show the preview of diagonal borders. When we set (e.g.)diagonal RIGHT border in a cell, the preview doesn’t update itself to show diagonal RIGHT border.&lt;/p&gt;
+<p>For example; if LEFT border set in a cell, the preview shows LEFT border (as expected). But this feature doesn’t show the preview of diagonal borders. When we set (e.g.)diagonal RIGHT border in a cell, the preview doesn’t update itself to show diagonal RIGHT border.</p>
 
-&lt;p&gt;Steps to Reproduce:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;open Calc and select a cell&lt;/li&gt;
-  &lt;li&gt;(in Sidebar) go to “Properties &amp;gt; Cell Appearance”&lt;/li&gt;
-  &lt;li&gt;select Diagonal Up (and/or Down) border&lt;/li&gt;
-&lt;/ol&gt;
+<p>Steps to Reproduce:</p>
+<ol>
+  <li>open Calc and select a cell</li>
+  <li>(in Sidebar) go to “Properties &gt; Cell Appearance”</li>
+  <li>select Diagonal Up (and/or Down) border</li>
+</ol>
 
-&lt;p&gt;Actual Results:
-Preview doesn’t show diagonal borders&lt;/p&gt;
+<p>Actual Results:
+Preview doesn’t show diagonal borders</p>
 
-&lt;p&gt;Expected Results:
-Diagonal borders should be shown in the preview (as other borders).&lt;/p&gt;
+<p>Expected Results:
+Diagonal borders should be shown in the preview (as other borders).</p>
 
-&lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
+<h4 id="code-pointers">Code pointers:</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx?r=1653bb9b#467&quot;&gt;https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx?r=1653bb9b#467&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;sc/source/ui/sidebar/CellAppearancePropertyPanel.hxx&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>
+    <p>sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx: <a href="https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx?r=1653bb9b#467">https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx?r=1653bb9b#467</a></p>
+  </li>
+  <li>
+    <p>sc/source/ui/sidebar/CellAppearancePropertyPanel.hxx</p>
+  </li>
+</ul>
 
-&lt;h4 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h4&gt;
+<h4 id="technical-details">Technical Details</h4>
 
-&lt;p&gt;Line preview is drawn in:&lt;/p&gt;
+<p>Line preview is drawn in:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CellAppearancePropertyPanel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UpdateCellBorder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                                                   &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bVer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bHor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">CellAppearancePropertyPanel</span><span class="o">::</span><span class="n">UpdateCellBorder</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bTop</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bBot</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bLeft</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bRight</span><span class="p">,</span>
+                                                   <span class="kt">bool</span> <span class="n">bVer</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bHor</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="cm">/* ... */</span>
 
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aBL&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aBR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aTR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aBL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aBR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bVer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aVT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aVB&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    <span class="k">if</span><span class="p">(</span><span class="n">bLeft</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTL</span><span class="p">,</span><span class="n">aBL</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">bRight</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTR</span><span class="p">,</span><span class="n">aBR</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">bTop</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTL</span><span class="p">,</span><span class="n">aTR</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">bBot</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aBL</span><span class="p">,</span><span class="n">aBR</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">bVer</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aVT</span><span class="p">,</span><span class="n">aVB</span> <span class="p">);</span>
 
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<span class="p">}</span></code></pre></figure>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DrawLine()&lt;/code&gt; method draws the lines. Here, lines for diagonal borders are missing. We need to add &lt;code class=&quot;highlighter-rouge&quot;&gt;DrawLine()&lt;/code&gt; method for them and update the parameters of the &lt;code class=&quot;highlighter-rouge&quot;&gt;UpdateCellBorder(...)&lt;/code&gt; function:&lt;/p&gt;
+<p><code class="highlighter-rouge">DrawLine()</code> method draws the lines. Here, lines for diagonal borders are missing. We need to add <code class="highlighter-rouge">DrawLine()</code> method for them and update the parameters of the <code class="highlighter-rouge">UpdateCellBorder(...)</code> function:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CellAppearancePropertyPanel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UpdateCellBorder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                                                   &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bVer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bHor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                                                   &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bTLBR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bBLTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;                                             
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">CellAppearancePropertyPanel</span><span class="o">::</span><span class="n">UpdateCellBorder</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bTop</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bBot</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bLeft</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bRight</span><span class="p">,</span>
+                                                   <span class="kt">bool</span> <span class="n">bVer</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bHor</span><span class="p">,</span>
+                                                   <span class="kt">bool</span> <span class="n">bTLBR</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bBLTR</span><span class="p">)</span>
+<span class="p">{</span>                                             
 
-    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+    <span class="cm">/* ... */</span>
 
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bTLBR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aBR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bBLTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aBL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aTR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    <span class="k">if</span><span class="p">(</span><span class="n">bTLBR</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTL</span><span class="p">,</span><span class="n">aBR</span> <span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">bBLTR</span><span class="p">)</span>
+        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aBL</span><span class="p">,</span><span class="n">aTR</span> <span class="p">);</span>
 
-    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+    <span class="cm">/* ... */</span>
 
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<span class="p">}</span></code></pre></figure>
 
-&lt;p align=&quot;center&quot;&gt;
+<p align="center">
 	***
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;Before:&lt;/p&gt;
+<p>Before:</p>
 
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/calc_before_preview.png&quot; alt=&quot;calc_before_preview.png&quot; /&gt;
-&lt;/p&gt;
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/calc_before_preview.png" alt="calc_before_preview.png" />
+</p>
 
-&lt;p&gt;After:&lt;/p&gt;
+<p>After:</p>
 
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/calc_after_preview.png&quot; alt=&quot;calc_after_preview.png&quot; /&gt;
-&lt;/p&gt;
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/calc_after_preview.png" alt="calc_after_preview.png" />
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;
+<p><br /></p>
+<p align="center">
 	***
-&lt;/p&gt;
+</p>
 
-&lt;h4 id=&quot;created-a-new-commit-for-tdf51665-wip-support-diagonal-borders-in-writer-tables&quot;&gt;Created a new commit for tdf#51665: (WIP) Support diagonal borders in Writer-Tables&lt;/h4&gt;
+<h4 id="created-a-new-commit-for-tdf51665-wip-support-diagonal-borders-in-writer-tables">Created a new commit for tdf#51665: (WIP) Support diagonal borders in Writer-Tables</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt; - Support diagonal borders in TABLEs&lt;/li&gt;
-  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120262&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120262&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a> - Support diagonal borders in TABLEs</li>
+  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/120262">https://gerrit.libreoffice.org/c/core/+/120262</a></li>
+</ul>
 
-&lt;p&gt;patchset1:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;implement RES_BOX_TLBR attribute&lt;/li&gt;
-  &lt;li&gt;add SID_ATTR_BORDER_DIAG_TLBR&lt;/li&gt;
-&lt;/ul&gt;
+<p>patchset1:</p>
+<ul>
+  <li>implement RES_BOX_TLBR attribute</li>
+  <li>add SID_ATTR_BORDER_DIAG_TLBR</li>
+</ul>
 
-&lt;p&gt;patchset2:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;improve case SID_ATTR_BORDER_DIAG_TLBR (tabsh.cxx)&lt;/li&gt;
-  &lt;li&gt;add diagonal left condition in ndtbl1.cxx&lt;/li&gt;
-  &lt;li&gt;try to draw diagonal left border:
-    &lt;ul&gt;
-      &lt;li&gt;drawing in a cell seems complicated.&lt;/li&gt;
-      &lt;li&gt;currently it draw TLBR line on the document
-layout, not in current cell.&lt;/li&gt;
-      &lt;li&gt;we have to draw TLBR line in current cell.
-(needs improvement)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<p>patchset2:</p>
+<ul>
+  <li>improve case SID_ATTR_BORDER_DIAG_TLBR (tabsh.cxx)</li>
+  <li>add diagonal left condition in ndtbl1.cxx</li>
+  <li>try to draw diagonal left border:
+    <ul>
+      <li>drawing in a cell seems complicated.</li>
+      <li>currently it draw TLBR line on the document
+layout, not in current cell.</li>
+      <li>we have to draw TLBR line in current cell.
+(needs improvement)</li>
+    </ul>
+  </li>
+</ul>
 
-&lt;p&gt;IMHO, I think tdf#51665 can be a standalone GSoC project itself. In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase and we need more time.&lt;/p&gt;
+<p>IMHO, I think tdf#51665 can be a standalone GSoC project itself. In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase and we need more time.</p>
 
-&lt;h3 id=&quot;summary-of-week-10&quot;&gt;Summary of week #10&lt;/h3&gt;
+<h3 id="summary-of-week-10">Summary of week #10</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Fixed: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143890&quot;&gt;tdf#143890&lt;/a&gt; - Border preview doesn’t show the diagonal borders&lt;/li&gt;
-  &lt;li&gt;Worked on diagonal borders in Writer-Tables, and published 2 new patchsets&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Fixed: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143890">tdf#143890</a> - Border preview doesn’t show the diagonal borders</li>
+  <li>Worked on diagonal borders in Writer-Tables, and published 2 new patchsets</li>
+</ul>
 
-&lt;p&gt;Commits&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120519&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120262&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120262&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<p>Commits</p>
+<ul>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/120519">https://gerrit.libreoffice.org/c/core/+/120519</a></li>
+  <li><a href="https://gerrit.libreoffice.org/c/core/+/120262">https://gerrit.libreoffice.org/c/core/+/120262</a></li>
+</ul>
 
-&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Write “Final Report” blog post&lt;/li&gt;
-  &lt;li&gt;Make last changes on patches that on gerrit&lt;/li&gt;
-  &lt;li&gt;try to draw diagonal borders for Writer-Tables.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">GSoC progress for week #10.</summary></entry><entry><title type="html">Week #9 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc.html" rel="alternate" type="text/html" title="Week #9 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-08T11:34:53+03:00</published><updated>2021-08-08T11:34:53+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc.html">&lt;p&gt;GSoC progress for week #9.&lt;/p&gt;
+<ul>
+  <li>Write “Final Report” blog post</li>
+  <li>Make last changes on patches that on gerrit</li>
+  <li>try to draw diagonal borders for Writer-Tables.</li>
+</ul>]]></content><author><name></name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #10.]]></summary></entry><entry><title type="html">Week #9 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc.html" rel="alternate" type="text/html" title="Week #9 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-08T11:34:53+03:00</published><updated>2021-08-08T11:34:53+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc.html"><![CDATA[<p>GSoC progress for week #9.</p>
 
-&lt;h4 id=&quot;diagonal-borders-now-accessible-from-table-toolbar--borders-tab-in-calc&quot;&gt;Diagonal borders now accessible from “Table Toolbar &amp;gt; Borders” tab in Calc&lt;/h4&gt;
+<h4 id="diagonal-borders-now-accessible-from-table-toolbar--borders-tab-in-calc">Diagonal borders now accessible from “Table Toolbar &gt; Borders” tab in Calc</h4>
 
-&lt;p&gt;Calc has diagonal borders feature in &lt;code class=&quot;highlighter-rouge&quot;&gt;Format &amp;gt; Cells... &amp;gt; Borders tab&lt;/code&gt; and (Sidebar Tab) &lt;code class=&quot;highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;. However, this feature wasn’t exist in “Table Toolbar &amp;gt; Borders” tab. With commit &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;, Calc can draw diagonal left and diagonal right borders from table toolbar. \o/&lt;/p&gt;
+<p>Calc has diagonal borders feature in <code class="highlighter-rouge">Format &gt; Cells... &gt; Borders tab</code> and (Sidebar Tab) <code class="highlighter-rouge">Properties &gt; Cell Appearance</code>. However, this feature wasn’t exist in “Table Toolbar &gt; Borders” tab. With commit <a href="https://gerrit.libreoffice.org/c/core/+/119685">https://gerrit.libreoffice.org/c/core/+/119685</a>, Calc can draw diagonal left and diagonal right borders from table toolbar. \o/</p>
 
-&lt;p&gt;This &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt; commit had “&lt;em&gt;(WIP) Support diagonal borders in Writer-Tables&lt;/em&gt;” name before, and I sent 3-4 patchsets for Writer-diagonal-borders, but I made it Calc-specific and changed the title as “&lt;em&gt;Calc: made diagonal borders accessible in Toolbar&amp;gt;Borders&lt;/em&gt;”. The reason of this change is: Writer and Calc use the same Border tab in Table toolbar (svx/source/tbxctrls/tbcontrl.cxx). Therefore I will leave the commit as Calc-specific and will submit a new commit just for Writer-specific. But first, I want to write UItest for Calc-diagonal-borders next week.&lt;/p&gt;
+<p>This <a href="https://gerrit.libreoffice.org/c/core/+/119685">https://gerrit.libreoffice.org/c/core/+/119685</a> commit had “<em>(WIP) Support diagonal borders in Writer-Tables</em>” name before, and I sent 3-4 patchsets for Writer-diagonal-borders, but I made it Calc-specific and changed the title as “<em>Calc: made diagonal borders accessible in Toolbar&gt;Borders</em>”. The reason of this change is: Writer and Calc use the same Border tab in Table toolbar (svx/source/tbxctrls/tbcontrl.cxx). Therefore I will leave the commit as Calc-specific and will submit a new commit just for Writer-specific. But first, I want to write UItest for Calc-diagonal-borders next week.</p>
 
-&lt;p&gt;Additionaly I want to work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34689&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=34689&lt;/a&gt; - UI scroll problem: Cell with dimensions exceeding screen dimensions impossible to work with.&lt;/p&gt;
+<p>Additionaly I want to work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34689">https://bugs.documentfoundation.org/show_bug.cgi?id=34689</a> - UI scroll problem: Cell with dimensions exceeding screen dimensions impossible to work with.</p>
 
-&lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
+<h4 id="code-pointers">Code pointers:</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;svx/source/tbxctrls/tbcontrl.cxx: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221&quot;&gt;https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>svx/source/tbxctrls/tbcontrl.cxx: <a href="https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221">https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221</a></li>
+</ul>
 
-&lt;h3 id=&quot;summary-of-week-9&quot;&gt;Summary of week #9&lt;/h3&gt;
+<h3 id="summary-of-week-9">Summary of week #9</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Worked on Writer-Tables and Calc-Borders&lt;/li&gt;
-  &lt;li&gt;Made diagonal borders accessible in Toolbar&amp;gt;Borders / Calc&lt;/li&gt;
-  &lt;li&gt;Sent new patchsets in commit : &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Worked on Writer-Tables and Calc-Borders</li>
+  <li>Made diagonal borders accessible in Toolbar&gt;Borders / Calc</li>
+  <li>Sent new patchsets in commit : <a href="https://gerrit.libreoffice.org/c/core/+/119685">https://gerrit.libreoffice.org/c/core/+/119685</a></li>
+</ul>
 
-&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Write UItest for Calc diagonal-borders.&lt;/li&gt;
-  &lt;li&gt;Work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34689&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=34689&lt;/a&gt; - UI scroll problem: Cell with dimensions exceeding screen dimensions impossible to work with.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">GSoC progress for week #9.</summary></entry><entry><title type="html">Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/01/week-07-08-gsoc.html" rel="alternate" type="text/html" title="Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-01T09:04:42+03:00</published><updated>2021-08-01T09:04:42+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/01/week-07-08-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/01/week-07-08-gsoc.html">&lt;p&gt;GSoC progress for week #7 and week #8.&lt;/p&gt;
+<ul>
+  <li>Write UItest for Calc diagonal-borders.</li>
+  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34689">https://bugs.documentfoundation.org/show_bug.cgi?id=34689</a> - UI scroll problem: Cell with dimensions exceeding screen dimensions impossible to work with.</li>
+</ul>]]></content><author><name></name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #9.]]></summary></entry><entry><title type="html">Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/01/week-07-08-gsoc.html" rel="alternate" type="text/html" title="Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-01T09:04:42+03:00</published><updated>2021-08-01T09:04:42+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/01/week-07-08-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/01/week-07-08-gsoc.html"><![CDATA[<p>GSoC progress for week #7 and week #8.</p>
 
-&lt;h4 id=&quot;made-research-on-borders-in-writer-tables&quot;&gt;Made research on borders in Writer-Tables&lt;/h4&gt;
+<h4 id="made-research-on-borders-in-writer-tables">Made research on borders in Writer-Tables</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt; - Support diagonal borders in TABLEs&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a> - Support diagonal borders in TABLEs</li>
+</ul>
 
-&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;Table Toolbar &amp;gt; Bordes&lt;/code&gt;, Writer has 8 border frames for each cell, and has 12 border frames for multiple selected cells. With 2 new borders (Diagonal Left/Right), Writer has 14 border frames.&lt;/p&gt;
+<p>In <code class="highlighter-rouge">Table Toolbar &gt; Bordes</code>, Writer has 8 border frames for each cell, and has 12 border frames for multiple selected cells. With 2 new borders (Diagonal Left/Right), Writer has 14 border frames.</p>
 
-&lt;p&gt;I made research about how applying borders works in Writer-Tables. Then I started to work on it with sending first patchsets as WIP: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;&lt;/p&gt;
+<p>I made research about how applying borders works in Writer-Tables. Then I started to work on it with sending first patchsets as WIP: <a href="https://gerrit.libreoffice.org/c/core/+/119685">https://gerrit.libreoffice.org/c/core/+/119685</a></p>
 
-&lt;p&gt;I realized that Calc has diagonal borders feature in both &lt;code class=&quot;highlighter-rouge&quot;&gt;Format &amp;gt; Cells... &amp;gt; Borders tab&lt;/code&gt; and (Sidebar Tab) &lt;code class=&quot;highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;. Next week, I will try to understand how diagonal borders work in Calc cells and will try to implement them in Writer-Tables.&lt;/p&gt;
+<p>I realized that Calc has diagonal borders feature in both <code class="highlighter-rouge">Format &gt; Cells... &gt; Borders tab</code> and (Sidebar Tab) <code class="highlighter-rouge">Properties &gt; Cell Appearance</code>. Next week, I will try to understand how diagonal borders work in Calc cells and will try to implement them in Writer-Tables.</p>
 
-&lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
+<h4 id="code-pointers">Code pointers:</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;sw/source/core/layout/paintfrm.cxx&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;sw/source/core/doc/tblafmt.cxx&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;svx/source/tbxctrls/tbcontrl.cxx: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221&quot;&gt;https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;sc/source/ui/sidebar/CellBorderStyleControl.cxx:133 : &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellBorderStyleControl.cxx?r=f3fc16f4#133&quot;&gt;https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellBorderStyleControl.cxx?r=f3fc16f4#133&lt;/a&gt;
-&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p align=&quot;center&quot;&gt;
+<ul>
+  <li>
+    <p>sw/source/core/layout/paintfrm.cxx</p>
+  </li>
+  <li>
+    <p>sw/source/core/doc/tblafmt.cxx</p>
+  </li>
+  <li>
+    <p>svx/source/tbxctrls/tbcontrl.cxx: <a href="https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221">https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221</a></p>
+  </li>
+  <li>
+    <p>sc/source/ui/sidebar/CellBorderStyleControl.cxx:133 : <a href="https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellBorderStyleControl.cxx?r=f3fc16f4#133">https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellBorderStyleControl.cxx?r=f3fc16f4#133</a>
+<br /></p>
+  </li>
+</ul>
+<p align="center">
     ***
-&lt;/p&gt;
+</p>
 
-&lt;h3 id=&quot;summary-of-last-2-weeks&quot;&gt;Summary of last 2 weeks&lt;/h3&gt;
+<h3 id="summary-of-last-2-weeks">Summary of last 2 weeks</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Worked on Writer-Tables&lt;/li&gt;
-  &lt;li&gt;commit: (WIP) Support diagonal borders in Writer-Tables : &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Worked on Writer-Tables</li>
+  <li>commit: (WIP) Support diagonal borders in Writer-Tables : <a href="https://gerrit.libreoffice.org/c/core/+/119685">https://gerrit.libreoffice.org/c/core/+/119685</a></li>
+</ul>
 
-&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Work on Calc diagonal borders and try to implement them in Writer-Tables&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">GSoC progress for week #7 and week #8.</summary></entry><entry><title type="html">Week #6 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc.html" rel="alternate" type="text/html" title="Week #6 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-18T09:41:13+03:00</published><updated>2021-07-18T09:41:13+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc.html">&lt;p&gt;GSoC progress for week #6. (first evaluations week)&lt;/p&gt;
+<ul>
+  <li>Work on Calc diagonal borders and try to implement them in Writer-Tables</li>
+</ul>]]></content><author><name></name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #7 and week #8.]]></summary></entry><entry><title type="html">Week #6 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc.html" rel="alternate" type="text/html" title="Week #6 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-18T09:41:13+03:00</published><updated>2021-07-18T09:41:13+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc.html"><![CDATA[<p>GSoC progress for week #6. (first evaluations week)</p>
 
-&lt;h3 id=&quot;new-icons-for-diagonal-borders&quot;&gt;New icons for diagonal borders&lt;/h3&gt;
+<h3 id="new-icons-for-diagonal-borders">New icons for diagonal borders</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&quot;&gt;tdf#143300&lt;/a&gt;: Add icons for diagonal borders&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143300">tdf#143300</a>: Add icons for diagonal borders</li>
+</ul>
 
-&lt;p&gt;I wanted to add diagonal borders to the &lt;code class=&quot;highlighter-rouge&quot;&gt;table toolbar &amp;gt; borders&lt;/code&gt; but realized that LO doesn’t have diagonal left and diagonal right borders under &lt;code class=&quot;highlighter-rouge&quot;&gt;./icon-themes/*/svx/res/*&lt;/code&gt;. Then on the &lt;em&gt;LibreOffice Design EN&lt;/em&gt; telegram channel, I said that these icons are necessary for tdf#51665. Designers wanted me to open a new report dedicated for the icons, so that &lt;em&gt;Rizal Muttaqin&lt;/em&gt;(huge thanks for the icons) could draw them. Diagonal border icons will be added for all themes soon.&lt;/p&gt;
+<p>I wanted to add diagonal borders to the <code class="highlighter-rouge">table toolbar &gt; borders</code> but realized that LO doesn’t have diagonal left and diagonal right borders under <code class="highlighter-rouge">./icon-themes/*/svx/res/*</code>. Then on the <em>LibreOffice Design EN</em> telegram channel, I said that these icons are necessary for tdf#51665. Designers wanted me to open a new report dedicated for the icons, so that <em>Rizal Muttaqin</em>(huge thanks for the icons) could draw them. Diagonal border icons will be added for all themes soon.</p>
 
-&lt;h3 id=&quot;ui---add-diagonal-borders-in-table-toolbar&quot;&gt;UI - add diagonal borders in Table toolbar&lt;/h3&gt;
+<h3 id="ui---add-diagonal-borders-in-table-toolbar">UI - add diagonal borders in Table toolbar</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;: Support diagonal borders in TABLEs&lt;/li&gt;
-  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118951&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118951&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
+  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/118951">https://gerrit.libreoffice.org/c/core/+/118951</a></li>
+</ul>
 
-&lt;p&gt;In order to work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;, I added diagonal borders to &lt;code class=&quot;highlighter-rouge&quot;&gt;table toolbar &amp;gt; borders&lt;/code&gt;.&lt;/p&gt;
+<p>In order to work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>, I added diagonal borders to <code class="highlighter-rouge">table toolbar &gt; borders</code>.</p>
 
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/one_cell_border_0.png&quot; alt=&quot;one_cell_border_0.png&quot; /&gt;
-&lt;/p&gt;
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/one_cell_border_0.png" alt="one_cell_border_0.png" />
+</p>
 
-&lt;p align=&quot;center&quot;&gt;
-    &lt;i&gt;One cell selected (standard view)&lt;/i&gt;
-&lt;/p&gt;
+<p align="center">
+    <i>One cell selected (standard view)</i>
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/multi_cell_border_1.png&quot; alt=&quot;multi_cell_border_1.png&quot; /&gt;
-&lt;/p&gt;
+<p><br /></p>
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/multi_cell_border_1.png" alt="multi_cell_border_1.png" />
+</p>
 
-&lt;p align=&quot;center&quot;&gt;
-    &lt;i&gt;Multiple cell selected&lt;/i&gt;
-&lt;/p&gt;
+<p align="center">
+    <i>Multiple cell selected</i>
+</p>
 
-&lt;h3 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h3&gt;
+<h3 id="technical-details">Technical Details</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Tooltips&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Tooltips</li>
+</ul>
 
-&lt;p&gt;Added tooltip &lt;em&gt;“Set Diagonal Left Border”&lt;/em&gt; for diagonal LEFT border.&lt;br /&gt;
-Added tooltip &lt;em&gt;“Set Diagonal Right Border”&lt;/em&gt; for for diagonal RIGHT border.&lt;/p&gt;
+<p>Added tooltip <em>“Set Diagonal Left Border”</em> for diagonal LEFT border.<br />
+Added tooltip <em>“Set Diagonal Right Border”</em> for for diagonal RIGHT border.</p>
 
-&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;include/svx/strings.hrc&lt;/code&gt;:&lt;/p&gt;
+<p>In <code class="highlighter-rouge">include/svx/strings.hrc</code>:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define RID_SVXSTR_PARA_PRESET_DIAGONALLEFT         NC_(&quot;RID_SVXSTR_PARA_PRESET_DIAGONALLEFT&quot;, &quot;Set Diagonal Left Border&quot;)
-#define RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT        NC_(&quot;RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT&quot;, &quot;Set Diagonal Right Border&quot;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define RID_SVXSTR_PARA_PRESET_DIAGONALLEFT         NC_("RID_SVXSTR_PARA_PRESET_DIAGONALLEFT", "Set Diagonal Left Border")
+#define RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT        NC_("RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT", "Set Diagonal Right Border")</span></code></pre></figure>
 
-&lt;ul&gt;
-  &lt;li&gt;Icons&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Icons</li>
+</ul>
 
-&lt;p&gt;Added diagonal Left and Right borders to the &lt;code class=&quot;highlighter-rouge&quot;&gt;svx/inc/bitmaps.hlst&lt;/code&gt;:&lt;/p&gt;
+<p>Added diagonal Left and Right borders to the <code class="highlighter-rouge">svx/inc/bitmaps.hlst</code>:</p>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fr013.png&lt;/code&gt; -&amp;gt; Right Diagonal Border&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;fr014.png&lt;/code&gt; -&amp;gt; Left Diagonal Border&lt;/p&gt;
+<p><code class="highlighter-rouge">fr013.png</code> -&gt; Right Diagonal Border<br />
+<code class="highlighter-rouge">fr014.png</code> -&gt; Left Diagonal Border</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define RID_SVXBMP_FRAME13                          &quot;svx/res/fr013.png&quot;
-#define RID_SVXBMP_FRAME14                          &quot;svx/res/fr014.png&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define RID_SVXBMP_FRAME13                          "svx/res/fr013.png"
+#define RID_SVXBMP_FRAME14                          "svx/res/fr014.png"</span></code></pre></figure>
 
-&lt;ul&gt;
-  &lt;li&gt;Update &lt;em&gt;for loops&lt;/em&gt; and &lt;em&gt;switch cases&lt;/em&gt;:&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Update <em>for loops</em> and <em>switch cases</em>:</li>
+</ul>
 
-&lt;p&gt;Increased all for loops limits by 2. &lt;code class=&quot;highlighter-rouge&quot;&gt;svx/source/tbxctrls/tbcontrl.cxx&lt;/code&gt;:&lt;/p&gt;
+<p>Increased all for loops limits by 2. <code class="highlighter-rouge">svx/source/tbxctrls/tbcontrl.cxx</code>:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//bParagraphMode should have been set in StateChanged&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bParagraphMode&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// made -&amp;gt; for ( i = 11; i &amp;lt; 15; i++ )&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;mxFrameSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InsertItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aImgVec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aImgVec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">//bParagraphMode should have been set in StateChanged</span>
+<span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">bParagraphMode</span> <span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="c1">// made -&gt; for ( i = 11; i &lt; 15; i++ )</span>
+        <span class="n">mxFrameSet</span><span class="o">-&gt;</span><span class="n">InsertItem</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Image</span><span class="p">(</span><span class="n">aImgVec</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">first</span><span class="p">),</span> <span class="n">aImgVec</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">second</span><span class="p">);</span> </code></pre></figure>
 
-&lt;p&gt;Updated &lt;code class=&quot;highlighter-rouge&quot;&gt;mxFrameSet-&amp;gt;SetColCount( 4 );&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;mxFrameSet-&amp;gt;SetColCount( 5 );&lt;/code&gt;, because column size should be 5 after adding the diagonal borders to the 5.th and 10.th order:&lt;/p&gt;
+<p>Updated <code class="highlighter-rouge">mxFrameSet-&gt;SetColCount( 4 );</code> to <code class="highlighter-rouge">mxFrameSet-&gt;SetColCount( 5 );</code>, because column size should be 5 after adding the diagonal borders to the 5.th and 10.th order:</p>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;svx/source/tbxctrls/tbcontrl.cxx&lt;/code&gt;:&lt;/p&gt;
+<p><code class="highlighter-rouge">svx/source/tbxctrls/tbcontrl.cxx</code>:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// DIAGONAL LEFT&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">case</span> <span class="mi">5</span><span class="p">:</span> <span class="k">break</span><span class="p">;</span>  <span class="c1">// DIAGONAL LEFT</span>
 
-&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pTop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;theDefLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;nValidFlags&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FrmValidFlags&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// TOP&lt;/span&gt;
+<span class="k">case</span> <span class="mi">6</span><span class="p">:</span> <span class="n">pTop</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">theDefLine</span><span class="p">;</span>
+        <span class="n">nValidFlags</span> <span class="o">|=</span> <span class="n">FrmValidFlags</span><span class="o">::</span><span class="n">Top</span><span class="p">;</span>
+<span class="k">break</span><span class="p">;</span>  <span class="c1">// TOP</span>
 
-&lt;span class=&quot;cm&quot;&gt;/*...*/&lt;/span&gt;
+<span class="cm">/*...*/</span>
 
-&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// DIAGONAL RIGHT&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<span class="k">case</span> <span class="mi">10</span><span class="p">:</span> <span class="k">break</span><span class="p">;</span>  <span class="c1">// DIAGONAL RIGHT</span></code></pre></figure>
 
-&lt;p&gt;Add them in correct order:&lt;/p&gt;
+<p>Add them in correct order:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxFrameWindow_Impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InitImageList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;aImgVec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_TABLE_PRESET_NONE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_ONLYLEFT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_ONLYRIGHT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_LEFTRIGHT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// diagonal left border&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_DIAGONALLEFT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SvxFrameWindow_Impl</span><span class="o">::</span><span class="n">InitImageList</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">aImgVec</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME1</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_NONE</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME2</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYLEFT</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME3</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYRIGHT</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME4</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_LEFTRIGHT</span><span class="p">)},</span>
+        <span class="c1">// diagonal left border</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME14</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_DIAGONALLEFT</span><span class="p">)},</span>
 
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_ONLYTOP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_ONLYTBOTTOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_TOPBOTTOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_TABLE_PRESET_ONLYOUTER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// diagonal right border&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME5</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYTOP</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME6</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYTBOTTOM</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME7</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_TOPBOTTOM</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME8</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_ONLYOUTER</span><span class="p">)},</span>
+        <span class="c1">// diagonal right border</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME13</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT</span><span class="p">)},</span>
 
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_PARA_PRESET_TOPBOTTOMHORI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_TABLE_PRESET_OUTERHORI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_TABLE_PRESET_OUTERVERI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapEx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXBMP_FRAME12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SvxResId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RID_SVXSTR_TABLE_PRESET_OUTERALL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME9</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_TOPBOTTOMHORI</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME10</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_OUTERHORI</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME11</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_OUTERVERI</span><span class="p">)},</span>
+        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME12</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_OUTERALL</span><span class="p">)}</span>
+    <span class="p">};</span>
+<span class="p">}</span></code></pre></figure>
 
-&lt;p align=&quot;center&quot;&gt;
+<p align="center">
     ***
-&lt;/p&gt;
+</p>
 
-&lt;h3 id=&quot;summary-of-week-6&quot;&gt;Summary of week #6&lt;/h3&gt;
+<h3 id="summary-of-week-6">Summary of week #6</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;I opened a new report in Bugzilla for the icons: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&quot;&gt;tdf#143300&lt;/a&gt;: Add icons for diagonal borders&lt;/li&gt;
-  &lt;li&gt;Added UI of the floating widget. Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118951&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118951&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>I opened a new report in Bugzilla for the icons: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143300">tdf#143300</a>: Add icons for diagonal borders</li>
+  <li>Added UI of the floating widget. Commit: <a href="https://gerrit.libreoffice.org/c/core/+/118951">https://gerrit.libreoffice.org/c/core/+/118951</a></li>
+</ul>
 
-&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;: Support diagonal borders in TABLEs&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">GSoC progress for week #6. (first evaluations week)</summary></entry><entry><title type="html">Week #5 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc.html" rel="alternate" type="text/html" title="Week #5 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-11T09:24:45+03:00</published><updated>2021-07-11T09:24:45+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc.html">&lt;p&gt;GSoC progress for week #5.&lt;/p&gt;
+<ul>
+  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
+</ul>]]></content><author><name></name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #6. (first evaluations week)]]></summary></entry><entry><title type="html">Week #5 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc.html" rel="alternate" type="text/html" title="Week #5 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-11T09:24:45+03:00</published><updated>2021-07-11T09:24:45+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc.html"><![CDATA[<p>GSoC progress for week #5.</p>
 
-&lt;h3 id=&quot;get-rid-of-writer-images&quot;&gt;Get rid of Writer-Images&lt;/h3&gt;
+<h3 id="get-rid-of-writer-images">Get rid of Writer-Images</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438&lt;/a&gt; (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438</a> (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images.</li>
+</ul>
 
-&lt;p&gt;Last week I shared a blog post of my research on this bug &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html&quot;&gt;here&lt;/a&gt; and this week I posted a comment about my 2-week research on the bug page of tdf#34438 &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47&quot;&gt;here&lt;/a&gt;, and Regina Henschel replied with a comment &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c48&quot;&gt;here&lt;/a&gt; (thanks for the reply):&lt;/p&gt;
+<p>Last week I shared a blog post of my research on this bug <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html">here</a> and this week I posted a comment about my 2-week research on the bug page of tdf#34438 <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47">here</a>, and Regina Henschel replied with a comment <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c48">here</a> (thanks for the reply):</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;[…] So from my point of view we should get rid of Writer-images. But that is a long way. […] So to get rid of Writer-images it would be necessary to implement the services, which are provided by Writer-images for Draw-images too …&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>[…] So from my point of view we should get rid of Writer-images. But that is a long way. […] So to get rid of Writer-images it would be necessary to implement the services, which are provided by Writer-images for Draw-images too …</p>
+</blockquote>
 
-&lt;p&gt;So, the last decision is: get rid of writer-images. Convert them into drawing objects, but also implement the writer-images’ services/attributes to drawing-images.&lt;/p&gt;
+<p>So, the last decision is: get rid of writer-images. Convert them into drawing objects, but also implement the writer-images’ services/attributes to drawing-images.</p>
 
-&lt;h3 id=&quot;prevent-jump-to-top-of-the-comment-view--writer-comments&quot;&gt;Prevent jump to top of the comment view / Writer-comments&lt;/h3&gt;
+<h3 id="prevent-jump-to-top-of-the-comment-view--writer-comments">Prevent jump to top of the comment view / Writer-comments</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=91519&quot;&gt;tdf#91519&lt;/a&gt;: Jump of document canvas view to the top of the comment disrupts editing of long comments.&lt;/li&gt;
-  &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118638&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118638&lt;/a&gt; (&lt;em&gt;waiting for review&lt;/em&gt;)&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=91519">tdf#91519</a>: Jump of document canvas view to the top of the comment disrupts editing of long comments.</li>
+  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/118638">https://gerrit.libreoffice.org/c/core/+/118638</a> (<em>waiting for review</em>)</li>
+</ul>
 
-&lt;p&gt;In Writer,
-there are 3 issues about comment section:&lt;/p&gt;
+<p>In Writer,
+there are 3 issues about comment section:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;comment section scrolls to top of its view when clicking inside a comment view.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;clicking inside a comment view, scrolls the view to old cursor location automatically (if old cursor out of the visible area).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;comment section scrolls automatically to the old &lt;em&gt;selected&lt;/em&gt; text (if it’s out of visible area) when clicking inside the Writer canvas view.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>
+    <p>comment section scrolls to top of its view when clicking inside a comment view.</p>
+  </li>
+  <li>
+    <p>clicking inside a comment view, scrolls the view to old cursor location automatically (if old cursor out of the visible area).</p>
+  </li>
+  <li>
+    <p>comment section scrolls automatically to the old <em>selected</em> text (if it’s out of visible area) when clicking inside the Writer canvas view.</p>
+  </li>
+</ul>
 
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/comment-multi-selection.png&quot; alt=&quot;comment-multi-selection.png&quot; /&gt;
-&lt;/p&gt;
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/comment-multi-selection.png" alt="comment-multi-selection.png" />
+</p>
 
-&lt;p align=&quot;center&quot;&gt;
-    &lt;i&gt;Another annoying issue: multi-selection (after a certain changes in the code)&lt;/i&gt;
-&lt;/p&gt;
+<p align="center">
+    <i>Another annoying issue: multi-selection (after a certain changes in the code)</i>
+</p>
 
-&lt;h3 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h3&gt;
+<h3 id="technical-details">Technical Details</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;b&gt;Fix for “autoscroll to old cursor location”&lt;/b&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><b>Fix for “autoscroll to old cursor location”</b></li>
+</ul>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwAnnotationWin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ActivatePostIt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;cm&quot;&gt;/*...*/&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">ActivatePostIt</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="cm">/*...*/</span>
 
-    &lt;span class=&quot;c1&quot;&gt;// prevent autoscroll to the old cursor location&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// when cursor out of visible area&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;GetOutlinerView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ShowCursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    <span class="c1">// prevent autoscroll to the old cursor location</span>
+    <span class="c1">// when cursor out of visible area</span>
+    <span class="n">GetOutlinerView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">ShowCursor</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
 
-    &lt;span class=&quot;cm&quot;&gt;/*...*/&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    <span class="cm">/*...*/</span>
+<span class="p">}</span></code></pre></figure>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GetOutlinerView()-&amp;gt;ShowCursor();&lt;/code&gt; has a default value &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; if no argument passed in. I realized that this line causes the autoscroll to the old cursor location, and setting it to &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; solved the issue.&lt;/p&gt;
+<p><code class="highlighter-rouge">GetOutlinerView()-&gt;ShowCursor();</code> has a default value <code class="highlighter-rouge">true</code> if no argument passed in. I realized that this line causes the autoscroll to the old cursor location, and setting it to <code class="highlighter-rouge">false</code> solved the issue.</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;b&gt;Fix for “jumping to the top of comment view”&lt;/b&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><b>Fix for “jumping to the top of comment view”</b></li>
+</ul>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwAnnotationWin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetActiveSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mrMgr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetActiveSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLockView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mrView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetWrtShell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsViewLocked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mrView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetWrtShell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LockView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mrMgr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetActiveSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">bool</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">SetActiveSidebarWin</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mrMgr</span><span class="p">.</span><span class="n">GetActiveSidebarWin</span><span class="p">()</span> <span class="o">==</span> <span class="k">this</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">bool</span> <span class="n">bLockView</span> <span class="o">=</span> <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">IsViewLocked</span><span class="p">();</span>
+    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="nb">true</span> <span class="p">);</span>
+    <span class="n">mrMgr</span><span class="p">.</span><span class="n">SetActiveSidebarWin</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 
-    &lt;span class=&quot;c1&quot;&gt;// don&apos;t understand why we set `bLockView` here?&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mrView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetWrtShell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LockView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLockView&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    <span class="c1">// don't understand why we set `bLockView` here?</span>
+    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="n">bLockView</span> <span class="p">);</span>
     
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
 
-&lt;p&gt;Just remove unnecessary &lt;code class=&quot;highlighter-rouge&quot;&gt;const bool bLockView = mrView.GetWrtShell().IsViewLocked();&lt;/code&gt; line, set &lt;code class=&quot;highlighter-rouge&quot;&gt;.LockView( bLockView );&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;.LockView( true );&lt;/code&gt; because we activating &lt;code class=&quot;highlighter-rouge&quot;&gt;SetActiveSidebarWin&lt;/code&gt; here, it should be &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; and this fixes the jumping to the top of comment view issue with:&lt;/p&gt;
+<p>Just remove unnecessary <code class="highlighter-rouge">const bool bLockView = mrView.GetWrtShell().IsViewLocked();</code> line, set <code class="highlighter-rouge">.LockView( bLockView );</code> to <code class="highlighter-rouge">.LockView( true );</code> because we activating <code class="highlighter-rouge">SetActiveSidebarWin</code> here, it should be <code class="highlighter-rouge">true</code> and this fixes the jumping to the top of comment view issue with:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwAnnotationWin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UnsetActiveSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mrMgr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetActiveSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mrView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetWrtShell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LockView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mrMgr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetActiveSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mrView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetWrtShell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LockView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// set false&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">UnsetActiveSidebarWin</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mrMgr</span><span class="p">.</span><span class="n">GetActiveSidebarWin</span><span class="p">()</span> <span class="o">!=</span> <span class="k">this</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="nb">true</span> <span class="p">);</span>
+    <span class="n">mrMgr</span><span class="p">.</span><span class="n">SetActiveSidebarWin</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="nb">false</span> <span class="p">);</span> <span class="c1">// set false</span>
+<span class="p">}</span></code></pre></figure>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;b&gt;Fix for “scrolling automatically to the old &lt;em&gt;selected&lt;/em&gt; text”&lt;/b&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><b>Fix for “scrolling automatically to the old <em>selected</em> text”</b></li>
+</ul>
 
-&lt;p&gt;Steps to reproduce: (in comments section)&lt;/p&gt;
+<p>Steps to reproduce: (in comments section)</p>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- select text (2-3 words for example)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- select text (2-3 words for example)
 - scroll selected text to unvisible area (up or down)
 - click into the writer document canvas
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;&lt;strong&gt;Result&lt;/strong&gt;: comment writing area scrolls to unvisible selected text(s) (it becomes visible)&lt;/p&gt;
+<p><strong>Result</strong>: comment writing area scrolls to unvisible selected text(s) (it becomes visible)</p>
 
-&lt;p&gt;&lt;strong&gt;Expected result&lt;/strong&gt;: don’t scroll to the selected area, just make it unmarked.&lt;/p&gt;
+<p><strong>Expected result</strong>: don’t scroll to the selected area, just make it unmarked.</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EditView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetSelection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ESelection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rESel&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;cm&quot;&gt;/*...*/&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">EditView</span><span class="o">::</span><span class="n">SetSelection</span><span class="p">(</span> <span class="k">const</span> <span class="n">ESelection</span><span class="o">&amp;</span> <span class="n">rESel</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/*...*/</span>
 
-    &lt;span class=&quot;n&quot;&gt;pImpEditView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawSelectionXOR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;pImpEditView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetEditSelection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aNewSelection&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;pImpEditView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawSelectionXOR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bGotoCursor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pImpEditView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DoAutoScroll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">DrawSelectionXOR</span><span class="p">();</span>
+    <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">SetEditSelection</span><span class="p">(</span> <span class="n">aNewSelection</span> <span class="p">);</span>
+    <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">DrawSelectionXOR</span><span class="p">();</span>
+    <span class="kt">bool</span> <span class="n">bGotoCursor</span> <span class="o">=</span> <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">DoAutoScroll</span><span class="p">();</span>
 
-    &lt;span class=&quot;n&quot;&gt;ShowCursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bGotoCursor&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    <span class="n">ShowCursor</span><span class="p">(</span> <span class="n">bGotoCursor</span> <span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ShowCursor( bGotoCursor );&lt;/code&gt; causes the jumping when deactivating the comment canvas (when clicking into writer document canvas).&lt;/p&gt;
+<p><code class="highlighter-rouge">ShowCursor( bGotoCursor );</code> causes the jumping when deactivating the comment canvas (when clicking into writer document canvas).</p>
 
-&lt;p&gt;Just made it to:&lt;/p&gt;
-&lt;pre&gt;
+<p>Just made it to:</p>
+<pre>
     if (HasSelection())
         ShowCursor( bGotoCursor );
-&lt;/pre&gt;
+</pre>
 
-&lt;p&gt;and it’s solved.&lt;/p&gt;
+<p>and it’s solved.</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;b&gt;When typing, current view have to jump to typing location&lt;/b&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><b>When typing, current view have to jump to typing location</b></li>
+</ul>
 
-&lt;p&gt;After the certain changes in the code, I realized that the writer document canvas doesn’t jump to typing location. After a long process of debugging in the code base, found that comment section LockView doesn’t set to false:&lt;/p&gt;
+<p>After the certain changes in the code, I realized that the writer document canvas doesn’t jump to typing location. After a long process of debugging in the code base, found that comment section LockView doesn’t set to false:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SidebarTextControl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LoseFocus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// write the visible text back into the SwField&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mrSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UpdateData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SidebarTextControl</span><span class="o">::</span><span class="n">LoseFocus</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// write the visible text back into the SwField</span>
+    <span class="n">mrSidebarWin</span><span class="p">.</span><span class="n">UpdateData</span><span class="p">();</span>
 
-    &lt;span class=&quot;n&quot;&gt;WeldEditView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LoseFocus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mrSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsMouseOver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Invalidate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    <span class="n">WeldEditView</span><span class="o">::</span><span class="n">LoseFocus</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">mrSidebarWin</span><span class="p">.</span><span class="n">IsMouseOver</span><span class="p">()</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Invalidate</span><span class="p">();</span>
+    <span class="p">}</span>
 
-    &lt;span class=&quot;c1&quot;&gt;// I just added this line here and set it to false.&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mrSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LockView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    <span class="c1">// I just added this line here and set it to false.</span>
+    <span class="n">mrSidebarWin</span><span class="p">.</span><span class="n">LockView</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
-&lt;p&gt;Before the &lt;code class=&quot;highlighter-rouge&quot;&gt;mrSidebarWin.LockView();&lt;/code&gt;, I created a new method in &lt;code class=&quot;highlighter-rouge&quot;&gt;sw/source/uibase/docvw/AnnotationWin2.cxx&lt;/code&gt; to have access &lt;code class=&quot;highlighter-rouge&quot;&gt;LockView()&lt;/code&gt;:&lt;/p&gt;
+<p>Before the <code class="highlighter-rouge">mrSidebarWin.LockView();</code>, I created a new method in <code class="highlighter-rouge">sw/source/uibase/docvw/AnnotationWin2.cxx</code> to have access <code class="highlighter-rouge">LockView()</code>:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwAnnotationWin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LockView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mrView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetWrtShell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LockView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLock&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">LockView</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bLock</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="n">bLock</span> <span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
-&lt;p align=&quot;center&quot;&gt;
+<p align="center">
     ***
-&lt;/p&gt;
+</p>
 
-&lt;h3 id=&quot;summary-of-week-5&quot;&gt;Summary of week #5&lt;/h3&gt;
+<h3 id="summary-of-week-5">Summary of week #5</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;We decided that we should get rid of writer-images and convert them into the drawing objects without losing the services of writer-images&lt;/li&gt;
-  &lt;li&gt;Sent a patch about tdf#91519: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118638&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118638&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>We decided that we should get rid of writer-images and convert them into the drawing objects without losing the services of writer-images</li>
+  <li>Sent a patch about tdf#91519: <a href="https://gerrit.libreoffice.org/c/core/+/118638">https://gerrit.libreoffice.org/c/core/+/118638</a></li>
+</ul>
 
-&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;: Support diagonal borders in TABLEs&lt;/li&gt;
-  &lt;li&gt;Update the UI for diagonal borders&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">GSoC progress for week #5.</summary></entry><entry><title type="html">Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html" rel="alternate" type="text/html" title="Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-05T08:06:19+03:00</published><updated>2021-07-05T08:06:19+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html">&lt;p&gt;GSoC progress for week #3 and week #4.&lt;/p&gt;
+<ul>
+  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
+  <li>Update the UI for diagonal borders</li>
+</ul>]]></content><author><name></name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #5.]]></summary></entry><entry><title type="html">Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html" rel="alternate" type="text/html" title="Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-05T08:06:19+03:00</published><updated>2021-07-05T08:06:19+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html"><![CDATA[<p>GSoC progress for week #3 and week #4.</p>
 
-&lt;h4 id=&quot;group-selection-does-not-work-with-raster-images--writer&quot;&gt;Group selection does not work with raster images / Writer&lt;/h4&gt;
+<h4 id="group-selection-does-not-work-with-raster-images--writer">Group selection does not work with raster images / Writer</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438 (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438 (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images</a>.</li>
+</ul>
 
-&lt;p&gt;Writer can group &lt;code class=&quot;highlighter-rouge&quot;&gt;Drawing objects&lt;/code&gt;. For example shapes(rectangles, circles), text boxes and draw images can be grouped together to drag &amp;amp; drop.&lt;/p&gt;
+<p>Writer can group <code class="highlighter-rouge">Drawing objects</code>. For example shapes(rectangles, circles), text boxes and draw images can be grouped together to drag &amp; drop.</p>
 
-&lt;p&gt;However, when copy/paste or drag&amp;amp;drop an image into the writer document canvas, (raster/bitmap)images are handled as &lt;code class=&quot;highlighter-rouge&quot;&gt;Frame objects (holding images/bitmaps)&lt;/code&gt;, not &lt;code class=&quot;highlighter-rouge&quot;&gt;Drawing objects&lt;/code&gt;. Drawing objects have the group feature, but this feature is not implemented for Graphics(Frame objects/bitmap). This is why Writer can’t group raster images.&lt;/p&gt;
+<p>However, when copy/paste or drag&amp;drop an image into the writer document canvas, (raster/bitmap)images are handled as <code class="highlighter-rouge">Frame objects (holding images/bitmaps)</code>, not <code class="highlighter-rouge">Drawing objects</code>. Drawing objects have the group feature, but this feature is not implemented for Graphics(Frame objects/bitmap). This is why Writer can’t group raster images.</p>
 
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/shapes-selected.png&quot; alt=&quot;shapes-selected.png&quot; /&gt;
-&lt;/p&gt;
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/shapes-selected.png" alt="shapes-selected.png" />
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;
+<p><br /></p>
+<p align="center">
     ***
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;In week #3 and #4, I tried to understand the logic behind the grouping Drawing objects. It seems more complex than it looks. To keep the blog post simple and short, I will share only the key points of my research.&lt;/p&gt;
+<p>In week #3 and #4, I tried to understand the logic behind the grouping Drawing objects. It seems more complex than it looks. To keep the blog post simple and short, I will share only the key points of my research.</p>
 
-&lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
+<h4 id="code-pointers">Code pointers:</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;All CLICK and SHIFT+CLICK operations for grouping Drawing objects handled in ./sw/source/uibase/docvw/edtwin.cxx:2770 : &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#2770&quot;&gt;https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#2770&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SHIFT+CLICK occurs in: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#3470&quot;&gt;https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#3470&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Select objects : SwFEShell::SelectObj: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sw/source/core/frmedt/feshview.cxx?r=715797bc#177&quot;&gt;https://opengrok.libreoffice.org/xref/core/sw/source/core/frmedt/feshview.cxx?r=715797bc#177&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Marked object list: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/include/svx/svdmark.hxx?r=40595834#230&quot;&gt;https://opengrok.libreoffice.org/xref/core/include/svx/svdmark.hxx?r=40595834#230&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;graph.hxx : &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/include/vcl/graph.hxx?r=692c5df1#37&quot;&gt;https://opengrok.libreoffice.org/xref/core/include/vcl/graph.hxx?r=692c5df1#37&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Types of forms of content: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sw/inc/editsh.hxx?r=1feb59c3#130&quot;&gt;https://opengrok.libreoffice.org/xref/core/sw/inc/editsh.hxx?r=1feb59c3#130&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Mark object: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/svx/source/svdraw/svdmrkv.cxx?r=8a850eed#1877&quot;&gt;https://opengrok.libreoffice.org/xref/core/svx/source/svdraw/svdmrkv.cxx?r=8a850eed#1877&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>
+    <p>All CLICK and SHIFT+CLICK operations for grouping Drawing objects handled in ./sw/source/uibase/docvw/edtwin.cxx:2770 : <a href="https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#2770">https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#2770</a></p>
+  </li>
+  <li>
+    <p>SHIFT+CLICK occurs in: <a href="https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#3470">https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#3470</a></p>
+  </li>
+  <li>
+    <p>Select objects : SwFEShell::SelectObj: <a href="https://opengrok.libreoffice.org/xref/core/sw/source/core/frmedt/feshview.cxx?r=715797bc#177">https://opengrok.libreoffice.org/xref/core/sw/source/core/frmedt/feshview.cxx?r=715797bc#177</a></p>
+  </li>
+  <li>
+    <p>Marked object list: <a href="https://opengrok.libreoffice.org/xref/core/include/svx/svdmark.hxx?r=40595834#230">https://opengrok.libreoffice.org/xref/core/include/svx/svdmark.hxx?r=40595834#230</a></p>
+  </li>
+  <li>
+    <p>graph.hxx : <a href="https://opengrok.libreoffice.org/xref/core/include/vcl/graph.hxx?r=692c5df1#37">https://opengrok.libreoffice.org/xref/core/include/vcl/graph.hxx?r=692c5df1#37</a></p>
+  </li>
+  <li>
+    <p>Types of forms of content: <a href="https://opengrok.libreoffice.org/xref/core/sw/inc/editsh.hxx?r=1feb59c3#130">https://opengrok.libreoffice.org/xref/core/sw/inc/editsh.hxx?r=1feb59c3#130</a></p>
+  </li>
+  <li>
+    <p>Mark object: <a href="https://opengrok.libreoffice.org/xref/core/svx/source/svdraw/svdmrkv.cxx?r=8a850eed#1877">https://opengrok.libreoffice.org/xref/core/svx/source/svdraw/svdmrkv.cxx?r=8a850eed#1877</a></p>
+  </li>
+</ul>
 
-&lt;h4 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h4&gt;
+<h4 id="technical-details">Technical Details</h4>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SAL_DEBUG( rMrkList.GetMarkDescription() );&lt;/code&gt; output: (in SwFEShell::SelectObj)&lt;/p&gt;
+<p><code class="highlighter-rouge">SAL_DEBUG( rMrkList.GetMarkDescription() );</code> output: (in SwFEShell::SelectObj)</p>
 
-&lt;p&gt;For shapes: &lt;code class=&quot;highlighter-rouge&quot;&gt;shapes&lt;/code&gt; &lt;br /&gt;
-For 2+ shapes: &lt;code class=&quot;highlighter-rouge&quot;&gt;2 shapes&lt;/code&gt; &lt;br /&gt;
-For draw images: &lt;code class=&quot;highlighter-rouge&quot;&gt;Image with transparency&lt;/code&gt; &lt;br /&gt;
-For text box: &lt;code class=&quot;highlighter-rouge&quot;&gt;Text Frame&lt;/code&gt;&lt;br /&gt;
-For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing object]&lt;/code&gt; &lt;br /&gt;&lt;/p&gt;
+<p>For shapes: <code class="highlighter-rouge">shapes</code> <br />
+For 2+ shapes: <code class="highlighter-rouge">2 shapes</code> <br />
+For draw images: <code class="highlighter-rouge">Image with transparency</code> <br />
+For text box: <code class="highlighter-rouge">Text Frame</code><br />
+For raster images: <code class="highlighter-rouge">[Drawing object]</code> <br /></p>
 
-&lt;p&gt;Raster images seem to have &lt;code class=&quot;highlighter-rouge&quot;&gt;NONE&lt;/code&gt; object name:&lt;/p&gt;
+<p>Raster images seem to have <code class="highlighter-rouge">NONE</code> object name:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define STR_ObjNameSingulNONE    NC_(&quot;STR_ObjNameSingulNONE&quot;, &quot;Drawing object&quot;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define STR_ObjNameSingulNONE    NC_("STR_ObjNameSingulNONE", "Drawing object")</span></code></pre></figure>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList.GetMarkDescription()&lt;/code&gt; can’t classify the raster images?&lt;/p&gt;
+<p><code class="highlighter-rouge">rMrkList.GetMarkDescription()</code> can’t classify the raster images?</p>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SAL_DEBUG( rMrkList.GetMarkCount() );&lt;/code&gt; always increases by &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; when selecting drawing objects via SHIFT+CLICK. But always gives &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; when selecting raster images.&lt;/p&gt;
+<p><code class="highlighter-rouge">SAL_DEBUG( rMrkList.GetMarkCount() );</code> always increases by <code class="highlighter-rouge">1</code> when selecting drawing objects via SHIFT+CLICK. But always gives <code class="highlighter-rouge">1</code> when selecting raster images.</p>
 
-&lt;p&gt;All selected objects store in &lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList&lt;/code&gt; list:&lt;/p&gt;
+<p>All selected objects store in <code class="highlighter-rouge">rMrkList</code> list:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SdrMarkList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rMrkList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pDView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkedObjectList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">const</span> <span class="n">SdrMarkList</span> <span class="o">&amp;</span><span class="n">rMrkList</span> <span class="o">=</span> <span class="n">pDView</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">();</span></code></pre></figure>
 
-&lt;p&gt;This means raster images added to the list but always be unmarked when GetMarkCount reaches &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt;. The actual reason of unmarking issue is:&lt;/p&gt;
+<p>This means raster images added to the list but always be unmarked when GetMarkCount reaches <code class="highlighter-rouge">1</code>. The actual reason of unmarking issue is:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// call Unmark when !bAddSelect or if fly was selected&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bUnmark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bAddSelect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// bUnmark is &apos;false&apos; here &lt;/span&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// call Unmark when !bAddSelect or if fly was selected</span>
+<span class="kt">bool</span> <span class="n">bUnmark</span> <span class="o">=</span> <span class="o">!</span><span class="n">bAddSelect</span><span class="p">;</span> <span class="c1">// bUnmark is 'false' here </span>
 
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rMrkList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// if fly was selected, deselect it first&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;pOldSelFly&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetFlyFromMarked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rMrkList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+<span class="k">if</span> <span class="p">(</span> <span class="n">rMrkList</span><span class="p">.</span><span class="n">GetMarkCount</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// if fly was selected, deselect it first</span>
+    <span class="n">pOldSelFly</span> <span class="o">=</span> <span class="o">::</span><span class="n">GetFlyFromMarked</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">rMrkList</span><span class="p">,</span> <span class="k">this</span> <span class="p">);</span>
 
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pOldSelFly&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+    <span class="k">if</span> <span class="p">(</span> <span class="n">pOldSelFly</span> <span class="p">)</span>
+    <span class="p">{</span> 
 
-    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+    <span class="cm">/* ... */</span>
 
-    &lt;span class=&quot;n&quot;&gt;bUnmark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    <span class="n">bUnmark</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    <span class="p">}</span>
 
-    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+    <span class="cm">/* ... */</span>
 
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bUnmark&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pDView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UnmarkAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pOldSelFly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;pOldSelFly&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SelectionHasChanged&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    <span class="k">if</span> <span class="p">(</span> <span class="n">bUnmark</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">pDView</span><span class="o">-&gt;</span><span class="n">UnmarkAll</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pOldSelFly</span><span class="p">)</span>
+            <span class="n">pOldSelFly</span><span class="o">-&gt;</span><span class="n">SelectionHasChanged</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span></code></pre></figure>
 
-&lt;p&gt;With SHIFT+CLICK, &lt;code class=&quot;highlighter-rouge&quot;&gt;pOldSelFly = ::GetFlyFromMarked( &amp;amp;rMrkList, this );&lt;/code&gt; returns 0(null) when selecting the second, third … shape (which is expected); and it doesn’t set &lt;code class=&quot;highlighter-rouge&quot;&gt;bUnmark = true&lt;/code&gt;, so it doesn’t execute &lt;code class=&quot;highlighter-rouge&quot;&gt;pDView-&amp;gt;UnmarkAll()&lt;/code&gt;.&lt;/p&gt;
+<p>With SHIFT+CLICK, <code class="highlighter-rouge">pOldSelFly = ::GetFlyFromMarked( &amp;rMrkList, this );</code> returns 0(null) when selecting the second, third … shape (which is expected); and it doesn’t set <code class="highlighter-rouge">bUnmark = true</code>, so it doesn’t execute <code class="highlighter-rouge">pDView-&gt;UnmarkAll()</code>.</p>
 
-&lt;p&gt;However, &lt;code class=&quot;highlighter-rouge&quot;&gt;pOldSelFly = ::GetFlyFromMarked( &amp;amp;rMrkList, this );&lt;/code&gt; always returns an address which is evaluated &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; in an &lt;code class=&quot;highlighter-rouge&quot;&gt;if ( pOldSelFly )&lt;/code&gt; case. This causes &lt;code class=&quot;highlighter-rouge&quot;&gt;bUnmark = true;&lt;/code&gt; and executes &lt;code class=&quot;highlighter-rouge&quot;&gt;if ( bUnmark )&lt;/code&gt;. Therefore, when &lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList.GetMarkCount() == 1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;::GetFlyFromMarked( &amp;amp;rMrkList, this )&lt;/code&gt; returns an address; &lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList&lt;/code&gt; doesn’t add the second selected raster image to itself and do unmark it.&lt;/p&gt;
+<p>However, <code class="highlighter-rouge">pOldSelFly = ::GetFlyFromMarked( &amp;rMrkList, this );</code> always returns an address which is evaluated <code class="highlighter-rouge">true</code> in an <code class="highlighter-rouge">if ( pOldSelFly )</code> case. This causes <code class="highlighter-rouge">bUnmark = true;</code> and executes <code class="highlighter-rouge">if ( bUnmark )</code>. Therefore, when <code class="highlighter-rouge">rMrkList.GetMarkCount() == 1</code> and <code class="highlighter-rouge">::GetFlyFromMarked( &amp;rMrkList, this )</code> returns an address; <code class="highlighter-rouge">rMrkList</code> doesn’t add the second selected raster image to itself and do unmark it.</p>
 
-&lt;h4 id=&quot;frame-is-not-accessible&quot;&gt;Frame is not accessible&lt;/h4&gt;
+<h4 id="frame-is-not-accessible">Frame is not accessible</h4>
 
-&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/frame-is-not-accessible.png&quot; alt=&quot;frame-is-not-accessible.png&quot; /&gt;
-&lt;/p&gt;
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/frame-is-not-accessible.png" alt="frame-is-not-accessible.png" />
+</p>
 
-&lt;p&gt;Another interesting issue is when trying to add(select) a raster image to the shape list (unmarking disabled) debugging warns &lt;code class=&quot;highlighter-rouge&quot;&gt;warn: /*...*/ frame is not accessible&lt;/code&gt;.&lt;/p&gt;
+<p>Another interesting issue is when trying to add(select) a raster image to the shape list (unmarking disabled) debugging warns <code class="highlighter-rouge">warn: /*...*/ frame is not accessible</code>.</p>
 
-&lt;p&gt;SwAccessibleMap::InvalidateCursorPosition:&lt;/p&gt;
+<p>SwAccessibleMap::InvalidateCursorPosition:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// ...</span>
 
-&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bShapeSelected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<span class="kt">bool</span> <span class="n">bShapeSelected</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
 
-&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+<span class="c1">// ...</span>
 
-            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pFESh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsObjSelected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;bShapeSelected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;aFrameOrObj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static_cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwFrame&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            <span class="k">else</span> <span class="nf">if</span><span class="p">(</span> <span class="n">pFESh</span><span class="o">-&gt;</span><span class="n">IsObjSelected</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">bShapeSelected</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+                <span class="n">aFrameOrObj</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">SwFrame</span> <span class="o">*&gt;</span><span class="p">(</span> <span class="nb">nullptr</span> <span class="p">);</span>
+            <span class="p">}</span>
 
-&lt;span class=&quot;c1&quot;&gt;// ... &lt;/span&gt;
+<span class="c1">// ... </span>
 
-    &lt;span class=&quot;n&quot;&gt;OSL_ENSURE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bShapeSelected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aFrameOrObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsAccessible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetShell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsPreview&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()),&lt;/span&gt;
-            &lt;span class=&quot;s&quot;&gt;&quot;frame is not accessible&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    <span class="n">OSL_ENSURE</span><span class="p">(</span> <span class="n">bShapeSelected</span> <span class="o">||</span> <span class="n">aFrameOrObj</span><span class="p">.</span><span class="n">IsAccessible</span><span class="p">(</span><span class="n">GetShell</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">IsPreview</span><span class="p">()),</span>
+            <span class="s">"frame is not accessible"</span> <span class="p">);</span></code></pre></figure>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pFESh-&amp;gt;IsObjSelected()&lt;/code&gt; should return &lt;code class=&quot;highlighter-rouge&quot;&gt;GetMarkCount()&lt;/code&gt;, not &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt;. Otherwise &lt;code class=&quot;highlighter-rouge&quot;&gt;bShapeSelected&lt;/code&gt; stays &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;OSL_ENSURE&lt;/code&gt; warns &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;frame is not accessible&quot;&lt;/code&gt;.&lt;/p&gt;
+<p><code class="highlighter-rouge">pFESh-&gt;IsObjSelected()</code> should return <code class="highlighter-rouge">GetMarkCount()</code>, not <code class="highlighter-rouge">0</code>. Otherwise <code class="highlighter-rouge">bShapeSelected</code> stays <code class="highlighter-rouge">false</code> and <code class="highlighter-rouge">OSL_ENSURE</code> warns <code class="highlighter-rouge">"frame is not accessible"</code>.</p>
 
-&lt;p&gt;/sw/source/core/frmedt/feshview.cxx : &lt;code class=&quot;highlighter-rouge&quot;&gt;SwFEShell::IsObjSelected()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;SwFEShell::IsFrameSelected()&lt;/code&gt;:&lt;/p&gt;
+<p>/sw/source/core/frmedt/feshview.cxx : <code class="highlighter-rouge">SwFEShell::IsObjSelected()</code> and <code class="highlighter-rouge">SwFEShell::IsFrameSelected()</code>:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwFEShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsObjSelected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IsFrameSelected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HasDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">size_t</span> <span class="n">SwFEShell</span><span class="o">::</span><span class="n">IsObjSelected</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">IsFrameSelected</span><span class="p">()</span> <span class="o">||</span> <span class="o">!</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">HasDrawView</span><span class="p">()</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkedObjectList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    <span class="k">return</span> <span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetDrawView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">().</span><span class="n">GetMarkCount</span><span class="p">();</span>
+<span class="p">}</span>
 
-&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwFEShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsFrameSelected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HasDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetFlyFromMarked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkedObjectList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
-                                        &lt;span class=&quot;k&quot;&gt;const_cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SwFEShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<span class="kt">bool</span> <span class="n">SwFEShell</span><span class="o">::</span><span class="n">IsFrameSelected</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">HasDrawView</span><span class="p">()</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="nb">nullptr</span> <span class="o">!=</span> <span class="o">::</span><span class="n">GetFlyFromMarked</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetDrawView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">(),</span>
+                                        <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">SwFEShell</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
-&lt;p&gt;When selecting raster images, in SwFEShell::IsFrameSelected():&lt;/p&gt;
+<p>When selecting raster images, in SwFEShell::IsFrameSelected():</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetFlyFromMarked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkedObjectList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
-                                        &lt;span class=&quot;k&quot;&gt;const_cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SwFEShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">return</span> <span class="nb">nullptr</span> <span class="o">!=</span> <span class="o">::</span><span class="n">GetFlyFromMarked</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetDrawView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">(),</span>
+                                        <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">SwFEShell</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">);</span></code></pre></figure>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GetFlyFromMarked&lt;/code&gt; should return &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; (0(null)), not an address which make &lt;code class=&quot;highlighter-rouge&quot;&gt;nullptr != 0x01...&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;.
-&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;
+<p><code class="highlighter-rouge">GetFlyFromMarked</code> should return <code class="highlighter-rouge">false</code> (0(null)), not an address which make <code class="highlighter-rouge">nullptr != 0x01...</code> <code class="highlighter-rouge">true</code>.
+<br /></p>
+<p align="center">
     ***
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;I also looked at Draw and Calc to see how images are handled. Images are converted a drawing objects and have the same attributes like shapes. But in Writer, images have different attributes and handling.&lt;/p&gt;
+<p>I also looked at Draw and Calc to see how images are handled. Images are converted a drawing objects and have the same attributes like shapes. But in Writer, images have different attributes and handling.</p>
 
-&lt;h3 id=&quot;summary-of-last-2-weeks&quot;&gt;Summary of last 2 weeks&lt;/h3&gt;
+<h3 id="summary-of-last-2-weeks">Summary of last 2 weeks</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Tried to understand how shapes grouped together&lt;/li&gt;
-  &lt;li&gt;Debugging&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Tried to understand how shapes grouped together</li>
+  <li>Debugging</li>
+</ul>
 
-&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Make raster images selectable(group) with SHIFT+CLICK&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">GSoC progress for week #3 and week #4.</summary></entry><entry><title type="html">Week #2 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc.html" rel="alternate" type="text/html" title="Week #2 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-04T20:50:12+03:00</published><updated>2021-07-04T20:50:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc.html">&lt;p&gt;GSoC progress for week #2.&lt;/p&gt;
+<ul>
+  <li>Make raster images selectable(group) with SHIFT+CLICK</li>
+</ul>]]></content><author><name></name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #3 and week #4.]]></summary></entry><entry><title type="html">Week #2 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc.html" rel="alternate" type="text/html" title="Week #2 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-04T20:50:12+03:00</published><updated>2021-07-04T20:50:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc.html"><![CDATA[<p>GSoC progress for week #2.</p>
 
-&lt;h4 id=&quot;disabling-slide-sorter-shorcuts-when-in-edit-mode--impress&quot;&gt;Disabling slide sorter shorcuts when in edit mode / Impress&lt;/h4&gt;
+<h4 id="disabling-slide-sorter-shorcuts-when-in-edit-mode--impress">Disabling slide sorter shorcuts when in edit mode / Impress</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404&quot;&gt;tdf#98404 - UX - While objects on a slide are being edited, notably text boxes, the new slide sorter Ctrl+Shift shortcut combinations (see bug 91909) incorrectly receive focus and move the slide&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404">tdf#98404 - UX - While objects on a slide are being edited, notably text boxes, the new slide sorter Ctrl+Shift shortcut combinations (see bug 91909) incorrectly receive focus and move the slide</a>.</li>
+</ul>
 
-&lt;p&gt;In Impress, when editing a text on a slide, CTRL+SHIFT+(HOME/END/ArrowUP/ArrowDOWN) shortcuts doesn’t select the text in the slide, but move the slide to the end of the slide stack.&lt;/p&gt;
+<p>In Impress, when editing a text on a slide, CTRL+SHIFT+(HOME/END/ArrowUP/ArrowDOWN) shortcuts doesn’t select the text in the slide, but move the slide to the end of the slide stack.</p>
 
-&lt;p&gt;Solution is simple: Disable slide sorter shortcuts when in text edit mode. 
-&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;
+<p>Solution is simple: Disable slide sorter shortcuts when in text edit mode. 
+<br /></p>
+<p align="center">
     ***
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;This week I tried to disable slide sorter shortcuts while in edit mode. However, I couldn’t found a proper way to disable them.&lt;/p&gt;
+<p>This week I tried to disable slide sorter shortcuts while in edit mode. However, I couldn’t found a proper way to disable them.</p>
 
-&lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
+<h4 id="code-pointers">Code pointers:</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;edit mode in ./sd/source/ui/func/futext.cxx:1034: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sd/source/ui/func/futext.cxx?r=9090dc1f#1034&quot;&gt;https://opengrok.libreoffice.org/xref/core/sd/source/ui/func/futext.cxx?r=9090dc1f#1034&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SID_MOVE_PAGE_UP (LAST/DOWN/FIRST) state methods calls in: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sfx2/source/control/shell.cxx?r=a3d89265#492&quot;&gt;https://opengrok.libreoffice.org/xref/core/sfx2/source/control/shell.cxx?r=a3d89265#492&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ExecMethod / StateMethod: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sd/sdi/SlideSorterController.sdi?r=951b243f#311&quot;&gt;https://opengrok.libreoffice.org/xref/core/sd/sdi/SlideSorterController.sdi?r=951b243f#311&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Slide functions: &lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sd/source/ui/slidesorter/shell/SlideSorterViewShell.cxx?r=9090dc1f#761&quot;&gt;https://opengrok.libreoffice.org/xref/core/sd/source/ui/slidesorter/shell/SlideSorterViewShell.cxx?r=9090dc1f#761&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/sd/sdi/sdraw.sdi?r=951b243f#4654&quot;&gt;https://opengrok.libreoffice.org/xref/core/sd/sdi/sdraw.sdi?r=951b243f#4654&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>
+    <p>edit mode in ./sd/source/ui/func/futext.cxx:1034: <a href="https://opengrok.libreoffice.org/xref/core/sd/source/ui/func/futext.cxx?r=9090dc1f#1034">https://opengrok.libreoffice.org/xref/core/sd/source/ui/func/futext.cxx?r=9090dc1f#1034</a></p>
+  </li>
+  <li>
+    <p>SID_MOVE_PAGE_UP (LAST/DOWN/FIRST) state methods calls in: <a href="https://opengrok.libreoffice.org/xref/core/sfx2/source/control/shell.cxx?r=a3d89265#492">https://opengrok.libreoffice.org/xref/core/sfx2/source/control/shell.cxx?r=a3d89265#492</a></p>
+  </li>
+  <li>
+    <p>ExecMethod / StateMethod: <a href="https://opengrok.libreoffice.org/xref/core/sd/sdi/SlideSorterController.sdi?r=951b243f#311">https://opengrok.libreoffice.org/xref/core/sd/sdi/SlideSorterController.sdi?r=951b243f#311</a></p>
+  </li>
+  <li>
+    <p>Slide functions: <a href="https://opengrok.libreoffice.org/xref/core/sd/source/ui/slidesorter/shell/SlideSorterViewShell.cxx?r=9090dc1f#761">https://opengrok.libreoffice.org/xref/core/sd/source/ui/slidesorter/shell/SlideSorterViewShell.cxx?r=9090dc1f#761</a></p>
+  </li>
+  <li>
+    <p><a href="https://opengrok.libreoffice.org/xref/core/sd/sdi/sdraw.sdi?r=951b243f#4654">https://opengrok.libreoffice.org/xref/core/sd/sdi/sdraw.sdi?r=951b243f#4654</a></p>
+  </li>
+</ul>
 
-&lt;h4 id=&quot;potential-solution&quot;&gt;Potential solution&lt;/h4&gt;
+<h4 id="potential-solution">Potential solution</h4>
 
-&lt;p&gt;In FuText:SetInEditMode, We should disable the global slide sorting shortcuts by something like:&lt;/p&gt;
+<p>In FuText:SetInEditMode, We should disable the global slide sorting shortcuts by something like:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mpViewShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_MOVE_PAGE_DOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// and other SIDs: (LAST/UP/FIRST)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">SfxItemSet</span> <span class="nf">aSet</span><span class="p">(</span><span class="n">mpViewShell</span><span class="o">-&gt;</span><span class="n">GetPool</span><span class="p">());</span>
+    <span class="n">aSet</span><span class="p">.</span><span class="n">DisableItem</span><span class="p">(</span><span class="n">SID_MOVE_PAGE_DOWN</span><span class="p">);</span>  <span class="c1">// and other SIDs: (LAST/UP/FIRST)</span></code></pre></figure>
 
-&lt;p&gt;or:&lt;/p&gt;
+<p>or:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mpView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetStyleSheet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetItemSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;rSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_MOVE_PAGE_DOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">SfxItemSet</span><span class="o">&amp;</span> <span class="n">rSet</span> <span class="o">=</span> <span class="n">mpView</span><span class="o">-&gt;</span><span class="n">GetStyleSheet</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetItemSet</span><span class="p">();</span>
+    <span class="n">rSet</span><span class="p">.</span><span class="n">DisableItem</span><span class="p">(</span><span class="n">SID_MOVE_PAGE_DOWN</span><span class="p">);</span></code></pre></figure>
 
-&lt;p&gt;or:&lt;/p&gt;
+<p>or:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mpViewShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;svl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Items&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EE_PARA_LRSPACE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EE_PARA_LRSPACE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_MOVE_PAGE_DOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">SfxItemSet</span> <span class="nf">aSet</span><span class="p">(</span><span class="n">mpViewShell</span><span class="o">-&gt;</span><span class="n">GetPool</span><span class="p">(),</span> <span class="n">svl</span><span class="o">::</span><span class="n">Items</span><span class="o">&lt;</span><span class="n">EE_PARA_LRSPACE</span><span class="p">,</span> <span class="n">EE_PARA_LRSPACE</span><span class="o">&gt;</span><span class="p">{}</span> <span class="p">);</span>
+    <span class="n">aSet</span><span class="p">.</span><span class="n">DisableItem</span><span class="p">(</span><span class="n">SID_MOVE_PAGE_DOWN</span><span class="p">);</span></code></pre></figure>
 
-&lt;p&gt;or:&lt;/p&gt;
+<p>or:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pSet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;make_unique&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mpViewShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;pSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_MOVE_PAGE_DOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="k">auto</span> <span class="n">pSet</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">SfxItemSet</span><span class="o">&gt;</span><span class="p">(</span> <span class="n">mpViewShell</span><span class="o">-&gt;</span><span class="n">GetPool</span><span class="p">());</span>
+    <span class="n">pSet</span><span class="o">-&gt;</span><span class="n">DisableItem</span><span class="p">(</span><span class="n">SID_MOVE_PAGE_DOWN</span><span class="p">);</span></code></pre></figure>
 
-&lt;p&gt;or:&lt;/p&gt;
+<p>or:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;SfxItemSet&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mpViewShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetDoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetPool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;aSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DisableItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SID_SLIDE_SORTER_MODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">SfxItemSet</span> <span class="nf">aSet</span><span class="p">(</span><span class="n">mpViewShell</span><span class="o">-&gt;</span><span class="n">GetDoc</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetPool</span><span class="p">());</span>
+    <span class="n">aSet</span><span class="p">.</span><span class="n">DisableItem</span><span class="p">(</span><span class="n">SID_SLIDE_SORTER_MODE</span><span class="p">);</span></code></pre></figure>
 
-&lt;p&gt;… However, none of them are worked, and I don’t know if there is another way to make SIDs disable while in edit mode. Since we are in the GSoC period, I don’t want to waste my time with a bug that I couldn’t make progress. I will look again this bug after GSoC with a huge free time.&lt;/p&gt;
+<p>… However, none of them are worked, and I don’t know if there is another way to make SIDs disable while in edit mode. Since we are in the GSoC period, I don’t want to waste my time with a bug that I couldn’t make progress. I will look again this bug after GSoC with a huge free time.</p>
 
-&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+<h3 id="summary">Summary</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Look &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404&quot;&gt;tdf#98404&lt;/a&gt; later. (most likely after GSoC)&lt;/li&gt;
-  &lt;li&gt;Commented on bug page: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Look <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404">tdf#98404</a> later. (most likely after GSoC)</li>
+  <li>Commented on bug page: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25">https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25</a></li>
+</ul>
 
-&lt;h3 id=&quot;next-week-to-do&quot;&gt;Next Week TO-DO&lt;/h3&gt;
+<h3 id="next-week-to-do">Next Week TO-DO</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438 - [FORMATTING] group selection does not work with raster images&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="libreoffice-dev" /><summary type="html">GSoC progress for week #2.</summary></entry></feed>
+<ul>
+  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438 - [FORMATTING] group selection does not work with raster images</a></li>
+</ul>]]></content><author><name></name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #2.]]></summary></entry></feed>

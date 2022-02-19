@@ -13,7 +13,7 @@ ___
 <br>
 about me: [about.me/bayramcicek]
 
-contact / iletişim: [mail@bayramcicek.com.tr]
+contact / iletişim: [bayram.cicek@libreoffice.org]
 
 ___
 
@@ -58,7 +58,7 @@ You can find the source code for Jekyll at GitHub:
 [jekyll](https://github.com/jekyll/jekyll)
 
 [about.me/bayramcicek]: https://about.me/bayramcicek
-[mail@bayramcicek.com.tr]: mailto:mail@bayramcicek.com.tr
+[bayram.cicek@libreoffice.org]: mailto:bayram.cicek@libreoffice.org
 
 [github.com/bayramcicek]: https://github.com/bayramcicek/
 [gitlab.com/bayramcicek]: https://gitlab.com/bayramcicek

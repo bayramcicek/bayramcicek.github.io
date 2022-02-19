@@ -4,5 +4,5 @@
 
 layout: home
 author: Bayram Cicek
-description: writing by bayramcicek
+description: writing by Bayram Cicek
 ---

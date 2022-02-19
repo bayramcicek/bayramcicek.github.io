@@ -90,7 +90,7 @@ bool Converter::convertDuration(double& rfTime,
 convertDuration(double& rfTime, std::u16string_view rString)
 convertDuration(double& rfTime, std::string_view rString)
 ```
-Since two functions are include the same data type of `rfTime` variables, there is no need to create a `template`. However, data type of `rString` variables are different. Consequently we have to create a template only for rString.
+Since two functions are include the same data type of `rfTime` variables, there is no need to create a `template`. However, data type of `rString` variables are different. Consequently, we have to create a template only for rString.
 
 {% highlight cpp %}
 /** helper function of Converter::convertDuration */

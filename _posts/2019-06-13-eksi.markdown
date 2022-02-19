@@ -15,7 +15,10 @@ Fareyle seçtiğimiz bir metni, url'nin sonuna nasıl ekleneceğini öğrenince 
 Uzun uğraşlar sonucu nihayet eklenti çalıştı. Kaynak kodlarına bakmak isterseniz: [github][github]
 
 
-|Eklentiyi deneyebilirsiniz: [opera][op-link] - [firefox][fr-link] - chrome(google hesabım silindiği için kaldırıldı)|
+Eklentiyi deneyebilirsiniz: 
+- opera: _(opera hesabımı sildiğim için kaldırıldı)_
+- firefox: [https://addons.mozilla.org/en-US/firefox/addon/ek%C5%9Fi-search/][fr-link]
+- chrome: _(google hesabım silindiği için kaldırıldı)_
 
 ---
 
