@@ -5,9 +5,125 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.com.tr/libreoffice/</link>
         <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 28 Apr 2023 12:31:33 +0300</pubDate>
-        <lastBuildDate>Fri, 28 Apr 2023 12:31:33 +0300</lastBuildDate>
+        <pubDate>Thu, 18 May 2023 13:16:37 +0300</pubDate>
+        <lastBuildDate>Thu, 18 May 2023 13:16:37 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>Google Summer of Code 2023 Timeline - Search Field in Options</title>
+                <author>Bayram Çiçek</author>
+                <description>&lt;h3 id=&quot;project-search-field-in-options&quot;&gt;Project: Search Field in Options&lt;/h3&gt;
+
+&lt;p&gt;I’ll be working on “Search Field in Options” project under the mentorship of Heiko Tietze and Andreas Heinisch throughout the Google Summer of Code 2023 program.&lt;/p&gt;
+
+&lt;h3 id=&quot;timeline&quot;&gt;Timeline&lt;/h3&gt;
+
+&lt;style&gt;
+.center, td:nth-child(2), td:nth-child(3){
+  text-align: center;
+  vertical-align: middle;
+}
+&lt;/style&gt;
+
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr class=&quot;center&quot;&gt;
+            &lt;th style=&quot;width:25%&quot;&gt;# Week&lt;/th&gt;
+            &lt;th style=&quot;width:43%&quot;&gt;Tasks&lt;/th&gt;
+            &lt;th style=&quot;width:32%&quot;&gt;Notes&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr style=&quot;background-color: yellow&quot;&gt;
+            &lt;td&gt;&lt;b&gt;#1&lt;/b&gt; (May 29 - June 5)&lt;/td&gt;
+            &lt;td&gt;Add a seach field to ./cui/uiconfig/ui/optionsdialog.ui&lt;/td&gt;
+            &lt;td&gt;First week of coding period&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;#2&lt;/b&gt; (June 5 - 12)&lt;/td&gt;
+            &lt;td rowspan=&quot;3&quot;&gt;Connect search field(ui) with Visual Class Library (VCL)&lt;/td&gt;
+            &lt;td rowspan=&quot;3&quot;&gt;VCL provides a graphical toolkit similar to gtk+, Qt, SWING etc.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;#3&lt;/b&gt; (June 12 - 19)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;#4&lt;/b&gt; (June 19 - 26)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;#5&lt;/b&gt; (June 26 - July 3)&lt;/td&gt;
+            &lt;td&gt;Start implement seach funtionality&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;#6&lt;/b&gt; (July 3 - 10)&lt;/td&gt;
+            &lt;td&gt;Start by searching the treeview&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style=&quot;background-color: yellow&quot;&gt;
+            &lt;td&gt;&lt;b&gt;#7&lt;/b&gt; (July 10 - 17)&lt;/td&gt;
+            &lt;td&gt;Midterm evaluation for contributors and mentors&lt;/td&gt;
+            &lt;td&gt;Midterm evaluation deadline (July 14 – 18:00 UTC)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;#8&lt;/b&gt; (July 17 - 24)&lt;/td&gt;
+            &lt;td&gt;  Iterate over the tabs and match captions as well as tooltip with the search term&lt;/td&gt;
+            &lt;td rowspan=&quot;2&quot;&gt;Update UI&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;#9&lt;/b&gt; (July 24 - 31)&lt;/td&gt;
+            &lt;td&gt;Expand the search functionality for every single dialog step by step&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;#10&lt;/b&gt; (July 31 - Aug 7)&lt;/td&gt;
+            &lt;td&gt;UI: Hide tree nodes where the item is not found&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;#11&lt;/b&gt; (Aug 7 - 14)&lt;/td&gt;
+            &lt;td&gt;Code refactoring&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;#12&lt;/b&gt; (Aug 14 - 21)&lt;/td&gt;
+            &lt;td&gt;Final implementations&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style=&quot;background-color: yellow;&quot;&gt;
+            &lt;td&gt;&lt;b&gt;#13&lt;/b&gt; (Aug 21 - 28)&lt;/td&gt;
+            &lt;td&gt;Final week: Contributor Final Submission&lt;/td&gt;
+            &lt;td&gt;Final evaluation deadline (Aug 28 – 18:00 UTC)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;(Aug 28 - Sep 4)&lt;/td&gt;
+            &lt;td&gt; Mentor Final Evaluation&lt;/td&gt;
+            &lt;td&gt;Mentor evaluations deadline (Sep 4 – 18:00 UTC)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;(Sep 5, 2023)&lt;/td&gt;
+            &lt;td&gt;Initial results of Google Summer of Code 2023 announced&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;project-summary&quot;&gt;Project Summary&lt;/h3&gt;
+
+&lt;p&gt;This enhancement aims to provide a search functionality for “Tools &amp;gt; Options”. LibreOffice is a complex application with a large and growing number of options. It is not easy to find the right needle in the haystack. Like most other complex applications, it will be valuable and useful enhancement to add a search field to the “Tools &amp;gt; Options” dialog that iterates over the various tabs and filters where the search text is found.&lt;/p&gt;
+
+&lt;p&gt;Project page: &lt;a href=&quot;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&quot;&gt;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Enhancement request on Bugzilla: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=49895&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=49895&lt;/a&gt;&lt;/p&gt;
+
+</description>
+                <pubDate>Thu, 18 May 2023 11:18:00 +0300</pubDate>
+                <link>https://bayramcicek.com.tr/libreoffice-dev/2023/05/18/gsoc-timeline.html</link>
+                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2023/05/18/gsoc-timeline.html</guid>
+                
+                
+                <category>libreoffice-dev</category>
+                
+            </item>
         
             <item>
                 <title>Final Report - GSoC - 100 Paper Cuts</title>

@@ -1,4 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-28T12:31:33+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Mini-interview with LibreOffice &amp;amp; The Document Foundation membership</title><link href="http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership.html" rel="alternate" type="text/html" title="Mini-interview with LibreOffice &amp;amp; The Document Foundation membership" /><published>2021-11-27T17:18:51+03:00</published><updated>2021-11-27T17:18:51+03:00</updated><id>http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership</id><content type="html" xml:base="http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership.html"><![CDATA[<h4 id="heres-the-latest-developments-on-my-libreoffice-journey---after-google-summer-of-code-2021">Here’s the latest developments on my LibreOffice journey - after Google Summer of Code 2021:</h4>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-05-18T13:16:37+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Google Summer of Code 2023 Timeline - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/05/18/gsoc-timeline.html" rel="alternate" type="text/html" title="Google Summer of Code 2023 Timeline - Search Field in Options" /><published>2023-05-18T11:18:00+03:00</published><updated>2023-05-18T11:18:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/05/18/gsoc-timeline</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/05/18/gsoc-timeline.html"><![CDATA[<h3 id="project-search-field-in-options">Project: Search Field in Options</h3>
+
+<p>I’ll be working on “Search Field in Options” project under the mentorship of Heiko Tietze and Andreas Heinisch throughout the Google Summer of Code 2023 program.</p>
+
+<h3 id="timeline">Timeline</h3>
+
+<style>
+.center, td:nth-child(2), td:nth-child(3){
+  text-align: center;
+  vertical-align: middle;
+}
+</style>
+
+<table>
+    <thead>
+        <tr class="center">
+            <th style="width:25%"># Week</th>
+            <th style="width:43%">Tasks</th>
+            <th style="width:32%">Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: yellow">
+            <td><b>#1</b> (May 29 - June 5)</td>
+            <td>Add a seach field to ./cui/uiconfig/ui/optionsdialog.ui</td>
+            <td>First week of coding period</td>
+        </tr>
+        <tr>
+            <td><b>#2</b> (June 5 - 12)</td>
+            <td rowspan="3">Connect search field(ui) with Visual Class Library (VCL)</td>
+            <td rowspan="3">VCL provides a graphical toolkit similar to gtk+, Qt, SWING etc.</td>
+        </tr>
+        <tr>
+            <td><b>#3</b> (June 12 - 19)</td>
+        </tr>
+        <tr>
+            <td><b>#4</b> (June 19 - 26)</td>
+        </tr>
+        <tr>
+            <td><b>#5</b> (June 26 - July 3)</td>
+            <td>Start implement seach funtionality</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><b>#6</b> (July 3 - 10)</td>
+            <td>Start by searching the treeview</td>
+            <td></td>
+        </tr>
+        <tr style="background-color: yellow">
+            <td><b>#7</b> (July 10 - 17)</td>
+            <td>Midterm evaluation for contributors and mentors</td>
+            <td>Midterm evaluation deadline (July 14 – 18:00 UTC)</td>
+        </tr>
+        <tr>
+            <td><b>#8</b> (July 17 - 24)</td>
+            <td>  Iterate over the tabs and match captions as well as tooltip with the search term</td>
+            <td rowspan="2">Update UI</td>
+        </tr>
+        <tr>
+            <td><b>#9</b> (July 24 - 31)</td>
+            <td>Expand the search functionality for every single dialog step by step</td>
+        </tr>
+        <tr>
+            <td><b>#10</b> (July 31 - Aug 7)</td>
+            <td>UI: Hide tree nodes where the item is not found</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><b>#11</b> (Aug 7 - 14)</td>
+            <td>Code refactoring</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><b>#12</b> (Aug 14 - 21)</td>
+            <td>Final implementations</td>
+            <td></td>
+        </tr>
+        <tr style="background-color: yellow;">
+            <td><b>#13</b> (Aug 21 - 28)</td>
+            <td>Final week: Contributor Final Submission</td>
+            <td>Final evaluation deadline (Aug 28 – 18:00 UTC)</td>
+        </tr>
+        <tr>
+            <td>(Aug 28 - Sep 4)</td>
+            <td> Mentor Final Evaluation</td>
+            <td>Mentor evaluations deadline (Sep 4 – 18:00 UTC)</td>
+        </tr>
+        <tr>
+            <td>(Sep 5, 2023)</td>
+            <td>Initial results of Google Summer of Code 2023 announced</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This enhancement aims to provide a search functionality for “Tools &gt; Options”. LibreOffice is a complex application with a large and growing number of options. It is not easy to find the right needle in the haystack. Like most other complex applications, it will be valuable and useful enhancement to add a search field to the “Tools &gt; Options” dialog that iterates over the various tabs and filters where the search text is found.</p>
+
+<p>Project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
+
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Project: Search Field in Options]]></summary></entry><entry><title type="html">Mini-interview with LibreOffice &amp;amp; The Document Foundation membership</title><link href="http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership.html" rel="alternate" type="text/html" title="Mini-interview with LibreOffice &amp;amp; The Document Foundation membership" /><published>2021-11-27T17:18:51+03:00</published><updated>2021-11-27T17:18:51+03:00</updated><id>http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership</id><content type="html" xml:base="http://localhost:4000/general/2021/11/27/interview-with-libreoffice-tdf-membership.html"><![CDATA[<h4 id="heres-the-latest-developments-on-my-libreoffice-journey---after-google-summer-of-code-2021">Here’s the latest developments on my LibreOffice journey - after Google Summer of Code 2021:</h4>
 
 <ul>
   <li>I’m a TDF member since October 2021.
@@ -940,82 +1041,4 @@ For raster images: <code class="highlighter-rouge">[Drawing object]</code> <br /
 
 <ul>
   <li>Make raster images selectable(group) with SHIFT+CLICK</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #3 and week #4.]]></summary></entry><entry><title type="html">Week #2 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc.html" rel="alternate" type="text/html" title="Week #2 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-04T20:50:12+03:00</published><updated>2021-07-04T20:50:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/04/week-02-gsoc.html"><![CDATA[<p>GSoC progress for week #2.</p>
-
-<h4 id="disabling-slide-sorter-shorcuts-when-in-edit-mode--impress">Disabling slide sorter shorcuts when in edit mode / Impress</h4>
-
-<ul>
-  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404">tdf#98404 - UX - While objects on a slide are being edited, notably text boxes, the new slide sorter Ctrl+Shift shortcut combinations (see bug 91909) incorrectly receive focus and move the slide</a>.</li>
-</ul>
-
-<p>In Impress, when editing a text on a slide, CTRL+SHIFT+(HOME/END/ArrowUP/ArrowDOWN) shortcuts doesn’t select the text in the slide, but move the slide to the end of the slide stack.</p>
-
-<p>Solution is simple: Disable slide sorter shortcuts when in text edit mode. 
-<br /></p>
-<p align="center">
-    ***
-</p>
-
-<p>This week I tried to disable slide sorter shortcuts while in edit mode. However, I couldn’t found a proper way to disable them.</p>
-
-<h4 id="code-pointers">Code pointers:</h4>
-
-<ul>
-  <li>
-    <p>edit mode in ./sd/source/ui/func/futext.cxx:1034: <a href="https://opengrok.libreoffice.org/xref/core/sd/source/ui/func/futext.cxx?r=9090dc1f#1034">https://opengrok.libreoffice.org/xref/core/sd/source/ui/func/futext.cxx?r=9090dc1f#1034</a></p>
-  </li>
-  <li>
-    <p>SID_MOVE_PAGE_UP (LAST/DOWN/FIRST) state methods calls in: <a href="https://opengrok.libreoffice.org/xref/core/sfx2/source/control/shell.cxx?r=a3d89265#492">https://opengrok.libreoffice.org/xref/core/sfx2/source/control/shell.cxx?r=a3d89265#492</a></p>
-  </li>
-  <li>
-    <p>ExecMethod / StateMethod: <a href="https://opengrok.libreoffice.org/xref/core/sd/sdi/SlideSorterController.sdi?r=951b243f#311">https://opengrok.libreoffice.org/xref/core/sd/sdi/SlideSorterController.sdi?r=951b243f#311</a></p>
-  </li>
-  <li>
-    <p>Slide functions: <a href="https://opengrok.libreoffice.org/xref/core/sd/source/ui/slidesorter/shell/SlideSorterViewShell.cxx?r=9090dc1f#761">https://opengrok.libreoffice.org/xref/core/sd/source/ui/slidesorter/shell/SlideSorterViewShell.cxx?r=9090dc1f#761</a></p>
-  </li>
-  <li>
-    <p><a href="https://opengrok.libreoffice.org/xref/core/sd/sdi/sdraw.sdi?r=951b243f#4654">https://opengrok.libreoffice.org/xref/core/sd/sdi/sdraw.sdi?r=951b243f#4654</a></p>
-  </li>
-</ul>
-
-<h4 id="potential-solution">Potential solution</h4>
-
-<p>In FuText:SetInEditMode, We should disable the global slide sorting shortcuts by something like:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">SfxItemSet</span> <span class="nf">aSet</span><span class="p">(</span><span class="n">mpViewShell</span><span class="o">-&gt;</span><span class="n">GetPool</span><span class="p">());</span>
-    <span class="n">aSet</span><span class="p">.</span><span class="n">DisableItem</span><span class="p">(</span><span class="n">SID_MOVE_PAGE_DOWN</span><span class="p">);</span>  <span class="c1">// and other SIDs: (LAST/UP/FIRST)</span></code></pre></figure>
-
-<p>or:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">SfxItemSet</span><span class="o">&amp;</span> <span class="n">rSet</span> <span class="o">=</span> <span class="n">mpView</span><span class="o">-&gt;</span><span class="n">GetStyleSheet</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetItemSet</span><span class="p">();</span>
-    <span class="n">rSet</span><span class="p">.</span><span class="n">DisableItem</span><span class="p">(</span><span class="n">SID_MOVE_PAGE_DOWN</span><span class="p">);</span></code></pre></figure>
-
-<p>or:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">SfxItemSet</span> <span class="nf">aSet</span><span class="p">(</span><span class="n">mpViewShell</span><span class="o">-&gt;</span><span class="n">GetPool</span><span class="p">(),</span> <span class="n">svl</span><span class="o">::</span><span class="n">Items</span><span class="o">&lt;</span><span class="n">EE_PARA_LRSPACE</span><span class="p">,</span> <span class="n">EE_PARA_LRSPACE</span><span class="o">&gt;</span><span class="p">{}</span> <span class="p">);</span>
-    <span class="n">aSet</span><span class="p">.</span><span class="n">DisableItem</span><span class="p">(</span><span class="n">SID_MOVE_PAGE_DOWN</span><span class="p">);</span></code></pre></figure>
-
-<p>or:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="k">auto</span> <span class="n">pSet</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">SfxItemSet</span><span class="o">&gt;</span><span class="p">(</span> <span class="n">mpViewShell</span><span class="o">-&gt;</span><span class="n">GetPool</span><span class="p">());</span>
-    <span class="n">pSet</span><span class="o">-&gt;</span><span class="n">DisableItem</span><span class="p">(</span><span class="n">SID_MOVE_PAGE_DOWN</span><span class="p">);</span></code></pre></figure>
-
-<p>or:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">SfxItemSet</span> <span class="nf">aSet</span><span class="p">(</span><span class="n">mpViewShell</span><span class="o">-&gt;</span><span class="n">GetDoc</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetPool</span><span class="p">());</span>
-    <span class="n">aSet</span><span class="p">.</span><span class="n">DisableItem</span><span class="p">(</span><span class="n">SID_SLIDE_SORTER_MODE</span><span class="p">);</span></code></pre></figure>
-
-<p>… However, none of them are worked, and I don’t know if there is another way to make SIDs disable while in edit mode. Since we are in the GSoC period, I don’t want to waste my time with a bug that I couldn’t make progress. I will look again this bug after GSoC with a huge free time.</p>
-
-<h3 id="summary">Summary</h3>
-
-<ul>
-  <li>Look <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404">tdf#98404</a> later. (most likely after GSoC)</li>
-  <li>Commented on bug page: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25">https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25</a></li>
-</ul>
-
-<h3 id="next-week-to-do">Next Week TO-DO</h3>
-
-<ul>
-  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438 - [FORMATTING] group selection does not work with raster images</a></li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #2.]]></summary></entry></feed>
+</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #3 and week #4.]]></summary></entry></feed>
