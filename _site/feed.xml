@@ -1,4 +1,215 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-05-18T13:16:37+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Google Summer of Code 2023 Timeline - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/05/18/gsoc-timeline.html" rel="alternate" type="text/html" title="Google Summer of Code 2023 Timeline - Search Field in Options" /><published>2023-05-18T11:18:00+03:00</published><updated>2023-05-18T11:18:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/05/18/gsoc-timeline</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/05/18/gsoc-timeline.html"><![CDATA[<h3 id="project-search-field-in-options">Project: Search Field in Options</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-03T15:53:30+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #1 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report.html" rel="alternate" type="text/html" title="Week #1 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-03T11:08:00+03:00</published><updated>2023-06-03T11:08:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance.</em></p>
+
+<p align="center">
+    ***
+</p>
+
+<h3 id="current-progress-for-week-1">Current progress for week #1</h3>
+
+<ul>
+  <li>
+    <p>First patchset has been submitted: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+  </li>
+  <li>
+    <p>Search bar/field added to “Tools &gt; Options” dialog</p>
+  </li>
+</ul>
+
+<p><code class="highlighter-rouge">cui/uiconfig/ui/optionsdialog.ui</code>:</p>
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/w-01-00-search-ui-glade.png" alt="w-01-00-search-ui-glade.png" />
+</p>
+<p><br /></p>
+
+<p><code class="highlighter-rouge">“Tools &gt; Options”</code> dialog:</p>
+
+<p align="center">
+  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/w-01-01-search-ui-libre.png" alt="w-01-01-search-ui-libre.png" />
+</p>
+<p><br /></p>
+
+<ul>
+  <li>Search functionality implemented for Options TreeView. (in “Tools &gt; Options”)</li>
+</ul>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-01-02-search.png" alt="w-01-02-search.png" />
+</p>
+<p><br /></p>
+
+<ul>
+  <li>Some technical details</li>
+</ul>
+
+<p>There is a timer that waits for user to stop typing if user types faster.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">IMPL_LINK_NOARG</span><span class="p">(</span><span class="n">OfaTreeOptionsDialog</span><span class="p">,</span> <span class="n">SearchUpdateHdl</span><span class="p">,</span> <span class="n">weld</span><span class="o">::</span><span class="n">Entry</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">m_aUpdateDataTimer</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+    <span class="c1">// debug ("1 -&gt; SearchUpdateHdl, treeopt.cxx ");</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">ImplUpdateDataHdl()</code> is called for searching:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">IMPL_LINK_NOARG</span><span class="p">(</span><span class="n">OfaTreeOptionsDialog</span><span class="p">,</span> <span class="n">ImplUpdateDataHdl</span><span class="p">,</span> <span class="n">Timer</span><span class="o">*</span><span class="p">,</span> <span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Pause redraw (Do not redraw at each removal</span>
+    <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">freeze</span><span class="p">();</span>
+
+    <span class="c1">// Apply the search filter to the functions list</span>
+    <span class="n">OUString</span> <span class="n">aSearchTerm</span><span class="p">(</span><span class="n">m_xSearchEdit</span><span class="o">-&gt;</span><span class="n">get_text</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">nMatchFound</span> <span class="o">=</span> <span class="n">applySearchFilter</span><span class="p">(</span><span class="n">aSearchTerm</span><span class="p">);</span>
+    <span class="c1">// debug ("nMatchFound: " &lt;&lt; nMatchFound);</span>
+
+    <span class="c1">// Resume redraw</span>
+    <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">thaw</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">nMatchFound</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">select</span><span class="p">(</span><span class="n">nMatchFound</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">applySearchFilter(aSearchTerm)</code> function gets the word in search bar and does the search:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">applySearchFilter</span><span class="p">(</span><span class="n">OUString</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rSearchTerm</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// debug ("applySearchFilter(), rSearchTerm text: " &lt;&lt; rSearchTerm);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">rSearchTerm</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">ClearAllOptions</span><span class="p">();</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+        <span class="n">Initialize</span><span class="p">(</span><span class="n">m_xFrame</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">m_options</span><span class="p">.</span><span class="n">searchString</span> <span class="o">=</span> <span class="n">rSearchTerm</span><span class="p">;</span>
+    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="n">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
+
+    <span class="n">ClearAllOptions</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">n_children</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">aDialogIdVector</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">nEntry</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="n">OUString</span> <span class="n">aStr</span> <span class="o">=</span> <span class="n">aDialogIdVector</span><span class="p">[</span><span class="n">nEntry</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
+        <span class="n">sal_uInt16</span> <span class="n">aId</span> <span class="o">=</span> <span class="n">aDialogIdVector</span><span class="p">[</span><span class="n">nEntry</span><span class="p">].</span><span class="n">second</span><span class="p">;</span>
+        <span class="c1">// debug ("aDialogIdVector["&lt;&lt; nEntry &lt;&lt; "]: " &lt;&lt; aStr &lt;&lt; " : " &lt;&lt; aId);</span>
+
+        <span class="n">sal_Int32</span> <span class="n">aStartPos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">sal_Int32</span> <span class="n">aEndPos</span> <span class="o">=</span> <span class="n">aStr</span><span class="p">.</span><span class="n">getLength</span><span class="p">();</span>
+
+        <span class="c1">// make search</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">textSearch</span><span class="p">.</span><span class="n">SearchForward</span><span class="p">(</span><span class="n">aStr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aStartPos</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aEndPos</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// debug ("not found: " &lt;&lt; aStr &lt;&lt; " : " &lt;&lt; aId);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// debug ("found: " &lt;&lt; aStr &lt;&lt; " : " &lt;&lt; aId);</span>
+
+            <span class="c1">// TODO: convert allDialogIds vector to a pair to hold function pointers.</span>
+            <span class="c1">// -&gt; (allDialogIds[i].second)();</span>
+            <span class="k">switch</span><span class="p">(</span><span class="n">aId</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">case</span> <span class="n">SID_GENERAL_OPTIONS</span><span class="p">:</span>
+                    <span class="n">generalOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_FILTER_DLG</span><span class="p">:</span>
+                    <span class="n">loadAndSaveOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_LANGUAGE_OPTIONS</span><span class="p">:</span>
+                    <span class="n">languageOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_SW_EDITOPTIONS</span><span class="p">:</span>
+                    <span class="n">writerOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_SW_ONLINEOPTIONS</span><span class="p">:</span>
+                    <span class="n">writerWebOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_SC_EDITOPTIONS</span><span class="p">:</span>
+                    <span class="n">calcOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_SD_EDITOPTIONS</span><span class="p">:</span>
+                    <span class="n">impressOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_SD_GRAPHIC_OPTIONS</span><span class="p">:</span>
+                    <span class="n">drawOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_SM_EDITOPTIONS</span><span class="p">:</span>
+                    <span class="n">mathOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_SB_STARBASEOPTIONS</span><span class="p">:</span>
+                    <span class="n">databaseOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_SCH_EDITOPTIONS</span><span class="p">:</span>
+                    <span class="n">chartOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">SID_INET_DLG</span><span class="p">:</span>
+                    <span class="n">internetOptions</span><span class="p">();</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+                <span class="nl">default:</span>
+                    <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// if treeview is empty, return -1</span>
+    <span class="k">return</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">n_children</span><span class="p">()</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>First patchset has been submitted: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></li>
+  <li>Search bar/field added to “Tools &gt; Options” dialog.</li>
+  <li>Search functionality implemeted to Options treeview.</li>
+</ul>
+
+<p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
+<ul>
+  <li>Add Search field to “Tools &gt; Options” dialog. <strong>(DONE - week #1)</strong></li>
+  <li>Options treeview <strong>(DONE - week #1)</strong></li>
+  <li>Sub-treeview <strong>(Next step)</strong></li>
+  <li>Tooltips</li>
+  <li>Strings in all dialogs</li>
+</ul>
+
+<p>Additional hack:</p>
+<ul>
+  <li>show modified options with some special indicator (as in KDE settings). (<em>better to discuss this idea in a separate ticket</em>)</li>
+</ul>
+
+<p align="center">
+    ***
+</p>
+
+<p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
+
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance.]]></summary></entry><entry><title type="html">Google Summer of Code 2023 Timeline - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/05/18/gsoc-timeline.html" rel="alternate" type="text/html" title="Google Summer of Code 2023 Timeline - Search Field in Options" /><published>2023-05-18T11:18:00+03:00</published><updated>2023-05-18T11:18:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/05/18/gsoc-timeline</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/05/18/gsoc-timeline.html"><![CDATA[<h3 id="project-search-field-in-options">Project: Search Field in Options</h3>
 
 <p>I’ll be working on “Search Field in Options” project under the mentorship of Heiko Tietze and Andreas Heinisch throughout the Google Summer of Code 2023 program.</p>
 
@@ -866,179 +1077,4 @@ there are 3 issues about comment section:</p>
 <ul>
   <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
   <li>Update the UI for diagonal borders</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #5.]]></summary></entry><entry><title type="html">Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html" rel="alternate" type="text/html" title="Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-05T08:06:19+03:00</published><updated>2021-07-05T08:06:19+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/05/week-03-04-gsoc.html"><![CDATA[<p>GSoC progress for week #3 and week #4.</p>
-
-<h4 id="group-selection-does-not-work-with-raster-images--writer">Group selection does not work with raster images / Writer</h4>
-
-<ul>
-  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438 (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images</a>.</li>
-</ul>
-
-<p>Writer can group <code class="highlighter-rouge">Drawing objects</code>. For example shapes(rectangles, circles), text boxes and draw images can be grouped together to drag &amp; drop.</p>
-
-<p>However, when copy/paste or drag&amp;drop an image into the writer document canvas, (raster/bitmap)images are handled as <code class="highlighter-rouge">Frame objects (holding images/bitmaps)</code>, not <code class="highlighter-rouge">Drawing objects</code>. Drawing objects have the group feature, but this feature is not implemented for Graphics(Frame objects/bitmap). This is why Writer can’t group raster images.</p>
-
-<p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/shapes-selected.png" alt="shapes-selected.png" />
-</p>
-
-<p><br /></p>
-<p align="center">
-    ***
-</p>
-
-<p>In week #3 and #4, I tried to understand the logic behind the grouping Drawing objects. It seems more complex than it looks. To keep the blog post simple and short, I will share only the key points of my research.</p>
-
-<h4 id="code-pointers">Code pointers:</h4>
-
-<ul>
-  <li>
-    <p>All CLICK and SHIFT+CLICK operations for grouping Drawing objects handled in ./sw/source/uibase/docvw/edtwin.cxx:2770 : <a href="https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#2770">https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#2770</a></p>
-  </li>
-  <li>
-    <p>SHIFT+CLICK occurs in: <a href="https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#3470">https://opengrok.libreoffice.org/xref/core/sw/source/uibase/docvw/edtwin.cxx?r=216a43bc#3470</a></p>
-  </li>
-  <li>
-    <p>Select objects : SwFEShell::SelectObj: <a href="https://opengrok.libreoffice.org/xref/core/sw/source/core/frmedt/feshview.cxx?r=715797bc#177">https://opengrok.libreoffice.org/xref/core/sw/source/core/frmedt/feshview.cxx?r=715797bc#177</a></p>
-  </li>
-  <li>
-    <p>Marked object list: <a href="https://opengrok.libreoffice.org/xref/core/include/svx/svdmark.hxx?r=40595834#230">https://opengrok.libreoffice.org/xref/core/include/svx/svdmark.hxx?r=40595834#230</a></p>
-  </li>
-  <li>
-    <p>graph.hxx : <a href="https://opengrok.libreoffice.org/xref/core/include/vcl/graph.hxx?r=692c5df1#37">https://opengrok.libreoffice.org/xref/core/include/vcl/graph.hxx?r=692c5df1#37</a></p>
-  </li>
-  <li>
-    <p>Types of forms of content: <a href="https://opengrok.libreoffice.org/xref/core/sw/inc/editsh.hxx?r=1feb59c3#130">https://opengrok.libreoffice.org/xref/core/sw/inc/editsh.hxx?r=1feb59c3#130</a></p>
-  </li>
-  <li>
-    <p>Mark object: <a href="https://opengrok.libreoffice.org/xref/core/svx/source/svdraw/svdmrkv.cxx?r=8a850eed#1877">https://opengrok.libreoffice.org/xref/core/svx/source/svdraw/svdmrkv.cxx?r=8a850eed#1877</a></p>
-  </li>
-</ul>
-
-<h4 id="technical-details">Technical Details</h4>
-
-<p><code class="highlighter-rouge">SAL_DEBUG( rMrkList.GetMarkDescription() );</code> output: (in SwFEShell::SelectObj)</p>
-
-<p>For shapes: <code class="highlighter-rouge">shapes</code> <br />
-For 2+ shapes: <code class="highlighter-rouge">2 shapes</code> <br />
-For draw images: <code class="highlighter-rouge">Image with transparency</code> <br />
-For text box: <code class="highlighter-rouge">Text Frame</code><br />
-For raster images: <code class="highlighter-rouge">[Drawing object]</code> <br /></p>
-
-<p>Raster images seem to have <code class="highlighter-rouge">NONE</code> object name:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define STR_ObjNameSingulNONE    NC_("STR_ObjNameSingulNONE", "Drawing object")</span></code></pre></figure>
-
-<p><code class="highlighter-rouge">rMrkList.GetMarkDescription()</code> can’t classify the raster images?</p>
-
-<p><code class="highlighter-rouge">SAL_DEBUG( rMrkList.GetMarkCount() );</code> always increases by <code class="highlighter-rouge">1</code> when selecting drawing objects via SHIFT+CLICK. But always gives <code class="highlighter-rouge">1</code> when selecting raster images.</p>
-
-<p>All selected objects store in <code class="highlighter-rouge">rMrkList</code> list:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">const</span> <span class="n">SdrMarkList</span> <span class="o">&amp;</span><span class="n">rMrkList</span> <span class="o">=</span> <span class="n">pDView</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">();</span></code></pre></figure>
-
-<p>This means raster images added to the list but always be unmarked when GetMarkCount reaches <code class="highlighter-rouge">1</code>. The actual reason of unmarking issue is:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// call Unmark when !bAddSelect or if fly was selected</span>
-<span class="kt">bool</span> <span class="n">bUnmark</span> <span class="o">=</span> <span class="o">!</span><span class="n">bAddSelect</span><span class="p">;</span> <span class="c1">// bUnmark is 'false' here </span>
-
-<span class="k">if</span> <span class="p">(</span> <span class="n">rMrkList</span><span class="p">.</span><span class="n">GetMarkCount</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span>
-<span class="p">{</span>
-    <span class="c1">// if fly was selected, deselect it first</span>
-    <span class="n">pOldSelFly</span> <span class="o">=</span> <span class="o">::</span><span class="n">GetFlyFromMarked</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">rMrkList</span><span class="p">,</span> <span class="k">this</span> <span class="p">);</span>
-
-    <span class="k">if</span> <span class="p">(</span> <span class="n">pOldSelFly</span> <span class="p">)</span>
-    <span class="p">{</span> 
-
-    <span class="cm">/* ... */</span>
-
-    <span class="n">bUnmark</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-
-    <span class="p">}</span>
-
-    <span class="cm">/* ... */</span>
-
-    <span class="k">if</span> <span class="p">(</span> <span class="n">bUnmark</span> <span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">pDView</span><span class="o">-&gt;</span><span class="n">UnmarkAll</span><span class="p">();</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">pOldSelFly</span><span class="p">)</span>
-            <span class="n">pOldSelFly</span><span class="o">-&gt;</span><span class="n">SelectionHasChanged</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-    <span class="p">}</span></code></pre></figure>
-
-<p>With SHIFT+CLICK, <code class="highlighter-rouge">pOldSelFly = ::GetFlyFromMarked( &amp;rMrkList, this );</code> returns 0(null) when selecting the second, third … shape (which is expected); and it doesn’t set <code class="highlighter-rouge">bUnmark = true</code>, so it doesn’t execute <code class="highlighter-rouge">pDView-&gt;UnmarkAll()</code>.</p>
-
-<p>However, <code class="highlighter-rouge">pOldSelFly = ::GetFlyFromMarked( &amp;rMrkList, this );</code> always returns an address which is evaluated <code class="highlighter-rouge">true</code> in an <code class="highlighter-rouge">if ( pOldSelFly )</code> case. This causes <code class="highlighter-rouge">bUnmark = true;</code> and executes <code class="highlighter-rouge">if ( bUnmark )</code>. Therefore, when <code class="highlighter-rouge">rMrkList.GetMarkCount() == 1</code> and <code class="highlighter-rouge">::GetFlyFromMarked( &amp;rMrkList, this )</code> returns an address; <code class="highlighter-rouge">rMrkList</code> doesn’t add the second selected raster image to itself and do unmark it.</p>
-
-<h4 id="frame-is-not-accessible">Frame is not accessible</h4>
-
-<p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/frame-is-not-accessible.png" alt="frame-is-not-accessible.png" />
-</p>
-
-<p>Another interesting issue is when trying to add(select) a raster image to the shape list (unmarking disabled) debugging warns <code class="highlighter-rouge">warn: /*...*/ frame is not accessible</code>.</p>
-
-<p>SwAccessibleMap::InvalidateCursorPosition:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// ...</span>
-
-<span class="kt">bool</span> <span class="n">bShapeSelected</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-
-<span class="c1">// ...</span>
-
-            <span class="k">else</span> <span class="nf">if</span><span class="p">(</span> <span class="n">pFESh</span><span class="o">-&gt;</span><span class="n">IsObjSelected</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">bShapeSelected</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-                <span class="n">aFrameOrObj</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">SwFrame</span> <span class="o">*&gt;</span><span class="p">(</span> <span class="nb">nullptr</span> <span class="p">);</span>
-            <span class="p">}</span>
-
-<span class="c1">// ... </span>
-
-    <span class="n">OSL_ENSURE</span><span class="p">(</span> <span class="n">bShapeSelected</span> <span class="o">||</span> <span class="n">aFrameOrObj</span><span class="p">.</span><span class="n">IsAccessible</span><span class="p">(</span><span class="n">GetShell</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">IsPreview</span><span class="p">()),</span>
-            <span class="s">"frame is not accessible"</span> <span class="p">);</span></code></pre></figure>
-
-<p><code class="highlighter-rouge">pFESh-&gt;IsObjSelected()</code> should return <code class="highlighter-rouge">GetMarkCount()</code>, not <code class="highlighter-rouge">0</code>. Otherwise <code class="highlighter-rouge">bShapeSelected</code> stays <code class="highlighter-rouge">false</code> and <code class="highlighter-rouge">OSL_ENSURE</code> warns <code class="highlighter-rouge">"frame is not accessible"</code>.</p>
-
-<p>/sw/source/core/frmedt/feshview.cxx : <code class="highlighter-rouge">SwFEShell::IsObjSelected()</code> and <code class="highlighter-rouge">SwFEShell::IsFrameSelected()</code>:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">size_t</span> <span class="n">SwFEShell</span><span class="o">::</span><span class="n">IsObjSelected</span><span class="p">()</span> <span class="k">const</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span> <span class="n">IsFrameSelected</span><span class="p">()</span> <span class="o">||</span> <span class="o">!</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">HasDrawView</span><span class="p">()</span> <span class="p">)</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetDrawView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">().</span><span class="n">GetMarkCount</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="kt">bool</span> <span class="n">SwFEShell</span><span class="o">::</span><span class="n">IsFrameSelected</span><span class="p">()</span> <span class="k">const</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">HasDrawView</span><span class="p">()</span> <span class="p">)</span>
-        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="k">else</span>
-        <span class="k">return</span> <span class="nb">nullptr</span> <span class="o">!=</span> <span class="o">::</span><span class="n">GetFlyFromMarked</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetDrawView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">(),</span>
-                                        <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">SwFEShell</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">);</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>When selecting raster images, in SwFEShell::IsFrameSelected():</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">return</span> <span class="nb">nullptr</span> <span class="o">!=</span> <span class="o">::</span><span class="n">GetFlyFromMarked</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetDrawView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">(),</span>
-                                        <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">SwFEShell</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">);</span></code></pre></figure>
-
-<p><code class="highlighter-rouge">GetFlyFromMarked</code> should return <code class="highlighter-rouge">false</code> (0(null)), not an address which make <code class="highlighter-rouge">nullptr != 0x01...</code> <code class="highlighter-rouge">true</code>.
-<br /></p>
-<p align="center">
-    ***
-</p>
-
-<p>I also looked at Draw and Calc to see how images are handled. Images are converted a drawing objects and have the same attributes like shapes. But in Writer, images have different attributes and handling.</p>
-
-<h3 id="summary-of-last-2-weeks">Summary of last 2 weeks</h3>
-
-<ul>
-  <li>Tried to understand how shapes grouped together</li>
-  <li>Debugging</li>
-</ul>
-
-<h3 id="next-week-to-do">Next Week TO-DO</h3>
-
-<ul>
-  <li>Make raster images selectable(group) with SHIFT+CLICK</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #3 and week #4.]]></summary></entry></feed>
+</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #5.]]></summary></entry></feed>
