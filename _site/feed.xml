@@ -1,4 +1,249 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-03T15:53:30+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #1 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report.html" rel="alternate" type="text/html" title="Week #1 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-03T11:08:00+03:00</published><updated>2023-06-03T11:08:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance.</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-10T13:20:02+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #2 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html" rel="alternate" type="text/html" title="Week #2 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-10T09:03:00+03:00</published><updated>2023-06-10T09:03:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html"><![CDATA[<h3 id="current-progress-for-week-2">Current progress for week #2</h3>
+
+<ul>
+  <li>In week #1, search functionality was implemented only for headers of the options TreeView. (“Tools &gt; Options” - left pane tree).</li>
+</ul>
+
+<p>We should expand the search functionality to include the sub-headers(sub-elements) of the nodes. For example; if you type <code class="highlighter-rouge">“libre”</code>, search function will look if there is any match only in headers. But we should also check their child nodes(sub-headers) to be ensure if there will be any match with the search term.</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-01-02-search.png" alt="w-01-02-search.png" title="searching for headers" />
+</p>
+<p><br /></p>
+
+<ul>
+  <li>Sub-tree elements(child nodes) are now included in searching.</li>
+</ul>
+
+<p>Patchset 2: <a href="https://gerrit.libreoffice.org/c/core/+/152519/2">https://gerrit.libreoffice.org/c/core/+/152519/2</a></p>
+
+<p>If user types <code class="highlighter-rouge">"japanese"</code>, search function will find the match in <code class="highlighter-rouge">"Searching in Japanese"</code> and will show its parent node - which is <code class="highlighter-rouge">"Language Settings"</code>, as shown below. However, if we only search in headers, this would not be possible and the left pane would be empty - nothing would be shown.</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-02-01-sub-tree-search.png" alt="w-02-01-sub-tree-search.png" title="searching for headers and sub-headers" />
+</p>
+<p><br /></p>
+
+<p>As you can see at the bottom line of the terminal; if there is a match, debug prints <code class="highlighter-rouge">"found: &lt;full string of where search item found&gt; : &lt;its parent ID&gt;"</code>.</p>
+
+<p><br /></p>
+<ul>
+  <li>Some technical details</li>
+</ul>
+
+<p>All TreeView nodes and their child nodes are stored in a <code class="highlighter-rouge">std::vector</code> as a <code class="highlighter-rouge">std::pair</code>.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">OUString</span><span class="p">,</span> <span class="n">sal_uInt16</span><span class="o">&gt;&gt;</span> <span class="n">storedIdVector</span><span class="p">;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// store Options tree with their sub elements</span>
+<span class="kt">void</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">storeOptionsTree</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">storedIdVector</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">weld</span><span class="o">::</span><span class="n">TreeIter</span><span class="o">&gt;</span> <span class="n">xEntry</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">make_iterator</span><span class="p">();</span>
+        <span class="kt">bool</span> <span class="n">bEntry</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_iter_first</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">);</span>
+
+        <span class="n">sal_uInt16</span> <span class="n">currentTreeElementId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="c1">// iterate over the tree and their sub-tree elements</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">bEntry</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">OptionsGroupInfo</span><span class="o">*</span> <span class="n">pGroupInfo</span> <span class="o">=</span> <span class="n">weld</span><span class="o">::</span><span class="n">fromId</span><span class="o">&lt;</span><span class="n">OptionsGroupInfo</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">));</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_iter_depth</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">currentTreeElementId</span> <span class="o">=</span> <span class="n">pGroupInfo</span><span class="o">-&gt;</span><span class="n">m_nDialogId</span><span class="p">;</span>
+                <span class="n">storedIdVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_text</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">)</span> <span class="p">,</span><span class="n">currentTreeElementId</span><span class="p">});</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">storedIdVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_text</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">)</span> <span class="p">,</span><span class="n">currentTreeElementId</span><span class="p">});</span>
+            <span class="p">}</span>
+            <span class="n">bEntry</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">iter_next</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Search function searchs through all first elements of <code class="highlighter-rouge">std::pair&lt;OUString, sal_uInt16&gt;</code>. If there is a match, the second element - which is the ID of the parent node - will be added to left pane as a node.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">applySearchFilter</span><span class="p">(</span><span class="n">OUString</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rSearchTerm</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rSearchTerm</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">clearOptionsDialog</span><span class="p">();</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+        <span class="n">Initialize</span><span class="p">(</span><span class="n">m_xFrame</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">m_options</span><span class="p">.</span><span class="n">searchString</span> <span class="o">=</span> <span class="n">rSearchTerm</span><span class="p">;</span>
+    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="n">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
+
+    <span class="n">clearOptionsDialog</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">n_children</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">sal_uInt16</span><span class="o">&gt;</span> <span class="n">foundIdsVector</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">storedIdVector</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">OUString</span> <span class="n">itemName</span> <span class="o">=</span> <span class="n">storedIdVector</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
+        <span class="n">sal_uInt16</span> <span class="n">itemId</span> <span class="o">=</span> <span class="n">storedIdVector</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">second</span><span class="p">;</span>
+
+        <span class="n">sal_Int32</span> <span class="n">aStartPos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">sal_Int32</span> <span class="n">aEndPos</span> <span class="o">=</span> <span class="n">itemName</span><span class="p">.</span><span class="n">getLength</span><span class="p">();</span>
+
+        <span class="c1">// make search</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">textSearch</span><span class="p">.</span><span class="n">SearchForward</span><span class="p">(</span><span class="n">itemName</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aStartPos</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aEndPos</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// debug ("not found: " &lt;&lt; itemName &lt;&lt; " : " &lt;&lt; itemId);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// debug ("found: " &lt;&lt; itemName &lt;&lt; " : " &lt;&lt; itemId);</span>
+
+            <span class="kt">bool</span> <span class="n">isFound</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">entryId</span> <span class="o">:</span> <span class="n">foundIdsVector</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">entryId</span> <span class="o">==</span> <span class="n">itemId</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">isFound</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">isFound</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">foundIdsVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">itemId</span><span class="p">);</span>
+
+                <span class="cm">/*
+                    void generalOptions();      // SID_GENERAL_OPTIONS
+                    void loadAndSaveOptions();  // SID_FILTER_DLG
+                    void languageOptions();     // SID_LANGUAGE_OPTIONS
+                    void writerOptions();       // SID_SW_EDITOPTIONS
+                    void writerWebOptions();    // SID_SW_ONLINEOPTIONS
+                    void calcOptions();         // SID_SC_EDITOPTIONS
+                    void impressOptions();      // SID_SD_EDITOPTIONS
+                    void drawOptions();         // SID_SD_GRAPHIC_OPTIONS
+                    void mathOptions();         // SID_SM_EDITOPTIONS
+                    void databaseOptions();     // SID_SB_STARBASEOPTIONS
+                    void chartOptions();        // SID_SCH_EDITOPTIONS
+                    void internetOptions();     // SID_INET_DLG
+                */</span>
+
+                <span class="k">switch</span><span class="p">(</span><span class="n">itemId</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">case</span> <span class="n">SID_GENERAL_OPTIONS</span><span class="p">:</span>
+                        <span class="n">generalOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_FILTER_DLG</span><span class="p">:</span>
+                        <span class="n">loadAndSaveOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_LANGUAGE_OPTIONS</span><span class="p">:</span>
+                        <span class="n">languageOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SW_EDITOPTIONS</span><span class="p">:</span>
+                        <span class="n">writerOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SW_ONLINEOPTIONS</span><span class="p">:</span>
+                        <span class="n">writerWebOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SC_EDITOPTIONS</span><span class="p">:</span>
+                        <span class="n">calcOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SD_EDITOPTIONS</span><span class="p">:</span>
+                        <span class="n">impressOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SD_GRAPHIC_OPTIONS</span><span class="p">:</span>
+                        <span class="n">drawOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SM_EDITOPTIONS</span><span class="p">:</span>
+                        <span class="n">mathOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SB_STARBASEOPTIONS</span><span class="p">:</span>
+                        <span class="n">databaseOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SCH_EDITOPTIONS</span><span class="p">:</span>
+                        <span class="n">chartOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_INET_DLG</span><span class="p">:</span>
+                        <span class="n">internetOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="nl">default:</span>
+                        <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// if treeview is empty, return -1</span>
+    <span class="k">return</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">n_children</span><span class="p">()</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>Sub-tree elements(child nodes) are now included in searching.</li>
+  <li>Patchset 2 has been submitted: <a href="https://gerrit.libreoffice.org/c/core/+/152519/2">https://gerrit.libreoffice.org/c/core/+/152519/2</a></li>
+</ul>
+
+<p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>1) Add Search field to “Tools &gt; Options” dialog.</td>
+            <td><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>2) Options treeview.</td>
+            <td><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>3) Sub-tree elements (child nodes).</td>
+            <td><b>DONE - week #2</b></td>
+        </tr>
+        <tr>
+            <td>4) Strings(labels) in all dialogs.</td>
+            <td><b>Next step</b></td>
+        </tr>
+        <tr>
+            <td>5) Tooltip texts.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>6) Accessible descriptions.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td><b>...</b></td>
+        </tr>
+    </tbody>
+</table>
+
+<p align="center">
+    ***
+</p>
+
+<p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
+
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Current progress for week #2]]></summary></entry><entry><title type="html">Week #1 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report.html" rel="alternate" type="text/html" title="Week #1 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-03T11:08:00+03:00</published><updated>2023-06-03T11:08:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance.</em></p>
 
 <p align="center">
     ***
@@ -17,14 +262,14 @@
 
 <p><code class="highlighter-rouge">cui/uiconfig/ui/optionsdialog.ui</code>:</p>
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/w-01-00-search-ui-glade.png" alt="w-01-00-search-ui-glade.png" />
+  <img src="../../../../folder/libreoffice-png/w-01-00-search-ui-glade.png" alt="w-01-00-search-ui-glade.png" />
 </p>
 <p><br /></p>
 
 <p><code class="highlighter-rouge">“Tools &gt; Options”</code> dialog:</p>
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/w-01-01-search-ui-libre.png" alt="w-01-01-search-ui-libre.png" />
+  <img src="../../../../folder/libreoffice-png/w-01-01-search-ui-libre.png" alt="w-01-01-search-ui-libre.png" />
 </p>
 <p><br /></p>
 
@@ -41,12 +286,12 @@
   <li>Some technical details</li>
 </ul>
 
-<p>There is a timer that waits for user to stop typing if user types faster.</p>
+<p>There is a timer that waits the user to stop typing if user types faster than <code class="highlighter-rouge">350ms</code>. Since searching can be expensive, we shouldn’t perform search for every key press if pressing between two keys are less than 350ms, which will improve the performance.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">IMPL_LINK_NOARG</span><span class="p">(</span><span class="n">OfaTreeOptionsDialog</span><span class="p">,</span> <span class="n">SearchUpdateHdl</span><span class="p">,</span> <span class="n">weld</span><span class="o">::</span><span class="n">Entry</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">m_aUpdateDataTimer</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
-    <span class="c1">// debug ("1 -&gt; SearchUpdateHdl, treeopt.cxx ");</span>
+    <span class="c1">// debug ("timer -&gt; SearchUpdateHdl()");</span>
 <span class="p">}</span></code></pre></figure>
 
 <p><code class="highlighter-rouge">ImplUpdateDataHdl()</code> is called for searching:</p>
@@ -184,17 +429,43 @@
 <ul>
   <li>First patchset has been submitted: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></li>
   <li>Search bar/field added to “Tools &gt; Options” dialog.</li>
-  <li>Search functionality implemeted to Options treeview.</li>
+  <li>Search functionality implemented to Options treeview.</li>
 </ul>
 
 <p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
-<ul>
-  <li>Add Search field to “Tools &gt; Options” dialog. <strong>(DONE - week #1)</strong></li>
-  <li>Options treeview <strong>(DONE - week #1)</strong></li>
-  <li>Sub-treeview <strong>(Next step)</strong></li>
-  <li>Tooltips</li>
-  <li>Strings in all dialogs</li>
-</ul>
+
+<table>
+    <tbody>
+        <tr>
+            <td>1) Add Search field to “Tools &gt; Options” dialog.</td>
+            <td><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>2) Options treeview.</td>
+            <td><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>3) Sub-tree elements (child nodes).</td>
+            <td><b>Next step</b></td>
+        </tr>
+        <tr>
+            <td>4) Strings(labels) in all dialogs.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>5) Tooltip texts.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>6) Accessible descriptions.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td><b>...</b></td>
+        </tr>
+    </tbody>
+</table>
 
 <p>Additional hack:</p>
 <ul>
@@ -902,179 +1173,4 @@ Added tooltip <em>“Set Diagonal Right Border”</em> for for diagonal RIGHT bo
 
 <ul>
   <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #6. (first evaluations week)]]></summary></entry><entry><title type="html">Week #5 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc.html" rel="alternate" type="text/html" title="Week #5 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-11T09:24:45+03:00</published><updated>2021-07-11T09:24:45+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/11/week-05-gsoc.html"><![CDATA[<p>GSoC progress for week #5.</p>
-
-<h3 id="get-rid-of-writer-images">Get rid of Writer-Images</h3>
-
-<ul>
-  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438</a> (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images.</li>
-</ul>
-
-<p>Last week I shared a blog post of my research on this bug <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html">here</a> and this week I posted a comment about my 2-week research on the bug page of tdf#34438 <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47">here</a>, and Regina Henschel replied with a comment <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c48">here</a> (thanks for the reply):</p>
-
-<blockquote>
-  <p>[…] So from my point of view we should get rid of Writer-images. But that is a long way. […] So to get rid of Writer-images it would be necessary to implement the services, which are provided by Writer-images for Draw-images too …</p>
-</blockquote>
-
-<p>So, the last decision is: get rid of writer-images. Convert them into drawing objects, but also implement the writer-images’ services/attributes to drawing-images.</p>
-
-<h3 id="prevent-jump-to-top-of-the-comment-view--writer-comments">Prevent jump to top of the comment view / Writer-comments</h3>
-
-<ul>
-  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=91519">tdf#91519</a>: Jump of document canvas view to the top of the comment disrupts editing of long comments.</li>
-  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/118638">https://gerrit.libreoffice.org/c/core/+/118638</a> (<em>waiting for review</em>)</li>
-</ul>
-
-<p>In Writer,
-there are 3 issues about comment section:</p>
-
-<ul>
-  <li>
-    <p>comment section scrolls to top of its view when clicking inside a comment view.</p>
-  </li>
-  <li>
-    <p>clicking inside a comment view, scrolls the view to old cursor location automatically (if old cursor out of the visible area).</p>
-  </li>
-  <li>
-    <p>comment section scrolls automatically to the old <em>selected</em> text (if it’s out of visible area) when clicking inside the Writer canvas view.</p>
-  </li>
-</ul>
-
-<p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/comment-multi-selection.png" alt="comment-multi-selection.png" />
-</p>
-
-<p align="center">
-    <i>Another annoying issue: multi-selection (after a certain changes in the code)</i>
-</p>
-
-<h3 id="technical-details">Technical Details</h3>
-
-<ul>
-  <li><b>Fix for “autoscroll to old cursor location”</b></li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">ActivatePostIt</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="cm">/*...*/</span>
-
-    <span class="c1">// prevent autoscroll to the old cursor location</span>
-    <span class="c1">// when cursor out of visible area</span>
-    <span class="n">GetOutlinerView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">ShowCursor</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-
-    <span class="cm">/*...*/</span>
-<span class="p">}</span></code></pre></figure>
-
-<p><code class="highlighter-rouge">GetOutlinerView()-&gt;ShowCursor();</code> has a default value <code class="highlighter-rouge">true</code> if no argument passed in. I realized that this line causes the autoscroll to the old cursor location, and setting it to <code class="highlighter-rouge">false</code> solved the issue.</p>
-
-<ul>
-  <li><b>Fix for “jumping to the top of comment view”</b></li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">bool</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">SetActiveSidebarWin</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">mrMgr</span><span class="p">.</span><span class="n">GetActiveSidebarWin</span><span class="p">()</span> <span class="o">==</span> <span class="k">this</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="k">const</span> <span class="kt">bool</span> <span class="n">bLockView</span> <span class="o">=</span> <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">IsViewLocked</span><span class="p">();</span>
-    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="nb">true</span> <span class="p">);</span>
-    <span class="n">mrMgr</span><span class="p">.</span><span class="n">SetActiveSidebarWin</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-
-    <span class="c1">// don't understand why we set `bLockView` here?</span>
-    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="n">bLockView</span> <span class="p">);</span>
-    
-    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Just remove unnecessary <code class="highlighter-rouge">const bool bLockView = mrView.GetWrtShell().IsViewLocked();</code> line, set <code class="highlighter-rouge">.LockView( bLockView );</code> to <code class="highlighter-rouge">.LockView( true );</code> because we activating <code class="highlighter-rouge">SetActiveSidebarWin</code> here, it should be <code class="highlighter-rouge">true</code> and this fixes the jumping to the top of comment view issue with:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">UnsetActiveSidebarWin</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">mrMgr</span><span class="p">.</span><span class="n">GetActiveSidebarWin</span><span class="p">()</span> <span class="o">!=</span> <span class="k">this</span><span class="p">)</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="nb">true</span> <span class="p">);</span>
-    <span class="n">mrMgr</span><span class="p">.</span><span class="n">SetActiveSidebarWin</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
-    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="nb">false</span> <span class="p">);</span> <span class="c1">// set false</span>
-<span class="p">}</span></code></pre></figure>
-
-<ul>
-  <li><b>Fix for “scrolling automatically to the old <em>selected</em> text”</b></li>
-</ul>
-
-<p>Steps to reproduce: (in comments section)</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- select text (2-3 words for example)
-- scroll selected text to unvisible area (up or down)
-- click into the writer document canvas
-</code></pre></div></div>
-
-<p><strong>Result</strong>: comment writing area scrolls to unvisible selected text(s) (it becomes visible)</p>
-
-<p><strong>Expected result</strong>: don’t scroll to the selected area, just make it unmarked.</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">EditView</span><span class="o">::</span><span class="n">SetSelection</span><span class="p">(</span> <span class="k">const</span> <span class="n">ESelection</span><span class="o">&amp;</span> <span class="n">rESel</span> <span class="p">)</span>
-<span class="p">{</span>
-    <span class="cm">/*...*/</span>
-
-    <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">DrawSelectionXOR</span><span class="p">();</span>
-    <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">SetEditSelection</span><span class="p">(</span> <span class="n">aNewSelection</span> <span class="p">);</span>
-    <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">DrawSelectionXOR</span><span class="p">();</span>
-    <span class="kt">bool</span> <span class="n">bGotoCursor</span> <span class="o">=</span> <span class="n">pImpEditView</span><span class="o">-&gt;</span><span class="n">DoAutoScroll</span><span class="p">();</span>
-
-    <span class="n">ShowCursor</span><span class="p">(</span> <span class="n">bGotoCursor</span> <span class="p">);</span>
-<span class="p">}</span></code></pre></figure>
-
-<p><code class="highlighter-rouge">ShowCursor( bGotoCursor );</code> causes the jumping when deactivating the comment canvas (when clicking into writer document canvas).</p>
-
-<p>Just made it to:</p>
-<pre>
-    if (HasSelection())
-        ShowCursor( bGotoCursor );
-</pre>
-
-<p>and it’s solved.</p>
-
-<ul>
-  <li><b>When typing, current view have to jump to typing location</b></li>
-</ul>
-
-<p>After the certain changes in the code, I realized that the writer document canvas doesn’t jump to typing location. After a long process of debugging in the code base, found that comment section LockView doesn’t set to false:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SidebarTextControl</span><span class="o">::</span><span class="n">LoseFocus</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">// write the visible text back into the SwField</span>
-    <span class="n">mrSidebarWin</span><span class="p">.</span><span class="n">UpdateData</span><span class="p">();</span>
-
-    <span class="n">WeldEditView</span><span class="o">::</span><span class="n">LoseFocus</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">mrSidebarWin</span><span class="p">.</span><span class="n">IsMouseOver</span><span class="p">()</span> <span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">Invalidate</span><span class="p">();</span>
-    <span class="p">}</span>
-
-    <span class="c1">// I just added this line here and set it to false.</span>
-    <span class="n">mrSidebarWin</span><span class="p">.</span><span class="n">LockView</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Before the <code class="highlighter-rouge">mrSidebarWin.LockView();</code>, I created a new method in <code class="highlighter-rouge">sw/source/uibase/docvw/AnnotationWin2.cxx</code> to have access <code class="highlighter-rouge">LockView()</code>:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">LockView</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bLock</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">mrView</span><span class="p">.</span><span class="n">GetWrtShell</span><span class="p">().</span><span class="n">LockView</span><span class="p">(</span> <span class="n">bLock</span> <span class="p">);</span>
-<span class="p">}</span></code></pre></figure>
-
-<p align="center">
-    ***
-</p>
-
-<h3 id="summary-of-week-5">Summary of week #5</h3>
-
-<ul>
-  <li>We decided that we should get rid of writer-images and convert them into the drawing objects without losing the services of writer-images</li>
-  <li>Sent a patch about tdf#91519: <a href="https://gerrit.libreoffice.org/c/core/+/118638">https://gerrit.libreoffice.org/c/core/+/118638</a></li>
-</ul>
-
-<h3 id="next-week-to-do">Next Week TO-DO</h3>
-
-<ul>
-  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
-  <li>Update the UI for diagonal borders</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #5.]]></summary></entry></feed>
+</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #6. (first evaluations week)]]></summary></entry></feed>

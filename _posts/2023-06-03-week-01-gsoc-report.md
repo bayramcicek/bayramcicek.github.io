@@ -19,13 +19,13 @@ _Thanks to my 'Search Field in Options' project mentors Andreas Heinisch and Hei
 
 `cui/uiconfig/ui/optionsdialog.ui`:
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/w-01-00-search-ui-glade.png" alt="w-01-00-search-ui-glade.png"/>
+  <img src="../../../../folder/libreoffice-png/w-01-00-search-ui-glade.png" alt="w-01-00-search-ui-glade.png"/>
 </p><br>
 
 `“Tools > Options”` dialog:
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/w-01-01-search-ui-libre.png" alt="w-01-01-search-ui-libre.png"/>
+  <img src="../../../../folder/libreoffice-png/w-01-01-search-ui-libre.png" alt="w-01-01-search-ui-libre.png"/>
 </p><br>
 
 - Search functionality implemented for Options TreeView. (in “Tools > Options”)
@@ -36,13 +36,13 @@ _Thanks to my 'Search Field in Options' project mentors Andreas Heinisch and Hei
 
 - Some technical details
 
-There is a timer that waits for user to stop typing if user types faster. 
+There is a timer that waits the user to stop typing if user types faster than `350ms`. Since searching can be expensive, we shouldn't perform search for every key press if pressing between two keys are less than 350ms, which will improve the performance.
 {% highlight cpp %}
 
 IMPL_LINK_NOARG(OfaTreeOptionsDialog, SearchUpdateHdl, weld::Entry&, void)
 {
     m_aUpdateDataTimer.Start();
-    // debug ("1 -> SearchUpdateHdl, treeopt.cxx ");
+    // debug ("timer -> SearchUpdateHdl()");
 }
 
 {% endhighlight %}
@@ -189,14 +189,42 @@ int OfaTreeOptionsDialog::applySearchFilter(OUString const& rSearchTerm)
 
 - First patchset has been submitted: [https://gerrit.libreoffice.org/c/core/+/152519][gerrit-152519]
 - Search bar/field added to “Tools > Options” dialog.
-- Search functionality implemeted to Options treeview.
+- Search functionality implemented to Options treeview.
 
 Steps for implementing search functionality in “Tools > Options”:
-- Add Search field to “Tools > Options” dialog. **(DONE - week #1)**
-- Options treeview **(DONE - week #1)**
-- Sub-treeview **(Next step)**
-- Tooltips
-- Strings in all dialogs
+
+<table>
+    <tbody>
+        <tr>
+            <td>1) Add Search field to “Tools > Options” dialog.</td>
+            <td><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>2) Options treeview.</td>
+            <td><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>3) Sub-tree elements (child nodes).</td>
+            <td><b>Next step</b></td>
+        </tr>
+        <tr>
+            <td>4) Strings(labels) in all dialogs.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>5) Tooltip texts.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>6) Accessible descriptions.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td><b>...</b></td>
+        </tr>
+    </tbody>
+</table>
 
 Additional hack:
 - show modified options with some special indicator (as in KDE settings). (_better to discuss this idea in a separate ticket_)

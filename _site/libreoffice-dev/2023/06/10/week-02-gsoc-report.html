@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Week #2 - GSoC 2023 Weekly Report - Search Field in Options | Bayram Çiçek’s website</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Week #2 - GSoC 2023 Weekly Report - Search Field in Options" />
+<meta name="author" content="Bayram Çiçek" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Current progress for week #2" />
+<meta property="og:description" content="Current progress for week #2" />
+<link rel="canonical" href="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html" />
+<meta property="og:url" content="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html" />
+<meta property="og:site_name" content="Bayram Çiçek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-10T09:03:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week #2 - GSoC 2023 Weekly Report - Search Field in Options" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Bayram Çiçek"},"dateModified":"2023-06-10T09:03:00+03:00","datePublished":"2023-06-10T09:03:00+03:00","description":"Current progress for week #2","headline":"Week #2 - GSoC 2023 Weekly Report - Search Field in Options","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html"},"url":"http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Bayram Çiçek&apos;s website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Bayram Çiçek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/libreoffice/">LibreOffice</a><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Week #2 - GSoC 2023 Weekly Report - Search Field in Options</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-06-10T09:03:00+03:00" itemprop="datePublished">Jun 10, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3 id="current-progress-for-week-2">Current progress for week #2</h3>
+
+<ul>
+  <li>In week #1, search functionality was implemented only for headers of the options TreeView. (“Tools &gt; Options” - left pane tree).</li>
+</ul>
+
+<p>We should expand the search functionality to include the sub-headers(sub-elements) of the nodes. For example; if you type <code class="highlighter-rouge">“libre”</code>, search function will look if there is any match only in headers. But we should also check their child nodes(sub-headers) to be ensure if there will be any match with the search term.</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-01-02-search.png" alt="w-01-02-search.png" title="searching for headers" />
+</p>
+<p><br /></p>
+
+<ul>
+  <li>Sub-tree elements(child nodes) are now included in searching.</li>
+</ul>
+
+<p>Patchset 2: <a href="https://gerrit.libreoffice.org/c/core/+/152519/2">https://gerrit.libreoffice.org/c/core/+/152519/2</a></p>
+
+<p>If user types <code class="highlighter-rouge">"japanese"</code>, search function will find the match in <code class="highlighter-rouge">"Searching in Japanese"</code> and will show its parent node - which is <code class="highlighter-rouge">"Language Settings"</code>, as shown below. However, if we only search in headers, this would not be possible and the left pane would be empty - nothing would be shown.</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-02-01-sub-tree-search.png" alt="w-02-01-sub-tree-search.png" title="searching for headers and sub-headers" />
+</p>
+<p><br /></p>
+
+<p>As you can see at the bottom line of the terminal; if there is a match, debug prints <code class="highlighter-rouge">"found: &lt;full string of where search item found&gt; : &lt;its parent ID&gt;"</code>.</p>
+
+<p><br /></p>
+<ul>
+  <li>Some technical details</li>
+</ul>
+
+<p>All TreeView nodes and their child nodes are stored in a <code class="highlighter-rouge">std::vector</code> as a <code class="highlighter-rouge">std::pair</code>.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">OUString</span><span class="p">,</span> <span class="n">sal_uInt16</span><span class="o">&gt;&gt;</span> <span class="n">storedIdVector</span><span class="p">;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// store Options tree with their sub elements</span>
+<span class="kt">void</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">storeOptionsTree</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">storedIdVector</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">weld</span><span class="o">::</span><span class="n">TreeIter</span><span class="o">&gt;</span> <span class="n">xEntry</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">make_iterator</span><span class="p">();</span>
+        <span class="kt">bool</span> <span class="n">bEntry</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_iter_first</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">);</span>
+
+        <span class="n">sal_uInt16</span> <span class="n">currentTreeElementId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="c1">// iterate over the tree and their sub-tree elements</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">bEntry</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">OptionsGroupInfo</span><span class="o">*</span> <span class="n">pGroupInfo</span> <span class="o">=</span> <span class="n">weld</span><span class="o">::</span><span class="n">fromId</span><span class="o">&lt;</span><span class="n">OptionsGroupInfo</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">));</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_iter_depth</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">currentTreeElementId</span> <span class="o">=</span> <span class="n">pGroupInfo</span><span class="o">-&gt;</span><span class="n">m_nDialogId</span><span class="p">;</span>
+                <span class="n">storedIdVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_text</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">)</span> <span class="p">,</span><span class="n">currentTreeElementId</span><span class="p">});</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">storedIdVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_text</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">)</span> <span class="p">,</span><span class="n">currentTreeElementId</span><span class="p">});</span>
+            <span class="p">}</span>
+            <span class="n">bEntry</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">iter_next</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Search function searchs through all first elements of <code class="highlighter-rouge">std::pair&lt;OUString, sal_uInt16&gt;</code>. If there is a match, the second element - which is the ID of the parent node - will be added to left pane as a node.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">applySearchFilter</span><span class="p">(</span><span class="n">OUString</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rSearchTerm</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rSearchTerm</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">clearOptionsDialog</span><span class="p">();</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+        <span class="n">Initialize</span><span class="p">(</span><span class="n">m_xFrame</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">m_options</span><span class="p">.</span><span class="n">searchString</span> <span class="o">=</span> <span class="n">rSearchTerm</span><span class="p">;</span>
+    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="n">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
+
+    <span class="n">clearOptionsDialog</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">n_children</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">sal_uInt16</span><span class="o">&gt;</span> <span class="n">foundIdsVector</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">storedIdVector</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">OUString</span> <span class="n">itemName</span> <span class="o">=</span> <span class="n">storedIdVector</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
+        <span class="n">sal_uInt16</span> <span class="n">itemId</span> <span class="o">=</span> <span class="n">storedIdVector</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">second</span><span class="p">;</span>
+
+        <span class="n">sal_Int32</span> <span class="n">aStartPos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">sal_Int32</span> <span class="n">aEndPos</span> <span class="o">=</span> <span class="n">itemName</span><span class="p">.</span><span class="n">getLength</span><span class="p">();</span>
+
+        <span class="c1">// make search</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">textSearch</span><span class="p">.</span><span class="n">SearchForward</span><span class="p">(</span><span class="n">itemName</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aStartPos</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aEndPos</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// debug ("not found: " &lt;&lt; itemName &lt;&lt; " : " &lt;&lt; itemId);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// debug ("found: " &lt;&lt; itemName &lt;&lt; " : " &lt;&lt; itemId);</span>
+
+            <span class="kt">bool</span> <span class="n">isFound</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">entryId</span> <span class="o">:</span> <span class="n">foundIdsVector</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">entryId</span> <span class="o">==</span> <span class="n">itemId</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">isFound</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">isFound</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">foundIdsVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">itemId</span><span class="p">);</span>
+
+                <span class="cm">/*
+                    void generalOptions();      // SID_GENERAL_OPTIONS
+                    void loadAndSaveOptions();  // SID_FILTER_DLG
+                    void languageOptions();     // SID_LANGUAGE_OPTIONS
+                    void writerOptions();       // SID_SW_EDITOPTIONS
+                    void writerWebOptions();    // SID_SW_ONLINEOPTIONS
+                    void calcOptions();         // SID_SC_EDITOPTIONS
+                    void impressOptions();      // SID_SD_EDITOPTIONS
+                    void drawOptions();         // SID_SD_GRAPHIC_OPTIONS
+                    void mathOptions();         // SID_SM_EDITOPTIONS
+                    void databaseOptions();     // SID_SB_STARBASEOPTIONS
+                    void chartOptions();        // SID_SCH_EDITOPTIONS
+                    void internetOptions();     // SID_INET_DLG
+                */</span>
+
+                <span class="k">switch</span><span class="p">(</span><span class="n">itemId</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">case</span> <span class="n">SID_GENERAL_OPTIONS</span><span class="p">:</span>
+                        <span class="n">generalOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_FILTER_DLG</span><span class="p">:</span>
+                        <span class="n">loadAndSaveOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_LANGUAGE_OPTIONS</span><span class="p">:</span>
+                        <span class="n">languageOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SW_EDITOPTIONS</span><span class="p">:</span>
+                        <span class="n">writerOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SW_ONLINEOPTIONS</span><span class="p">:</span>
+                        <span class="n">writerWebOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SC_EDITOPTIONS</span><span class="p">:</span>
+                        <span class="n">calcOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SD_EDITOPTIONS</span><span class="p">:</span>
+                        <span class="n">impressOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SD_GRAPHIC_OPTIONS</span><span class="p">:</span>
+                        <span class="n">drawOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SM_EDITOPTIONS</span><span class="p">:</span>
+                        <span class="n">mathOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SB_STARBASEOPTIONS</span><span class="p">:</span>
+                        <span class="n">databaseOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_SCH_EDITOPTIONS</span><span class="p">:</span>
+                        <span class="n">chartOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="k">case</span> <span class="n">SID_INET_DLG</span><span class="p">:</span>
+                        <span class="n">internetOptions</span><span class="p">();</span>
+                        <span class="k">break</span><span class="p">;</span>
+
+                    <span class="nl">default:</span>
+                        <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// if treeview is empty, return -1</span>
+    <span class="k">return</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">n_children</span><span class="p">()</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>Sub-tree elements(child nodes) are now included in searching.</li>
+  <li>Patchset 2 has been submitted: <a href="https://gerrit.libreoffice.org/c/core/+/152519/2">https://gerrit.libreoffice.org/c/core/+/152519/2</a></li>
+</ul>
+
+<p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
+
+<table>
+    <tbody>
+        <tr>
+            <td>1) Add Search field to “Tools &gt; Options” dialog.</td>
+            <td><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>2) Options treeview.</td>
+            <td><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>3) Sub-tree elements (child nodes).</td>
+            <td><b>DONE - week #2</b></td>
+        </tr>
+        <tr>
+            <td>4) Strings(labels) in all dialogs.</td>
+            <td><b>Next step</b></td>
+        </tr>
+        <tr>
+            <td>5) Tooltip texts.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>6) Accessible descriptions.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td><b>...</b></td>
+        </tr>
+    </tbody>
+</table>
+
+<p align="center">
+    ***
+</p>
+
+<p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
+
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>
+
+
+  </div><a class="u-url" href="/libreoffice-dev/2023/06/10/week-02-gsoc-report.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Bayram Çiçek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Bayram Çiçek</li><li><a class="u-email" href="mailto:mail@bayramcicek.com.tr">mail@bayramcicek.com.tr</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.linkedin.com/in/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">bayramcicek</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

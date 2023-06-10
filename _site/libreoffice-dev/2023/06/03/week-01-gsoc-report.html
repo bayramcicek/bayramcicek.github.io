@@ -67,14 +67,14 @@
 
 <p><code class="highlighter-rouge">cui/uiconfig/ui/optionsdialog.ui</code>:</p>
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/w-01-00-search-ui-glade.png" alt="w-01-00-search-ui-glade.png" />
+  <img src="../../../../folder/libreoffice-png/w-01-00-search-ui-glade.png" alt="w-01-00-search-ui-glade.png" />
 </p>
 <p><br /></p>
 
 <p><code class="highlighter-rouge">“Tools &gt; Options”</code> dialog:</p>
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/w-01-01-search-ui-libre.png" alt="w-01-01-search-ui-libre.png" />
+  <img src="../../../../folder/libreoffice-png/w-01-01-search-ui-libre.png" alt="w-01-01-search-ui-libre.png" />
 </p>
 <p><br /></p>
 
@@ -91,12 +91,12 @@
   <li>Some technical details</li>
 </ul>
 
-<p>There is a timer that waits for user to stop typing if user types faster.</p>
+<p>There is a timer that waits the user to stop typing if user types faster than <code class="highlighter-rouge">350ms</code>. Since searching can be expensive, we shouldn’t perform search for every key press if pressing between two keys are less than 350ms, which will improve the performance.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">IMPL_LINK_NOARG</span><span class="p">(</span><span class="n">OfaTreeOptionsDialog</span><span class="p">,</span> <span class="n">SearchUpdateHdl</span><span class="p">,</span> <span class="n">weld</span><span class="o">::</span><span class="n">Entry</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">m_aUpdateDataTimer</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
-    <span class="c1">// debug ("1 -&gt; SearchUpdateHdl, treeopt.cxx ");</span>
+    <span class="c1">// debug ("timer -&gt; SearchUpdateHdl()");</span>
 <span class="p">}</span></code></pre></figure>
 
 <p><code class="highlighter-rouge">ImplUpdateDataHdl()</code> is called for searching:</p>
@@ -234,17 +234,43 @@
 <ul>
   <li>First patchset has been submitted: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></li>
   <li>Search bar/field added to “Tools &gt; Options” dialog.</li>
-  <li>Search functionality implemeted to Options treeview.</li>
+  <li>Search functionality implemented to Options treeview.</li>
 </ul>
 
 <p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
-<ul>
-  <li>Add Search field to “Tools &gt; Options” dialog. <strong>(DONE - week #1)</strong></li>
-  <li>Options treeview <strong>(DONE - week #1)</strong></li>
-  <li>Sub-treeview <strong>(Next step)</strong></li>
-  <li>Tooltips</li>
-  <li>Strings in all dialogs</li>
-</ul>
+
+<table>
+    <tbody>
+        <tr>
+            <td>1) Add Search field to “Tools &gt; Options” dialog.</td>
+            <td><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>2) Options treeview.</td>
+            <td><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>3) Sub-tree elements (child nodes).</td>
+            <td><b>Next step</b></td>
+        </tr>
+        <tr>
+            <td>4) Strings(labels) in all dialogs.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>5) Tooltip texts.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>6) Accessible descriptions.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td><b>...</b></td>
+        </tr>
+    </tbody>
+</table>
 
 <p>Additional hack:</p>
 <ul>
