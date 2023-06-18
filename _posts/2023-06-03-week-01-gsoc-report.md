@@ -191,6 +191,10 @@ int OfaTreeOptionsDialog::applySearchFilter(OUString const& rSearchTerm)
 - Search bar/field added to “Tools > Options” dialog.
 - Search functionality implemented to Options treeview.
 
+<p align="center">
+    ***
+</p>
+
 Steps for implementing search functionality in “Tools > Options”:
 
 <table>
@@ -234,6 +238,8 @@ Additional hack:
 </p>
 
 Patch: [https://gerrit.libreoffice.org/c/core/+/152519][gerrit-152519]
+
+Project Mentors: <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> (Thanks for their time and guidance)
 
 GSoC project page: [https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1][search-field-project-page]
 

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Week #3 - GSoC 2023 Weekly Report - Search Field in Options | Bayram Çiçek’s website</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Week #3 - GSoC 2023 Weekly Report - Search Field in Options" />
+<meta name="author" content="Bayram Çiçek" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Current progress for week #3" />
+<meta property="og:description" content="Current progress for week #3" />
+<link rel="canonical" href="http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report.html" />
+<meta property="og:url" content="http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report.html" />
+<meta property="og:site_name" content="Bayram Çiçek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-18T08:23:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week #3 - GSoC 2023 Weekly Report - Search Field in Options" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Bayram Çiçek"},"dateModified":"2023-06-18T08:23:00+03:00","datePublished":"2023-06-18T08:23:00+03:00","description":"Current progress for week #3","headline":"Week #3 - GSoC 2023 Weekly Report - Search Field in Options","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report.html"},"url":"http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Bayram Çiçek&apos;s website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Bayram Çiçek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/libreoffice/">LibreOffice</a><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Week #3 - GSoC 2023 Weekly Report - Search Field in Options</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-06-18T08:23:00+03:00" itemprop="datePublished">Jun 18, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3 id="current-progress-for-week-3">Current progress for week #3</h3>
+
+<ul>
+  <li>The Problem in Options sub-dialogs</li>
+</ul>
+
+<p>I’ve been working with Options dialog which has more than 30 sub-dialogs. On the left pane of the Options dialog, the TreeView headers and their sub-headers were included in searching. There is no problem here. However, when it comes to adding all sub-dialogs’ <code class="highlighter-rouge">labels</code>, <code class="highlighter-rouge">accessible-names</code>, <code class="highlighter-rouge">accessible-descriptions</code> and <code class="highlighter-rouge">tooltip-texts</code> to the searching, there is a problem arise: When Options dialog opens, it does not initialize all dialogs so it is <code class="highlighter-rouge">NOT</code> possible to access their methods - until they were clicked manually.</p>
+
+<p>I asked about this problem on <code class="highlighter-rouge">IRC #libreoffice-dev</code> channel:</p>
+
+<pre style="white-space: pre-wrap">
+
+[11:26:53 AM] &lt;bayramcicek&gt; Hi. Is it possible to fetch all strings(labels), tooltip-texts and accessible-descriptions for a .ui file without initializing its class/ctor?
+
+[11:30:35 AM] &lt;caolanm&gt; bayramcicek, might need more context. We do extract those at build-time for translation purposes for example, but that might not be useful for your case
+
+[11:33:37 AM] &lt;caolanm&gt; solenv/bin/uiex is that thing
+
+[11:33:53 AM] &lt;bayramcicek&gt; caolanm: I'm trying to add search functionality to `Tools &gt; Options` dialog. Options dialog has a lot of sub-dialogs. I need to get all strings(labels), tooltip-texts and accessible-descriptions in each dialog to include them in search function. I think I should write a method for every single dialog to get all strings/desc/tooltips they contain. Is there a better way/approach to do this?
+
+[11:34:45 AM] &lt;caolanm&gt; <b>options dialog is a super-duper pain, cause the various contents of that don't exist until created on-demand when you switch to the page</b>
+
+[11:38:19 AM] &lt;bayramcicek&gt; <b>Exactly. When Options dialog opens, it does not initialize all dialogs so I couldn't access their methods until I click them manually.</b>
+
+[11:40:01 AM] &lt;caolanm&gt; its also what that dialog is (uniquely) one that has a fixed size and doesn't adapt to its contents if there is a page that is too large
+
+[11:43:49 AM] &lt;bayramcicek&gt; caolanm: "solenv/bin/uiex is that thing" -&gt; thanks. I'll check that.
+
+[11:57:36 AM] &lt;caolanm&gt; bayramcicek, yeah, there might be some use in a build-time approach to attempt to build the index of data you need during the build, rather than at runtime.
+
+</pre>
+
+<p>It is not possible to access all sub-dialogs when Options dialog opens. We can only have access to their <code class="highlighter-rouge">pageIDs</code> and <code class="highlighter-rouge">pageNames(headers)</code>, but we can’t access their methods since they aren’t instantiated. Otherwise, fetching the all data we need would be very easy with a method implemented by all dialogs - something like <code class="highlighter-rouge">pPageInfo-&gt;m_xPage-&gt;getAllTooltips()</code> etc..</p>
+
+<p>Initializing all dialogs when Options dialog opens is another idea. But this is not a good idea since it takes long to create/initialize all sub-dialogs.</p>
+
+<p><br /></p>
+<ul>
+  <li>About <code class="highlighter-rouge">./solenv/bin/uiex</code> script</li>
+</ul>
+
+<p>In <code class="highlighter-rouge">./core</code> directory; e.g. for <code class="highlighter-rouge">optopenclpage.ui</code> file, running</p>
+
+<pre>
+ $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
+</pre>
+
+<p>extracts:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="o">---</span>
+
+<span class="cp">#. QYxCN
+#: ../cui/uiconfig/ui/optopenclpage.ui:24
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|useopencl"</span>
+<span class="n">msgid</span> <span class="s">"Allow use of OpenCL"</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="cp">#. MAc4P
+#: ../cui/uiconfig/ui/optopenclpage.ui:41
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|openclused"</span>
+<span class="n">msgid</span> <span class="s">"OpenCL is available for use."</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="cp">#. fAEQH
+#: ../cui/uiconfig/ui/optopenclpage.ui:53
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|openclnotused"</span>
+<span class="n">msgid</span> <span class="s">"OpenCL is not used."</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="cp">#. xWE5i
+#: ../cui/uiconfig/ui/optopenclpage.ui:67
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|label1"</span>
+<span class="n">msgid</span> <span class="s">"OpenCL Options"</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="o">---</span></code></pre></figure>
+
+<p>As far as I understand,  the <code class="highlighter-rouge">./solenv/bin/uiex</code> script extracts all strings that have</p>
+
+<pre>
+&lt;... translatable="yes" ... &gt;
+</pre>
+
+<p>property. This also extracts all <code class="highlighter-rouge">label</code>, <code class="highlighter-rouge">accessible-name</code>, <code class="highlighter-rouge">accessible-description</code> and <code class="highlighter-rouge">tooltip-text</code> values which are the exact data we need. But this happens only running <code class="highlighter-rouge">./solenv/bin/uiex</code> script. We need the data at build-time.</p>
+
+<p><br /></p>
+<ul>
+  <li>Extracting the data at build-time</li>
+</ul>
+
+<p>The extraction happens when running <code class="highlighter-rouge">$ make translations</code>. <code class="highlighter-rouge">$ make</code> doesn’t extract the data. (or - does it ?)</p>
+
+<p><code class="highlighter-rouge">$ make translations</code> extracts the all information from the following file extensions. (imho, probably this is why it takes longer than expected - on my computer it took 1 min 56 secs.)</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="k">static</span> <span class="n">Command</span> <span class="k">const</span> <span class="n">commands</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".hrc"</span><span class="p">),</span> <span class="s">"hrcex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".ulf"</span><span class="p">),</span> <span class="s">"ulfex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".xcu"</span><span class="p">),</span> <span class="s">"cfgex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".xrm"</span><span class="p">),</span> <span class="s">"xrmex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u"description.xml"</span><span class="p">),</span> <span class="s">"xrmex"</span><span class="p">,</span> <span class="nb">true</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".xhp"</span><span class="p">),</span> <span class="s">"helpex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".properties"</span><span class="p">),</span> <span class="s">"propex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".ui"</span><span class="p">),</span> <span class="s">"uiex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".tree"</span><span class="p">),</span> <span class="s">"treex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">}</span>
+    <span class="p">};</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">$ make translations</code> extracts all strings into <code class="highlighter-rouge">./workdir/pot/*</code> directory.</p>
+
+<p>Extraction happens in <code class="highlighter-rouge">handleFile(...)</code> function at <code class="highlighter-rouge">./l10ntools/source/localize.cxx</code> (<a href="https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189">https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189</a>)</p>
+
+<p>The extracted file <code class="highlighter-rouge">./workdir/pot/cui/messages.pot</code> includes all strings for <code class="highlighter-rouge">.ui</code> files that inside <code class="highlighter-rouge">./cui/*</code>. But <code class="highlighter-rouge">messages.pot</code> also has strings that unnecessary for our case.</p>
+
+<p>I imagine a script similar to <code class="highlighter-rouge">./solenv/bin/uiex</code> that extracts all <code class="highlighter-rouge">.ui</code> files that Options dialog has, into a file (xml or txt etc. ?), during <code class="highlighter-rouge">$ make</code>. Then we can retrieve the data into a vector and use it at run-time (maybe - when options dialog opens ?).</p>
+
+<p><code class="highlighter-rouge">./workdir/pot/cui/messages.pot</code> file:</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-03-0-messages-pot.png" alt="w-03-1-messages-pot.png" title="messages.pot file" />
+</p>
+<p><br /></p>
+
+<p>Debug messages after <code class="highlighter-rouge">$ make translations</code>:</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-03-1-terminal.png" alt="w-03-2-terminal.png" title="terminal messages after $ make translations" />
+</p>
+<p><br /></p>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>There is a problem with accessing methods of sub-dialogs in Options dialog. (the reason is that the sub-dialogs don’t exist until the page is switched)</li>
+  <li>We decided that strings in all <code class="highlighter-rouge">.ui</code> files will be generated at build-time. (which will be the most challenging part in this project)</li>
+  <li>I’ll be trying to generate the data at build-time in the following weeks.</li>
+</ul>
+
+<p align="center">
+    ***
+</p>
+
+<p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
+
+<table style="width:100%">
+    <tbody>
+        <tr>
+            <td style="width:75%">1) Add Search field to “Tools &gt; Options” dialog.</td>
+            <td colspan="2"><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>2) Include Options treeview into searching.</td>
+            <td colspan="2"><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>3) Include Sub-tree elements (child nodes) into searching.</td>
+            <td><b>DONE - week #2</b></td>
+        </tr>
+        <tr>
+            <td>4) Generate all strings(labels), accessible-names, accessible-descriptions and tooltip-texts of all .ui files in ./cui/* directory, at build-time.</td>
+            <td><b>Next step (most challenging part)</b></td>
+        </tr>
+        <tr>
+            <td>5) Fetch the generated data - at run-time.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>6) Include strings(labels), accessible-names, accessible-descriptions and tooltip-texts into searching.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>7) Implement highlighting feature - if enough time remains.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td><b>...</b></td>
+        </tr>
+    </tbody>
+</table>
+
+<p align="center">
+    ***
+</p>
+
+<p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>Project Mentors: <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> (Thanks for their time and guidance)</p>
+
+<p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
+
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>
+
+
+  </div><a class="u-url" href="/libreoffice-dev/2023/06/18/week-03-gsoc-report.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Bayram Çiçek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Bayram Çiçek</li><li><a class="u-email" href="mailto:mail@bayramcicek.com.tr">mail@bayramcicek.com.tr</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.linkedin.com/in/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">bayramcicek</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

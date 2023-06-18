@@ -1,4 +1,193 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-10T13:20:02+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #2 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html" rel="alternate" type="text/html" title="Week #2 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-10T09:03:00+03:00</published><updated>2023-06-10T09:03:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html"><![CDATA[<h3 id="current-progress-for-week-2">Current progress for week #2</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-18T15:39:08+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #3 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report.html" rel="alternate" type="text/html" title="Week #3 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-18T08:23:00+03:00</published><updated>2023-06-18T08:23:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report.html"><![CDATA[<h3 id="current-progress-for-week-3">Current progress for week #3</h3>
+
+<ul>
+  <li>The Problem in Options sub-dialogs</li>
+</ul>
+
+<p>I’ve been working with Options dialog which has more than 30 sub-dialogs. On the left pane of the Options dialog, the TreeView headers and their sub-headers were included in searching. There is no problem here. However, when it comes to adding all sub-dialogs’ <code class="highlighter-rouge">labels</code>, <code class="highlighter-rouge">accessible-names</code>, <code class="highlighter-rouge">accessible-descriptions</code> and <code class="highlighter-rouge">tooltip-texts</code> to the searching, there is a problem arise: When Options dialog opens, it does not initialize all dialogs so it is <code class="highlighter-rouge">NOT</code> possible to access their methods - until they were clicked manually.</p>
+
+<p>I asked about this problem on <code class="highlighter-rouge">IRC #libreoffice-dev</code> channel:</p>
+
+<pre style="white-space: pre-wrap">
+
+[11:26:53 AM] &lt;bayramcicek&gt; Hi. Is it possible to fetch all strings(labels), tooltip-texts and accessible-descriptions for a .ui file without initializing its class/ctor?
+
+[11:30:35 AM] &lt;caolanm&gt; bayramcicek, might need more context. We do extract those at build-time for translation purposes for example, but that might not be useful for your case
+
+[11:33:37 AM] &lt;caolanm&gt; solenv/bin/uiex is that thing
+
+[11:33:53 AM] &lt;bayramcicek&gt; caolanm: I'm trying to add search functionality to `Tools &gt; Options` dialog. Options dialog has a lot of sub-dialogs. I need to get all strings(labels), tooltip-texts and accessible-descriptions in each dialog to include them in search function. I think I should write a method for every single dialog to get all strings/desc/tooltips they contain. Is there a better way/approach to do this?
+
+[11:34:45 AM] &lt;caolanm&gt; <b>options dialog is a super-duper pain, cause the various contents of that don't exist until created on-demand when you switch to the page</b>
+
+[11:38:19 AM] &lt;bayramcicek&gt; <b>Exactly. When Options dialog opens, it does not initialize all dialogs so I couldn't access their methods until I click them manually.</b>
+
+[11:40:01 AM] &lt;caolanm&gt; its also what that dialog is (uniquely) one that has a fixed size and doesn't adapt to its contents if there is a page that is too large
+
+[11:43:49 AM] &lt;bayramcicek&gt; caolanm: "solenv/bin/uiex is that thing" -&gt; thanks. I'll check that.
+
+[11:57:36 AM] &lt;caolanm&gt; bayramcicek, yeah, there might be some use in a build-time approach to attempt to build the index of data you need during the build, rather than at runtime.
+
+</pre>
+
+<p>It is not possible to access all sub-dialogs when Options dialog opens. We can only have access to their <code class="highlighter-rouge">pageIDs</code> and <code class="highlighter-rouge">pageNames(headers)</code>, but we can’t access their methods since they aren’t instantiated. Otherwise, fetching the all data we need would be very easy with a method implemented by all dialogs - something like <code class="highlighter-rouge">pPageInfo-&gt;m_xPage-&gt;getAllTooltips()</code> etc..</p>
+
+<p>Initializing all dialogs when Options dialog opens is another idea. But this is not a good idea since it takes long to create/initialize all sub-dialogs.</p>
+
+<p><br /></p>
+<ul>
+  <li>About <code class="highlighter-rouge">./solenv/bin/uiex</code> script</li>
+</ul>
+
+<p>In <code class="highlighter-rouge">./core</code> directory; e.g. for <code class="highlighter-rouge">optopenclpage.ui</code> file, running</p>
+
+<pre>
+ $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
+</pre>
+
+<p>extracts:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="o">---</span>
+
+<span class="cp">#. QYxCN
+#: ../cui/uiconfig/ui/optopenclpage.ui:24
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|useopencl"</span>
+<span class="n">msgid</span> <span class="s">"Allow use of OpenCL"</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="cp">#. MAc4P
+#: ../cui/uiconfig/ui/optopenclpage.ui:41
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|openclused"</span>
+<span class="n">msgid</span> <span class="s">"OpenCL is available for use."</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="cp">#. fAEQH
+#: ../cui/uiconfig/ui/optopenclpage.ui:53
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|openclnotused"</span>
+<span class="n">msgid</span> <span class="s">"OpenCL is not used."</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="cp">#. xWE5i
+#: ../cui/uiconfig/ui/optopenclpage.ui:67
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|label1"</span>
+<span class="n">msgid</span> <span class="s">"OpenCL Options"</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="o">---</span></code></pre></figure>
+
+<p>As far as I understand,  the <code class="highlighter-rouge">./solenv/bin/uiex</code> script extracts all strings that have</p>
+
+<pre>
+&lt;... translatable="yes" ... &gt;
+</pre>
+
+<p>property. This also extracts all <code class="highlighter-rouge">label</code>, <code class="highlighter-rouge">accessible-name</code>, <code class="highlighter-rouge">accessible-description</code> and <code class="highlighter-rouge">tooltip-text</code> values which are the exact data we need. But this happens only running <code class="highlighter-rouge">./solenv/bin/uiex</code> script. We need the data at build-time.</p>
+
+<p><br /></p>
+<ul>
+  <li>Extracting the data at build-time</li>
+</ul>
+
+<p>The extraction happens when running <code class="highlighter-rouge">$ make translations</code>. <code class="highlighter-rouge">$ make</code> doesn’t extract the data. (or - does it ?)</p>
+
+<p><code class="highlighter-rouge">$ make translations</code> extracts the all information from the following file extensions. (imho, probably this is why it takes longer than expected - on my computer it took 1 min 56 secs.)</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="k">static</span> <span class="n">Command</span> <span class="k">const</span> <span class="n">commands</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".hrc"</span><span class="p">),</span> <span class="s">"hrcex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".ulf"</span><span class="p">),</span> <span class="s">"ulfex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".xcu"</span><span class="p">),</span> <span class="s">"cfgex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".xrm"</span><span class="p">),</span> <span class="s">"xrmex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u"description.xml"</span><span class="p">),</span> <span class="s">"xrmex"</span><span class="p">,</span> <span class="nb">true</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".xhp"</span><span class="p">),</span> <span class="s">"helpex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".properties"</span><span class="p">),</span> <span class="s">"propex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".ui"</span><span class="p">),</span> <span class="s">"uiex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".tree"</span><span class="p">),</span> <span class="s">"treex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">}</span>
+    <span class="p">};</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">$ make translations</code> extracts all strings into <code class="highlighter-rouge">./workdir/pot/*</code> directory.</p>
+
+<p>Extraction happens in <code class="highlighter-rouge">handleFile(...)</code> function at <code class="highlighter-rouge">./l10ntools/source/localize.cxx</code> (<a href="https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189">https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189</a>)</p>
+
+<p>The extracted file <code class="highlighter-rouge">./workdir/pot/cui/messages.pot</code> includes all strings for <code class="highlighter-rouge">.ui</code> files that inside <code class="highlighter-rouge">./cui/*</code>. But <code class="highlighter-rouge">messages.pot</code> also has strings that unnecessary for our case.</p>
+
+<p>I imagine a script similar to <code class="highlighter-rouge">./solenv/bin/uiex</code> that extracts all <code class="highlighter-rouge">.ui</code> files that Options dialog has, into a file (xml or txt etc. ?), during <code class="highlighter-rouge">$ make</code>. Then we can retrieve the data into a vector and use it at run-time (maybe - when options dialog opens ?).</p>
+
+<p><code class="highlighter-rouge">./workdir/pot/cui/messages.pot</code> file:</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-03-0-messages-pot.png" alt="w-03-1-messages-pot.png" title="messages.pot file" />
+</p>
+<p><br /></p>
+
+<p>Debug messages after <code class="highlighter-rouge">$ make translations</code>:</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-03-1-terminal.png" alt="w-03-2-terminal.png" title="terminal messages after $ make translations" />
+</p>
+<p><br /></p>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>There is a problem with accessing methods of sub-dialogs in Options dialog. (the reason is that the sub-dialogs don’t exist until the page is switched)</li>
+  <li>We decided that strings in all <code class="highlighter-rouge">.ui</code> files will be generated at build-time. (which will be the most challenging part in this project)</li>
+  <li>I’ll be trying to generate the data at build-time in the following weeks.</li>
+</ul>
+
+<p align="center">
+    ***
+</p>
+
+<p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
+
+<table style="width:100%">
+    <tbody>
+        <tr>
+            <td style="width:75%">1) Add Search field to “Tools &gt; Options” dialog.</td>
+            <td colspan="2"><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>2) Include Options treeview into searching.</td>
+            <td colspan="2"><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>3) Include Sub-tree elements (child nodes) into searching.</td>
+            <td><b>DONE - week #2</b></td>
+        </tr>
+        <tr>
+            <td>4) Generate all strings(labels), accessible-names, accessible-descriptions and tooltip-texts of all .ui files in ./cui/* directory, at build-time.</td>
+            <td><b>Next step (most challenging part)</b></td>
+        </tr>
+        <tr>
+            <td>5) Fetch the generated data - at run-time.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>6) Include strings(labels), accessible-names, accessible-descriptions and tooltip-texts into searching.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>7) Implement highlighting feature - if enough time remains.</td>
+            <td><b>...</b></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td><b>...</b></td>
+        </tr>
+    </tbody>
+</table>
+
+<p align="center">
+    ***
+</p>
+
+<p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>Project Mentors: <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> (Thanks for their time and guidance)</p>
+
+<p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
+
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Current progress for week #3]]></summary></entry><entry><title type="html">Week #2 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html" rel="alternate" type="text/html" title="Week #2 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-10T09:03:00+03:00</published><updated>2023-06-10T09:03:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html"><![CDATA[<h3 id="current-progress-for-week-2">Current progress for week #2</h3>
 
 <ul>
   <li>In week #1, search functionality was implemented only for headers of the options TreeView. (“Tools &gt; Options” - left pane tree).</li>
@@ -200,6 +389,10 @@
   <li>Patchset 2 has been submitted: <a href="https://gerrit.libreoffice.org/c/core/+/152519/2">https://gerrit.libreoffice.org/c/core/+/152519/2</a></li>
 </ul>
 
+<p align="center">
+    ***
+</p>
+
 <p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
 
 <table>
@@ -240,6 +433,8 @@
 </p>
 
 <p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>Project Mentors: <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> (Thanks for their time and guidance)</p>
 
 <p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
 
@@ -432,6 +627,10 @@
   <li>Search functionality implemented to Options treeview.</li>
 </ul>
 
+<p align="center">
+    ***
+</p>
+
 <p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
 
 <table>
@@ -477,6 +676,8 @@
 </p>
 
 <p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>Project Mentors: <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> (Thanks for their time and guidance)</p>
 
 <p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
 
@@ -1045,132 +1246,4 @@ layout, not in current cell.</li>
 
 <ul>
   <li>Work on Calc diagonal borders and try to implement them in Writer-Tables</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #7 and week #8.]]></summary></entry><entry><title type="html">Week #6 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc.html" rel="alternate" type="text/html" title="Week #6 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-07-18T09:41:13+03:00</published><updated>2021-07-18T09:41:13+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/07/18/week-06-gsoc.html"><![CDATA[<p>GSoC progress for week #6. (first evaluations week)</p>
-
-<h3 id="new-icons-for-diagonal-borders">New icons for diagonal borders</h3>
-
-<ul>
-  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143300">tdf#143300</a>: Add icons for diagonal borders</li>
-</ul>
-
-<p>I wanted to add diagonal borders to the <code class="highlighter-rouge">table toolbar &gt; borders</code> but realized that LO doesn’t have diagonal left and diagonal right borders under <code class="highlighter-rouge">./icon-themes/*/svx/res/*</code>. Then on the <em>LibreOffice Design EN</em> telegram channel, I said that these icons are necessary for tdf#51665. Designers wanted me to open a new report dedicated for the icons, so that <em>Rizal Muttaqin</em>(huge thanks for the icons) could draw them. Diagonal border icons will be added for all themes soon.</p>
-
-<h3 id="ui---add-diagonal-borders-in-table-toolbar">UI - add diagonal borders in Table toolbar</h3>
-
-<ul>
-  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
-  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/118951">https://gerrit.libreoffice.org/c/core/+/118951</a></li>
-</ul>
-
-<p>In order to work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>, I added diagonal borders to <code class="highlighter-rouge">table toolbar &gt; borders</code>.</p>
-
-<p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/one_cell_border_0.png" alt="one_cell_border_0.png" />
-</p>
-
-<p align="center">
-    <i>One cell selected (standard view)</i>
-</p>
-
-<p><br /></p>
-<p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/multi_cell_border_1.png" alt="multi_cell_border_1.png" />
-</p>
-
-<p align="center">
-    <i>Multiple cell selected</i>
-</p>
-
-<h3 id="technical-details">Technical Details</h3>
-
-<ul>
-  <li>Tooltips</li>
-</ul>
-
-<p>Added tooltip <em>“Set Diagonal Left Border”</em> for diagonal LEFT border.<br />
-Added tooltip <em>“Set Diagonal Right Border”</em> for for diagonal RIGHT border.</p>
-
-<p>In <code class="highlighter-rouge">include/svx/strings.hrc</code>:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define RID_SVXSTR_PARA_PRESET_DIAGONALLEFT         NC_("RID_SVXSTR_PARA_PRESET_DIAGONALLEFT", "Set Diagonal Left Border")
-#define RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT        NC_("RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT", "Set Diagonal Right Border")</span></code></pre></figure>
-
-<ul>
-  <li>Icons</li>
-</ul>
-
-<p>Added diagonal Left and Right borders to the <code class="highlighter-rouge">svx/inc/bitmaps.hlst</code>:</p>
-
-<p><code class="highlighter-rouge">fr013.png</code> -&gt; Right Diagonal Border<br />
-<code class="highlighter-rouge">fr014.png</code> -&gt; Left Diagonal Border</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define RID_SVXBMP_FRAME13                          "svx/res/fr013.png"
-#define RID_SVXBMP_FRAME14                          "svx/res/fr014.png"</span></code></pre></figure>
-
-<ul>
-  <li>Update <em>for loops</em> and <em>switch cases</em>:</li>
-</ul>
-
-<p>Increased all for loops limits by 2. <code class="highlighter-rouge">svx/source/tbxctrls/tbcontrl.cxx</code>:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">//bParagraphMode should have been set in StateChanged</span>
-<span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">bParagraphMode</span> <span class="p">)</span>
-    <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="c1">// made -&gt; for ( i = 11; i &lt; 15; i++ )</span>
-        <span class="n">mxFrameSet</span><span class="o">-&gt;</span><span class="n">InsertItem</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Image</span><span class="p">(</span><span class="n">aImgVec</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">first</span><span class="p">),</span> <span class="n">aImgVec</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">second</span><span class="p">);</span> </code></pre></figure>
-
-<p>Updated <code class="highlighter-rouge">mxFrameSet-&gt;SetColCount( 4 );</code> to <code class="highlighter-rouge">mxFrameSet-&gt;SetColCount( 5 );</code>, because column size should be 5 after adding the diagonal borders to the 5.th and 10.th order:</p>
-
-<p><code class="highlighter-rouge">svx/source/tbxctrls/tbcontrl.cxx</code>:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">case</span> <span class="mi">5</span><span class="p">:</span> <span class="k">break</span><span class="p">;</span>  <span class="c1">// DIAGONAL LEFT</span>
-
-<span class="k">case</span> <span class="mi">6</span><span class="p">:</span> <span class="n">pTop</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">theDefLine</span><span class="p">;</span>
-        <span class="n">nValidFlags</span> <span class="o">|=</span> <span class="n">FrmValidFlags</span><span class="o">::</span><span class="n">Top</span><span class="p">;</span>
-<span class="k">break</span><span class="p">;</span>  <span class="c1">// TOP</span>
-
-<span class="cm">/*...*/</span>
-
-<span class="k">case</span> <span class="mi">10</span><span class="p">:</span> <span class="k">break</span><span class="p">;</span>  <span class="c1">// DIAGONAL RIGHT</span></code></pre></figure>
-
-<p>Add them in correct order:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SvxFrameWindow_Impl</span><span class="o">::</span><span class="n">InitImageList</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">aImgVec</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME1</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_NONE</span><span class="p">)},</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME2</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYLEFT</span><span class="p">)},</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME3</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYRIGHT</span><span class="p">)},</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME4</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_LEFTRIGHT</span><span class="p">)},</span>
-        <span class="c1">// diagonal left border</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME14</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_DIAGONALLEFT</span><span class="p">)},</span>
-
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME5</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYTOP</span><span class="p">)},</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME6</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_ONLYTBOTTOM</span><span class="p">)},</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME7</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_TOPBOTTOM</span><span class="p">)},</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME8</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_ONLYOUTER</span><span class="p">)},</span>
-        <span class="c1">// diagonal right border</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME13</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT</span><span class="p">)},</span>
-
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME9</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_PARA_PRESET_TOPBOTTOMHORI</span><span class="p">)},</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME10</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_OUTERHORI</span><span class="p">)},</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME11</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_OUTERVERI</span><span class="p">)},</span>
-        <span class="p">{</span><span class="n">BitmapEx</span><span class="p">(</span><span class="n">RID_SVXBMP_FRAME12</span><span class="p">),</span> <span class="n">SvxResId</span><span class="p">(</span><span class="n">RID_SVXSTR_TABLE_PRESET_OUTERALL</span><span class="p">)}</span>
-    <span class="p">};</span>
-<span class="p">}</span></code></pre></figure>
-
-<p align="center">
-    ***
-</p>
-
-<h3 id="summary-of-week-6">Summary of week #6</h3>
-
-<ul>
-  <li>I opened a new report in Bugzilla for the icons: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143300">tdf#143300</a>: Add icons for diagonal borders</li>
-  <li>Added UI of the floating widget. Commit: <a href="https://gerrit.libreoffice.org/c/core/+/118951">https://gerrit.libreoffice.org/c/core/+/118951</a></li>
-</ul>
-
-<h3 id="next-week-to-do">Next Week TO-DO</h3>
-
-<ul>
-  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: Support diagonal borders in TABLEs</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #6. (first evaluations week)]]></summary></entry></feed>
+</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #7 and week #8.]]></summary></entry></feed>

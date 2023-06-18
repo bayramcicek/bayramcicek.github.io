@@ -5,9 +5,213 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.com.tr/libreoffice/</link>
         <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 10 Jun 2023 13:20:02 +0300</pubDate>
-        <lastBuildDate>Sat, 10 Jun 2023 13:20:02 +0300</lastBuildDate>
+        <pubDate>Sun, 18 Jun 2023 15:39:08 +0300</pubDate>
+        <lastBuildDate>Sun, 18 Jun 2023 15:39:08 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>Week #3 - GSoC 2023 Weekly Report - Search Field in Options</title>
+                <author>Bayram Çiçek</author>
+                <description>&lt;h3 id=&quot;current-progress-for-week-3&quot;&gt;Current progress for week #3&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Problem in Options sub-dialogs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’ve been working with Options dialog which has more than 30 sub-dialogs. On the left pane of the Options dialog, the TreeView headers and their sub-headers were included in searching. There is no problem here. However, when it comes to adding all sub-dialogs’ &lt;code class=&quot;highlighter-rouge&quot;&gt;labels&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-names&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-descriptions&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tooltip-texts&lt;/code&gt; to the searching, there is a problem arise: When Options dialog opens, it does not initialize all dialogs so it is &lt;code class=&quot;highlighter-rouge&quot;&gt;NOT&lt;/code&gt; possible to access their methods - until they were clicked manually.&lt;/p&gt;
+
+&lt;p&gt;I asked about this problem on &lt;code class=&quot;highlighter-rouge&quot;&gt;IRC #libreoffice-dev&lt;/code&gt; channel:&lt;/p&gt;
+
+&lt;pre style=&quot;white-space: pre-wrap&quot;&gt;
+
+[11:26:53 AM] &amp;lt;bayramcicek&amp;gt; Hi. Is it possible to fetch all strings(labels), tooltip-texts and accessible-descriptions for a .ui file without initializing its class/ctor?
+
+[11:30:35 AM] &amp;lt;caolanm&amp;gt; bayramcicek, might need more context. We do extract those at build-time for translation purposes for example, but that might not be useful for your case
+
+[11:33:37 AM] &amp;lt;caolanm&amp;gt; solenv/bin/uiex is that thing
+
+[11:33:53 AM] &amp;lt;bayramcicek&amp;gt; caolanm: I&apos;m trying to add search functionality to `Tools &amp;gt; Options` dialog. Options dialog has a lot of sub-dialogs. I need to get all strings(labels), tooltip-texts and accessible-descriptions in each dialog to include them in search function. I think I should write a method for every single dialog to get all strings/desc/tooltips they contain. Is there a better way/approach to do this?
+
+[11:34:45 AM] &amp;lt;caolanm&amp;gt; &lt;b&gt;options dialog is a super-duper pain, cause the various contents of that don&apos;t exist until created on-demand when you switch to the page&lt;/b&gt;
+
+[11:38:19 AM] &amp;lt;bayramcicek&amp;gt; &lt;b&gt;Exactly. When Options dialog opens, it does not initialize all dialogs so I couldn&apos;t access their methods until I click them manually.&lt;/b&gt;
+
+[11:40:01 AM] &amp;lt;caolanm&amp;gt; its also what that dialog is (uniquely) one that has a fixed size and doesn&apos;t adapt to its contents if there is a page that is too large
+
+[11:43:49 AM] &amp;lt;bayramcicek&amp;gt; caolanm: &quot;solenv/bin/uiex is that thing&quot; -&amp;gt; thanks. I&apos;ll check that.
+
+[11:57:36 AM] &amp;lt;caolanm&amp;gt; bayramcicek, yeah, there might be some use in a build-time approach to attempt to build the index of data you need during the build, rather than at runtime.
+
+&lt;/pre&gt;
+
+&lt;p&gt;It is not possible to access all sub-dialogs when Options dialog opens. We can only have access to their &lt;code class=&quot;highlighter-rouge&quot;&gt;pageIDs&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;pageNames(headers)&lt;/code&gt;, but we can’t access their methods since they aren’t instantiated. Otherwise, fetching the all data we need would be very easy with a method implemented by all dialogs - something like &lt;code class=&quot;highlighter-rouge&quot;&gt;pPageInfo-&amp;gt;m_xPage-&amp;gt;getAllTooltips()&lt;/code&gt; etc..&lt;/p&gt;
+
+&lt;p&gt;Initializing all dialogs when Options dialog opens is another idea. But this is not a good idea since it takes long to create/initialize all sub-dialogs.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;About &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;./core&lt;/code&gt; directory; e.g. for &lt;code class=&quot;highlighter-rouge&quot;&gt;optopenclpage.ui&lt;/code&gt; file, running&lt;/p&gt;
+
+&lt;pre&gt;
+ $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
+&lt;/pre&gt;
+
+&lt;p&gt;extracts:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#. QYxCN
+#: ../cui/uiconfig/ui/optopenclpage.ui:24
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;optopenclpage|useopencl&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Allow use of OpenCL&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgstr&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#. MAc4P
+#: ../cui/uiconfig/ui/optopenclpage.ui:41
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;optopenclpage|openclused&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;OpenCL is available for use.&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgstr&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#. fAEQH
+#: ../cui/uiconfig/ui/optopenclpage.ui:53
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;optopenclpage|openclnotused&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;OpenCL is not used.&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgstr&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#. xWE5i
+#: ../cui/uiconfig/ui/optopenclpage.ui:67
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;optopenclpage|label1&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;OpenCL Options&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgstr&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;As far as I understand,  the &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script extracts all strings that have&lt;/p&gt;
+
+&lt;pre&gt;
+&amp;lt;... translatable=&quot;yes&quot; ... &amp;gt;
+&lt;/pre&gt;
+
+&lt;p&gt;property. This also extracts all &lt;code class=&quot;highlighter-rouge&quot;&gt;label&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-name&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-description&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tooltip-text&lt;/code&gt; values which are the exact data we need. But this happens only running &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script. We need the data at build-time.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Extracting the data at build-time&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The extraction happens when running &lt;code class=&quot;highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;$ make&lt;/code&gt; doesn’t extract the data. (or - does it ?)&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt; extracts the all information from the following file extensions. (imho, probably this is why it takes longer than expected - on my computer it took 1 min 56 secs.)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Command&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;.hrc&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;hrcex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;.ulf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;ulfex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;.xcu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;cfgex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;.xrm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;xrmex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;description.xml&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;xrmex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;.xhp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;helpex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;.properties&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;propex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;.ui&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;uiex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;.tree&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;treex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt; extracts all strings into &lt;code class=&quot;highlighter-rouge&quot;&gt;./workdir/pot/*&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;Extraction happens in &lt;code class=&quot;highlighter-rouge&quot;&gt;handleFile(...)&lt;/code&gt; function at &lt;code class=&quot;highlighter-rouge&quot;&gt;./l10ntools/source/localize.cxx&lt;/code&gt; (&lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189&quot;&gt;https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;The extracted file &lt;code class=&quot;highlighter-rouge&quot;&gt;./workdir/pot/cui/messages.pot&lt;/code&gt; includes all strings for &lt;code class=&quot;highlighter-rouge&quot;&gt;.ui&lt;/code&gt; files that inside &lt;code class=&quot;highlighter-rouge&quot;&gt;./cui/*&lt;/code&gt;. But &lt;code class=&quot;highlighter-rouge&quot;&gt;messages.pot&lt;/code&gt; also has strings that unnecessary for our case.&lt;/p&gt;
+
+&lt;p&gt;I imagine a script similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; that extracts all &lt;code class=&quot;highlighter-rouge&quot;&gt;.ui&lt;/code&gt; files that Options dialog has, into a file (xml or txt etc. ?), during &lt;code class=&quot;highlighter-rouge&quot;&gt;$ make&lt;/code&gt;. Then we can retrieve the data into a vector and use it at run-time (maybe - when options dialog opens ?).&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./workdir/pot/cui/messages.pot&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/w-03-0-messages-pot.png&quot; alt=&quot;w-03-1-messages-pot.png&quot; title=&quot;messages.pot file&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Debug messages after &lt;code class=&quot;highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/w-03-1-terminal.png&quot; alt=&quot;w-03-2-terminal.png&quot; title=&quot;terminal messages after $ make translations&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;There is a problem with accessing methods of sub-dialogs in Options dialog. (the reason is that the sub-dialogs don’t exist until the page is switched)&lt;/li&gt;
+  &lt;li&gt;We decided that strings in all &lt;code class=&quot;highlighter-rouge&quot;&gt;.ui&lt;/code&gt; files will be generated at build-time. (which will be the most challenging part in this project)&lt;/li&gt;
+  &lt;li&gt;I’ll be trying to generate the data at build-time in the following weeks.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;p&gt;Steps for implementing search functionality in “Tools &amp;gt; Options”:&lt;/p&gt;
+
+&lt;table style=&quot;width:100%&quot;&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td style=&quot;width:75%&quot;&gt;1) Add Search field to “Tools &amp;gt; Options” dialog.&lt;/td&gt;
+            &lt;td colspan=&quot;2&quot;&gt;&lt;b&gt;DONE - week #1&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;2) Include Options treeview into searching.&lt;/td&gt;
+            &lt;td colspan=&quot;2&quot;&gt;&lt;b&gt;DONE - week #1&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;3) Include Sub-tree elements (child nodes) into searching.&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;DONE - week #2&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;4) Generate all strings(labels), accessible-names, accessible-descriptions and tooltip-texts of all .ui files in ./cui/* directory, at build-time.&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;Next step (most challenging part)&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;5) Fetch the generated data - at run-time.&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;...&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;6) Include strings(labels), accessible-names, accessible-descriptions and tooltip-texts into searching.&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;...&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;7) Implement highlighting feature - if enough time remains.&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;...&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;...&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;...&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;p&gt;Patch: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Project Mentors: &lt;u&gt;Andreas Heinisch&lt;/u&gt; and &lt;u&gt;Heiko Tietze&lt;/u&gt; (Thanks for their time and guidance)&lt;/p&gt;
+
+&lt;p&gt;GSoC project page: &lt;a href=&quot;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&quot;&gt;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Enhancement request on Bugzilla: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=49895&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=49895&lt;/a&gt;&lt;/p&gt;
+
+</description>
+                <pubDate>Sun, 18 Jun 2023 08:23:00 +0300</pubDate>
+                <link>https://bayramcicek.com.tr/libreoffice-dev/2023/06/18/week-03-gsoc-report.html</link>
+                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2023/06/18/week-03-gsoc-report.html</guid>
+                
+                
+                <category>libreoffice-dev</category>
+                
+            </item>
         
             <item>
                 <title>Week #2 - GSoC 2023 Weekly Report - Search Field in Options</title>
@@ -214,6 +418,10 @@
   &lt;li&gt;Patchset 2 has been submitted: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519/2&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519/2&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
 &lt;p&gt;Steps for implementing search functionality in “Tools &amp;gt; Options”:&lt;/p&gt;
 
 &lt;table&gt;
@@ -254,6 +462,8 @@
 &lt;/p&gt;
 
 &lt;p&gt;Patch: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Project Mentors: &lt;u&gt;Andreas Heinisch&lt;/u&gt; and &lt;u&gt;Heiko Tietze&lt;/u&gt; (Thanks for their time and guidance)&lt;/p&gt;
 
 &lt;p&gt;GSoC project page: &lt;a href=&quot;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&quot;&gt;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&lt;/a&gt;&lt;/p&gt;
 
@@ -461,6 +671,10 @@
   &lt;li&gt;Search functionality implemented to Options treeview.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
 &lt;p&gt;Steps for implementing search functionality in “Tools &amp;gt; Options”:&lt;/p&gt;
 
 &lt;table&gt;
@@ -506,6 +720,8 @@
 &lt;/p&gt;
 
 &lt;p&gt;Patch: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Project Mentors: &lt;u&gt;Andreas Heinisch&lt;/u&gt; and &lt;u&gt;Heiko Tietze&lt;/u&gt; (Thanks for their time and guidance)&lt;/p&gt;
 
 &lt;p&gt;GSoC project page: &lt;a href=&quot;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&quot;&gt;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&lt;/a&gt;&lt;/p&gt;
 
