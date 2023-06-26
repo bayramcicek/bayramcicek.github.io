@@ -5,7 +5,7 @@ date:   2023-06-10 09:03:00 +0300
 categories: libreoffice-dev
 ---
 
-### Current progress for week #2
+### Project Report for Week #2
 
 - In week #1, search functionality was implemented only for headers of the options TreeView. (“Tools > Options” - left pane tree).
 

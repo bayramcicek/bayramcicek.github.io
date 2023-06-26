@@ -11,7 +11,7 @@ _Thanks to my 'Search Field in Options' project mentors Andreas Heinisch and Hei
     ***
 </p>
 
-### Current progress for week #1
+### Project Report for Week #1
 
 - First patchset has been submitted: [https://gerrit.libreoffice.org/c/core/+/152519][gerrit-152519]
 

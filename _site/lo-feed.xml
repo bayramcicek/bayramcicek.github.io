@@ -5,14 +5,505 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.com.tr/libreoffice/</link>
         <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 18 Jun 2023 15:39:08 +0300</pubDate>
-        <lastBuildDate>Sun, 18 Jun 2023 15:39:08 +0300</lastBuildDate>
+        <pubDate>Mon, 26 Jun 2023 12:39:37 +0300</pubDate>
+        <lastBuildDate>Mon, 26 Jun 2023 12:39:37 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>Week #4 - GSoC 2023 Weekly Report - Search Field in Options</title>
+                <author>Bayram Çiçek</author>
+                <description>&lt;p&gt;&lt;em&gt;Thanks to my ‘Search Field in Options’ project mentors &lt;u&gt;Andreas Heinisch&lt;/u&gt; and &lt;u&gt;Heiko Tietze&lt;/u&gt; for their time and guidance. Additionally, thanks to &lt;u&gt;Caolán McNamara&lt;/u&gt; for giving me the ‘generating ui strings at build-time’ idea.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;project-report-for-week-4&quot;&gt;Project Report for Week #4&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;New patchset submitted: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519/4&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519/4&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Added new python script to generate ui strings&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I added new python script called &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex_options&lt;/code&gt; to extract strings(&lt;code class=&quot;highlighter-rouge&quot;&gt;labels&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-names&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-descriptions&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tooltip-texts&lt;/code&gt;) from ui files. This script is almost the same with &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt;. The only difference is the new script extracts only &lt;code class=&quot;highlighter-rouge&quot;&gt;entry.msgid&lt;/code&gt; which contains the strings we need. Any other outputs like &lt;code class=&quot;highlighter-rouge&quot;&gt;entry.msgctxt&lt;/code&gt; is not needed so I kept only &lt;code class=&quot;highlighter-rouge&quot;&gt;entry.msgid&lt;/code&gt; in the new script.&lt;/p&gt;
+
+&lt;p&gt;For example &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script:&lt;/p&gt;
+&lt;pre&gt;
+$ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
+&lt;/pre&gt;
+
+&lt;p&gt;will extract:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#. QYxCN
+#: ../cui/uiconfig/ui/optopenclpage.ui:24
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;optopenclpage|useopencl&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Allow use of OpenCL&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgstr&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#. MAc4P
+#: ../cui/uiconfig/ui/optopenclpage.ui:41
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;optopenclpage|openclused&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;OpenCL is available for use.&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgstr&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#. fAEQH
+#: ../cui/uiconfig/ui/optopenclpage.ui:53
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;optopenclpage|openclnotused&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;OpenCL is not used.&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgstr&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#. xWE5i
+#: ../cui/uiconfig/ui/optopenclpage.ui:67
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;optopenclpage|label1&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;OpenCL Options&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;msgstr&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;But we only need strings inside &lt;code class=&quot;highlighter-rouge&quot;&gt;msgid&lt;/code&gt; here. Others are not needed.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex_options&lt;/code&gt; extracts only strings inside &lt;code class=&quot;highlighter-rouge&quot;&gt;msgid&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;
+$ ./solenv/bin/uiex_options -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
+&lt;/pre&gt;
+
+&lt;p&gt;will extract:&lt;/p&gt;
+&lt;pre&gt;
+Allow use of OpenCL
+OpenCL is available for use.
+OpenCL is not used.
+OpenCL Options
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Extraction at build-time&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Added all ui files that belong to Options dialog, inside &lt;code class=&quot;highlighter-rouge&quot;&gt;cui/UIConfig_cui.mk&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;call gb_UIConfig_generate_options_uifiles,cui/uiconfig/uioptions, &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;    cui/uiconfig/ui/optuserpage \
+    cui/uiconfig/ui/optgeneralpage \
+    cui/uiconfig/ui/optviewpage \
+    cui/uiconfig/ui/optpathspage \
+    cui/uiconfig/ui/optfontspage \
+    cui/uiconfig/ui/optsecuritypage \
+    cui/uiconfig/ui/personalization_tab \
+    cui/uiconfig/ui/optappearancepage \
+    cui/uiconfig/ui/optaccessibilitypage \
+    cui/uiconfig/ui/optadvancedpage \
+    cui/uiconfig/ui/optbasicidepage \
+    cui/uiconfig/ui/optonlineupdatepage \
+    cui/uiconfig/ui/optopenclpage \
+    cui/uiconfig/ui/optlanguagespage \
+    cui/uiconfig/ui/optlingupage \
+    cui/uiconfig/ui/optjsearchpage \
+    cui/uiconfig/ui/optasianpage \
+    cui/uiconfig/ui/optctlpage \
+    cui/uiconfig/ui/langtoolconfigpage \
+    cui/uiconfig/ui/optdeeplpage \
+    cui/uiconfig/ui/optproxypage \
+    cui/uiconfig/ui/optemailpage \
+    cui/uiconfig/ui/optsavepage \
+    cui/uiconfig/ui/optfltrpage \
+    cui/uiconfig/ui/optfltrembedpage \
+    cui/uiconfig/ui/opthtmlpage \
+    cui/uiconfig/ui/optchartcolorspage \
+    cui/uiconfig/ui/connpooloptions \
+    cui/uiconfig/ui/dbregisterpage \
+    cui/uiconfig/ui/areatabpage \
+    sw/uiconfig/swriter/ui/optgeneralpage \
+    sw/uiconfig/swriter/ui/viewoptionspage \
+    sw/uiconfig/swriter/ui/optformataidspage \
+    sw/uiconfig/swriter/ui/optfonttabpage \
+    sw/uiconfig/swriter/ui/printoptionspage \
+    sw/uiconfig/swriter/ui/opttablepage \
+    sw/uiconfig/swriter/ui/optredlinepage \
+    sw/uiconfig/swriter/ui/optcomparison \
+    sw/uiconfig/swriter/ui/optcompatpage \
+    sw/uiconfig/swriter/ui/optcaptionpage \
+    sw/uiconfig/swriter/ui/mailconfigpage \
+    sc/uiconfig/scalc/ui/scgeneralpage \
+    sc/uiconfig/scalc/ui/optdefaultpage \
+    sc/uiconfig/scalc/ui/tpviewpage \
+    sc/uiconfig/scalc/ui/optcalculatepage \
+    sc/uiconfig/scalc/ui/optformula \
+    sc/uiconfig/scalc/ui/optsortlists \
+    sc/uiconfig/scalc/ui/optchangespage \
+    sc/uiconfig/scalc/ui/optcompatibilitypage \
+    sc/uiconfig/scalc/ui/optdlg \
+    sd/uiconfig/simpress/ui/optimpressgeneralpage \
+    sd/uiconfig/simpress/ui/sdviewpage \
+    sd/uiconfig/simpress/ui/prntopts \
+    svx/uiconfig/ui/optgridpage \
+    sfx2/uiconfig/ui/optprintpage \
+    starmath/uiconfig/smath/ui/smathsettings \
+))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;this calls &lt;code class=&quot;highlighter-rouge&quot;&gt;gb_UIConfig_generate_options_uifiles&lt;/code&gt; function with &lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions&lt;/code&gt; as first parameter and list of ui files as second parameter.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;solenv/gbuild/UIConfig.mk&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;define gb_UIConfig_run_uiex_options_script
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;shell &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;SRCDIR&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/solenv/bin/uiex_options &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;SRCDIR&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;2&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;.ui &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;1&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;3&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;.txt&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;info extracting... &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;1&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;3&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;.txt&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;
+endef
+
+define gb_UIConfig_handle_uiex_options_script
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;call gb_UIConfig_run_uiex_options_script,&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;SRCDIR&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;1&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;firstword &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;subst /, ,&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;2&lt;span class=&quot;si&quot;&gt;)))&lt;/span&gt;,&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;2&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;,&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;notdir &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;2&lt;span class=&quot;si&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;
+endef
+
+define gb_UIConfig_generate_options_uifiles
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;info running ./solenv/bin/uiex_options script...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;foreach uifile,&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;2&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;,&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;call gb_UIConfig_handle_uiex_options_script,&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;1&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;,&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;uifile&lt;span class=&quot;si&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;info ...extraction &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;.&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;
+endef&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Extracted file location&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All extracted files located in &lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/*&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/cui/*&lt;/code&gt;        for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./cui/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sc/*&lt;/code&gt;         for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./sc/uiconfig/scalc/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sd/*&lt;/code&gt;         for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./sd/uiconfig/simpress/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sfx2/*&lt;/code&gt;       for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./sfx2/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/starmath/*&lt;/code&gt;   for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./starmath/uiconfig/smath/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/svx/*&lt;/code&gt;        for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./svx/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sw/*&lt;/code&gt;         for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./sw/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;and all of sub-directories contain a &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sfx2/README.md&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre style=&quot;white-space: pre-wrap&quot;&gt;
+This directory contains txt files that extracted form build-time. All files contains labels, accessible-names, accessible-descriptions and tooltip-texts from all ./sfx2/uiconfig/ui/*.ui files that exist in Tools-Options dialog.
+
+All .txt file names is the same as their .ui names.
+
+e.g.: optprintpage.txt has strings from ./sfx2/uiconfig/ui/optprintpage.ui
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Created new class to fetch the extracted strings and use them in searching.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OptionsPageIdInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// class TreeOptHelper -----------------------------------------------&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TreeOptHelper&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;nl&quot;&gt;public:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;TreeOptHelper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeOptHelper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;storeStringsFromUiFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getAllStringsFrom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Vector &lt;code class=&quot;highlighter-rouge&quot;&gt;std::vector&amp;lt; OptionsPageIdInfo* &amp;gt; m_aTreePageIds&lt;/code&gt; contains all informatin related to extracted strings.&lt;/p&gt;
+
+&lt;pre&gt;
+m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_text(*xEntry), aParentId, pPageInfo-&amp;gt;m_nPageId));
+&lt;/pre&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OptionsPageIdInfo&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;m_sParentName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;m_sPageName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;m_nParentId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;m_nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;OptionsPageIdInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sParentName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sPageName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                       &lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nParentId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;m_sParentName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;move&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sParentName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;m_sPageName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;move&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sPageName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;m_nParentId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nParentId&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;m_nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Updated the &lt;code class=&quot;highlighter-rouge&quot;&gt;applySearchFilter()&lt;/code&gt; function&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The searching is made only in the variable &lt;code class=&quot;highlighter-rouge&quot;&gt;sPageNameAndStrings&lt;/code&gt;. It contains the dialog page name and its strings.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;OUString sPageNameAndStrings = sParentName + &quot; &quot; + sPageName + &quot; &quot; + sPageStrings;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then the searching is made:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// start searching in strings (label, accessible-name, accessible-description, tooltip-text) and all page names&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SearchForward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sPageNameAndStrings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aStartPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aEndPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;applySearchFilter(OUString const&amp;amp; rSearchTerm)&lt;/code&gt; function:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OfaTreeOptionsDialog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applySearchFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSearchTerm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// debug (&quot;applySearchFilter(), rSearchTerm text =&amp;gt; : &quot; &amp;lt;&amp;lt; rSearchTerm);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rSearchTerm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;clearOptionsDialog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;xTreeLB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_xFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;searchString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSearchTerm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;utl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextSearch&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;clearOptionsDialog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xTreeLB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;xTreeLB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aFoundIdsVector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_aTreePageIds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sParentName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_aTreePageIds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_sParentName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sPageName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_aTreePageIds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_sPageName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nParentId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_aTreePageIds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_nParentId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_aTreePageIds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sPageStrings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pOptionsTreeStrings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getAllStringsFrom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sPageNameAndStrings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sParentName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sPageName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sPageStrings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;sal_Int32&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aStartPos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sal_Int32&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aEndPos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sPageStrings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getLength&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// start searching in strings (label, accessible-name, accessible-description, tooltip-text) and all page names&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SearchForward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sPageNameAndStrings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aStartPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aEndPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// debug (&quot;not found: &quot; &amp;lt;&amp;lt; sPageName &amp;lt;&amp;lt; &quot; : &quot; &amp;lt;&amp;lt; nParentId &amp;lt;&amp;lt; &quot; : &quot; &amp;lt;&amp;lt; nPageId);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// debug (&quot;found: &quot; &amp;lt;&amp;lt; sPageName &amp;lt;&amp;lt; &quot; : &quot; &amp;lt;&amp;lt; nParentId &amp;lt;&amp;lt; &quot; : &quot; &amp;lt;&amp;lt; nPageId);&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// debug (&quot;sPageStrings: &quot; &amp;lt;&amp;lt; sPageNameAndStrings);&lt;/span&gt;
+
+            &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isFound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aEntryId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aFoundIdsVector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aEntryId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nParentId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;isFound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isFound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;aFoundIdsVector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nParentId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;showDialog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nParentId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// if treeview is empty, return -1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xTreeLB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Added new cxx file &lt;code class=&quot;highlighter-rouge&quot;&gt;cui/source/options/treeopthelper.cxx&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This file contains the file path of extracted strings with thair page-id and strings.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PageIdToFileNameMap_Impl&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;m_nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;m_pPageStringFileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;m_sContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 70 entries&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;PageIdToFileNameMap_Impl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileMap_Impl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// PAGE-ID                                  FILE-PATH-OF-EXTRACTED-STRINGS                          CONTENT       PAGE-NAME             UI-FILE-PATH&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// ProductName, SID_GENERAL_OPTIONS&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RID_SFXPAGE_GENERAL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;                      &lt;span class=&quot;s&quot;&gt;&quot;cui/uiconfig/uioptions/cui/optuserpage.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;           &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// UserData              ./cui/uiconfig/ui/optuserpage.ui&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OFA_TP_MISC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;                              &lt;span class=&quot;s&quot;&gt;&quot;cui/uiconfig/uioptions/cui/optgeneralpage.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;        &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// General               ./cui/uiconfig/ui/optgeneralpage.ui&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;other&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;68&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The function &lt;code class=&quot;highlighter-rouge&quot;&gt;storeStringsFromUiFile(sal_uInt16 nPageId)&lt;/code&gt; reads the data inside txt files and fetch them into &lt;code class=&quot;highlighter-rouge&quot;&gt;PageIdToFileNameMap_Impl&lt;/code&gt; struct as &lt;code class=&quot;highlighter-rouge&quot;&gt;rEntry.m_sContent += sLine + &quot; &quot;;&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeOptHelper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;storeStringsFromUiFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PageIdToFileNameMap_Impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rEntry&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileMap_Impl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_nPageId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ifstream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rIFStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_pPageStringFileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sTemp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rIFStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sTemp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rIFStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sTemp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;SAL_WARN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; file: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_pPageStringFileName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; could not be opened for reading!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_sContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// debug (&quot;fetching data from &quot; &amp;lt;&amp;lt; rEntry.m_pPageStringFileName);&lt;/span&gt;
+
+                &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rIFStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sTemp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sTemp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+
+                    &lt;span class=&quot;n&quot;&gt;rEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_sContent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sLine&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+                    &lt;span class=&quot;n&quot;&gt;getline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rIFStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sTemp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// debug (&quot;fetching done\n&quot;);&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// debug (&quot;no data or data is already fetched from : &quot; &amp;lt;&amp;lt; rEntry.m_pPageStringFileName);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The function &lt;code class=&quot;highlighter-rouge&quot;&gt;getAllStringsFrom(sal_uInt16 nPageId)&lt;/code&gt; gets the strings from the given pageId:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeOptHelper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getAllStringsFrom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PageIdToFileNameMap_Impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rEntry&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileMap_Impl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_nPageId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OStringToOUString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rEntry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_sContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RTL_TEXTENCODING_ASCII_US&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Some screenshots from the development&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/w-04-0-extracting-debug-messages.png&quot; alt=&quot;w-04-0-extracting-debug-messages.png&quot; title=&quot;debug messages while extracting&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/w-04-1-extracted-txt-files.png&quot; alt=&quot;w-04-1-extracted-txt-files.png&quot; title=&quot;extracted txt files&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/w-04-2-options-dialog-search.png&quot; alt=&quot;w-04-2-options-dialog-search.png&quot; title=&quot;searching in options dialog&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Strings in ui files are now can be generated at build-time.&lt;/li&gt;
+  &lt;li&gt;labels, accessible-names, accessible-descriptions and tooltip-texts from all ui files that resides inside Options dialog, are now included in searching.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;p&gt;Steps for implementing search functionality in “Tools &amp;gt; Options”:&lt;/p&gt;
+
+&lt;table style=&quot;width:100%&quot;&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td style=&quot;width:75%&quot;&gt;1) Add Search field to “Tools &amp;gt; Options” dialog.&lt;/td&gt;
+            &lt;td colspan=&quot;2&quot;&gt;&lt;b&gt;DONE - week #1&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;2) Include Options treeview into searching.&lt;/td&gt;
+            &lt;td colspan=&quot;2&quot;&gt;&lt;b&gt;DONE - week #1&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;3) Include Sub-tree elements (child nodes) into searching.&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;DONE - week #2&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;4) Generate all strings(labels), accessible-names, accessible-descriptions and tooltip-texts of all .ui files in ./cui/* directory, at build-time.&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;DONE - week #3, #4 (most challenging part)&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;5) Fetch the generated data - at run-time.&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;DONE - week #3, #4&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;6) Include strings(labels), accessible-names, accessible-descriptions and tooltip-texts into searching.&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;DONE - week #3, #4&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;7) Implement highlighting feature.&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;next step&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;...&lt;/td&gt;
+            &lt;td&gt;&lt;b&gt;...&lt;/b&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;p&gt;Patch: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Project Mentors: &lt;u&gt;Andreas Heinisch&lt;/u&gt; and &lt;u&gt;Heiko Tietze&lt;/u&gt; (Thanks for their time and guidance)&lt;/p&gt;
+
+&lt;p&gt;GSoC project page: &lt;a href=&quot;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&quot;&gt;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Enhancement request on Bugzilla: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=49895&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=49895&lt;/a&gt;&lt;/p&gt;
+
+</description>
+                <pubDate>Mon, 26 Jun 2023 08:38:00 +0300</pubDate>
+                <link>https://bayramcicek.com.tr/libreoffice-dev/2023/06/26/week-04-gsoc-report.html</link>
+                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2023/06/26/week-04-gsoc-report.html</guid>
+                
+                
+                <category>libreoffice-dev</category>
+                
+            </item>
         
             <item>
                 <title>Week #3 - GSoC 2023 Weekly Report - Search Field in Options</title>
                 <author>Bayram Çiçek</author>
-                <description>&lt;h3 id=&quot;current-progress-for-week-3&quot;&gt;Current progress for week #3&lt;/h3&gt;
+                <description>&lt;h3 id=&quot;project-report-for-week-3&quot;&gt;Project Report for Week #3&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;The Problem in Options sub-dialogs&lt;/li&gt;
@@ -216,7 +707,7 @@
             <item>
                 <title>Week #2 - GSoC 2023 Weekly Report - Search Field in Options</title>
                 <author>Bayram Çiçek</author>
-                <description>&lt;h3 id=&quot;current-progress-for-week-2&quot;&gt;Current progress for week #2&lt;/h3&gt;
+                <description>&lt;h3 id=&quot;project-report-for-week-2&quot;&gt;Project Report for Week #2&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;In week #1, search functionality was implemented only for headers of the options TreeView. (“Tools &amp;gt; Options” - left pane tree).&lt;/li&gt;
@@ -488,7 +979,7 @@
     ***
 &lt;/p&gt;
 
-&lt;h3 id=&quot;current-progress-for-week-1&quot;&gt;Current progress for week #1&lt;/h3&gt;
+&lt;h3 id=&quot;project-report-for-week-1&quot;&gt;Project Report for Week #1&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;

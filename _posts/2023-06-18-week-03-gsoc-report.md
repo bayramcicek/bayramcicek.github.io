@@ -5,7 +5,7 @@ date:   2023-06-18 08:23:00 +0300
 categories: libreoffice-dev
 ---
 
-### Current progress for week #3
+### Project Report for Week #3
 
 - The Problem in Options sub-dialogs
 
@@ -48,7 +48,7 @@ Initializing all dialogs when Options dialog opens is another idea. But this is 
  $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
 </pre>
 
- extracts:
+extracts:
 
 {% highlight cpp %}
 

@@ -1,4 +1,480 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-18T15:39:08+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #3 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report.html" rel="alternate" type="text/html" title="Week #3 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-18T08:23:00+03:00</published><updated>2023-06-18T08:23:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report.html"><![CDATA[<h3 id="current-progress-for-week-3">Current progress for week #3</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-26T12:39:37+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #4 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/26/week-04-gsoc-report.html" rel="alternate" type="text/html" title="Week #4 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-26T08:38:00+03:00</published><updated>2023-06-26T08:38:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/26/week-04-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/26/week-04-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance. Additionally, thanks to <u>Caolán McNamara</u> for giving me the ‘generating ui strings at build-time’ idea.</em></p>
+
+<h3 id="project-report-for-week-4">Project Report for Week #4</h3>
+
+<ul>
+  <li>
+    <p>New patchset submitted: <a href="https://gerrit.libreoffice.org/c/core/+/152519/4">https://gerrit.libreoffice.org/c/core/+/152519/4</a></p>
+  </li>
+  <li>
+    <p>Added new python script to generate ui strings</p>
+  </li>
+</ul>
+
+<p>I added new python script called <code class="highlighter-rouge">./solenv/bin/uiex_options</code> to extract strings(<code class="highlighter-rouge">labels</code>, <code class="highlighter-rouge">accessible-names</code>, <code class="highlighter-rouge">accessible-descriptions</code> and <code class="highlighter-rouge">tooltip-texts</code>) from ui files. This script is almost the same with <code class="highlighter-rouge">./solenv/bin/uiex</code>. The only difference is the new script extracts only <code class="highlighter-rouge">entry.msgid</code> which contains the strings we need. Any other outputs like <code class="highlighter-rouge">entry.msgctxt</code> is not needed so I kept only <code class="highlighter-rouge">entry.msgid</code> in the new script.</p>
+
+<p>For example <code class="highlighter-rouge">./solenv/bin/uiex</code> script:</p>
+<pre>
+$ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
+</pre>
+
+<p>will extract:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#. QYxCN
+#: ../cui/uiconfig/ui/optopenclpage.ui:24
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|useopencl"</span>
+<span class="n">msgid</span> <span class="s">"Allow use of OpenCL"</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="cp">#. MAc4P
+#: ../cui/uiconfig/ui/optopenclpage.ui:41
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|openclused"</span>
+<span class="n">msgid</span> <span class="s">"OpenCL is available for use."</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="cp">#. fAEQH
+#: ../cui/uiconfig/ui/optopenclpage.ui:53
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|openclnotused"</span>
+<span class="n">msgid</span> <span class="s">"OpenCL is not used."</span>
+<span class="n">msgstr</span> <span class="s">""</span>
+
+<span class="cp">#. xWE5i
+#: ../cui/uiconfig/ui/optopenclpage.ui:67
+</span><span class="n">msgctxt</span> <span class="s">"optopenclpage|label1"</span>
+<span class="n">msgid</span> <span class="s">"OpenCL Options"</span>
+<span class="n">msgstr</span> <span class="s">""</span></code></pre></figure>
+
+<p>But we only need strings inside <code class="highlighter-rouge">msgid</code> here. Others are not needed.</p>
+
+<p><code class="highlighter-rouge">./solenv/bin/uiex_options</code> extracts only strings inside <code class="highlighter-rouge">msgid</code>:</p>
+
+<pre>
+$ ./solenv/bin/uiex_options -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
+</pre>
+
+<p>will extract:</p>
+<pre>
+Allow use of OpenCL
+OpenCL is available for use.
+OpenCL is not used.
+OpenCL Options
+</pre>
+
+<p><br /></p>
+<ul>
+  <li>Extraction at build-time</li>
+</ul>
+
+<p>Added all ui files that belong to Options dialog, inside <code class="highlighter-rouge">cui/UIConfig_cui.mk</code> file:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span><span class="o">(</span><span class="nb">eval</span> <span class="si">$(</span>call gb_UIConfig_generate_options_uifiles,cui/uiconfig/uioptions, <span class="se">\</span>
+<span class="go">    cui/uiconfig/ui/optuserpage \
+    cui/uiconfig/ui/optgeneralpage \
+    cui/uiconfig/ui/optviewpage \
+    cui/uiconfig/ui/optpathspage \
+    cui/uiconfig/ui/optfontspage \
+    cui/uiconfig/ui/optsecuritypage \
+    cui/uiconfig/ui/personalization_tab \
+    cui/uiconfig/ui/optappearancepage \
+    cui/uiconfig/ui/optaccessibilitypage \
+    cui/uiconfig/ui/optadvancedpage \
+    cui/uiconfig/ui/optbasicidepage \
+    cui/uiconfig/ui/optonlineupdatepage \
+    cui/uiconfig/ui/optopenclpage \
+    cui/uiconfig/ui/optlanguagespage \
+    cui/uiconfig/ui/optlingupage \
+    cui/uiconfig/ui/optjsearchpage \
+    cui/uiconfig/ui/optasianpage \
+    cui/uiconfig/ui/optctlpage \
+    cui/uiconfig/ui/langtoolconfigpage \
+    cui/uiconfig/ui/optdeeplpage \
+    cui/uiconfig/ui/optproxypage \
+    cui/uiconfig/ui/optemailpage \
+    cui/uiconfig/ui/optsavepage \
+    cui/uiconfig/ui/optfltrpage \
+    cui/uiconfig/ui/optfltrembedpage \
+    cui/uiconfig/ui/opthtmlpage \
+    cui/uiconfig/ui/optchartcolorspage \
+    cui/uiconfig/ui/connpooloptions \
+    cui/uiconfig/ui/dbregisterpage \
+    cui/uiconfig/ui/areatabpage \
+    sw/uiconfig/swriter/ui/optgeneralpage \
+    sw/uiconfig/swriter/ui/viewoptionspage \
+    sw/uiconfig/swriter/ui/optformataidspage \
+    sw/uiconfig/swriter/ui/optfonttabpage \
+    sw/uiconfig/swriter/ui/printoptionspage \
+    sw/uiconfig/swriter/ui/opttablepage \
+    sw/uiconfig/swriter/ui/optredlinepage \
+    sw/uiconfig/swriter/ui/optcomparison \
+    sw/uiconfig/swriter/ui/optcompatpage \
+    sw/uiconfig/swriter/ui/optcaptionpage \
+    sw/uiconfig/swriter/ui/mailconfigpage \
+    sc/uiconfig/scalc/ui/scgeneralpage \
+    sc/uiconfig/scalc/ui/optdefaultpage \
+    sc/uiconfig/scalc/ui/tpviewpage \
+    sc/uiconfig/scalc/ui/optcalculatepage \
+    sc/uiconfig/scalc/ui/optformula \
+    sc/uiconfig/scalc/ui/optsortlists \
+    sc/uiconfig/scalc/ui/optchangespage \
+    sc/uiconfig/scalc/ui/optcompatibilitypage \
+    sc/uiconfig/scalc/ui/optdlg \
+    sd/uiconfig/simpress/ui/optimpressgeneralpage \
+    sd/uiconfig/simpress/ui/sdviewpage \
+    sd/uiconfig/simpress/ui/prntopts \
+    svx/uiconfig/ui/optgridpage \
+    sfx2/uiconfig/ui/optprintpage \
+    starmath/uiconfig/smath/ui/smathsettings \
+))</span></code></pre></figure>
+
+<p>this calls <code class="highlighter-rouge">gb_UIConfig_generate_options_uifiles</code> function with <code class="highlighter-rouge">cui/uiconfig/uioptions</code> as first parameter and list of ui files as second parameter.</p>
+
+<p><code class="highlighter-rouge">solenv/gbuild/UIConfig.mk</code>:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">define gb_UIConfig_run_uiex_options_script
+</span><span class="gp">$</span><span class="o">(</span>shell <span class="si">$(</span>SRCDIR<span class="si">)</span>/solenv/bin/uiex_options <span class="nt">-i</span> <span class="si">$(</span>SRCDIR<span class="si">)</span>/<span class="si">$(</span>2<span class="si">)</span>.ui <span class="nt">-o</span> <span class="si">$(</span>1<span class="si">)</span>/<span class="si">$(</span>3<span class="si">)</span>.txt<span class="o">)</span>
+<span class="gp">$</span><span class="o">(</span>info extracting... <span class="si">$(</span>1<span class="si">)</span>/<span class="si">$(</span>3<span class="si">)</span>.txt<span class="o">)</span>
+<span class="go">
+endef
+
+define gb_UIConfig_handle_uiex_options_script
+</span><span class="gp">$</span><span class="o">(</span>call gb_UIConfig_run_uiex_options_script,<span class="si">$(</span>SRCDIR<span class="si">)</span>/<span class="si">$(</span>1<span class="si">)</span>/<span class="si">$(</span>firstword <span class="si">$(</span>subst /, ,<span class="si">$(</span>2<span class="si">)))</span>,<span class="si">$(</span>2<span class="si">)</span>,<span class="si">$(</span>notdir <span class="si">$(</span>2<span class="si">))</span><span class="o">)</span>
+<span class="go">
+endef
+
+define gb_UIConfig_generate_options_uifiles
+</span><span class="gp">$</span><span class="o">(</span>info running ./solenv/bin/uiex_options script...<span class="o">)</span>
+<span class="gp">$</span><span class="o">(</span>foreach uifile,<span class="si">$(</span>2<span class="si">)</span>,<span class="si">$(</span>call gb_UIConfig_handle_uiex_options_script,<span class="si">$(</span>1<span class="si">)</span>,<span class="si">$(</span>uifile<span class="si">))</span><span class="o">)</span>
+<span class="gp">$</span><span class="o">(</span>info ...extraction <span class="k">done</span>.<span class="o">)</span>
+<span class="go">
+endef</span></code></pre></figure>
+
+<p><br /></p>
+<ul>
+  <li>Extracted file location</li>
+</ul>
+
+<p>All extracted files located in <code class="highlighter-rouge">cui/uiconfig/uioptions/*</code>.</p>
+
+<p><code class="highlighter-rouge">cui/uiconfig/uioptions/cui/*</code>        for ui files in <code class="highlighter-rouge">./cui/uiconfig/ui/*.ui</code></p>
+
+<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sc/*</code>         for ui files in <code class="highlighter-rouge">./sc/uiconfig/scalc/ui/*.ui</code></p>
+
+<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sd/*</code>         for ui files in <code class="highlighter-rouge">./sd/uiconfig/simpress/ui/*.ui</code></p>
+
+<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sfx2/*</code>       for ui files in <code class="highlighter-rouge">./sfx2/uiconfig/ui/*.ui</code></p>
+
+<p><code class="highlighter-rouge">cui/uiconfig/uioptions/starmath/*</code>   for ui files in <code class="highlighter-rouge">./starmath/uiconfig/smath/ui/*.ui</code></p>
+
+<p><code class="highlighter-rouge">cui/uiconfig/uioptions/svx/*</code>        for ui files in <code class="highlighter-rouge">./svx/uiconfig/ui/*.ui</code></p>
+
+<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sw/*</code>         for ui files in <code class="highlighter-rouge">./sw/uiconfig/ui/*.ui</code></p>
+
+<p>and all of sub-directories contain a <code class="highlighter-rouge">README.md</code> file.</p>
+
+<p>e.g. <code class="highlighter-rouge">cui/uiconfig/uioptions/sfx2/README.md</code>:</p>
+
+<pre style="white-space: pre-wrap">
+This directory contains txt files that extracted form build-time. All files contains labels, accessible-names, accessible-descriptions and tooltip-texts from all ./sfx2/uiconfig/ui/*.ui files that exist in Tools-Options dialog.
+
+All .txt file names is the same as their .ui names.
+
+e.g.: optprintpage.txt has strings from ./sfx2/uiconfig/ui/optprintpage.ui
+</pre>
+
+<p><br /></p>
+<ul>
+  <li>Created new class to fetch the extracted strings and use them in searching.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">struct</span> <span class="nc">OptionsPageIdInfo</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="c1">// class TreeOptHelper -----------------------------------------------</span>
+
+<span class="k">class</span> <span class="nc">TreeOptHelper</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">TreeOptHelper</span><span class="p">();</span>
+    <span class="o">~</span><span class="n">TreeOptHelper</span><span class="p">();</span>
+
+    <span class="kt">void</span> <span class="n">storeStringsFromUiFile</span><span class="p">(</span><span class="n">sal_uInt16</span> <span class="n">nPageId</span><span class="p">);</span>
+    <span class="n">OUString</span> <span class="n">getAllStringsFrom</span><span class="p">(</span><span class="n">sal_uInt16</span> <span class="n">nPageId</span><span class="p">);</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>Vector <code class="highlighter-rouge">std::vector&lt; OptionsPageIdInfo* &gt; m_aTreePageIds</code> contains all informatin related to extracted strings.</p>
+
+<pre>
+m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text(*xEntry), aParentId, pPageInfo-&gt;m_nPageId));
+</pre>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">struct</span> <span class="nc">OptionsPageIdInfo</span>
+<span class="p">{</span>
+    <span class="n">OUString</span>        <span class="n">m_sParentName</span><span class="p">;</span>
+    <span class="n">OUString</span>        <span class="n">m_sPageName</span><span class="p">;</span>
+    <span class="n">sal_uInt16</span>      <span class="n">m_nParentId</span><span class="p">;</span>
+    <span class="n">sal_uInt16</span>      <span class="n">m_nPageId</span><span class="p">;</span>
+
+    <span class="n">OptionsPageIdInfo</span><span class="p">(</span> <span class="n">OUString</span> <span class="n">sParentName</span><span class="p">,</span> <span class="n">OUString</span> <span class="n">sPageName</span><span class="p">,</span>
+                       <span class="n">sal_uInt16</span> <span class="n">nParentId</span><span class="p">,</span> <span class="n">sal_uInt16</span> <span class="n">nPageId</span> <span class="p">)</span> <span class="o">:</span>
+        <span class="n">m_sParentName</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span> <span class="n">sParentName</span> <span class="p">)),</span>
+        <span class="n">m_sPageName</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span> <span class="n">sPageName</span> <span class="p">)),</span>
+        <span class="n">m_nParentId</span><span class="p">(</span> <span class="n">nParentId</span> <span class="p">),</span>
+        <span class="n">m_nPageId</span><span class="p">(</span> <span class="n">nPageId</span> <span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span></code></pre></figure>
+
+<p><br /></p>
+<ul>
+  <li>Updated the <code class="highlighter-rouge">applySearchFilter()</code> function</li>
+</ul>
+
+<p>The searching is made only in the variable <code class="highlighter-rouge">sPageNameAndStrings</code>. It contains the dialog page name and its strings.</p>
+
+<p><code class="highlighter-rouge">OUString sPageNameAndStrings = sParentName + " " + sPageName + " " + sPageStrings;</code></p>
+
+<p>Then the searching is made:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// start searching in strings (label, accessible-name, accessible-description, tooltip-text) and all page names</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">textSearch</span><span class="p">.</span><span class="n">SearchForward</span><span class="p">(</span><span class="n">sPageNameAndStrings</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aStartPos</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aEndPos</span><span class="p">))</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">applySearchFilter(OUString const&amp; rSearchTerm)</code> function:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">applySearchFilter</span><span class="p">(</span><span class="n">OUString</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rSearchTerm</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// debug ("applySearchFilter(), rSearchTerm text =&gt; : " &lt;&lt; rSearchTerm);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">rSearchTerm</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">clearOptionsDialog</span><span class="p">();</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+        <span class="n">Initialize</span><span class="p">(</span><span class="n">m_xFrame</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">m_options</span><span class="p">.</span><span class="n">searchString</span> <span class="o">=</span> <span class="n">rSearchTerm</span><span class="p">;</span>
+    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="n">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
+
+    <span class="n">clearOptionsDialog</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">n_children</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">sal_uInt16</span><span class="o">&gt;</span> <span class="n">aFoundIdsVector</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m_aTreePageIds</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">OUString</span> <span class="n">sParentName</span> <span class="o">=</span> <span class="n">m_aTreePageIds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">m_sParentName</span><span class="p">;</span>
+        <span class="n">OUString</span> <span class="n">sPageName</span> <span class="o">=</span> <span class="n">m_aTreePageIds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">m_sPageName</span><span class="p">;</span>
+        <span class="n">sal_uInt16</span> <span class="n">nParentId</span> <span class="o">=</span> <span class="n">m_aTreePageIds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">m_nParentId</span><span class="p">;</span>
+        <span class="n">sal_uInt16</span> <span class="n">nPageId</span> <span class="o">=</span> <span class="n">m_aTreePageIds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">m_nPageId</span><span class="p">;</span>
+
+        <span class="n">OUString</span> <span class="n">sPageStrings</span> <span class="o">=</span> <span class="n">pOptionsTreeStrings</span><span class="p">.</span><span class="n">getAllStringsFrom</span><span class="p">(</span><span class="n">nPageId</span><span class="p">);</span>
+        <span class="n">OUString</span> <span class="n">sPageNameAndStrings</span> <span class="o">=</span> <span class="n">sParentName</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">sPageName</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">sPageStrings</span><span class="p">;</span>
+
+        <span class="n">sal_Int32</span> <span class="n">aStartPos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">sal_Int32</span> <span class="n">aEndPos</span> <span class="o">=</span> <span class="n">sPageStrings</span><span class="p">.</span><span class="n">getLength</span><span class="p">();</span>
+
+        <span class="c1">// start searching in strings (label, accessible-name, accessible-description, tooltip-text) and all page names</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">textSearch</span><span class="p">.</span><span class="n">SearchForward</span><span class="p">(</span><span class="n">sPageNameAndStrings</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aStartPos</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aEndPos</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// debug ("not found: " &lt;&lt; sPageName &lt;&lt; " : " &lt;&lt; nParentId &lt;&lt; " : " &lt;&lt; nPageId);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// debug ("found: " &lt;&lt; sPageName &lt;&lt; " : " &lt;&lt; nParentId &lt;&lt; " : " &lt;&lt; nPageId);</span>
+            <span class="c1">// debug ("sPageStrings: " &lt;&lt; sPageNameAndStrings);</span>
+
+            <span class="kt">bool</span> <span class="n">isFound</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">aEntryId</span> <span class="o">:</span> <span class="n">aFoundIdsVector</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">aEntryId</span> <span class="o">==</span> <span class="n">nParentId</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">isFound</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">isFound</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">aFoundIdsVector</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">nParentId</span><span class="p">);</span>
+                <span class="n">showDialog</span><span class="p">(</span><span class="n">nParentId</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// if treeview is empty, return -1</span>
+    <span class="k">return</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">n_children</span><span class="p">()</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><br /></p>
+<ul>
+  <li>Added new cxx file <code class="highlighter-rouge">cui/source/options/treeopthelper.cxx</code></li>
+</ul>
+
+<p>This file contains the file path of extracted strings with thair page-id and strings.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">struct</span> <span class="nc">PageIdToFileNameMap_Impl</span>
+<span class="p">{</span>
+    <span class="n">sal_uInt16</span>      <span class="n">m_nPageId</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span>     <span class="n">m_pPageStringFileName</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">m_sContent</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// 70 entries</span>
+<span class="n">PageIdToFileNameMap_Impl</span> <span class="n">FileMap_Impl</span><span class="p">[]</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="c1">// PAGE-ID                                  FILE-PATH-OF-EXTRACTED-STRINGS                          CONTENT       PAGE-NAME             UI-FILE-PATH</span>
+
+    <span class="c1">// ProductName, SID_GENERAL_OPTIONS</span>
+    <span class="p">{</span> <span class="n">RID_SFXPAGE_GENERAL</span><span class="p">,</span>                      <span class="s">"cui/uiconfig/uioptions/cui/optuserpage.txt"</span><span class="p">,</span>           <span class="s">""</span>      <span class="p">},</span> <span class="c1">// UserData              ./cui/uiconfig/ui/optuserpage.ui</span>
+    <span class="p">{</span> <span class="n">OFA_TP_MISC</span><span class="p">,</span>                              <span class="s">"cui/uiconfig/uioptions/cui/optgeneralpage.txt"</span><span class="p">,</span>        <span class="s">""</span>      <span class="p">},</span> <span class="c1">// General               ./cui/uiconfig/ui/optgeneralpage.ui</span>
+
+    <span class="p">...</span> <span class="p">(</span><span class="n">and</span> <span class="n">other</span> <span class="mi">68</span> <span class="n">entries</span><span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The function <code class="highlighter-rouge">storeStringsFromUiFile(sal_uInt16 nPageId)</code> reads the data inside txt files and fetch them into <code class="highlighter-rouge">PageIdToFileNameMap_Impl</code> struct as <code class="highlighter-rouge">rEntry.m_sContent += sLine + " ";</code></p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">TreeOptHelper</span><span class="o">::</span><span class="n">storeStringsFromUiFile</span><span class="p">(</span><span class="n">sal_uInt16</span> <span class="n">nPageId</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">PageIdToFileNameMap_Impl</span><span class="o">&amp;</span> <span class="n">rEntry</span> <span class="o">:</span> <span class="n">FileMap_Impl</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">rEntry</span><span class="p">.</span><span class="n">m_nPageId</span> <span class="o">==</span> <span class="n">nPageId</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">rIFStream</span><span class="p">(</span><span class="n">rEntry</span><span class="p">.</span><span class="n">m_pPageStringFileName</span><span class="p">);</span>
+
+            <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">sTemp</span><span class="p">;</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">rIFStream</span><span class="p">,</span> <span class="n">sTemp</span><span class="p">);</span>
+
+            <span class="k">if</span><span class="p">(</span> <span class="n">rIFStream</span><span class="p">.</span><span class="n">eof</span><span class="p">()</span> <span class="o">||</span> <span class="n">sTemp</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">SAL_WARN</span><span class="p">(</span><span class="s">""</span><span class="p">,</span><span class="s">" file: "</span> <span class="o">&lt;&lt;</span> <span class="n">rEntry</span><span class="p">.</span><span class="n">m_pPageStringFileName</span> <span class="o">&lt;&lt;</span> <span class="s">" could not be opened for reading!"</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">rEntry</span><span class="p">.</span><span class="n">m_sContent</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="c1">// debug ("fetching data from " &lt;&lt; rEntry.m_pPageStringFileName);</span>
+
+                <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">rIFStream</span><span class="p">.</span><span class="n">eof</span><span class="p">())</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">sLine</span><span class="p">(</span><span class="n">sTemp</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">sTemp</span><span class="p">.</span><span class="n">length</span><span class="p">());</span>
+
+                    <span class="n">rEntry</span><span class="p">.</span><span class="n">m_sContent</span> <span class="o">+=</span> <span class="n">sLine</span> <span class="o">+</span> <span class="s">" "</span><span class="p">;</span>
+
+                    <span class="n">getline</span><span class="p">(</span><span class="n">rIFStream</span><span class="p">,</span> <span class="n">sTemp</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="c1">// debug ("fetching done\n");</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="c1">// debug ("no data or data is already fetched from : " &lt;&lt; rEntry.m_pPageStringFileName);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The function <code class="highlighter-rouge">getAllStringsFrom(sal_uInt16 nPageId)</code> gets the strings from the given pageId:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">OUString</span> <span class="n">TreeOptHelper</span><span class="o">::</span><span class="n">getAllStringsFrom</span><span class="p">(</span><span class="n">sal_uInt16</span> <span class="n">nPageId</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">nPageId</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">OUString</span><span class="p">();</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">PageIdToFileNameMap_Impl</span><span class="o">&amp;</span> <span class="n">rEntry</span> <span class="o">:</span> <span class="n">FileMap_Impl</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">rEntry</span><span class="p">.</span><span class="n">m_nPageId</span> <span class="o">==</span> <span class="n">nPageId</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">OStringToOUString</span><span class="p">(</span><span class="n">rEntry</span><span class="p">.</span><span class="n">m_sContent</span><span class="p">,</span> <span class="n">RTL_TEXTENCODING_ASCII_US</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">OUString</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><br /></p>
+<ul>
+  <li>Some screenshots from the development</li>
+</ul>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-04-0-extracting-debug-messages.png" alt="w-04-0-extracting-debug-messages.png" title="debug messages while extracting" />
+</p>
+<p><br /></p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-04-1-extracted-txt-files.png" alt="w-04-1-extracted-txt-files.png" title="extracted txt files" />
+</p>
+<p><br /></p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-04-2-options-dialog-search.png" alt="w-04-2-options-dialog-search.png" title="searching in options dialog" />
+</p>
+<p><br /></p>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>Strings in ui files are now can be generated at build-time.</li>
+  <li>labels, accessible-names, accessible-descriptions and tooltip-texts from all ui files that resides inside Options dialog, are now included in searching.</li>
+</ul>
+
+<p align="center">
+    ***
+</p>
+
+<p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
+
+<table style="width:100%">
+    <tbody>
+        <tr>
+            <td style="width:75%">1) Add Search field to “Tools &gt; Options” dialog.</td>
+            <td colspan="2"><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>2) Include Options treeview into searching.</td>
+            <td colspan="2"><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>3) Include Sub-tree elements (child nodes) into searching.</td>
+            <td><b>DONE - week #2</b></td>
+        </tr>
+        <tr>
+            <td>4) Generate all strings(labels), accessible-names, accessible-descriptions and tooltip-texts of all .ui files in ./cui/* directory, at build-time.</td>
+            <td><b>DONE - week #3, #4 (most challenging part)</b></td>
+        </tr>
+        <tr>
+            <td>5) Fetch the generated data - at run-time.</td>
+            <td><b>DONE - week #3, #4</b></td>
+        </tr>
+        <tr>
+            <td>6) Include strings(labels), accessible-names, accessible-descriptions and tooltip-texts into searching.</td>
+            <td><b>DONE - week #3, #4</b></td>
+        </tr>
+        <tr>
+            <td>7) Implement highlighting feature.</td>
+            <td><b>next step</b></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td><b>...</b></td>
+        </tr>
+    </tbody>
+</table>
+
+<p align="center">
+    ***
+</p>
+
+<p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>Project Mentors: <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> (Thanks for their time and guidance)</p>
+
+<p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
+
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance. Additionally, thanks to Caolán McNamara for giving me the ‘generating ui strings at build-time’ idea.]]></summary></entry><entry><title type="html">Week #3 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report.html" rel="alternate" type="text/html" title="Week #3 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-18T08:23:00+03:00</published><updated>2023-06-18T08:23:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/18/week-03-gsoc-report.html"><![CDATA[<h3 id="project-report-for-week-3">Project Report for Week #3</h3>
 
 <ul>
   <li>The Problem in Options sub-dialogs</li>
@@ -187,7 +663,7 @@
 
 <p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
 
-<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Current progress for week #3]]></summary></entry><entry><title type="html">Week #2 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html" rel="alternate" type="text/html" title="Week #2 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-10T09:03:00+03:00</published><updated>2023-06-10T09:03:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html"><![CDATA[<h3 id="current-progress-for-week-2">Current progress for week #2</h3>
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Project Report for Week #3]]></summary></entry><entry><title type="html">Week #2 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html" rel="alternate" type="text/html" title="Week #2 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-10T09:03:00+03:00</published><updated>2023-06-10T09:03:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/10/week-02-gsoc-report.html"><![CDATA[<h3 id="project-report-for-week-2">Project Report for Week #2</h3>
 
 <ul>
   <li>In week #1, search functionality was implemented only for headers of the options TreeView. (“Tools &gt; Options” - left pane tree).</li>
@@ -438,13 +914,13 @@
 
 <p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
 
-<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Current progress for week #2]]></summary></entry><entry><title type="html">Week #1 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report.html" rel="alternate" type="text/html" title="Week #1 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-03T11:08:00+03:00</published><updated>2023-06-03T11:08:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance.</em></p>
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Project Report for Week #2]]></summary></entry><entry><title type="html">Week #1 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report.html" rel="alternate" type="text/html" title="Week #1 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-03T11:08:00+03:00</published><updated>2023-06-03T11:08:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/03/week-01-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance.</em></p>
 
 <p align="center">
     ***
 </p>
 
-<h3 id="current-progress-for-week-1">Current progress for week #1</h3>
+<h3 id="project-report-for-week-1">Project Report for Week #1</h3>
 
 <ul>
   <li>
@@ -1200,50 +1676,4 @@ layout, not in current cell.</li>
 <ul>
   <li>Write UItest for Calc diagonal-borders.</li>
   <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34689">https://bugs.documentfoundation.org/show_bug.cgi?id=34689</a> - UI scroll problem: Cell with dimensions exceeding screen dimensions impossible to work with.</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #9.]]></summary></entry><entry><title type="html">Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/01/week-07-08-gsoc.html" rel="alternate" type="text/html" title="Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-01T09:04:42+03:00</published><updated>2021-08-01T09:04:42+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/01/week-07-08-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/01/week-07-08-gsoc.html"><![CDATA[<p>GSoC progress for week #7 and week #8.</p>
-
-<h4 id="made-research-on-borders-in-writer-tables">Made research on borders in Writer-Tables</h4>
-
-<ul>
-  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a> - Support diagonal borders in TABLEs</li>
-</ul>
-
-<p>In <code class="highlighter-rouge">Table Toolbar &gt; Bordes</code>, Writer has 8 border frames for each cell, and has 12 border frames for multiple selected cells. With 2 new borders (Diagonal Left/Right), Writer has 14 border frames.</p>
-
-<p>I made research about how applying borders works in Writer-Tables. Then I started to work on it with sending first patchsets as WIP: <a href="https://gerrit.libreoffice.org/c/core/+/119685">https://gerrit.libreoffice.org/c/core/+/119685</a></p>
-
-<p>I realized that Calc has diagonal borders feature in both <code class="highlighter-rouge">Format &gt; Cells... &gt; Borders tab</code> and (Sidebar Tab) <code class="highlighter-rouge">Properties &gt; Cell Appearance</code>. Next week, I will try to understand how diagonal borders work in Calc cells and will try to implement them in Writer-Tables.</p>
-
-<h4 id="code-pointers">Code pointers:</h4>
-
-<ul>
-  <li>
-    <p>sw/source/core/layout/paintfrm.cxx</p>
-  </li>
-  <li>
-    <p>sw/source/core/doc/tblafmt.cxx</p>
-  </li>
-  <li>
-    <p>svx/source/tbxctrls/tbcontrl.cxx: <a href="https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221">https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221</a></p>
-  </li>
-  <li>
-    <p>sc/source/ui/sidebar/CellBorderStyleControl.cxx:133 : <a href="https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellBorderStyleControl.cxx?r=f3fc16f4#133">https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellBorderStyleControl.cxx?r=f3fc16f4#133</a>
-<br /></p>
-  </li>
-</ul>
-<p align="center">
-    ***
-</p>
-
-<h3 id="summary-of-last-2-weeks">Summary of last 2 weeks</h3>
-
-<ul>
-  <li>Worked on Writer-Tables</li>
-  <li>commit: (WIP) Support diagonal borders in Writer-Tables : <a href="https://gerrit.libreoffice.org/c/core/+/119685">https://gerrit.libreoffice.org/c/core/+/119685</a></li>
-</ul>
-
-<h3 id="next-week-to-do">Next Week TO-DO</h3>
-
-<ul>
-  <li>Work on Calc diagonal borders and try to implement them in Writer-Tables</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #7 and week #8.]]></summary></entry></feed>
+</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #9.]]></summary></entry></feed>
