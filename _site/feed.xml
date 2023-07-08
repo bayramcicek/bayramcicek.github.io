@@ -1,4 +1,226 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-26T12:39:37+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #4 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/26/week-04-gsoc-report.html" rel="alternate" type="text/html" title="Week #4 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-26T08:38:00+03:00</published><updated>2023-06-26T08:38:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/26/week-04-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/26/week-04-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance. Additionally, thanks to <u>Caolán McNamara</u> for giving me the ‘generating ui strings at build-time’ idea.</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-08T22:02:22+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html" rel="alternate" type="text/html" title="Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-07-08T14:39:00+03:00</published><updated>2023-07-08T14:39:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance. Additionally, thanks to <u>Christian Lohmaier</u> for his reviews and comments about text extraction and makefiles.</em></p>
+
+<h3 id="project-report-for-week-5-and-6">Project Report for Week #5 and #6</h3>
+
+<ul>
+  <li>
+    <p>New patchsets submitted (between patchset 5 and 10): <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+  </li>
+  <li>
+    <p>Modified uiex python script to generate ui strings.</p>
+  </li>
+</ul>
+
+<p>I removed the <code class="highlighter-rouge">./solenv/bin/uiex_options</code> script that almost the same with <code class="highlighter-rouge">./solenv/bin/uiex</code>. Instead of creating a new script, adding an additional option to the existing uiex script -to only print the msgid instead of the full entry-, is better than a different file.</p>
+
+<p><code class="highlighter-rouge">./solenv/bin/uiex</code>:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="p">...</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"getString"</span><span class="p">)</span> <span class="p">):</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="s">"w"</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="s">"a"</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">check_output</span><span class="p">([</span><span class="s">"xgettext"</span><span class="p">,</span> <span class="s">"--add-comments"</span><span class="p">,</span> <span class="s">"--no-wrap"</span><span class="p">,</span> <span class="n">ifile</span><span class="p">,</span> <span class="s">"-o"</span><span class="p">,</span> <span class="s">"-"</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">)</span>
+    <span class="n">po</span> <span class="o">=</span> <span class="n">polib</span><span class="p">.</span><span class="n">pofile</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">po</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">po</span><span class="p">:</span>
+            <span class="c1"># skip 'stock' entries like "cancel", "help", "ok", etc
+</span>            <span class="c1"># l10ntools/source/localize.cxx will insert one entry for each stock per .po
+</span>            <span class="k">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">==</span> <span class="s">"stock"</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="s">"a"</span><span class="p">):</span>
+                <span class="n">keyid</span> <span class="o">=</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">+</span> <span class="s">'|'</span> <span class="o">+</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgid</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'#. '</span> <span class="o">+</span> <span class="n">polib</span><span class="p">.</span><span class="n">genKeyId</span><span class="p">(</span><span class="n">keyid</span><span class="p">),</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">occurrence</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">):</span>
+                <span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">occurrence</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'SRCDIR'</span><span class="p">]),</span> <span class="n">occurrence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="s">"a"</span><span class="p">):</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">msgid</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+<ul>
+  <li>Search function now removes the child-nodes that do not match with the search term.</li>
+</ul>
+
+<p>The search function now gives better results than the previous version.</p>
+
+<p><br /></p>
+<p align="center">
+<b>Before:</b> (All child-nodes are shown - which is very confusing)
+</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-05-06-0-japanese-search-before.png" alt="w-05-06-0-japanese-search-before.png" title="japanese search results - before" />
+</p>
+<p><br /></p>
+
+<p><br /></p>
+<p align="center">
+<b>After:</b> (Child-nodes that do not match with the search term are removed. thus, better results!)
+</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-05-06-1-japanese-search-after.png" alt="w-05-06-1-japanese-search-after.png" title="japanese search results - after" />
+</p>
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>Refactored the code with clang-format.</p>
+  </li>
+  <li>
+    <p>Search field now goes into focus when Options dialog opens.</p>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="p">...</span>
+<span class="n">m_xSearchEdit</span><span class="o">-&gt;</span><span class="n">grab_focus</span><span class="p">();</span>
+<span class="n">SelectHdl_Impl</span><span class="p">();</span></code></pre></figure>
+
+<ul>
+  <li>Finally, first node expands itself and selects its first child automatically after the search done.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="c1">// select first child of first node after the search done</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">nMatchFound</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">weld</span><span class="o">::</span><span class="n">TreeIter</span><span class="o">&gt;</span> <span class="n">xEntry</span><span class="p">;</span>
+
+        <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">weld</span><span class="o">::</span><span class="n">TreeIter</span><span class="o">&gt;</span> <span class="n">xTemp</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">make_iterator</span><span class="p">();</span>
+            <span class="kt">bool</span> <span class="n">bTemp</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_iter_first</span><span class="p">(</span><span class="o">*</span><span class="n">xTemp</span><span class="p">);</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">bTemp</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="c1">// select only the first child</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_iter_depth</span><span class="p">(</span><span class="o">*</span><span class="n">xTemp</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">(</span><span class="o">*</span><span class="n">xTemp</span><span class="p">).</span><span class="n">toInt64</span><span class="p">())</span>
+                <span class="p">{</span>
+                    <span class="n">xEntry</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">make_iterator</span><span class="p">(</span><span class="n">xTemp</span><span class="p">.</span><span class="n">get</span><span class="p">());</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">bTemp</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">iter_next</span><span class="p">(</span><span class="o">*</span><span class="n">xTemp</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">xEntry</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">xEntry</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">make_iterator</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_iter_first</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">iter_next</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">))</span>
+                <span class="n">xEntry</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">xEntry</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">;</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">weld</span><span class="o">::</span><span class="n">TreeIter</span><span class="o">&gt;</span> <span class="n">xParent</span><span class="p">(</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">make_iterator</span><span class="p">(</span><span class="n">xEntry</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">iter_parent</span><span class="p">(</span><span class="o">*</span><span class="n">xParent</span><span class="p">);</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">expand_row</span><span class="p">(</span><span class="o">*</span><span class="n">xParent</span><span class="p">);</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">scroll_to_row</span><span class="p">(</span><span class="o">*</span><span class="n">xParent</span><span class="p">);</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">scroll_to_row</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">);</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">set_cursor</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">);</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">select</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">);</span>
+        <span class="n">SelectHdl_Impl</span><span class="p">();</span>
+    <span class="p">}</span></code></pre></figure>
+
+<p><br /></p>
+<ul>
+  <li>Some screenshots from the development</li>
+</ul>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-05-06-2-console-debug-nodes.png" alt="w-05-06-2-console-debug-nodes.png" title="console-debug-nodes" />
+</p>
+<p><br /></p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-05-06-3-fonts-search-results.png" alt="w-05-06-3-fonts-search-results.png" title="fonts-search-results" />
+</p>
+<p><br /></p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-05-06-4-writer-grid-search-results.png" alt="w-05-06-4-writer-grid-search-results.png" title="writer-grid-search-results" />
+</p>
+<p><br /></p>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>New patchsets submitted (between patchset 5 and 10): <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></li>
+  <li>Modified uiex python script to generate ui strings.</li>
+  <li>Search function now removes the child-nodes that do not match with the search term.
+    <ul>
+      <li>The search function now gives better results than the previous version.</li>
+    </ul>
+  </li>
+  <li>Refactored the code with clang-format.</li>
+  <li>Search field now goes into focus when Options dialog opens.</li>
+  <li>Finally, first node expands itself and selects its first child automatically after the search done.</li>
+</ul>
+
+<p align="center">
+    ***
+</p>
+
+<p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
+
+<table style="width:100%">
+    <tbody>
+        <tr>
+            <td style="width:75%">1) Add Search field to “Tools &gt; Options” dialog.</td>
+            <td colspan="2"><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>2) Include Options treeview into searching.</td>
+            <td colspan="2"><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>3) Include Sub-tree elements (child nodes) into searching.</td>
+            <td><b>DONE - week #2</b></td>
+        </tr>
+        <tr>
+            <td>4) Generate all strings(labels), accessible-names, accessible-descriptions and tooltip-texts of all .ui files in ./cui/* directory, at build-time.</td>
+            <td><b>DONE - week #3, #4 (most challenging part)</b></td>
+        </tr>
+        <tr>
+            <td>5) Fetch the generated data - at run-time.</td>
+            <td><b>DONE - week #3, #4</b></td>
+        </tr>
+        <tr>
+            <td>6) Include strings(labels), accessible-names, accessible-descriptions and tooltip-texts into searching.</td>
+            <td><b>DONE - week #3, #4</b></td>
+        </tr>
+        <tr>
+            <td>7) Refactoring the code-base and trying to fix some issues.</td>
+            <td><b>now</b></td>
+        </tr>
+        <tr>
+            <td>8) Implement highlighting feature.</td>
+            <td><b>next step</b></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td><b>...</b></td>
+        </tr>
+    </tbody>
+</table>
+
+<p align="center">
+    ***
+</p>
+
+<p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>Project Mentors: <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> (Thanks for their time and guidance)</p>
+
+<p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
+
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance. Additionally, thanks to Christian Lohmaier for his reviews and comments about text extraction and makefiles.]]></summary></entry><entry><title type="html">Week #4 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/06/26/week-04-gsoc-report.html" rel="alternate" type="text/html" title="Week #4 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-06-26T08:38:00+03:00</published><updated>2023-06-26T08:38:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/06/26/week-04-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/06/26/week-04-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance. Additionally, thanks to <u>Caolán McNamara</u> for giving me the ‘generating ui strings at build-time’ idea.</em></p>
 
 <h3 id="project-report-for-week-4">Project Report for Week #4</h3>
 
@@ -1647,33 +1869,4 @@ layout, not in current cell.</li>
   <li>Write “Final Report” blog post</li>
   <li>Make last changes on patches that on gerrit</li>
   <li>try to draw diagonal borders for Writer-Tables.</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #10.]]></summary></entry><entry><title type="html">Week #9 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc.html" rel="alternate" type="text/html" title="Week #9 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-08T11:34:53+03:00</published><updated>2021-08-08T11:34:53+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/08/week-09-gsoc.html"><![CDATA[<p>GSoC progress for week #9.</p>
-
-<h4 id="diagonal-borders-now-accessible-from-table-toolbar--borders-tab-in-calc">Diagonal borders now accessible from “Table Toolbar &gt; Borders” tab in Calc</h4>
-
-<p>Calc has diagonal borders feature in <code class="highlighter-rouge">Format &gt; Cells... &gt; Borders tab</code> and (Sidebar Tab) <code class="highlighter-rouge">Properties &gt; Cell Appearance</code>. However, this feature wasn’t exist in “Table Toolbar &gt; Borders” tab. With commit <a href="https://gerrit.libreoffice.org/c/core/+/119685">https://gerrit.libreoffice.org/c/core/+/119685</a>, Calc can draw diagonal left and diagonal right borders from table toolbar. \o/</p>
-
-<p>This <a href="https://gerrit.libreoffice.org/c/core/+/119685">https://gerrit.libreoffice.org/c/core/+/119685</a> commit had “<em>(WIP) Support diagonal borders in Writer-Tables</em>” name before, and I sent 3-4 patchsets for Writer-diagonal-borders, but I made it Calc-specific and changed the title as “<em>Calc: made diagonal borders accessible in Toolbar&gt;Borders</em>”. The reason of this change is: Writer and Calc use the same Border tab in Table toolbar (svx/source/tbxctrls/tbcontrl.cxx). Therefore I will leave the commit as Calc-specific and will submit a new commit just for Writer-specific. But first, I want to write UItest for Calc-diagonal-borders next week.</p>
-
-<p>Additionaly I want to work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34689">https://bugs.documentfoundation.org/show_bug.cgi?id=34689</a> - UI scroll problem: Cell with dimensions exceeding screen dimensions impossible to work with.</p>
-
-<h4 id="code-pointers">Code pointers:</h4>
-
-<ul>
-  <li>svx/source/tbxctrls/tbcontrl.cxx: <a href="https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221">https://opengrok.libreoffice.org/xref/core/svx/source/tbxctrls/tbcontrl.cxx?r=d3228d49#2221</a></li>
-</ul>
-
-<h3 id="summary-of-week-9">Summary of week #9</h3>
-
-<ul>
-  <li>Worked on Writer-Tables and Calc-Borders</li>
-  <li>Made diagonal borders accessible in Toolbar&gt;Borders / Calc</li>
-  <li>Sent new patchsets in commit : <a href="https://gerrit.libreoffice.org/c/core/+/119685">https://gerrit.libreoffice.org/c/core/+/119685</a></li>
-</ul>
-
-<h3 id="next-week-to-do">Next Week TO-DO</h3>
-
-<ul>
-  <li>Write UItest for Calc diagonal-borders.</li>
-  <li>Work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34689">https://bugs.documentfoundation.org/show_bug.cgi?id=34689</a> - UI scroll problem: Cell with dimensions exceeding screen dimensions impossible to work with.</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #9.]]></summary></entry></feed>
+</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #10.]]></summary></entry></feed>

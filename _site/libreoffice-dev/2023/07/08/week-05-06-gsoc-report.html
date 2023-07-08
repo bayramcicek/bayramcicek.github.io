@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options | Bayram Çiçek’s website</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options" />
+<meta name="author" content="Bayram Çiçek" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance. Additionally, thanks to Christian Lohmaier for his reviews and comments about text extraction and makefiles." />
+<meta property="og:description" content="Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance. Additionally, thanks to Christian Lohmaier for his reviews and comments about text extraction and makefiles." />
+<link rel="canonical" href="http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html" />
+<meta property="og:url" content="http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html" />
+<meta property="og:site_name" content="Bayram Çiçek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-07-08T14:39:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Bayram Çiçek"},"dateModified":"2023-07-08T14:39:00+03:00","datePublished":"2023-07-08T14:39:00+03:00","description":"Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance. Additionally, thanks to Christian Lohmaier for his reviews and comments about text extraction and makefiles.","headline":"Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html"},"url":"http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Bayram Çiçek&apos;s website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Bayram Çiçek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/libreoffice/">LibreOffice</a><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-07-08T14:39:00+03:00" itemprop="datePublished">Jul 8, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance. Additionally, thanks to <u>Christian Lohmaier</u> for his reviews and comments about text extraction and makefiles.</em></p>
+
+<h3 id="project-report-for-week-5-and-6">Project Report for Week #5 and #6</h3>
+
+<ul>
+  <li>
+    <p>New patchsets submitted (between patchset 5 and 10): <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+  </li>
+  <li>
+    <p>Modified uiex python script to generate ui strings.</p>
+  </li>
+</ul>
+
+<p>I removed the <code class="highlighter-rouge">./solenv/bin/uiex_options</code> script that almost the same with <code class="highlighter-rouge">./solenv/bin/uiex</code>. Instead of creating a new script, adding an additional option to the existing uiex script -to only print the msgid instead of the full entry-, is better than a different file.</p>
+
+<p><code class="highlighter-rouge">./solenv/bin/uiex</code>:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="p">...</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"getString"</span><span class="p">)</span> <span class="p">):</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="s">"w"</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="s">"a"</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">check_output</span><span class="p">([</span><span class="s">"xgettext"</span><span class="p">,</span> <span class="s">"--add-comments"</span><span class="p">,</span> <span class="s">"--no-wrap"</span><span class="p">,</span> <span class="n">ifile</span><span class="p">,</span> <span class="s">"-o"</span><span class="p">,</span> <span class="s">"-"</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">)</span>
+    <span class="n">po</span> <span class="o">=</span> <span class="n">polib</span><span class="p">.</span><span class="n">pofile</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">po</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">po</span><span class="p">:</span>
+            <span class="c1"># skip 'stock' entries like "cancel", "help", "ok", etc
+</span>            <span class="c1"># l10ntools/source/localize.cxx will insert one entry for each stock per .po
+</span>            <span class="k">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">==</span> <span class="s">"stock"</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="s">"a"</span><span class="p">):</span>
+                <span class="n">keyid</span> <span class="o">=</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">+</span> <span class="s">'|'</span> <span class="o">+</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgid</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'#. '</span> <span class="o">+</span> <span class="n">polib</span><span class="p">.</span><span class="n">genKeyId</span><span class="p">(</span><span class="n">keyid</span><span class="p">),</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">occurrence</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">):</span>
+                <span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">occurrence</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'SRCDIR'</span><span class="p">]),</span> <span class="n">occurrence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="s">"a"</span><span class="p">):</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">msgid</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+<ul>
+  <li>Search function now removes the child-nodes that do not match with the search term.</li>
+</ul>
+
+<p>The search function now gives better results than the previous version.</p>
+
+<p><br /></p>
+<p align="center">
+<b>Before:</b> (All child-nodes are shown - which is very confusing)
+</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-05-06-0-japanese-search-before.png" alt="w-05-06-0-japanese-search-before.png" title="japanese search results - before" />
+</p>
+<p><br /></p>
+
+<p><br /></p>
+<p align="center">
+<b>After:</b> (Child-nodes that do not match with the search term are removed. thus, better results!)
+</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-05-06-1-japanese-search-after.png" alt="w-05-06-1-japanese-search-after.png" title="japanese search results - after" />
+</p>
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>Refactored the code with clang-format.</p>
+  </li>
+  <li>
+    <p>Search field now goes into focus when Options dialog opens.</p>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="p">...</span>
+<span class="n">m_xSearchEdit</span><span class="o">-&gt;</span><span class="n">grab_focus</span><span class="p">();</span>
+<span class="n">SelectHdl_Impl</span><span class="p">();</span></code></pre></figure>
+
+<ul>
+  <li>Finally, first node expands itself and selects its first child automatically after the search done.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="c1">// select first child of first node after the search done</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">nMatchFound</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">weld</span><span class="o">::</span><span class="n">TreeIter</span><span class="o">&gt;</span> <span class="n">xEntry</span><span class="p">;</span>
+
+        <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">weld</span><span class="o">::</span><span class="n">TreeIter</span><span class="o">&gt;</span> <span class="n">xTemp</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">make_iterator</span><span class="p">();</span>
+            <span class="kt">bool</span> <span class="n">bTemp</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_iter_first</span><span class="p">(</span><span class="o">*</span><span class="n">xTemp</span><span class="p">);</span>
+            <span class="k">while</span> <span class="p">(</span><span class="n">bTemp</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="c1">// select only the first child</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_iter_depth</span><span class="p">(</span><span class="o">*</span><span class="n">xTemp</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">(</span><span class="o">*</span><span class="n">xTemp</span><span class="p">).</span><span class="n">toInt64</span><span class="p">())</span>
+                <span class="p">{</span>
+                    <span class="n">xEntry</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">make_iterator</span><span class="p">(</span><span class="n">xTemp</span><span class="p">.</span><span class="n">get</span><span class="p">());</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">bTemp</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">iter_next</span><span class="p">(</span><span class="o">*</span><span class="n">xTemp</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">xEntry</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">xEntry</span> <span class="o">=</span> <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">make_iterator</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">get_iter_first</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">iter_next</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">))</span>
+                <span class="n">xEntry</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">xEntry</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">;</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">weld</span><span class="o">::</span><span class="n">TreeIter</span><span class="o">&gt;</span> <span class="n">xParent</span><span class="p">(</span><span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">make_iterator</span><span class="p">(</span><span class="n">xEntry</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">iter_parent</span><span class="p">(</span><span class="o">*</span><span class="n">xParent</span><span class="p">);</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">expand_row</span><span class="p">(</span><span class="o">*</span><span class="n">xParent</span><span class="p">);</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">scroll_to_row</span><span class="p">(</span><span class="o">*</span><span class="n">xParent</span><span class="p">);</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">scroll_to_row</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">);</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">set_cursor</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">);</span>
+        <span class="n">xTreeLB</span><span class="o">-&gt;</span><span class="n">select</span><span class="p">(</span><span class="o">*</span><span class="n">xEntry</span><span class="p">);</span>
+        <span class="n">SelectHdl_Impl</span><span class="p">();</span>
+    <span class="p">}</span></code></pre></figure>
+
+<p><br /></p>
+<ul>
+  <li>Some screenshots from the development</li>
+</ul>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-05-06-2-console-debug-nodes.png" alt="w-05-06-2-console-debug-nodes.png" title="console-debug-nodes" />
+</p>
+<p><br /></p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-05-06-3-fonts-search-results.png" alt="w-05-06-3-fonts-search-results.png" title="fonts-search-results" />
+</p>
+<p><br /></p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-05-06-4-writer-grid-search-results.png" alt="w-05-06-4-writer-grid-search-results.png" title="writer-grid-search-results" />
+</p>
+<p><br /></p>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>New patchsets submitted (between patchset 5 and 10): <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></li>
+  <li>Modified uiex python script to generate ui strings.</li>
+  <li>Search function now removes the child-nodes that do not match with the search term.
+    <ul>
+      <li>The search function now gives better results than the previous version.</li>
+    </ul>
+  </li>
+  <li>Refactored the code with clang-format.</li>
+  <li>Search field now goes into focus when Options dialog opens.</li>
+  <li>Finally, first node expands itself and selects its first child automatically after the search done.</li>
+</ul>
+
+<p align="center">
+    ***
+</p>
+
+<p>Steps for implementing search functionality in “Tools &gt; Options”:</p>
+
+<table style="width:100%">
+    <tbody>
+        <tr>
+            <td style="width:75%">1) Add Search field to “Tools &gt; Options” dialog.</td>
+            <td colspan="2"><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>2) Include Options treeview into searching.</td>
+            <td colspan="2"><b>DONE - week #1</b></td>
+        </tr>
+        <tr>
+            <td>3) Include Sub-tree elements (child nodes) into searching.</td>
+            <td><b>DONE - week #2</b></td>
+        </tr>
+        <tr>
+            <td>4) Generate all strings(labels), accessible-names, accessible-descriptions and tooltip-texts of all .ui files in ./cui/* directory, at build-time.</td>
+            <td><b>DONE - week #3, #4 (most challenging part)</b></td>
+        </tr>
+        <tr>
+            <td>5) Fetch the generated data - at run-time.</td>
+            <td><b>DONE - week #3, #4</b></td>
+        </tr>
+        <tr>
+            <td>6) Include strings(labels), accessible-names, accessible-descriptions and tooltip-texts into searching.</td>
+            <td><b>DONE - week #3, #4</b></td>
+        </tr>
+        <tr>
+            <td>7) Refactoring the code-base and trying to fix some issues.</td>
+            <td><b>now</b></td>
+        </tr>
+        <tr>
+            <td>8) Implement highlighting feature.</td>
+            <td><b>next step</b></td>
+        </tr>
+        <tr>
+            <td>...</td>
+            <td><b>...</b></td>
+        </tr>
+    </tbody>
+</table>
+
+<p align="center">
+    ***
+</p>
+
+<p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>Project Mentors: <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> (Thanks for their time and guidance)</p>
+
+<p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
+
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>
+
+
+  </div><a class="u-url" href="/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Bayram Çiçek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Bayram Çiçek</li><li><a class="u-email" href="mailto:mail@bayramcicek.com.tr">mail@bayramcicek.com.tr</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.linkedin.com/in/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">bayramcicek</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
