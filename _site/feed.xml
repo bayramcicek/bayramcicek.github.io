@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-08T22:02:22+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html" rel="alternate" type="text/html" title="Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-07-08T14:39:00+03:00</published><updated>2023-07-08T14:39:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance. Additionally, thanks to <u>Christian Lohmaier</u> for his reviews and comments about text extraction and makefiles.</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-08T23:18:46+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">How to clang-format LibreOffice code-base only for selected code piece(s) - VSCode</title><link href="http://localhost:4000/libreoffice-dev/2023/07/08/clang-format-lo-code-base.html" rel="alternate" type="text/html" title="How to clang-format LibreOffice code-base only for selected code piece(s) - VSCode" /><published>2023-07-08T22:16:00+03:00</published><updated>2023-07-08T22:16:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/07/08/clang-format-lo-code-base</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/07/08/clang-format-lo-code-base.html"><![CDATA[<p>According to <a href="https://wiki.documentfoundation.org/Development/clang-format">https://wiki.documentfoundation.org/Development/clang-format</a>:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span><span class="w"> </span>wget https://dev-www.libreoffice.org/bin/clang-format-5.0.0-linux64
+<span class="gp">$</span><span class="w"> </span><span class="nb">chmod</span> +x clang-format-5.0.0-linux64
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /opt/lo/bin/
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo cp </span>clang-format-5.0.0-linux64 /opt/lo/bin/clang-format</code></pre></figure>
+
+<p>Then, to reformat the whole file:</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span><span class="w"> </span>/opt/lo/bin/clang-format <span class="nt">-i</span> path/to/thefile.cxx</code></pre></figure>
+
+<p>We can reformat a file easily. But what if we want to do clang-format only for a specific code-piece(s) (e.g. a function, class, if-else …) instead?</p>
+
+<p>On <code class="highlighter-rouge">VSCode</code> (Linux):</p>
+<ul>
+  <li><code class="highlighter-rouge">File</code> &gt; <code class="highlighter-rouge">Preferences</code> &gt; <code class="highlighter-rouge">Settings</code>.</li>
+  <li>Search for <code class="highlighter-rouge">clang-format</code>.</li>
+  <li>in <code class="highlighter-rouge">C_Cpp: Clang_format_path</code> section, set the path of the clang-format executable as <code class="highlighter-rouge">/opt/lo/bin/clang-format</code>.</li>
+</ul>
+
+<p>For example, let’s only select the if statement here:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="p">...</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">PageIdToFileNameMap_Impl</span><span class="o">&amp;</span> <span class="n">rEntry</span> <span class="o">:</span> <span class="n">FileMap_Impl</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span>    <span class="p">(</span>        <span class="n">rEntry</span><span class="p">.</span><span class="n">m_nPageId</span> <span class="o">==</span> <span class="n">nPageId</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">OStringToOUString</span><span class="p">(</span><span class="cm">/*...*/</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">...</span></code></pre></figure>
+
+<p><br />
+Then <code class="highlighter-rouge">right click</code> on the selection and select <code class="highlighter-rouge">Format Selection</code>:</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/format-selection-dialog-vscode.png" alt="format-selection-dialog-vscode.png" title="format-selection-dialog-vscode" />
+</p>
+<p><br /></p>
+
+<p>Finally, formatting only for if statement should work:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="p">...</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">PageIdToFileNameMap_Impl</span><span class="o">&amp;</span> <span class="n">rEntry</span> <span class="o">:</span> <span class="n">FileMap_Impl</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">rEntry</span><span class="p">.</span><span class="n">m_nPageId</span> <span class="o">==</span> <span class="n">nPageId</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">OStringToOUString</span><span class="p">(</span><span class="cm">/*...*/</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">...</span></code></pre></figure>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[According to https://wiki.documentfoundation.org/Development/clang-format:]]></summary></entry><entry><title type="html">Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html" rel="alternate" type="text/html" title="Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-07-08T14:39:00+03:00</published><updated>2023-07-08T14:39:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance. Additionally, thanks to <u>Christian Lohmaier</u> for his reviews and comments about text extraction and makefiles.</em></p>
 
 <h3 id="project-report-for-week-5-and-6">Project Report for Week #5 and #6</h3>
 
@@ -1722,151 +1772,4 @@ $ git rebase --abort
 git push --force-with-lease &lt;origin&gt; &lt;test-branch&gt;
 </pre>
 
-<p>(or <code class="highlighter-rouge">$ ./logerrit submit master</code> for LibreOffice)</p>]]></content><author><name>Bayram Çiçek</name></author><category term="general" /><summary type="html"><![CDATA[list commit log $ git log or $ git log --oneline]]></summary></entry><entry><title type="html">Week #10 - GSoC Weekly Report - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html" rel="alternate" type="text/html" title="Week #10 - GSoC Weekly Report - 100 Paper Cuts" /><published>2021-08-16T01:01:36+03:00</published><updated>2021-08-16T01:01:36+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/16/week-10-gsoc.html"><![CDATA[<p>GSoC progress for week #10.</p>
-
-<h4 id="calc-border-preview-doesnt-show-the-diagonal-borders-in-cell-appearance-section">Calc: Border preview doesn’t show the diagonal borders in Cell Appearance section</h4>
-
-<ul>
-  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143890">tdf#143890</a> - Border preview doesn’t show the diagonal borders</li>
-  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/120519">https://gerrit.libreoffice.org/c/core/+/120519</a></li>
-</ul>
-
-<p>In (Sidebar Tab) <code class="highlighter-rouge">Properties &gt; Cell Appearance</code>, Calc always shows preview of the selected cell borders.</p>
-
-<p>For example; if LEFT border set in a cell, the preview shows LEFT border (as expected). But this feature doesn’t show the preview of diagonal borders. When we set (e.g.)diagonal RIGHT border in a cell, the preview doesn’t update itself to show diagonal RIGHT border.</p>
-
-<p>Steps to Reproduce:</p>
-<ol>
-  <li>open Calc and select a cell</li>
-  <li>(in Sidebar) go to “Properties &gt; Cell Appearance”</li>
-  <li>select Diagonal Up (and/or Down) border</li>
-</ol>
-
-<p>Actual Results:
-Preview doesn’t show diagonal borders</p>
-
-<p>Expected Results:
-Diagonal borders should be shown in the preview (as other borders).</p>
-
-<h4 id="code-pointers">Code pointers:</h4>
-
-<ul>
-  <li>
-    <p>sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx: <a href="https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx?r=1653bb9b#467">https://opengrok.libreoffice.org/xref/core/sc/source/ui/sidebar/CellAppearancePropertyPanel.cxx?r=1653bb9b#467</a></p>
-  </li>
-  <li>
-    <p>sc/source/ui/sidebar/CellAppearancePropertyPanel.hxx</p>
-  </li>
-</ul>
-
-<h4 id="technical-details">Technical Details</h4>
-
-<p>Line preview is drawn in:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">CellAppearancePropertyPanel</span><span class="o">::</span><span class="n">UpdateCellBorder</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bTop</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bBot</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bLeft</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bRight</span><span class="p">,</span>
-                                                   <span class="kt">bool</span> <span class="n">bVer</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bHor</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="cm">/* ... */</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">bLeft</span><span class="p">)</span>
-        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTL</span><span class="p">,</span><span class="n">aBL</span> <span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">bRight</span><span class="p">)</span>
-        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTR</span><span class="p">,</span><span class="n">aBR</span> <span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">bTop</span><span class="p">)</span>
-        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTL</span><span class="p">,</span><span class="n">aTR</span> <span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">bBot</span><span class="p">)</span>
-        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aBL</span><span class="p">,</span><span class="n">aBR</span> <span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">bVer</span><span class="p">)</span>
-        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aVT</span><span class="p">,</span><span class="n">aVB</span> <span class="p">);</span>
-
-<span class="p">}</span></code></pre></figure>
-
-<p><code class="highlighter-rouge">DrawLine()</code> method draws the lines. Here, lines for diagonal borders are missing. We need to add <code class="highlighter-rouge">DrawLine()</code> method for them and update the parameters of the <code class="highlighter-rouge">UpdateCellBorder(...)</code> function:</p>
-
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">CellAppearancePropertyPanel</span><span class="o">::</span><span class="n">UpdateCellBorder</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bTop</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bBot</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bLeft</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bRight</span><span class="p">,</span>
-                                                   <span class="kt">bool</span> <span class="n">bVer</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bHor</span><span class="p">,</span>
-                                                   <span class="kt">bool</span> <span class="n">bTLBR</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bBLTR</span><span class="p">)</span>
-<span class="p">{</span>                                             
-
-    <span class="cm">/* ... */</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">bTLBR</span><span class="p">)</span>
-        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aTL</span><span class="p">,</span><span class="n">aBR</span> <span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">bBLTR</span><span class="p">)</span>
-        <span class="n">pVirDev</span><span class="o">-&gt;</span><span class="n">DrawLine</span><span class="p">(</span> <span class="n">aBL</span><span class="p">,</span><span class="n">aTR</span> <span class="p">);</span>
-
-    <span class="cm">/* ... */</span>
-
-<span class="p">}</span></code></pre></figure>
-
-<p align="center">
-	***
-</p>
-
-<p>Before:</p>
-
-<p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/calc_before_preview.png" alt="calc_before_preview.png" />
-</p>
-
-<p>After:</p>
-
-<p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/calc_after_preview.png" alt="calc_after_preview.png" />
-</p>
-
-<p><br /></p>
-<p align="center">
-	***
-</p>
-
-<h4 id="created-a-new-commit-for-tdf51665-wip-support-diagonal-borders-in-writer-tables">Created a new commit for tdf#51665: (WIP) Support diagonal borders in Writer-Tables</h4>
-
-<ul>
-  <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a> - Support diagonal borders in TABLEs</li>
-  <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/120262">https://gerrit.libreoffice.org/c/core/+/120262</a></li>
-</ul>
-
-<p>patchset1:</p>
-<ul>
-  <li>implement RES_BOX_TLBR attribute</li>
-  <li>add SID_ATTR_BORDER_DIAG_TLBR</li>
-</ul>
-
-<p>patchset2:</p>
-<ul>
-  <li>improve case SID_ATTR_BORDER_DIAG_TLBR (tabsh.cxx)</li>
-  <li>add diagonal left condition in ndtbl1.cxx</li>
-  <li>try to draw diagonal left border:
-    <ul>
-      <li>drawing in a cell seems complicated.</li>
-      <li>currently it draw TLBR line on the document
-layout, not in current cell.</li>
-      <li>we have to draw TLBR line in current cell.
-(needs improvement)</li>
-    </ul>
-  </li>
-</ul>
-
-<p>IMHO, I think tdf#51665 can be a standalone GSoC project itself. In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase and we need more time.</p>
-
-<h3 id="summary-of-week-10">Summary of week #10</h3>
-
-<ul>
-  <li>Fixed: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143890">tdf#143890</a> - Border preview doesn’t show the diagonal borders</li>
-  <li>Worked on diagonal borders in Writer-Tables, and published 2 new patchsets</li>
-</ul>
-
-<p>Commits</p>
-<ul>
-  <li><a href="https://gerrit.libreoffice.org/c/core/+/120519">https://gerrit.libreoffice.org/c/core/+/120519</a></li>
-  <li><a href="https://gerrit.libreoffice.org/c/core/+/120262">https://gerrit.libreoffice.org/c/core/+/120262</a></li>
-</ul>
-
-<h3 id="next-week-to-do">Next Week TO-DO</h3>
-
-<ul>
-  <li>Write “Final Report” blog post</li>
-  <li>Make last changes on patches that on gerrit</li>
-  <li>try to draw diagonal borders for Writer-Tables.</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[GSoC progress for week #10.]]></summary></entry></feed>
+<p>(or <code class="highlighter-rouge">$ ./logerrit submit master</code> for LibreOffice)</p>]]></content><author><name>Bayram Çiçek</name></author><category term="general" /><summary type="html"><![CDATA[list commit log $ git log or $ git log --oneline]]></summary></entry></feed>
