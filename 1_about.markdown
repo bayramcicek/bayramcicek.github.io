@@ -13,7 +13,7 @@ ___
 <br>
 about me: [about.me/bayramcicek]
 
-contact / iletişim: [mail@bayramcicek.com.tr]
+contact / iletişim: [bayramcicek2125@gmail.com]
 
 ___
 
@@ -36,7 +36,7 @@ medium: [medium.com/@cicek]
 ___
 
 <br>
-libreoffice: [gerrit.libreoffice.org/q/owner:bayram.cicek%2540libreoffice.org]
+libreoffice: [https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com]
 
 collabora: [github.com/CollaboraOnline/online/commits?author=bayramcicek]
 
@@ -72,7 +72,7 @@ You can find the source code for Jekyll at GitHub:
 [jekyll](https://github.com/jekyll/jekyll)
 
 [about.me/bayramcicek]: https://about.me/bayramcicek
-[mail@bayramcicek.com.tr]: mailto:mail@bayramcicek.com.tr
+[bayramcicek2125@gmail.com]: mailto:bayramcicek2125@gmail.com
 
 [github.com/bayramcicek]: https://github.com/bayramcicek/
 [gitlab.com/bayramcicek]: https://gitlab.com/bayramcicek
@@ -82,7 +82,7 @@ You can find the source code for Jekyll at GitHub:
 [twitter.com/bayramcicek21]: https://www.twitter.com/bayramcicek21
 [medium.com/@cicek]: https://medium.com/@cicek
 
-[gerrit.libreoffice.org/q/owner:bayram.cicek%2540libreoffice.org]: https://gerrit.libreoffice.org/q/owner:bayram.cicek%2540libreoffice.org
+[https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com]: https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com
 [github.com/CollaboraOnline/online/commits?author=bayramcicek]: https://github.com/CollaboraOnline/online/commits?author=bayramcicek
 [wiki.documentfoundation.org/User:Bayramcicek]: https://wiki.documentfoundation.org/User:Bayramcicek
 

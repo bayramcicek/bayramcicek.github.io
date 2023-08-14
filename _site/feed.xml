@@ -1,4 +1,115 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-08T23:18:46+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">How to clang-format LibreOffice code-base only for selected code piece(s) - VSCode</title><link href="http://localhost:4000/libreoffice-dev/2023/07/08/clang-format-lo-code-base.html" rel="alternate" type="text/html" title="How to clang-format LibreOffice code-base only for selected code piece(s) - VSCode" /><published>2023-07-08T22:16:00+03:00</published><updated>2023-07-08T22:16:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/07/08/clang-format-lo-code-base</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/07/08/clang-format-lo-code-base.html"><![CDATA[<p>According to <a href="https://wiki.documentfoundation.org/Development/clang-format">https://wiki.documentfoundation.org/Development/clang-format</a>:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-08-14T13:17:18+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html" rel="alternate" type="text/html" title="Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-08-14T12:18:00+03:00</published><updated>2023-08-14T12:18:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance.</em></p>
+
+<h3 id="project-report-for-week-7---11">Project Report for Week #7 - #11</h3>
+
+<ul>
+  <li>
+    <p>A lot of new patchsets submitted (between patchset 10 and 19): <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+  </li>
+  <li>
+    <p>We decided to implement Plan B(initialize all strings at Options dialog start-up) instead of “extracting strings at build-time” approach.</p>
+  </li>
+  <li>
+    <p>all (visible) strings of 69 dialogs included in searching. Currently:</p>
+    <ul>
+      <li>labels,</li>
+      <li>check buttons,</li>
+      <li>radio buttons and</li>
+      <li>buttons are included.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>TODO: add accessible-names, accessible-descriptions and tooltip-texts into searching.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">GetAllStrings()</code> function returns all visible strings. e.g.:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">OUString</span> <span class="n">ScTpFormulaOptions</span><span class="o">::</span><span class="n">GetAllStrings</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">OUString</span> <span class="n">sAllStrings</span><span class="p">;</span>
+    <span class="n">OUString</span> <span class="n">labels</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"label1"</span><span class="p">,</span> <span class="s">"formulasyntaxlabel"</span><span class="p">,</span>
+                          <span class="s">"label3"</span><span class="p">,</span> <span class="s">"label6"</span><span class="p">,</span>
+                          <span class="s">"label7"</span><span class="p">,</span> <span class="s">"label8"</span><span class="p">,</span>
+                          <span class="s">"label2"</span><span class="p">,</span> <span class="s">"label4"</span><span class="p">,</span>
+                          <span class="s">"label9"</span><span class="p">,</span> <span class="s">"label10"</span> <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">label</span> <span class="o">:</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">m_xBuilder</span><span class="o">-&gt;</span><span class="n">weld_label</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">is_visible</span><span class="p">())</span>
+            <span class="n">sAllStrings</span> <span class="o">+=</span> <span class="n">m_xBuilder</span><span class="o">-&gt;</span><span class="n">weld_label</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get_label</span><span class="p">()</span> <span class="o">+</span> <span class="n">OUString</span><span class="p">(</span><span class="sc">' '</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">OUString</span> <span class="n">radioButton</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"calcdefault"</span><span class="p">,</span> <span class="s">"calccustom"</span> <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">radio</span> <span class="o">:</span> <span class="n">radioButton</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">m_xBuilder</span><span class="o">-&gt;</span><span class="n">weld_radio_button</span><span class="p">(</span><span class="n">radio</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">is_visible</span><span class="p">())</span>
+            <span class="n">sAllStrings</span> <span class="o">+=</span> <span class="n">m_xBuilder</span><span class="o">-&gt;</span><span class="n">weld_radio_button</span><span class="p">(</span><span class="n">radio</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get_label</span><span class="p">()</span> <span class="o">+</span> <span class="n">OUString</span><span class="p">(</span><span class="sc">' '</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">OUString</span> <span class="n">button</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"reset"</span><span class="p">,</span> <span class="s">"details"</span> <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">btn</span> <span class="o">:</span> <span class="n">button</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">m_xBuilder</span><span class="o">-&gt;</span><span class="n">weld_button</span><span class="p">(</span><span class="n">btn</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">is_visible</span><span class="p">())</span>
+            <span class="n">sAllStrings</span> <span class="o">+=</span> <span class="n">m_xBuilder</span><span class="o">-&gt;</span><span class="n">weld_button</span><span class="p">(</span><span class="n">btn</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get_label</span><span class="p">()</span> <span class="o">+</span> <span class="n">OUString</span><span class="p">(</span><span class="sc">' '</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// check button</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mxCbEnglishFuncName</span><span class="o">-&gt;</span><span class="n">is_visible</span><span class="p">())</span>
+        <span class="n">sAllStrings</span> <span class="o">+=</span> <span class="n">mxCbEnglishFuncName</span><span class="o">-&gt;</span><span class="n">get_label</span><span class="p">()</span> <span class="o">+</span> <span class="n">OUString</span><span class="p">(</span><span class="sc">' '</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">sAllStrings</span><span class="p">.</span><span class="n">replaceAll</span><span class="p">(</span><span class="s">"_"</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><br /></p>
+<ul>
+  <li>Some screenshots from the development</li>
+</ul>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-07-11-0-writer-basic-fonts.png" alt="w-07-11-0-writer-basic-fonts.png" title="writer-basic-fonts" />
+</p>
+<p><br /></p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-07-11-1-writer-color.png" alt="w-07-11-1-writer-color.png" title="writer-color" />
+</p>
+<p><br /></p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/w-07-11-2-writer-general.png" alt="w-07-11-2-writer-general.png" title="writer-general" />
+</p>
+<p><br /></p>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+  <li>New patchsets submitted (between patchset 10 and 19): <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></li>
+  <li>Implementation of Plan B is completed. (initialize all strings at Options dialog start-up)</li>
+  <li>all (visible) strings of 69 dialogs included in searching.:
+    <ul>
+      <li>labels,</li>
+      <li>check buttons,</li>
+      <li>radio buttons and</li>
+      <li>buttons are included.</li>
+    </ul>
+  </li>
+</ul>
+
+<p align="center">
+    ***
+</p>
+
+<p>Patch: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></p>
+
+<p>Project Mentors: <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> (Thanks for their time and guidance)</p>
+
+<p>GSoC project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></p>
+
+<p>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></p>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[Thanks to my ‘Search Field in Options’ project mentors Andreas Heinisch and Heiko Tietze for their time and guidance.]]></summary></entry><entry><title type="html">How to clang-format LibreOffice code-base only for selected code piece(s) - VSCode</title><link href="http://localhost:4000/libreoffice-dev/2023/07/08/clang-format-lo-code-base.html" rel="alternate" type="text/html" title="How to clang-format LibreOffice code-base only for selected code piece(s) - VSCode" /><published>2023-07-08T22:16:00+03:00</published><updated>2023-07-08T22:16:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/07/08/clang-format-lo-code-base</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/07/08/clang-format-lo-code-base.html"><![CDATA[<p>According to <a href="https://wiki.documentfoundation.org/Development/clang-format">https://wiki.documentfoundation.org/Development/clang-format</a>:</p>
 
 <figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span><span class="w"> </span>wget https://dev-www.libreoffice.org/bin/clang-format-5.0.0-linux64
 <span class="gp">$</span><span class="w"> </span><span class="nb">chmod</span> +x clang-format-5.0.0-linux64
@@ -1716,60 +1827,4 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
   <li><a href="https://translations.documentfoundation.org/user/bayramcicek/">https://translations.documentfoundation.org/user/bayramcicek/</a> (my translations in LibreOffice)</li>
   <li><a href="https://bayramcicek.com.tr/libreoffice/">https://bayramcicek.com.tr/libreoffice/</a> (all blog posts related to LibreOffice development)</li>
   <li><a href="https://summerofcode.withgoogle.com/projects/#4776372494401536">https://summerofcode.withgoogle.com/projects/#4776372494401536</a> (Google Summer of Code - Project page)</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[About project]]></summary></entry><entry><title type="html">Git: editing old commits</title><link href="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html" rel="alternate" type="text/html" title="Git: editing old commits" /><published>2021-08-18T12:37:43+03:00</published><updated>2021-08-18T12:37:43+03:00</updated><id>http://localhost:4000/general/2021/08/18/git-edit-old-commits</id><content type="html" xml:base="http://localhost:4000/general/2021/08/18/git-edit-old-commits.html"><![CDATA[<ul>
-  <li>list commit log</li>
-</ul>
-<pre>
-$ git log
-or
-$ git log --oneline</pre>
-
-<ul>
-  <li>find SHA-ID of your commit, then:</li>
-</ul>
-<pre>
-$ git rebase --interactive $SHA^
-or
-(list last e.g. 3 commit)
-$ git rebase -i HEAD~3
-</pre>
-
-<ul>
-  <li>
-    <p>Change ‘pick’ to ‘edit’ for your commit that you want to edit</p>
-  </li>
-  <li>
-    <p>make your changes in files etc.</p>
-  </li>
-  <li>
-    <p>add your changes &amp; edit commit message:</p>
-  </li>
-</ul>
-
-<pre>
-$ git commit -a --amend
-</pre>
-
-<ul>
-  <li>end rebase</li>
-</ul>
-
-<pre>
-$ git rebase --continue
-</pre>
-
-<ul>
-  <li>or cancel</li>
-</ul>
-<pre>
-$ git rebase --abort
-</pre>
-
-<ul>
-  <li>push changes to remote server</li>
-</ul>
-<pre>
-git push --force-with-lease &lt;origin&gt; &lt;test-branch&gt;
-</pre>
-
-<p>(or <code class="highlighter-rouge">$ ./logerrit submit master</code> for LibreOffice)</p>]]></content><author><name>Bayram Çiçek</name></author><category term="general" /><summary type="html"><![CDATA[list commit log $ git log or $ git log --oneline]]></summary></entry></feed>
+</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[About project]]></summary></entry></feed>

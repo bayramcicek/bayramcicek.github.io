@@ -18,4 +18,4 @@ __
 
 subscribe LibreOffice-Dev [via RSS][lo-feed]
 
-[lo-feed]: https://bayramcicek.com.tr/lo-feed.xml
+[lo-feed]: https://bayramcicek.github.io/lo-feed.xml

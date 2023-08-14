@@ -3,11 +3,137 @@
     <channel>
         <title>Bayram Çiçek&apos;s website</title>
         <description>All content written by me is by default released freely under the Public License.</description>
-        <link>https://bayramcicek.com.tr/libreoffice/</link>
-        <atom:link href="https://bayramcicek.com.tr/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 08 Jul 2023 23:18:46 +0300</pubDate>
-        <lastBuildDate>Sat, 08 Jul 2023 23:18:46 +0300</lastBuildDate>
+        <link>https://bayramcicek.github.io/libreoffice/</link>
+        <atom:link href="https://bayramcicek.github.io/lo-feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Mon, 14 Aug 2023 13:17:18 +0300</pubDate>
+        <lastBuildDate>Mon, 14 Aug 2023 13:17:18 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options</title>
+                <author>Bayram Çiçek</author>
+                <description>&lt;p&gt;&lt;em&gt;Thanks to my ‘Search Field in Options’ project mentors &lt;u&gt;Andreas Heinisch&lt;/u&gt; and &lt;u&gt;Heiko Tietze&lt;/u&gt; for their time and guidance.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;project-report-for-week-7---11&quot;&gt;Project Report for Week #7 - #11&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;A lot of new patchsets submitted (between patchset 10 and 19): &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We decided to implement Plan B(initialize all strings at Options dialog start-up) instead of “extracting strings at build-time” approach.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;all (visible) strings of 69 dialogs included in searching. Currently:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;labels,&lt;/li&gt;
+      &lt;li&gt;check buttons,&lt;/li&gt;
+      &lt;li&gt;radio buttons and&lt;/li&gt;
+      &lt;li&gt;buttons are included.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;TODO: add accessible-names, accessible-descriptions and tooltip-texts into searching.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GetAllStrings()&lt;/code&gt; function returns all visible strings. e.g.:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ScTpFormulaOptions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAllStrings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sAllStrings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;label1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;formulasyntaxlabel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                          &lt;span class=&quot;s&quot;&gt;&quot;label3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;label6&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                          &lt;span class=&quot;s&quot;&gt;&quot;label7&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;label8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                          &lt;span class=&quot;s&quot;&gt;&quot;label2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;label4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                          &lt;span class=&quot;s&quot;&gt;&quot;label9&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;label10&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_xBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weld_label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;sAllStrings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_xBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weld_label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&apos; &apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radioButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;calcdefault&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;calccustom&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radio&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radioButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_xBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weld_radio_button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;sAllStrings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_xBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weld_radio_button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&apos; &apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;reset&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;details&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_xBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weld_button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;sAllStrings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_xBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weld_button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&apos; &apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// check button&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mxCbEnglishFuncName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sAllStrings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mxCbEnglishFuncName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&apos; &apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sAllStrings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replaceAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Some screenshots from the development&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/w-07-11-0-writer-basic-fonts.png&quot; alt=&quot;w-07-11-0-writer-basic-fonts.png&quot; title=&quot;writer-basic-fonts&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/w-07-11-1-writer-color.png&quot; alt=&quot;w-07-11-1-writer-color.png&quot; title=&quot;writer-color&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/w-07-11-2-writer-general.png&quot; alt=&quot;w-07-11-2-writer-general.png&quot; title=&quot;writer-general&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New patchsets submitted (between patchset 10 and 19): &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Implementation of Plan B is completed. (initialize all strings at Options dialog start-up)&lt;/li&gt;
+  &lt;li&gt;all (visible) strings of 69 dialogs included in searching.:
+    &lt;ul&gt;
+      &lt;li&gt;labels,&lt;/li&gt;
+      &lt;li&gt;check buttons,&lt;/li&gt;
+      &lt;li&gt;radio buttons and&lt;/li&gt;
+      &lt;li&gt;buttons are included.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+    ***
+&lt;/p&gt;
+
+&lt;p&gt;Patch: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Project Mentors: &lt;u&gt;Andreas Heinisch&lt;/u&gt; and &lt;u&gt;Heiko Tietze&lt;/u&gt; (Thanks for their time and guidance)&lt;/p&gt;
+
+&lt;p&gt;GSoC project page: &lt;a href=&quot;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&quot;&gt;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Enhancement request on Bugzilla: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=49895&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=49895&lt;/a&gt;&lt;/p&gt;
+
+</description>
+                <pubDate>Mon, 14 Aug 2023 12:18:00 +0300</pubDate>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html</guid>
+                
+                
+                <category>libreoffice-dev</category>
+                
+            </item>
         
             <item>
                 <title>How to clang-format LibreOffice code-base only for selected code piece(s) - VSCode</title>
@@ -66,8 +192,8 @@ Then &lt;code class=&quot;highlighter-rouge&quot;&gt;right click&lt;/code&gt; on
 
 </description>
                 <pubDate>Sat, 08 Jul 2023 22:16:00 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2023/07/08/clang-format-lo-code-base.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2023/07/08/clang-format-lo-code-base.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2023/07/08/clang-format-lo-code-base.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2023/07/08/clang-format-lo-code-base.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -303,8 +429,8 @@ Then &lt;code class=&quot;highlighter-rouge&quot;&gt;right click&lt;/code&gt; on
 
 </description>
                 <pubDate>Sat, 08 Jul 2023 14:39:00 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -794,8 +920,8 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 </description>
                 <pubDate>Mon, 26 Jun 2023 08:38:00 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2023/06/26/week-04-gsoc-report.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2023/06/26/week-04-gsoc-report.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2023/06/26/week-04-gsoc-report.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2023/06/26/week-04-gsoc-report.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -998,8 +1124,8 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 </description>
                 <pubDate>Sun, 18 Jun 2023 08:23:00 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2023/06/18/week-03-gsoc-report.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2023/06/18/week-03-gsoc-report.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2023/06/18/week-03-gsoc-report.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2023/06/18/week-03-gsoc-report.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -1264,8 +1390,8 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 </description>
                 <pubDate>Sat, 10 Jun 2023 09:03:00 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2023/06/10/week-02-gsoc-report.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2023/06/10/week-02-gsoc-report.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2023/06/10/week-02-gsoc-report.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2023/06/10/week-02-gsoc-report.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -1522,8 +1648,8 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 </description>
                 <pubDate>Sat, 03 Jun 2023 11:08:00 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2023/06/03/week-01-gsoc-report.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2023/06/03/week-01-gsoc-report.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2023/06/03/week-01-gsoc-report.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2023/06/03/week-01-gsoc-report.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -1638,8 +1764,8 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 </description>
                 <pubDate>Thu, 18 May 2023 11:18:00 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2023/05/18/gsoc-timeline.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2023/05/18/gsoc-timeline.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2023/05/18/gsoc-timeline.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2023/05/18/gsoc-timeline.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -1819,8 +1945,8 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 </description>
                 <pubDate>Mon, 23 Aug 2021 09:03:12 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/08/23/final-report-gsoc.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/08/23/final-report-gsoc.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2021/08/23/final-report-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/08/23/final-report-gsoc.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -1981,8 +2107,8 @@ layout, not in current cell.&lt;/li&gt;
 
 </description>
                 <pubDate>Mon, 16 Aug 2021 01:01:36 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/08/16/week-10-gsoc.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/08/16/week-10-gsoc.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2021/08/16/week-10-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/08/16/week-10-gsoc.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -2025,8 +2151,8 @@ layout, not in current cell.&lt;/li&gt;
 
 </description>
                 <pubDate>Sun, 08 Aug 2021 11:34:53 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/08/08/week-09-gsoc.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/08/08/week-09-gsoc.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2021/08/08/week-09-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/08/08/week-09-gsoc.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -2086,8 +2212,8 @@ layout, not in current cell.&lt;/li&gt;
 
 </description>
                 <pubDate>Sun, 01 Aug 2021 09:04:42 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/08/01/week-07-08-gsoc.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/08/01/week-07-08-gsoc.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2021/08/01/week-07-08-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/08/01/week-07-08-gsoc.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -2229,8 +2355,8 @@ Added tooltip &lt;em&gt;“Set Diagonal Right Border”&lt;/em&gt; for for diago
 
 </description>
                 <pubDate>Sun, 18 Jul 2021 09:41:13 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/07/18/week-06-gsoc.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/07/18/week-06-gsoc.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2021/07/18/week-06-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/07/18/week-06-gsoc.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -2419,8 +2545,8 @@ there are 3 issues about comment section:&lt;/p&gt;
 
 </description>
                 <pubDate>Sun, 11 Jul 2021 09:24:45 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/07/11/week-05-gsoc.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/07/11/week-05-gsoc.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2021/07/11/week-05-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/07/11/week-05-gsoc.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -2609,8 +2735,8 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
 
 </description>
                 <pubDate>Mon, 05 Jul 2021 08:06:19 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2021/07/05/week-03-04-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/07/05/week-03-04-gsoc.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -2702,8 +2828,8 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
 
 </description>
                 <pubDate>Sun, 04 Jul 2021 20:50:12 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/07/04/week-02-gsoc.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/07/04/week-02-gsoc.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2021/07/04/week-02-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/07/04/week-02-gsoc.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
@@ -2848,8 +2974,8 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
 
 </description>
                 <pubDate>Sun, 13 Jun 2021 08:30:12 +0300</pubDate>
-                <link>https://bayramcicek.com.tr/libreoffice-dev/2021/06/13/week-01-gsoc.html</link>
-                <guid isPermaLink="true">https://bayramcicek.com.tr/libreoffice-dev/2021/06/13/week-01-gsoc.html</guid>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2021/06/13/week-01-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/06/13/week-01-gsoc.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
