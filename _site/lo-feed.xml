@@ -5,8 +5,8 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.github.io/libreoffice/</link>
         <atom:link href="https://bayramcicek.github.io/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 14 Aug 2023 13:17:18 +0300</pubDate>
-        <lastBuildDate>Mon, 14 Aug 2023 13:17:18 +0300</lastBuildDate>
+        <pubDate>Tue, 15 Aug 2023 10:11:42 +0300</pubDate>
+        <lastBuildDate>Tue, 15 Aug 2023 10:11:42 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
         
             <item>
@@ -1924,22 +1924,22 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 &lt;h3 id=&quot;all-weekly-gsoc-reports&quot;&gt;All weekly GSoC reports&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;16 Aug 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/08/16/week-10-gsoc.html&quot;&gt;Week #10 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;08 Aug 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/08/08/week-09-gsoc.html&quot;&gt;Week #9 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;01 Aug 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/08/01/week-07-08-gsoc.html&quot;&gt;Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;18 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/18/week-06-gsoc.html&quot;&gt;Week #6 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;11 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/11/week-05-gsoc.html&quot;&gt;Week #5 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;05 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html&quot;&gt;Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;04 Jul 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/04/week-02-gsoc.html&quot;&gt;Week #2 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;13 Jun 2021   &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/06/13/week-01-gsoc.html&quot;&gt;Week #1 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;16 Aug 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/08/16/week-10-gsoc.html&quot;&gt;Week #10 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;08 Aug 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/08/08/week-09-gsoc.html&quot;&gt;Week #9 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;01 Aug 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/08/01/week-07-08-gsoc.html&quot;&gt;Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;18 Jul 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/07/18/week-06-gsoc.html&quot;&gt;Week #6 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;11 Jul 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/07/11/week-05-gsoc.html&quot;&gt;Week #5 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;05 Jul 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/07/05/week-03-04-gsoc.html&quot;&gt;Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;04 Jul 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/07/04/week-02-gsoc.html&quot;&gt;Week #2 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;13 Jun 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/06/13/week-01-gsoc.html&quot;&gt;Week #1 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Useful links:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr&quot;&gt;https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr&lt;/a&gt; (my all contributions to LibreOffice)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com&quot;&gt;https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com&lt;/a&gt; (my all contributions to LibreOffice)&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://translations.documentfoundation.org/user/bayramcicek/&quot;&gt;https://translations.documentfoundation.org/user/bayramcicek/&lt;/a&gt; (my translations in LibreOffice)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bayramcicek.com.tr/libreoffice/&quot;&gt;https://bayramcicek.com.tr/libreoffice/&lt;/a&gt; (all blog posts related to LibreOffice development)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bayramcicek.github.io/libreoffice/&quot;&gt;https://bayramcicek.github.io/libreoffice/&lt;/a&gt; (all blog posts related to LibreOffice development)&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://summerofcode.withgoogle.com/projects/#4776372494401536&quot;&gt;https://summerofcode.withgoogle.com/projects/#4776372494401536&lt;/a&gt; (Google Summer of Code - Project page)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -2000,7 +2000,7 @@ Diagonal borders should be shown in the preview (as other borders).&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CellAppearancePropertyPanel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UpdateCellBorder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                                                    &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bVer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bHor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
 
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;pVirDev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DrawLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aTL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aBL&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -2040,13 +2040,13 @@ Diagonal borders should be shown in the preview (as other borders).&lt;/p&gt;
 &lt;p&gt;Before:&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/calc_before_preview.png&quot; alt=&quot;calc_before_preview.png&quot; /&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/calc_before_preview.png&quot; alt=&quot;calc_before_preview.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;After:&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/calc_after_preview.png&quot; alt=&quot;calc_after_preview.png&quot; /&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/calc_after_preview.png&quot; alt=&quot;calc_after_preview.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -2243,7 +2243,7 @@ layout, not in current cell.&lt;/li&gt;
 &lt;p&gt;In order to work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;, I added diagonal borders to &lt;code class=&quot;highlighter-rouge&quot;&gt;table toolbar &amp;gt; borders&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/one_cell_border_0.png&quot; alt=&quot;one_cell_border_0.png&quot; /&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/one_cell_border_0.png&quot; alt=&quot;one_cell_border_0.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
@@ -2252,7 +2252,7 @@ layout, not in current cell.&lt;/li&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/multi_cell_border_1.png&quot; alt=&quot;multi_cell_border_1.png&quot; /&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/multi_cell_border_1.png&quot; alt=&quot;multi_cell_border_1.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
@@ -2374,7 +2374,7 @@ Added tooltip &lt;em&gt;“Set Diagonal Right Border”&lt;/em&gt; for for diago
   &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438&lt;/a&gt; (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Last week I shared a blog post of my research on this bug &lt;a href=&quot;https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html&quot;&gt;here&lt;/a&gt; and this week I posted a comment about my 2-week research on the bug page of tdf#34438 &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47&quot;&gt;here&lt;/a&gt;, and Regina Henschel replied with a comment &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c48&quot;&gt;here&lt;/a&gt; (thanks for the reply):&lt;/p&gt;
+&lt;p&gt;Last week I shared a blog post of my research on this bug &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/07/05/week-03-04-gsoc.html&quot;&gt;here&lt;/a&gt; and this week I posted a comment about my 2-week research on the bug page of tdf#34438 &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47&quot;&gt;here&lt;/a&gt;, and Regina Henschel replied with a comment &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c48&quot;&gt;here&lt;/a&gt; (thanks for the reply):&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;[…] So from my point of view we should get rid of Writer-images. But that is a long way. […] So to get rid of Writer-images it would be necessary to implement the services, which are provided by Writer-images for Draw-images too …&lt;/p&gt;
@@ -2405,7 +2405,7 @@ there are 3 issues about comment section:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/comment-multi-selection.png&quot; alt=&quot;comment-multi-selection.png&quot; /&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/comment-multi-selection.png&quot; alt=&quot;comment-multi-selection.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
@@ -2569,7 +2569,7 @@ there are 3 issues about comment section:&lt;/p&gt;
 &lt;p&gt;However, when copy/paste or drag&amp;amp;drop an image into the writer document canvas, (raster/bitmap)images are handled as &lt;code class=&quot;highlighter-rouge&quot;&gt;Frame objects (holding images/bitmaps)&lt;/code&gt;, not &lt;code class=&quot;highlighter-rouge&quot;&gt;Drawing objects&lt;/code&gt;. Drawing objects have the group feature, but this feature is not implemented for Graphics(Frame objects/bitmap). This is why Writer can’t group raster images.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/shapes-selected.png&quot; alt=&quot;shapes-selected.png&quot; /&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/shapes-selected.png&quot; alt=&quot;shapes-selected.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -2662,7 +2662,7 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
 &lt;h4 id=&quot;frame-is-not-accessible&quot;&gt;Frame is not accessible&lt;/h4&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/frame-is-not-accessible.png&quot; alt=&quot;frame-is-not-accessible.png&quot; /&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/frame-is-not-accessible.png&quot; alt=&quot;frame-is-not-accessible.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Another interesting issue is when trying to add(select) a raster image to the shape list (unmarking disabled) debugging warns &lt;code class=&quot;highlighter-rouge&quot;&gt;warn: /*...*/ frame is not accessible&lt;/code&gt;.&lt;/p&gt;
@@ -2863,13 +2863,13 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
 &lt;p&gt;Before: No mouseover effect:&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/before_hover.png&quot; alt=&quot;before_hover.png&quot; /&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/before_hover.png&quot; alt=&quot;before_hover.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;After:&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://bayramcicek.com.tr/folder/libreoffice-png/after_hover.png&quot; alt=&quot;after_hover.png&quot; /&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/after_hover.png&quot; alt=&quot;after_hover.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;

@@ -36,7 +36,7 @@ etmez.
 
 <br>
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/heap_stack.png" alt="heap_stack"/>
+  <img src="../../../../folder/heap_stack.png" alt="heap_stack"/>
 </p>
 
 <br>

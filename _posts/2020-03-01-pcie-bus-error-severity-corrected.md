@@ -14,17 +14,17 @@ Answers of [this][question] question on StackOverFlow helped me a lot about addi
 Then I thought that I have to get to the GRUB menu at boot-time so, according to this link [how to get to the GRUB menu at boot-time][1], pressing `esc` while booting did not cause the GRUB menu to appear. It shows `please select boot device` section for me.
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/boot-device.jpg" alt="boot-device"/>
+  <img src="../../../../folder/boot-device.jpg" alt="boot-device"/>
 </p>
 
 Then I pressed `Enter` to boot again and while booting, pressed `esc` again. Finally it reached to the GRUB menu and I pressed `e` to edit the commands(this page starts with `set params 'Ubuntu'`). Then I added `pci=nomsi` to end of the line starting with `linux` and pressed `F10` to boot.
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/grub.jpg" alt="grub"/>
+  <img src="../../../../folder/grub.jpg" alt="grub"/>
 </p>
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/params.jpg" alt="params"/>
+  <img src="../../../../folder/params.jpg" alt="params"/>
 </p>
 
 After this operation, I was able to reach login screen and terminal. Then I followed the [@Ujjal Kumar Das's][2] answer on StackOverFlow and updated my `/etc/default/grub/` file permanently.

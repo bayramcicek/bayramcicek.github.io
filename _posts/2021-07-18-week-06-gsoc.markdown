@@ -22,7 +22,7 @@ In order to work on [tdf#51665][tdf#51665], I added diagonal borders to `table t
 
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/one_cell_border_0.png" alt="one_cell_border_0.png"/>
+  <img src="../../../../folder/libreoffice-png/one_cell_border_0.png" alt="one_cell_border_0.png"/>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@ In order to work on [tdf#51665][tdf#51665], I added diagonal borders to `table t
 
 <br>   
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/multi_cell_border_1.png" alt="multi_cell_border_1.png"/>
+  <img src="../../../../folder/libreoffice-png/multi_cell_border_1.png" alt="multi_cell_border_1.png"/>
 </p>
 
 <p align="center">

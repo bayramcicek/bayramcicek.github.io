@@ -26,7 +26,7 @@ A10) Dur
 
 <br>
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/prime.png" alt="prime"/>
+  <img src="../../../../folder/prime.png" alt="prime"/>
 </p>
 
 ---

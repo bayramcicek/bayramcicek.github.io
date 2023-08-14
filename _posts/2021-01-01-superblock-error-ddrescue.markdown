@@ -24,7 +24,7 @@ Hatalı alan `/dev/sbd1`, yeni alan ise `/dev/sdb2`. Öyleyse `sdb1` alanını `
 - `$ sudo ddrescue -f -n /dev/sdb1 /dev/sdb2 /root/recovery.log`
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/ddrescue/ddrescue_0.png" alt="ddrescue_2"/>
+  <img src="../../../../folder/ddrescue/ddrescue_0.png" alt="ddrescue_2"/>
 </p>
 
 <br>
@@ -37,7 +37,7 @@ Bu işlemi yaptıktan bir süre sonra `sdb2` tekrar hata vermeye başladı. Bu a
 - `$ sudo badblocks -b 4096 -vs /dev/sdb3 > ./bad_blocks.txt`
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/ddrescue/ddrescue_1.png" alt="ddrescue_2"/>
+  <img src="../../../../folder/ddrescue/ddrescue_1.png" alt="ddrescue_2"/>
 </p>
 
 <br>
@@ -45,4 +45,4 @@ Bellek alanınız ne kadar büyük olursa kurtarma ve bad block tarama işlemler
 
 Yılın ilk günü hard diskinizin bozulması iyi bir yılbaşı hediyesi olmasa da `ddrescue` ile verilerin nasıl kurtarılacağı konusunu öğrenmek iyi bir başlangıç olarak sayılabilir. 
 
-[bad_sector]: https://bayramcicek.com.tr/general/2020/07/11/disk-bad-sector.html
+[bad_sector]: https://bayramcicek.github.io/general/2020/07/11/disk-bad-sector.html

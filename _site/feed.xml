@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-08-14T13:17:18+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html" rel="alternate" type="text/html" title="Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-08-14T12:18:00+03:00</published><updated>2023-08-14T12:18:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance.</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-08-15T10:11:42+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html" rel="alternate" type="text/html" title="Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-08-14T12:18:00+03:00</published><updated>2023-08-14T12:18:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance.</em></p>
 
 <h3 id="project-report-for-week-7---11">Project Report for Week #7 - #11</h3>
 
@@ -1659,7 +1659,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 
 <h4 id="exactly-1-year-after-first-patch">Exactly 1 year after first patch</h4>
 
-<p>One year ago this month, I sent my <a href="https://gerrit.libreoffice.org/c/core/+/106489">first patch to LibreOffice/core</a> and announced it with a blog post titled <a href="https://bayramcicek.com.tr/general/2020/11/25/libreoffice.html">Contributing to LibreOffice: First patch</a>. In that day, I couldn’t imagine that I would successfully complete GSoC’21 and become a TDF member within 1 year.</p>
+<p>One year ago this month, I sent my <a href="https://gerrit.libreoffice.org/c/core/+/106489">first patch to LibreOffice/core</a> and announced it with a blog post titled <a href="https://bayramcicek.github.io/general/2020/11/25/libreoffice.html">Contributing to LibreOffice: First patch</a>. In that day, I couldn’t imagine that I would successfully complete GSoC’21 and become a TDF member within 1 year.</p>
 
 <p>Thanks to LibreOffice community, mentors and developers for their help throughout the journey. Without your help, I couldn’t do it.</p>]]></content><author><name>Bayram Çiçek</name></author><category term="general" /><summary type="html"><![CDATA[Here’s the latest developments on my LibreOffice journey - after Google Summer of Code 2021:]]></summary></entry><entry><title type="html">Final Report - GSoC - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc.html" rel="alternate" type="text/html" title="Final Report - GSoC - 100 Paper Cuts" /><published>2021-08-23T09:03:12+03:00</published><updated>2021-08-23T09:03:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc.html"><![CDATA[<h3 id="about-project">About project</h3>
 
@@ -1810,21 +1810,21 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 <h3 id="all-weekly-gsoc-reports">All weekly GSoC reports</h3>
 
 <ul>
-  <li>16 Aug 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/08/16/week-10-gsoc.html">Week #10 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>08 Aug 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/08/08/week-09-gsoc.html">Week #9 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>01 Aug 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/08/01/week-07-08-gsoc.html">Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>18 Jul 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/18/week-06-gsoc.html">Week #6 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>11 Jul 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/11/week-05-gsoc.html">Week #5 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>05 Jul 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html">Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>04 Jul 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/07/04/week-02-gsoc.html">Week #2 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>13 Jun 2021   <a href="https://bayramcicek.com.tr/libreoffice-dev/2021/06/13/week-01-gsoc.html">Week #1 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>16 Aug 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/08/16/week-10-gsoc.html">Week #10 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>08 Aug 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/08/08/week-09-gsoc.html">Week #9 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>01 Aug 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/08/01/week-07-08-gsoc.html">Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>18 Jul 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/07/18/week-06-gsoc.html">Week #6 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>11 Jul 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/07/11/week-05-gsoc.html">Week #5 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>05 Jul 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/07/05/week-03-04-gsoc.html">Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>04 Jul 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/07/04/week-02-gsoc.html">Week #2 - GSoC Weekly Report - 100 Paper Cuts</a></li>
+  <li>13 Jun 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/06/13/week-01-gsoc.html">Week #1 - GSoC Weekly Report - 100 Paper Cuts</a></li>
 </ul>
 
 <p><strong>Useful links:</strong></p>
 
 <ul>
-  <li><a href="https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr">https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr</a> (my all contributions to LibreOffice)</li>
+  <li><a href="https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com">https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com</a> (my all contributions to LibreOffice)</li>
   <li><a href="https://translations.documentfoundation.org/user/bayramcicek/">https://translations.documentfoundation.org/user/bayramcicek/</a> (my translations in LibreOffice)</li>
-  <li><a href="https://bayramcicek.com.tr/libreoffice/">https://bayramcicek.com.tr/libreoffice/</a> (all blog posts related to LibreOffice development)</li>
+  <li><a href="https://bayramcicek.github.io/libreoffice/">https://bayramcicek.github.io/libreoffice/</a> (all blog posts related to LibreOffice development)</li>
   <li><a href="https://summerofcode.withgoogle.com/projects/#4776372494401536">https://summerofcode.withgoogle.com/projects/#4776372494401536</a> (Google Summer of Code - Project page)</li>
 </ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[About project]]></summary></entry></feed>

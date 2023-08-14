@@ -43,7 +43,7 @@ Line preview is drawn in:
 void CellAppearancePropertyPanel::UpdateCellBorder(bool bTop, bool bBot, bool bLeft, bool bRight,
                                                    bool bVer, bool bHor)
 {
-	/* ... */
+    // ...
 
     if(bLeft)
         pVirDev->DrawLine( aTL,aBL );
@@ -89,13 +89,13 @@ void CellAppearancePropertyPanel::UpdateCellBorder(bool bTop, bool bBot, bool bL
 Before:
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/calc_before_preview.png" alt="calc_before_preview.png"/>
+  <img src="../../../../folder/libreoffice-png/calc_before_preview.png" alt="calc_before_preview.png"/>
 </p>
 
 After:
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/calc_after_preview.png" alt="calc_after_preview.png"/>
+  <img src="../../../../folder/libreoffice-png/calc_after_preview.png" alt="calc_after_preview.png"/>
 </p>
 
 <br>

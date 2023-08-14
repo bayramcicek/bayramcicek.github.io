@@ -31,13 +31,13 @@ WB(WinBits) are showing the styles of palettes and `WB_FLATVALUESET` does the mo
 Before: No mouseover effect:
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/before_hover.png" alt="before_hover.png"/>
+  <img src="../../../../folder/libreoffice-png/before_hover.png" alt="before_hover.png"/>
 </p>
 
 After:
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/after_hover.png" alt="after_hover.png"/>
+  <img src="../../../../folder/libreoffice-png/after_hover.png" alt="after_hover.png"/>
 </p>
 
 <br>

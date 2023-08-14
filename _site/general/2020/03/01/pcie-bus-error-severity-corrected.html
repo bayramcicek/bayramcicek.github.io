@@ -59,17 +59,17 @@
 <p>Then I thought that I have to get to the GRUB menu at boot-time so, according to this link <a href="https://askubuntu.com/questions/16042/how-to-get-to-the-grub-menu-at-boot-time">how to get to the GRUB menu at boot-time</a>, pressing <code class="highlighter-rouge">esc</code> while booting did not cause the GRUB menu to appear. It shows <code class="highlighter-rouge">please select boot device</code> section for me.</p>
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/boot-device.jpg" alt="boot-device" />
+  <img src="../../../../folder/boot-device.jpg" alt="boot-device" />
 </p>
 
 <p>Then I pressed <code class="highlighter-rouge">Enter</code> to boot again and while booting, pressed <code class="highlighter-rouge">esc</code> again. Finally it reached to the GRUB menu and I pressed <code class="highlighter-rouge">e</code> to edit the commands(this page starts with <code class="highlighter-rouge">set params 'Ubuntu'</code>). Then I added <code class="highlighter-rouge">pci=nomsi</code> to end of the line starting with <code class="highlighter-rouge">linux</code> and pressed <code class="highlighter-rouge">F10</code> to boot.</p>
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/grub.jpg" alt="grub" />
+  <img src="../../../../folder/grub.jpg" alt="grub" />
 </p>
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/params.jpg" alt="params" />
+  <img src="../../../../folder/params.jpg" alt="params" />
 </p>
 
 <p>After this operation, I was able to reach login screen and terminal. Then I followed the <a href="https://askubuntu.com/a/926352/829928">@Ujjal Kumar Das’s</a> answer on StackOverFlow and updated my <code class="highlighter-rouge">/etc/default/grub/</code> file permanently.</p>

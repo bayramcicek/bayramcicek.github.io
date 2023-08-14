@@ -33,7 +33,7 @@ there are 3 issues about comment section:
 
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/libreoffice-png/comment-multi-selection.png" alt="comment-multi-selection.png"/>
+  <img src="../../../../folder/libreoffice-png/comment-multi-selection.png" alt="comment-multi-selection.png"/>
 </p>
 
 <p align="center">
@@ -174,7 +174,7 @@ void SwAnnotationWin::LockView(bool bLock)
 
 [tdf#34438]: https://bugs.documentfoundation.org/show_bug.cgi?id=34438
 
-[gsoc-w3-4]: https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html
+[gsoc-w3-4]: https://bayramcicek.github.io/libreoffice-dev/2021/07/05/week-03-04-gsoc.html
 
 [comment-me]: https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47
 

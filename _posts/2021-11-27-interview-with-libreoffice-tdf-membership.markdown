@@ -22,4 +22,4 @@ Thanks to LibreOffice community, mentors and developers for their help throughou
 [members]: https://www.documentfoundation.org/governance/members/
 [link]: https://blog.documentfoundation.org/blog/2021/11/22/community-member-monday-bayram-cicek/
 [first-patch]: https://gerrit.libreoffice.org/c/core/+/106489
-[first-commit-post]: https://bayramcicek.com.tr/general/2020/11/25/libreoffice.html
+[first-commit-post]: https://bayramcicek.github.io/general/2020/11/25/libreoffice.html

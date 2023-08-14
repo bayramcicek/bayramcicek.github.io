@@ -48,7 +48,7 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde <code class="highlighter-rouge">...the superblock is corrupt...</code> hatasını gördüm. Kullandığım HDD üzerinde daha önce <a href="https://bayramcicek.com.tr/general/2020/07/11/disk-bad-sector.html">bad sector</a> problemi oluşmuştu ve sadece read-only hatası vermişti.</p>
+    <p>GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde <code class="highlighter-rouge">...the superblock is corrupt...</code> hatasını gördüm. Kullandığım HDD üzerinde daha önce <a href="https://bayramcicek.github.io/general/2020/07/11/disk-bad-sector.html">bad sector</a> problemi oluşmuştu ve sadece read-only hatası vermişti.</p>
 
 <p>1TB ‘lık HDD içinden ayırdığım -temiz ve bad sector içermeyen- 100GB ‘lık alanda bu defasında -dosya sistemi ile ilgili metadata bilgilerini içeren- <code class="highlighter-rouge">superblock</code> adı verilen bloklardan biri bozulmuştu. Bu blok bozulduğunda sisteminiz o bellek alanını tanıyamaz ve terminalden o alanı <code class="highlighter-rouge">mount</code> etmek istediğinizde ise <code class="highlighter-rouge">the file system structure on disk is corrupt</code> hatasını alırsınız.</p>
 
@@ -71,7 +71,7 @@ Device         Start       End    Sectors  Size  Type
 </ul>
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/ddrescue/ddrescue_0.png" alt="ddrescue_2" />
+  <img src="../../../../folder/ddrescue/ddrescue_0.png" alt="ddrescue_2" />
 </p>
 
 <p><br />
@@ -88,7 +88,7 @@ Kurtarma işlemi bittiğinde <code class="highlighter-rouge">/dev/sdb2</code> be
 </ul>
 
 <p align="center">
-  <img src="https://bayramcicek.com.tr/folder/ddrescue/ddrescue_1.png" alt="ddrescue_2" />
+  <img src="../../../../folder/ddrescue/ddrescue_1.png" alt="ddrescue_2" />
 </p>
 
 <p><br />

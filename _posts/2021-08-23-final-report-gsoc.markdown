@@ -127,9 +127,9 @@ Thanks to everyone in the LibreOffice community for their help, I learned a lot 
 
 **Useful links:**
 
-- [https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr][all-lo-commits] (my all contributions to LibreOffice)
+- [https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com][all-lo-commits] (my all contributions to LibreOffice)
 - [https://translations.documentfoundation.org/user/bayramcicek/][weblate] (my translations in LibreOffice)
-- [https://bayramcicek.com.tr/libreoffice/][lo-category] (all blog posts related to LibreOffice development)
+- [https://bayramcicek.github.io/libreoffice/][lo-category] (all blog posts related to LibreOffice development)
 - [https://summerofcode.withgoogle.com/projects/#4776372494401536][gsoc_page] (Google Summer of Code - Project page)
 
 [paper-cuts]: https://wiki.documentfoundation.org/100_Paper_Cuts
@@ -158,16 +158,16 @@ Thanks to everyone in the LibreOffice community for their help, I learned a lot 
 [tdf#98404]: https://bugs.documentfoundation.org/show_bug.cgi?id=98404
 [comment-2]: https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25
 
-[w1]: https://bayramcicek.com.tr/libreoffice-dev/2021/06/13/week-01-gsoc.html
-[w2]: https://bayramcicek.com.tr/libreoffice-dev/2021/07/04/week-02-gsoc.html
-[w3-4]: https://bayramcicek.com.tr/libreoffice-dev/2021/07/05/week-03-04-gsoc.html
-[w5]: https://bayramcicek.com.tr/libreoffice-dev/2021/07/11/week-05-gsoc.html
-[w6]: https://bayramcicek.com.tr/libreoffice-dev/2021/07/18/week-06-gsoc.html
-[w7-8]: https://bayramcicek.com.tr/libreoffice-dev/2021/08/01/week-07-08-gsoc.html
-[w9]: https://bayramcicek.com.tr/libreoffice-dev/2021/08/08/week-09-gsoc.html
-[w10]: https://bayramcicek.com.tr/libreoffice-dev/2021/08/16/week-10-gsoc.html
+[w1]: https://bayramcicek.github.io/libreoffice-dev/2021/06/13/week-01-gsoc.html
+[w2]: https://bayramcicek.github.io/libreoffice-dev/2021/07/04/week-02-gsoc.html
+[w3-4]: https://bayramcicek.github.io/libreoffice-dev/2021/07/05/week-03-04-gsoc.html
+[w5]: https://bayramcicek.github.io/libreoffice-dev/2021/07/11/week-05-gsoc.html
+[w6]: https://bayramcicek.github.io/libreoffice-dev/2021/07/18/week-06-gsoc.html
+[w7-8]: https://bayramcicek.github.io/libreoffice-dev/2021/08/01/week-07-08-gsoc.html
+[w9]: https://bayramcicek.github.io/libreoffice-dev/2021/08/08/week-09-gsoc.html
+[w10]: https://bayramcicek.github.io/libreoffice-dev/2021/08/16/week-10-gsoc.html
 
-[all-lo-commits]: https://gerrit.libreoffice.org/q/owner:mail%2540bayramcicek.com.tr
+[all-lo-commits]: https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com
 [weblate]: https://translations.documentfoundation.org/user/bayramcicek/
-[lo-category]: https://bayramcicek.com.tr/libreoffice/
+[lo-category]: https://bayramcicek.github.io/libreoffice/
 [gsoc_page]: https://summerofcode.withgoogle.com/projects/#4776372494401536
