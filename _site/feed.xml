@@ -1,4 +1,148 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-08-15T10:11:42+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html" rel="alternate" type="text/html" title="Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-08-14T12:18:00+03:00</published><updated>2023-08-14T12:18:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance.</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-08-28T21:04:58+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Final Report - Google Summer of Code 2023 - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html" rel="alternate" type="text/html" title="Final Report - Google Summer of Code 2023 - Search Field in Options" /><published>2023-08-26T12:00:00+03:00</published><updated>2023-08-26T12:00:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html"><![CDATA[<h3 id="about-project">About project</h3>
+
+<p>LibreOffice is a complex application with a large and growing number of options. It is not easy to find the right needle in the haystack. Like most other complex applications, it will be valuable and useful enhancement to add a search field to the “Tools &gt; Options” dialog that iterates over the various tabs and filters where the search text is found. The <u>Search Field in Options</u> project aims to provide this search functionality in “Tools &gt; Options” page.</p>
+
+<ul>
+  <li>Project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></li>
+  <li>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></li>
+  <li>Patch on Gerrit: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></li>
+</ul>
+
+<h3 id="tasks">Tasks</h3>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Add search field to Options dialog - UI</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Implement search function</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Include Options TreeView’s parent and child node names into searching</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Add <code class="highlighter-rouge">GetAllStrings()</code> method to fetch strings from 69 dialogs step by step</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Include following element strings into searching:
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  labels</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  check buttons</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  radio buttons</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  toggle buttons</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  link buttons</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  buttons</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include accessibility elements into searching:
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  accessible-names</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  accessible-descriptions</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  tooltip-texts</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include option pages from extensions into searching</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Initialize all dialogs to get strings properly (not in background - synchronously)
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  initialize ~half of them after opening the options</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  and initialize remaining ones after doing a search</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Update Options TreeView properly after the searching done</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Expand the first node and select first child-node after search by default</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Remove Hyphen (<code class="highlighter-rouge">_</code>) and Tilde (<code class="highlighter-rouge">~</code>) symbols from fetched strings to make the search function work correctly</li>
+</ul>
+
+<h3 id="my-work-during-gsoc">My Work during GSoC</h3>
+
+<p>During 13 weeks GSoC program, I added a search field in Options dialog and included the node names and their .ui strings into searching. Since sub-dialogs under the Options are not initialized at startup of Options dialog, it was not possible to access their .ui strings. To overcome this issue we had two options:</p>
+<ul>
+  <li><b>Option A:</b> <u>Extract .ui strings at build-time and fetch them at run-time</u><br />
+This option requires working on file operations, LibreOffice’s build system, makefiles, localization etc. I worked on this option for ~5 weeks but this approach caused a lot of issues that took the project out of its scope. For example, how to deal with localization issue while extracting strings at build-time? This was another big problem…</li>
+  <li><b>Option B:</b> <u>Initialize all dialogs in some way and get their strings</u><br />
+This option is more understandable and simple. Instructions are clear. No need to worry about localization. No need to work on file operations, extracting and fetching data, working with makefiles etc…</li>
+</ul>
+
+<p>When I felt that Option A is just wasting my time (~5 weeks); I switched to Option B where I can -at least- make some progress. The main issue in Option B was initializing all dialogs which takes about 4-8 secs. I tried to initialize them at background but there was some errors on Win10 that I don’t reproduce the issue on my linux machine. Then I tried to see the errors on Win10 with a virtual machine, but it was too slow to test. Therefore I uninstalled Manjaro/Linux (which I’ve been using it more than 1.5 years) from my computer and had to install Win10 (which I last used 6 years ago) on my machine to see the problems in there. There was some visual inconsistencies while initializing sub-dialogs using <code class="highlighter-rouge">salhelper::Thread</code> at background.</p>
+
+<p>After working long hours for weeks meanwhile the time was running out, I decided to initialize almost half of them at Options dialog startup and the remaining ones at the time of searching. In that way, time of initializing process is divided by ~2 which can be acceptable time in some degree in terms of user experience.</p>
+
+<p>There is a single patch on Gerrit for this project: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a>. The patch has more than 30 patchsets and includes “+2255 -47” changes.</p>
+
+<p>The most challenging part was implementing GetAllStrings() function for every ~69 dialogs step by step. Current implementation may not be the best solution for user experience, but at least searching through the numerous options is now possible.</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/options-dialog-on-Win10.png" alt="options-dialog-on-Win10.png" />
+</p>
+
+<h3 id="whats-left-to-do-or-can-be-done">Whats left to do or can be done?</h3>
+
+<p>Following tasks are left and can be implemented after GSoC:</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include accessibility elements into searching:
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  accessible-names</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  accessible-descriptions</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  tooltip-texts</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include option pages from extensions into searching</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
+</ul>
+
+<h3 id="additional-hacks">Additional hacks</h3>
+
+<ul>
+  <li>Show modified options with some special indicator (as in KDE settings). (better to discuss this idea in a separate ticket)</li>
+  <li>Implement highlighting feature</li>
+</ul>
+
+<h3 id="tasks-ill-be-working-on-after-gsoc">Tasks I’ll be working on after GSoC</h3>
+
+<ul>
+  <li>improvement on the initialization of the dialogs, maybe it can be possible to initialize them at background without encountering any visual inconsistencies - especially on Windows.</li>
+  <li>Implementing the remaining tasks:
+    <ul>
+      <li>Include accessibility elements into searching</li>
+      <li>Include option pages from extensions into searching</li>
+    </ul>
+  </li>
+  <li>If everything works fine I’d like to work on the highlighting feature</li>
+  <li>Also it would be prettier if Options dialog have a modified options indicator (as in KDE settings)</li>
+</ul>
+
+<h3 id="thanks">Thanks</h3>
+
+<p>I’m very happy that we all reached the end of GSoC. During that time, I know that I had a responsibility for doing everything that I can. Therefore I worked hard and tried to complete as much tasks as I can.</p>
+
+<p>I learned a lot of things during the GSoC. Although GSoC is finished, I will definitely continue to contribute to LibreOffice. I am really happy to be a part of the LibreOffice community and Google Summer of Code. I’m really thankful to LibreOffice and Google for providing us this such a great opportunity which helped me gain this amazing experience!</p>
+
+<p>I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.</p>
+
+<p>And most importantly, greatly thankful to <b><u>Andreas Heinisch</u></b> and <b><u>Heiko Tietze</u></b> who were my mentors throughout the GSoC period. They always guided me everything about my questions. Thank you endlessly for your time and effort. I appreciate that you always motivating and encouraging me in all that I attempt and do. I can never truly express how grateful I am. Your guidance, reviews, help and shared experiences have been invaluable. Thank you very much for everything.</p>
+
+<p>I’d like to express my gratitude to everyone in the LibreOffice community for their help and kindness. They always tried to answer my questions on IRC. I fell very lucky to work with this amazing community. I have learned a lot from you and I will never forget this wonderful experience.</p>
+
+<p align="right">
+<i>Regards,<br />
+Bayram Çiçek</i>
+</p>
+
+<p><strong>All weekly GSoC reports:</strong></p>
+
+<ul>
+  <li>26 Aug 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html">Final Report - Google Summer of Code 2023 - Search Field in Options</a></li>
+  <li>14 Aug 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html">Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>08 Jul 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html">Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>26 Jun 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/06/26/week-04-gsoc-report.html">Week #4 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>18 Jun 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/06/18/week-03-gsoc-report.html">Week #3 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>10 Jun 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/06/10/week-02-gsoc-report.html">Week #2 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>03 Jun 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/06/03/week-01-gsoc-report.html">Week #1 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>18 May 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/05/18/gsoc-timeline.html">Google Summer of Code 2023 Timeline - Search Field in Options</a></li>
+</ul>
+
+<p><strong>Useful links:</strong></p>
+
+<ul>
+  <li><a href="https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com">https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com</a> (my all contributions to LibreOffice)</li>
+  <li><a href="https://translations.documentfoundation.org/user/bayramcicek/">https://translations.documentfoundation.org/user/bayramcicek/</a> (my translations in LibreOffice)</li>
+  <li><a href="https://bayramcicek.github.io/libreoffice/">https://bayramcicek.github.io/libreoffice/</a> (all blog posts related to LibreOffice development)</li>
+  <li><a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a> (Google Summer of Code - Project page)</li>
+</ul>
+
+<h4 align="right"><i># free as in freedom</i></h4>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[About project]]></summary></entry><entry><title type="html">Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html" rel="alternate" type="text/html" title="Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options" /><published>2023-08-14T12:18:00+03:00</published><updated>2023-08-14T12:18:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html"><![CDATA[<p><em>Thanks to my ‘Search Field in Options’ project mentors <u>Andreas Heinisch</u> and <u>Heiko Tietze</u> for their time and guidance.</em></p>
 
 <h3 id="project-report-for-week-7---11">Project Report for Week #7 - #11</h3>
 
@@ -1661,170 +1805,4 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 
 <p>One year ago this month, I sent my <a href="https://gerrit.libreoffice.org/c/core/+/106489">first patch to LibreOffice/core</a> and announced it with a blog post titled <a href="https://bayramcicek.github.io/general/2020/11/25/libreoffice.html">Contributing to LibreOffice: First patch</a>. In that day, I couldn’t imagine that I would successfully complete GSoC’21 and become a TDF member within 1 year.</p>
 
-<p>Thanks to LibreOffice community, mentors and developers for their help throughout the journey. Without your help, I couldn’t do it.</p>]]></content><author><name>Bayram Çiçek</name></author><category term="general" /><summary type="html"><![CDATA[Here’s the latest developments on my LibreOffice journey - after Google Summer of Code 2021:]]></summary></entry><entry><title type="html">Final Report - GSoC - 100 Paper Cuts</title><link href="http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc.html" rel="alternate" type="text/html" title="Final Report - GSoC - 100 Paper Cuts" /><published>2021-08-23T09:03:12+03:00</published><updated>2021-08-23T09:03:12+03:00</updated><id>http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2021/08/23/final-report-gsoc.html"><![CDATA[<h3 id="about-project">About project</h3>
-
-<p><em>100 Paper Cuts</em> project aims for improving user interface, implementing enhancement requests and solving most-annoying issues on the UX side of LibreOffice. <em>100 Paper Cuts</em> is a list of bugs and enhancement requests relating to LibreOffice’s user experience: <a href="https://wiki.documentfoundation.org/100_Paper_Cuts">https://wiki.documentfoundation.org/100_Paper_Cuts</a></p>
-
-<h3 id="goal">Goal</h3>
-
-<p>Main goal was to solve as many bugs as I can, but at least 5 bugs, during GSoC.</p>
-
-<h3 id="my-work">My Work</h3>
-
-<ul>
-  <li>
-    <p>In ‘Format &gt; Page Style… &gt; Area’ Tab, Mouseover effect added to the palettes on Color, Gradient, Bitmap, Pattern and Hatch sections.</p>
-  </li>
-  <li>
-    <p>Fixed opposite cropping issue on flipped images in Writer</p>
-  </li>
-  <li>
-    <p>In Writer, 3 issues about comment section fixed:</p>
-
-    <ul>
-      <li>
-        <p>comment section scrolls to top of its view
-  when clicking inside a comment view.</p>
-      </li>
-      <li>
-        <p>clicking inside a comment view, scrolls the
-  view to old cursor location automatically
-  (if old cursor out of the visible area)</p>
-      </li>
-      <li>
-        <p>comment section scrolls automatically to the
-  old <em>selected</em> text (if it’s out of visible area)
-  when clicking inside the Writer canvas view</p>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <p>In “Properties sidebar &gt; Cell Appearance”, Calc shows preview of the selected cell borders. This feature also added for diagonal borders.</p>
-  </li>
-  <li>
-    <p>Calc: added diagonal borders in Toolbar&gt;Borders</p>
-    <ul>
-      <li>added diagonal left, diagonal right border and criss-cross border icon to Borders tab</li>
-      <li>added diagonal left and diagonal right borders feature</li>
-      <li>implemented removing diagonal borders when set “no border”</li>
-      <li>added criss-cross line feature</li>
-      <li>added a unit test for diagonal borders</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="commits">Commits</h3>
-
-<ul>
-  <li><a href="https://gerrit.libreoffice.org/c/core/+/116395">https://gerrit.libreoffice.org/c/core/+/116395</a> (merged)</li>
-  <li><a href="https://gerrit.libreoffice.org/c/core/+/116770">https://gerrit.libreoffice.org/c/core/+/116770</a> (merged)</li>
-  <li><a href="https://gerrit.libreoffice.org/c/core/+/118638">https://gerrit.libreoffice.org/c/core/+/118638</a> (merged)</li>
-  <li><a href="https://gerrit.libreoffice.org/c/core/+/120519">https://gerrit.libreoffice.org/c/core/+/120519</a> (merged)</li>
-  <li><a href="https://gerrit.libreoffice.org/c/core/+/118951">https://gerrit.libreoffice.org/c/core/+/118951</a> (merged)</li>
-  <li><a href="https://gerrit.libreoffice.org/c/core/+/120262">https://gerrit.libreoffice.org/c/core/+/120262</a> (WIP)</li>
-</ul>
-
-<h3 id="bugs">Bugs</h3>
-
-<ul>
-  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=109388">https://bugs.documentfoundation.org/show_bug.cgi?id=109388</a> (fixed)</li>
-  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=104995">https://bugs.documentfoundation.org/show_bug.cgi?id=104995</a> (fixed)</li>
-  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=91519">https://bugs.documentfoundation.org/show_bug.cgi?id=91519</a> (fixed)</li>
-  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143890">https://bugs.documentfoundation.org/show_bug.cgi?id=143890</a> (fixed)</li>
-  <li>
-    <p><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143919">https://bugs.documentfoundation.org/show_bug.cgi?id=143919</a> (fixed)</p>
-  </li>
-  <li>
-    <p><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143300">https://bugs.documentfoundation.org/show_bug.cgi?id=143300</a> (reported)</p>
-  </li>
-  <li>
-    <p>(Work In Progress): <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: (WIP) Support diagonal borders in Writer-Tables</p>
-  </li>
-  <li>(worked on): <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438</a> - group selection does not work with raster images
-    <ul>
-      <li>commented: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47">https://bugs.documentfoundation.org/show_bug.cgi?id=34438#c47</a></li>
-      <li>developers decided that get rid of Writer-Images</li>
-      <li>this bug should be done by an experienced developer<br /><br /></li>
-    </ul>
-  </li>
-  <li>(worked on): <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404">tdf#98404</a> - UX - While objects on a slide are being edited, the new slide sorter Ctrl+Shift shortcut combinations incorrectly receive focus and move the slide
-    <ul>
-      <li>commented: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25">https://bugs.documentfoundation.org/show_bug.cgi?id=98404#c25</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="whats-left-to-do-or-can-be-done">Whats left to do or can be done?</h3>
-
-<ul>
-  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>: (WIP) Support diagonal borders in Writer-Tables
-    <ul>
-      <li><a href="https://gerrit.libreoffice.org/c/core/+/120262">https://gerrit.libreoffice.org/c/core/+/120262</a></li>
-      <li>This bug has 2 step: a) implement diagonal borders, b) draw them.</li>
-      <li>I’m workink on this bug for ~4 weeks and it is Work in Progress. Writer-Tables doesn’t have diagonal borders feature. I implemented RES_BOX_TLBR attribute and added SID_ATTR_BORDER_DIAG_TLBR for now. After that, we should try to draw them. I’m trying to draw diagonal LEFT border first. If we can draw that, then it becomes easy to apply all the changes to diagonal RIGHT border.</li>
-      <li>If we can add diagonal borders feature, we can also implement criss-cross border feature.</li>
-      <li>In addition to drawing diagonal borders, we should also be able to change their color and style. To apply these 3 things (drawing, color, style), we have to change a lot of things in the codebase. Therefore I think <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a> can be a standalone GSoC project itself :) <br /><br /></li>
-    </ul>
-  </li>
-  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=84099">tdf#84099</a> - Calc can’t handle very high rows
-    <ul>
-      <li>Scrolling in spreadsheets on Calc is designed to snap to rows. Therefore, this makes it hard to work with spreadsheets with large row heights. This annoying issue is not only specific for vertical scroll but also affects horizontal scroll. If we can add <em>smooth scroll</em> feature, it will likely solve the <em>height</em> issue on both rows and columns. <br /><br /></li>
-    </ul>
-  </li>
-  <li><a href="https://bugs.documentfoundation.org/show_bug.cgi?id=90253">tdf#90253</a> - Drawing a textbox in Impress doesn’t retain its height
-    <ul>
-      <li>And, this is another bug that I want to work on it.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="summary">Summary</h3>
-
-<ul>
-  <li>total bugs : 8</li>
-  <li>fixed : 5</li>
-  <li>WIP : 1</li>
-  <li>worked on but couldn’t fix : 2</li>
-</ul>
-
-<p>I learned lots of things even from the bugs that I couldn’t fix. At least, I informed the LibreOffice community about my research and shared the code pointers by commenting on the bug page. Therefore, someone who will work on the bugs that I commented, can easily see the code pointers and my works on it.</p>
-
-<p align="center">
-    ***
-</p>
-
-<p>I’m very happy that we all reached the end of GSoC. During that time, I know that I had a responsibility for doing everything that I can. Therefore I worked hard, tried to get familiar with the LibreOffice community and worked on as many bugs as I can.</p>
-
-<p>I learned a lot of things during the GSoC. Although GSoC is finished, I will definitely continue to contribute to LibreOffice. I am really happy to be a part of the LibreOffice community and GSoC.</p>
-
-<h3 id="thanks">Thanks</h3>
-
-<p>I’m really thankful to LibreOffice and Google for providing us this such a great opportunity which helped me gain this amazing experience!</p>
-
-<p>I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.</p>
-
-<p>And most importantly, greatly thankful to <em>Muhammet Kara</em> and <em>Heiko Tietze</em> which were my mentors throughout the GSoC period. They always guided me everything about my questions. Thank you so much for your guidance, code reviews, time and everything.</p>
-
-<p>Thanks to everyone in the LibreOffice community for their help, I learned a lot from you :)</p>
-
-<h3 id="all-weekly-gsoc-reports">All weekly GSoC reports</h3>
-
-<ul>
-  <li>16 Aug 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/08/16/week-10-gsoc.html">Week #10 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>08 Aug 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/08/08/week-09-gsoc.html">Week #9 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>01 Aug 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/08/01/week-07-08-gsoc.html">Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>18 Jul 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/07/18/week-06-gsoc.html">Week #6 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>11 Jul 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/07/11/week-05-gsoc.html">Week #5 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>05 Jul 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/07/05/week-03-04-gsoc.html">Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>04 Jul 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/07/04/week-02-gsoc.html">Week #2 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-  <li>13 Jun 2021   <a href="https://bayramcicek.github.io/libreoffice-dev/2021/06/13/week-01-gsoc.html">Week #1 - GSoC Weekly Report - 100 Paper Cuts</a></li>
-</ul>
-
-<p><strong>Useful links:</strong></p>
-
-<ul>
-  <li><a href="https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com">https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com</a> (my all contributions to LibreOffice)</li>
-  <li><a href="https://translations.documentfoundation.org/user/bayramcicek/">https://translations.documentfoundation.org/user/bayramcicek/</a> (my translations in LibreOffice)</li>
-  <li><a href="https://bayramcicek.github.io/libreoffice/">https://bayramcicek.github.io/libreoffice/</a> (all blog posts related to LibreOffice development)</li>
-  <li><a href="https://summerofcode.withgoogle.com/projects/#4776372494401536">https://summerofcode.withgoogle.com/projects/#4776372494401536</a> (Google Summer of Code - Project page)</li>
-</ul>]]></content><author><name>Bayram Çiçek</name></author><category term="libreoffice-dev" /><summary type="html"><![CDATA[About project]]></summary></entry></feed>
+<p>Thanks to LibreOffice community, mentors and developers for their help throughout the journey. Without your help, I couldn’t do it.</p>]]></content><author><name>Bayram Çiçek</name></author><category term="general" /><summary type="html"><![CDATA[Here’s the latest developments on my LibreOffice journey - after Google Summer of Code 2021:]]></summary></entry></feed>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Final Report - Google Summer of Code 2023 - Search Field in Options | Bayram Çiçek’s website</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="Final Report - Google Summer of Code 2023 - Search Field in Options" />
+<meta name="author" content="Bayram Çiçek" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="About project" />
+<meta property="og:description" content="About project" />
+<link rel="canonical" href="http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html" />
+<meta property="og:url" content="http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html" />
+<meta property="og:site_name" content="Bayram Çiçek’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-26T12:00:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Final Report - Google Summer of Code 2023 - Search Field in Options" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Bayram Çiçek"},"dateModified":"2023-08-26T12:00:00+03:00","datePublished":"2023-08-26T12:00:00+03:00","description":"About project","headline":"Final Report - Google Summer of Code 2023 - Search Field in Options","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html"},"url":"http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Bayram Çiçek&apos;s website" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Bayram Çiçek&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/libreoffice/">LibreOffice</a><a class="page-link" href="/about/">About / Hakkımda</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Final Report - Google Summer of Code 2023 - Search Field in Options</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-08-26T12:00:00+03:00" itemprop="datePublished">Aug 26, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h3 id="about-project">About project</h3>
+
+<p>LibreOffice is a complex application with a large and growing number of options. It is not easy to find the right needle in the haystack. Like most other complex applications, it will be valuable and useful enhancement to add a search field to the “Tools &gt; Options” dialog that iterates over the various tabs and filters where the search text is found. The <u>Search Field in Options</u> project aims to provide this search functionality in “Tools &gt; Options” page.</p>
+
+<ul>
+  <li>Project page: <a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a></li>
+  <li>Enhancement request on Bugzilla: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=49895">https://bugs.documentfoundation.org/show_bug.cgi?id=49895</a></li>
+  <li>Patch on Gerrit: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a></li>
+</ul>
+
+<h3 id="tasks">Tasks</h3>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Add search field to Options dialog - UI</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Implement search function</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Include Options TreeView’s parent and child node names into searching</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Add <code class="highlighter-rouge">GetAllStrings()</code> method to fetch strings from 69 dialogs step by step</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Include following element strings into searching:
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  labels</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  check buttons</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  radio buttons</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  toggle buttons</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  link buttons</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  buttons</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include accessibility elements into searching:
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  accessible-names</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  accessible-descriptions</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  tooltip-texts</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include option pages from extensions into searching</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Initialize all dialogs to get strings properly (not in background - synchronously)
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  initialize ~half of them after opening the options</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  and initialize remaining ones after doing a search</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Update Options TreeView properly after the searching done</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Expand the first node and select first child-node after search by default</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Remove Hyphen (<code class="highlighter-rouge">_</code>) and Tilde (<code class="highlighter-rouge">~</code>) symbols from fetched strings to make the search function work correctly</li>
+</ul>
+
+<h3 id="my-work-during-gsoc">My Work during GSoC</h3>
+
+<p>During 13 weeks GSoC program, I added a search field in Options dialog and included the node names and their .ui strings into searching. Since sub-dialogs under the Options are not initialized at startup of Options dialog, it was not possible to access their .ui strings. To overcome this issue we had two options:</p>
+<ul>
+  <li><b>Option A:</b> <u>Extract .ui strings at build-time and fetch them at run-time</u><br />
+This option requires working on file operations, LibreOffice’s build system, makefiles, localization etc. I worked on this option for ~5 weeks but this approach caused a lot of issues that took the project out of its scope. For example, how to deal with localization issue while extracting strings at build-time? This was another big problem…</li>
+  <li><b>Option B:</b> <u>Initialize all dialogs in some way and get their strings</u><br />
+This option is more understandable and simple. Instructions are clear. No need to worry about localization. No need to work on file operations, extracting and fetching data, working with makefiles etc…</li>
+</ul>
+
+<p>When I felt that Option A is just wasting my time (~5 weeks); I switched to Option B where I can -at least- make some progress. The main issue in Option B was initializing all dialogs which takes about 4-8 secs. I tried to initialize them at background but there was some errors on Win10 that I don’t reproduce the issue on my linux machine. Then I tried to see the errors on Win10 with a virtual machine, but it was too slow to test. Therefore I uninstalled Manjaro/Linux (which I’ve been using it more than 1.5 years) from my computer and had to install Win10 (which I last used 6 years ago) on my machine to see the problems in there. There was some visual inconsistencies while initializing sub-dialogs using <code class="highlighter-rouge">salhelper::Thread</code> at background.</p>
+
+<p>After working long hours for weeks meanwhile the time was running out, I decided to initialize almost half of them at Options dialog startup and the remaining ones at the time of searching. In that way, time of initializing process is divided by ~2 which can be acceptable time in some degree in terms of user experience.</p>
+
+<p>There is a single patch on Gerrit for this project: <a href="https://gerrit.libreoffice.org/c/core/+/152519">https://gerrit.libreoffice.org/c/core/+/152519</a>. The patch has more than 30 patchsets and includes “+2255 -47” changes.</p>
+
+<p>The most challenging part was implementing GetAllStrings() function for every ~69 dialogs step by step. Current implementation may not be the best solution for user experience, but at least searching through the numerous options is now possible.</p>
+
+<p align="center">
+  <img src="../../../../folder/libreoffice-png/options-dialog-on-Win10.png" alt="options-dialog-on-Win10.png" />
+</p>
+
+<h3 id="whats-left-to-do-or-can-be-done">Whats left to do or can be done?</h3>
+
+<p>Following tasks are left and can be implemented after GSoC:</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include accessibility elements into searching:
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  accessible-names</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  accessible-descriptions</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  tooltip-texts</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include option pages from extensions into searching</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
+</ul>
+
+<h3 id="additional-hacks">Additional hacks</h3>
+
+<ul>
+  <li>Show modified options with some special indicator (as in KDE settings). (better to discuss this idea in a separate ticket)</li>
+  <li>Implement highlighting feature</li>
+</ul>
+
+<h3 id="tasks-ill-be-working-on-after-gsoc">Tasks I’ll be working on after GSoC</h3>
+
+<ul>
+  <li>improvement on the initialization of the dialogs, maybe it can be possible to initialize them at background without encountering any visual inconsistencies - especially on Windows.</li>
+  <li>Implementing the remaining tasks:
+    <ul>
+      <li>Include accessibility elements into searching</li>
+      <li>Include option pages from extensions into searching</li>
+    </ul>
+  </li>
+  <li>If everything works fine I’d like to work on the highlighting feature</li>
+  <li>Also it would be prettier if Options dialog have a modified options indicator (as in KDE settings)</li>
+</ul>
+
+<h3 id="thanks">Thanks</h3>
+
+<p>I’m very happy that we all reached the end of GSoC. During that time, I know that I had a responsibility for doing everything that I can. Therefore I worked hard and tried to complete as much tasks as I can.</p>
+
+<p>I learned a lot of things during the GSoC. Although GSoC is finished, I will definitely continue to contribute to LibreOffice. I am really happy to be a part of the LibreOffice community and Google Summer of Code. I’m really thankful to LibreOffice and Google for providing us this such a great opportunity which helped me gain this amazing experience!</p>
+
+<p>I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.</p>
+
+<p>And most importantly, greatly thankful to <b><u>Andreas Heinisch</u></b> and <b><u>Heiko Tietze</u></b> who were my mentors throughout the GSoC period. They always guided me everything about my questions. Thank you endlessly for your time and effort. I appreciate that you always motivating and encouraging me in all that I attempt and do. I can never truly express how grateful I am. Your guidance, reviews, help and shared experiences have been invaluable. Thank you very much for everything.</p>
+
+<p>I’d like to express my gratitude to everyone in the LibreOffice community for their help and kindness. They always tried to answer my questions on IRC. I fell very lucky to work with this amazing community. I have learned a lot from you and I will never forget this wonderful experience.</p>
+
+<p align="right">
+<i>Regards,<br />
+Bayram Çiçek</i>
+</p>
+
+<p><strong>All weekly GSoC reports:</strong></p>
+
+<ul>
+  <li>26 Aug 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html">Final Report - Google Summer of Code 2023 - Search Field in Options</a></li>
+  <li>14 Aug 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html">Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>08 Jul 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html">Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>26 Jun 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/06/26/week-04-gsoc-report.html">Week #4 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>18 Jun 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/06/18/week-03-gsoc-report.html">Week #3 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>10 Jun 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/06/10/week-02-gsoc-report.html">Week #2 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>03 Jun 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/06/03/week-01-gsoc-report.html">Week #1 - GSoC 2023 Weekly Report - Search Field in Options</a></li>
+  <li>18 May 2023   <a href="https://bayramcicek.github.io/libreoffice-dev/2023/05/18/gsoc-timeline.html">Google Summer of Code 2023 Timeline - Search Field in Options</a></li>
+</ul>
+
+<p><strong>Useful links:</strong></p>
+
+<ul>
+  <li><a href="https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com">https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com</a> (my all contributions to LibreOffice)</li>
+  <li><a href="https://translations.documentfoundation.org/user/bayramcicek/">https://translations.documentfoundation.org/user/bayramcicek/</a> (my translations in LibreOffice)</li>
+  <li><a href="https://bayramcicek.github.io/libreoffice/">https://bayramcicek.github.io/libreoffice/</a> (all blog posts related to LibreOffice development)</li>
+  <li><a href="https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1">https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1</a> (Google Summer of Code - Project page)</li>
+</ul>
+
+<h4 align="right"><i># free as in freedom</i></h4>
+
+
+  </div><a class="u-url" href="/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Bayram Çiçek&#39;s website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Bayram Çiçek</li><li><a class="u-email" href="mailto:bayramcicek2125@gmail.com">bayramcicek2125@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bayramcicek</span></a></li><li><a href="https://www.linkedin.com/in/bayramcicek"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">bayramcicek</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All content written by me is by default released freely under the Public License.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

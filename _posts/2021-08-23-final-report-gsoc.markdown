@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Final Report - GSoC - 100 Paper Cuts"
+title:  "Final Report - Google Summer of Code 2021 - 100 Paper Cuts"
 date:   2021-08-23 09:03:12 +0300
 categories: libreoffice-dev
 ---
@@ -116,7 +116,7 @@ Thanks to everyone in the LibreOffice community for their help, I learned a lot 
 
 ### All weekly GSoC reports
 
-- 16 Aug 2021   [Week #10 - GSoC Weekly Report - 100 Paper Cuts][w10]
+- 15 Aug 2021   [Week #10 - GSoC Weekly Report - 100 Paper Cuts][w10]
 - 08 Aug 2021   [Week #9 - GSoC Weekly Report - 100 Paper Cuts][w9]
 - 01 Aug 2021   [Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts][w7-8]
 - 18 Jul 2021   [Week #6 - GSoC Weekly Report - 100 Paper Cuts][w6]
@@ -165,7 +165,7 @@ Thanks to everyone in the LibreOffice community for their help, I learned a lot 
 [w6]: https://bayramcicek.github.io/libreoffice-dev/2021/07/18/week-06-gsoc.html
 [w7-8]: https://bayramcicek.github.io/libreoffice-dev/2021/08/01/week-07-08-gsoc.html
 [w9]: https://bayramcicek.github.io/libreoffice-dev/2021/08/08/week-09-gsoc.html
-[w10]: https://bayramcicek.github.io/libreoffice-dev/2021/08/16/week-10-gsoc.html
+[w10]: https://bayramcicek.github.io/libreoffice-dev/2021/08/15/week-10-gsoc.html
 
 [all-lo-commits]: https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com
 [weblate]: https://translations.documentfoundation.org/user/bayramcicek/

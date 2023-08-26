@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Week #10 - GSoC Weekly Report - 100 Paper Cuts"
-date:   2021-08-16 01:01:36 +0300
+date:   2021-08-15 09:01:36 +0300
 categories: libreoffice-dev
 ---
 

@@ -5,9 +5,168 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.github.io/libreoffice/</link>
         <atom:link href="https://bayramcicek.github.io/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 15 Aug 2023 10:11:42 +0300</pubDate>
-        <lastBuildDate>Tue, 15 Aug 2023 10:11:42 +0300</lastBuildDate>
+        <pubDate>Mon, 28 Aug 2023 21:04:58 +0300</pubDate>
+        <lastBuildDate>Mon, 28 Aug 2023 21:04:58 +0300</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>Final Report - Google Summer of Code 2023 - Search Field in Options</title>
+                <author>Bayram Çiçek</author>
+                <description>&lt;h3 id=&quot;about-project&quot;&gt;About project&lt;/h3&gt;
+
+&lt;p&gt;LibreOffice is a complex application with a large and growing number of options. It is not easy to find the right needle in the haystack. Like most other complex applications, it will be valuable and useful enhancement to add a search field to the “Tools &amp;gt; Options” dialog that iterates over the various tabs and filters where the search text is found. The &lt;u&gt;Search Field in Options&lt;/u&gt; project aims to provide this search functionality in “Tools &amp;gt; Options” page.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Project page: &lt;a href=&quot;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&quot;&gt;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Enhancement request on Bugzilla: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=49895&quot;&gt;https://bugs.documentfoundation.org/show_bug.cgi?id=49895&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Patch on Gerrit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tasks&quot;&gt;Tasks&lt;/h3&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Add search field to Options dialog - UI&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Implement search function&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Include Options TreeView’s parent and child node names into searching&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Add &lt;code class=&quot;highlighter-rouge&quot;&gt;GetAllStrings()&lt;/code&gt; method to fetch strings from 69 dialogs step by step&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Include following element strings into searching:
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  labels&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  check buttons&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  radio buttons&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  toggle buttons&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  link buttons&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  buttons&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Include accessibility elements into searching:
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  accessible-names&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  accessible-descriptions&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  tooltip-texts&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Include option pages from extensions into searching&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Initialize all dialogs at background if it’s possible (&lt;code class=&quot;highlighter-rouge&quot;&gt;salhelper::Thread&lt;/code&gt; - asynchronously)&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Initialize all dialogs to get strings properly (not in background - synchronously)
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  initialize ~half of them after opening the options&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  and initialize remaining ones after doing a search&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Update Options TreeView properly after the searching done&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Expand the first node and select first child-node after search by default&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Remove Hyphen (&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt;) and Tilde (&lt;code class=&quot;highlighter-rouge&quot;&gt;~&lt;/code&gt;) symbols from fetched strings to make the search function work correctly&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;my-work-during-gsoc&quot;&gt;My Work during GSoC&lt;/h3&gt;
+
+&lt;p&gt;During 13 weeks GSoC program, I added a search field in Options dialog and included the node names and their .ui strings into searching. Since sub-dialogs under the Options are not initialized at startup of Options dialog, it was not possible to access their .ui strings. To overcome this issue we had two options:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;b&gt;Option A:&lt;/b&gt; &lt;u&gt;Extract .ui strings at build-time and fetch them at run-time&lt;/u&gt;&lt;br /&gt;
+This option requires working on file operations, LibreOffice’s build system, makefiles, localization etc. I worked on this option for ~5 weeks but this approach caused a lot of issues that took the project out of its scope. For example, how to deal with localization issue while extracting strings at build-time? This was another big problem…&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Option B:&lt;/b&gt; &lt;u&gt;Initialize all dialogs in some way and get their strings&lt;/u&gt;&lt;br /&gt;
+This option is more understandable and simple. Instructions are clear. No need to worry about localization. No need to work on file operations, extracting and fetching data, working with makefiles etc…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When I felt that Option A is just wasting my time (~5 weeks); I switched to Option B where I can -at least- make some progress. The main issue in Option B was initializing all dialogs which takes about 4-8 secs. I tried to initialize them at background but there was some errors on Win10 that I don’t reproduce the issue on my linux machine. Then I tried to see the errors on Win10 with a virtual machine, but it was too slow to test. Therefore I uninstalled Manjaro/Linux (which I’ve been using it more than 1.5 years) from my computer and had to install Win10 (which I last used 6 years ago) on my machine to see the problems in there. There was some visual inconsistencies while initializing sub-dialogs using &lt;code class=&quot;highlighter-rouge&quot;&gt;salhelper::Thread&lt;/code&gt; at background.&lt;/p&gt;
+
+&lt;p&gt;After working long hours for weeks meanwhile the time was running out, I decided to initialize almost half of them at Options dialog startup and the remaining ones at the time of searching. In that way, time of initializing process is divided by ~2 which can be acceptable time in some degree in terms of user experience.&lt;/p&gt;
+
+&lt;p&gt;There is a single patch on Gerrit for this project: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519&lt;/a&gt;. The patch has more than 30 patchsets and includes “+2255 -47” changes.&lt;/p&gt;
+
+&lt;p&gt;The most challenging part was implementing GetAllStrings() function for every ~69 dialogs step by step. Current implementation may not be the best solution for user experience, but at least searching through the numerous options is now possible.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;../../../../folder/libreoffice-png/options-dialog-on-Win10.png&quot; alt=&quot;options-dialog-on-Win10.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&quot;whats-left-to-do-or-can-be-done&quot;&gt;Whats left to do or can be done?&lt;/h3&gt;
+
+&lt;p&gt;Following tasks are left and can be implemented after GSoC:&lt;/p&gt;
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Include accessibility elements into searching:
+    &lt;ul class=&quot;task-list&quot;&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  accessible-names&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  accessible-descriptions&lt;/li&gt;
+      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  tooltip-texts&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Include option pages from extensions into searching&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Initialize all dialogs at background if it’s possible (&lt;code class=&quot;highlighter-rouge&quot;&gt;salhelper::Thread&lt;/code&gt; - asynchronously)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;additional-hacks&quot;&gt;Additional hacks&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Show modified options with some special indicator (as in KDE settings). (better to discuss this idea in a separate ticket)&lt;/li&gt;
+  &lt;li&gt;Implement highlighting feature&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tasks-ill-be-working-on-after-gsoc&quot;&gt;Tasks I’ll be working on after GSoC&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;improvement on the initialization of the dialogs, maybe it can be possible to initialize them at background without encountering any visual inconsistencies - especially on Windows.&lt;/li&gt;
+  &lt;li&gt;Implementing the remaining tasks:
+    &lt;ul&gt;
+      &lt;li&gt;Include accessibility elements into searching&lt;/li&gt;
+      &lt;li&gt;Include option pages from extensions into searching&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;If everything works fine I’d like to work on the highlighting feature&lt;/li&gt;
+  &lt;li&gt;Also it would be prettier if Options dialog have a modified options indicator (as in KDE settings)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;thanks&quot;&gt;Thanks&lt;/h3&gt;
+
+&lt;p&gt;I’m very happy that we all reached the end of GSoC. During that time, I know that I had a responsibility for doing everything that I can. Therefore I worked hard and tried to complete as much tasks as I can.&lt;/p&gt;
+
+&lt;p&gt;I learned a lot of things during the GSoC. Although GSoC is finished, I will definitely continue to contribute to LibreOffice. I am really happy to be a part of the LibreOffice community and Google Summer of Code. I’m really thankful to LibreOffice and Google for providing us this such a great opportunity which helped me gain this amazing experience!&lt;/p&gt;
+
+&lt;p&gt;I always tried to be active on IRC #libreoffice-dev channel, and I want to thank for everybody who helped me about my questions.&lt;/p&gt;
+
+&lt;p&gt;And most importantly, greatly thankful to &lt;b&gt;&lt;u&gt;Andreas Heinisch&lt;/u&gt;&lt;/b&gt; and &lt;b&gt;&lt;u&gt;Heiko Tietze&lt;/u&gt;&lt;/b&gt; who were my mentors throughout the GSoC period. They always guided me everything about my questions. Thank you endlessly for your time and effort. I appreciate that you always motivating and encouraging me in all that I attempt and do. I can never truly express how grateful I am. Your guidance, reviews, help and shared experiences have been invaluable. Thank you very much for everything.&lt;/p&gt;
+
+&lt;p&gt;I’d like to express my gratitude to everyone in the LibreOffice community for their help and kindness. They always tried to answer my questions on IRC. I fell very lucky to work with this amazing community. I have learned a lot from you and I will never forget this wonderful experience.&lt;/p&gt;
+
+&lt;p align=&quot;right&quot;&gt;
+&lt;i&gt;Regards,&lt;br /&gt;
+Bayram Çiçek&lt;/i&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;All weekly GSoC reports:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;26 Aug 2023   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html&quot;&gt;Final Report - Google Summer of Code 2023 - Search Field in Options&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;14 Aug 2023   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2023/08/14/week-07-11-gsoc-report.html&quot;&gt;Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;08 Jul 2023   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2023/07/08/week-05-06-gsoc-report.html&quot;&gt;Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;26 Jun 2023   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2023/06/26/week-04-gsoc-report.html&quot;&gt;Week #4 - GSoC 2023 Weekly Report - Search Field in Options&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;18 Jun 2023   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2023/06/18/week-03-gsoc-report.html&quot;&gt;Week #3 - GSoC 2023 Weekly Report - Search Field in Options&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;10 Jun 2023   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2023/06/10/week-02-gsoc-report.html&quot;&gt;Week #2 - GSoC 2023 Weekly Report - Search Field in Options&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;03 Jun 2023   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2023/06/03/week-01-gsoc-report.html&quot;&gt;Week #1 - GSoC 2023 Weekly Report - Search Field in Options&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;18 May 2023   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2023/05/18/gsoc-timeline.html&quot;&gt;Google Summer of Code 2023 Timeline - Search Field in Options&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Useful links:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com&quot;&gt;https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com&lt;/a&gt; (my all contributions to LibreOffice)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://translations.documentfoundation.org/user/bayramcicek/&quot;&gt;https://translations.documentfoundation.org/user/bayramcicek/&lt;/a&gt; (my translations in LibreOffice)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bayramcicek.github.io/libreoffice/&quot;&gt;https://bayramcicek.github.io/libreoffice/&lt;/a&gt; (all blog posts related to LibreOffice development)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&quot;&gt;https://summerofcode.withgoogle.com/programs/2023/projects/IKtSHIH1&lt;/a&gt; (Google Summer of Code - Project page)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 align=&quot;right&quot;&gt;&lt;i&gt;# free as in freedom&lt;/i&gt;&lt;/h4&gt;
+
+</description>
+                <pubDate>Sat, 26 Aug 2023 12:00:00 +0300</pubDate>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html</guid>
+                
+                
+                <category>libreoffice-dev</category>
+                
+            </item>
         
             <item>
                 <title>Week #7 - #11 - GSoC 2023 Weekly Report - Search Field in Options</title>
@@ -1773,7 +1932,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
             </item>
         
             <item>
-                <title>Final Report - GSoC - 100 Paper Cuts</title>
+                <title>Final Report - Google Summer of Code 2021 - 100 Paper Cuts</title>
                 <author>Bayram Çiçek</author>
                 <description>&lt;h3 id=&quot;about-project&quot;&gt;About project&lt;/h3&gt;
 
@@ -1924,7 +2083,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 &lt;h3 id=&quot;all-weekly-gsoc-reports&quot;&gt;All weekly GSoC reports&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;16 Aug 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/08/16/week-10-gsoc.html&quot;&gt;Week #10 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;15 Aug 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/08/15/week-10-gsoc.html&quot;&gt;Week #10 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;08 Aug 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/08/08/week-09-gsoc.html&quot;&gt;Week #9 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;01 Aug 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/08/01/week-07-08-gsoc.html&quot;&gt;Week #7 - #8 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;18 Jul 2021   &lt;a href=&quot;https://bayramcicek.github.io/libreoffice-dev/2021/07/18/week-06-gsoc.html&quot;&gt;Week #6 - GSoC Weekly Report - 100 Paper Cuts&lt;/a&gt;&lt;/li&gt;
@@ -2106,9 +2265,9 @@ layout, not in current cell.&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
-                <pubDate>Mon, 16 Aug 2021 01:01:36 +0300</pubDate>
-                <link>https://bayramcicek.github.io/libreoffice-dev/2021/08/16/week-10-gsoc.html</link>
-                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/08/16/week-10-gsoc.html</guid>
+                <pubDate>Sun, 15 Aug 2021 09:01:36 +0300</pubDate>
+                <link>https://bayramcicek.github.io/libreoffice-dev/2021/08/15/week-10-gsoc.html</link>
+                <guid isPermaLink="true">https://bayramcicek.github.io/libreoffice-dev/2021/08/15/week-10-gsoc.html</guid>
                 
                 
                 <category>libreoffice-dev</category>
