@@ -6,7 +6,7 @@ permalink: /about/
 
 Hi. I'm Bayram Çiçek. <br>
 
-I graduated with a bachelor's degree in Computer Engineering from Çanakkale Onsekiz Mart University. I've successfully completed my internship at LibreOffice as a Google Summer of Code 2021 student. Currently, I'm contributing to LibreOffice as a Google Summer of Code 2023 participant.
+I have a bachelor's degree in Computer Engineering from Çanakkale Onsekiz Mart University. I participated in Google Summer of Code 2021 & 2023 at LibreOffice. Now, I'm working at Collabora Productivity as an associate software engineer since October 2023.
 
 ___
 
