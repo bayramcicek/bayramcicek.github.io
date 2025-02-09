@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-16T15:00:09+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Final Report - Google Summer of Code 2023 - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html" rel="alternate" type="text/html" title="Final Report - Google Summer of Code 2023 - Search Field in Options" /><published>2023-08-26T12:00:00+03:00</published><updated>2023-08-26T12:00:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html"><![CDATA[<h3 id="about-project">About project</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-02-09T20:08:55+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bayram Çiçek’s website</title><subtitle>All content written by me is by default released freely under the Public License.</subtitle><author><name>Bayram Çiçek</name></author><entry><title type="html">Final Report - Google Summer of Code 2023 - Search Field in Options</title><link href="http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html" rel="alternate" type="text/html" title="Final Report - Google Summer of Code 2023 - Search Field in Options" /><published>2023-08-26T12:00:00+03:00</published><updated>2023-08-26T12:00:00+03:00</updated><id>http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc</id><content type="html" xml:base="http://localhost:4000/libreoffice-dev/2023/08/26/final-report-2023-gsoc.html"><![CDATA[<h3 id="about-project">About project</h3>
 
 <p>LibreOffice is a complex application with a large and growing number of options. It is not easy to find the right needle in the haystack. Like most other complex applications, it will be valuable and useful enhancement to add a search field to the “Tools &gt; Options” dialog that iterates over the various tabs and filters where the search text is found. The <u>Search Field in Options</u> project aims to provide this search functionality in “Tools &gt; Options” page.</p>
 
@@ -14,7 +14,7 @@
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Add search field to Options dialog - UI</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Implement search function</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Include Options TreeView’s parent and child node names into searching</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Add <code class="highlighter-rouge">GetAllStrings()</code> method to fetch strings from 69 dialogs step by step</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Add <code class="language-plaintext highlighter-rouge">GetAllStrings()</code> method to fetch strings from 69 dialogs step by step</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Include following element strings into searching:
     <ul class="task-list">
       <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  labels</li>
@@ -33,7 +33,7 @@
     </ul>
   </li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include option pages from extensions into searching</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="language-plaintext highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Initialize all dialogs to get strings properly (not in background - synchronously)
     <ul class="task-list">
       <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  initialize ~half of them after opening the options</li>
@@ -42,7 +42,7 @@
   </li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Update Options TreeView properly after the searching done</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Expand the first node and select first child-node after search by default</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Remove Hyphen (<code class="highlighter-rouge">_</code>) and Tilde (<code class="highlighter-rouge">~</code>) symbols from fetched strings to make the search function work correctly</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Remove Hyphen (<code class="language-plaintext highlighter-rouge">_</code>) and Tilde (<code class="language-plaintext highlighter-rouge">~</code>) symbols from fetched strings to make the search function work correctly</li>
 </ul>
 
 <h3 id="my-work-during-gsoc">My Work during GSoC</h3>
@@ -55,7 +55,7 @@ This option requires working on file operations, LibreOffice’s build system, m
 This option is more understandable and simple. Instructions are clear. No need to worry about localization. No need to work on file operations, extracting and fetching data, working with makefiles etc…</li>
 </ul>
 
-<p>When I felt that Option A is just wasting my time (~5 weeks); I switched to Option B where I can -at least- make some progress. The main issue in Option B was initializing all dialogs which takes about 4-8 secs. I tried to initialize them at background but there was some errors on Win10 that I don’t reproduce the issue on my linux machine. Then I tried to see the errors on Win10 with a virtual machine, but it was too slow to test. Therefore I uninstalled Manjaro/Linux (which I’ve been using it more than 1.5 years) from my computer and had to install Win10 (which I last used 6 years ago) on my machine to see the problems in there. There was some visual inconsistencies while initializing sub-dialogs using <code class="highlighter-rouge">salhelper::Thread</code> at background.</p>
+<p>When I felt that Option A is just wasting my time (~5 weeks); I switched to Option B where I can -at least- make some progress. The main issue in Option B was initializing all dialogs which takes about 4-8 secs. I tried to initialize them at background but there was some errors on Win10 that I don’t reproduce the issue on my linux machine. Then I tried to see the errors on Win10 with a virtual machine, but it was too slow to test. Therefore I uninstalled Manjaro/Linux (which I’ve been using it more than 1.5 years) from my computer and had to install Win10 (which I last used 6 years ago) on my machine to see the problems in there. There was some visual inconsistencies while initializing sub-dialogs using <code class="language-plaintext highlighter-rouge">salhelper::Thread</code> at background.</p>
 
 <p>After working long hours for weeks meanwhile the time was running out, I decided to initialize almost half of them at Options dialog startup and the remaining ones at the time of searching. In that way, time of initializing process is divided by ~2 which can be acceptable time in some degree in terms of user experience.</p>
 
@@ -79,7 +79,7 @@ This option is more understandable and simple. Instructions are clear. No need t
     </ul>
   </li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include option pages from extensions into searching</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="language-plaintext highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
 </ul>
 
 <h3 id="additional-hacks">Additional hacks</h3>
@@ -167,7 +167,7 @@ Bayram Çiçek</i>
 <p>TODO: add accessible-names, accessible-descriptions and tooltip-texts into searching.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">GetAllStrings()</code> function returns all visible strings. e.g.:</li>
+  <li><code class="language-plaintext highlighter-rouge">GetAllStrings()</code> function returns all visible strings. e.g.:</li>
 </ul>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">OUString</span> <span class="n">ScTpFormulaOptions</span><span class="o">::</span><span class="n">GetAllStrings</span><span class="p">()</span>
@@ -266,11 +266,11 @@ Bayram Çiçek</i>
 
 <p>We can reformat a file easily. But what if we want to do clang-format only for a specific code-piece(s) (e.g. a function, class, if-else …) instead?</p>
 
-<p>On <code class="highlighter-rouge">VSCode</code> (Linux):</p>
+<p>On <code class="language-plaintext highlighter-rouge">VSCode</code> (Linux):</p>
 <ul>
-  <li><code class="highlighter-rouge">File</code> &gt; <code class="highlighter-rouge">Preferences</code> &gt; <code class="highlighter-rouge">Settings</code>.</li>
-  <li>Search for <code class="highlighter-rouge">clang-format</code>.</li>
-  <li>in <code class="highlighter-rouge">C_Cpp: Clang_format_path</code> section, set the path of the clang-format executable as <code class="highlighter-rouge">/opt/lo/bin/clang-format</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">File</code> &gt; <code class="language-plaintext highlighter-rouge">Preferences</code> &gt; <code class="language-plaintext highlighter-rouge">Settings</code>.</li>
+  <li>Search for <code class="language-plaintext highlighter-rouge">clang-format</code>.</li>
+  <li>in <code class="language-plaintext highlighter-rouge">C_Cpp: Clang_format_path</code> section, set the path of the clang-format executable as <code class="language-plaintext highlighter-rouge">/opt/lo/bin/clang-format</code>.</li>
 </ul>
 
 <p>For example, let’s only select the if statement here:</p>
@@ -286,7 +286,7 @@ Bayram Çiçek</i>
 <span class="p">...</span></code></pre></figure>
 
 <p><br />
-Then <code class="highlighter-rouge">right click</code> on the selection and select <code class="highlighter-rouge">Format Selection</code>:</p>
+Then <code class="language-plaintext highlighter-rouge">right click</code> on the selection and select <code class="language-plaintext highlighter-rouge">Format Selection</code>:</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/format-selection-dialog-vscode.png" alt="format-selection-dialog-vscode.png" title="format-selection-dialog-vscode" />
@@ -316,38 +316,38 @@ Then <code class="highlighter-rouge">right click</code> on the selection and sel
   </li>
 </ul>
 
-<p>I removed the <code class="highlighter-rouge">./solenv/bin/uiex_options</code> script that almost the same with <code class="highlighter-rouge">./solenv/bin/uiex</code>. Instead of creating a new script, adding an additional option to the existing uiex script -to only print the msgid instead of the full entry-, is better than a different file.</p>
+<p>I removed the <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex_options</code> script that almost the same with <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code>. Instead of creating a new script, adding an additional option to the existing uiex script -to only print the msgid instead of the full entry-, is better than a different file.</p>
 
-<p><code class="highlighter-rouge">./solenv/bin/uiex</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code>:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="p">...</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="bp">...</span>
 
-<span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"getString"</span><span class="p">)</span> <span class="p">):</span>
-    <span class="n">mode</span> <span class="o">=</span> <span class="s">"w"</span>
+<span class="nf">if </span><span class="p">(</span> <span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">getString</span><span class="sh">"</span><span class="p">)</span> <span class="p">):</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="sh">"</span><span class="s">w</span><span class="sh">"</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">mode</span> <span class="o">=</span> <span class="s">"a"</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="sh">"</span><span class="s">a</span><span class="sh">"</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
-    <span class="nb">input</span> <span class="o">=</span> <span class="n">check_output</span><span class="p">([</span><span class="s">"xgettext"</span><span class="p">,</span> <span class="s">"--add-comments"</span><span class="p">,</span> <span class="s">"--no-wrap"</span><span class="p">,</span> <span class="n">ifile</span><span class="p">,</span> <span class="s">"-o"</span><span class="p">,</span> <span class="s">"-"</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">)</span>
-    <span class="n">po</span> <span class="o">=</span> <span class="n">polib</span><span class="p">.</span><span class="n">pofile</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">po</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nf">check_output</span><span class="p">([</span><span class="sh">"</span><span class="s">xgettext</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">--add-comments</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">--no-wrap</span><span class="sh">"</span><span class="p">,</span> <span class="n">ifile</span><span class="p">,</span> <span class="sh">"</span><span class="s">-o</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">-</span><span class="sh">"</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">"</span><span class="s">UTF-8</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">po</span> <span class="o">=</span> <span class="n">polib</span><span class="p">.</span><span class="nf">pofile</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">po</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">""</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">po</span><span class="p">:</span>
             <span class="c1"># skip 'stock' entries like "cancel", "help", "ok", etc
 </span>            <span class="c1"># l10ntools/source/localize.cxx will insert one entry for each stock per .po
-</span>            <span class="k">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">==</span> <span class="s">"stock"</span><span class="p">:</span>
+</span>            <span class="k">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">==</span> <span class="sh">"</span><span class="s">stock</span><span class="sh">"</span><span class="p">:</span>
                 <span class="k">continue</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="s">"a"</span><span class="p">):</span>
-                <span class="n">keyid</span> <span class="o">=</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">+</span> <span class="s">'|'</span> <span class="o">+</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgid</span>
-                <span class="k">print</span><span class="p">(</span><span class="s">'#. '</span> <span class="o">+</span> <span class="n">polib</span><span class="p">.</span><span class="n">genKeyId</span><span class="p">(</span><span class="n">keyid</span><span class="p">),</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+            <span class="nf">if </span><span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="sh">"</span><span class="s">a</span><span class="sh">"</span><span class="p">):</span>
+                <span class="n">keyid</span> <span class="o">=</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">+</span> <span class="sh">'</span><span class="s">|</span><span class="sh">'</span> <span class="o">+</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgid</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">#. </span><span class="sh">'</span> <span class="o">+</span> <span class="n">polib</span><span class="p">.</span><span class="nf">genKeyId</span><span class="p">(</span><span class="n">keyid</span><span class="p">),</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
 
-            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">occurrence</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">):</span>
-                <span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">occurrence</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'SRCDIR'</span><span class="p">]),</span> <span class="n">occurrence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">occurrence</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">):</span>
+                <span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">relpath</span><span class="p">(</span><span class="n">occurrence</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="sh">'</span><span class="s">SRCDIR</span><span class="sh">'</span><span class="p">]),</span> <span class="n">occurrence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="s">"a"</span><span class="p">):</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+            <span class="nf">if </span><span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="sh">"</span><span class="s">a</span><span class="sh">"</span><span class="p">):</span>
+                <span class="nf">print</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">msgid</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></code></pre></figure>
+                <span class="nf">print</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">msgid</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></code></pre></figure>
 
 <p><br /></p>
 <ul>
@@ -538,9 +538,9 @@ Then <code class="highlighter-rouge">right click</code> on the selection and sel
   </li>
 </ul>
 
-<p>I added new python script called <code class="highlighter-rouge">./solenv/bin/uiex_options</code> to extract strings(<code class="highlighter-rouge">labels</code>, <code class="highlighter-rouge">accessible-names</code>, <code class="highlighter-rouge">accessible-descriptions</code> and <code class="highlighter-rouge">tooltip-texts</code>) from ui files. This script is almost the same with <code class="highlighter-rouge">./solenv/bin/uiex</code>. The only difference is the new script extracts only <code class="highlighter-rouge">entry.msgid</code> which contains the strings we need. Any other outputs like <code class="highlighter-rouge">entry.msgctxt</code> is not needed so I kept only <code class="highlighter-rouge">entry.msgid</code> in the new script.</p>
+<p>I added new python script called <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex_options</code> to extract strings(<code class="language-plaintext highlighter-rouge">labels</code>, <code class="language-plaintext highlighter-rouge">accessible-names</code>, <code class="language-plaintext highlighter-rouge">accessible-descriptions</code> and <code class="language-plaintext highlighter-rouge">tooltip-texts</code>) from ui files. This script is almost the same with <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code>. The only difference is the new script extracts only <code class="language-plaintext highlighter-rouge">entry.msgid</code> which contains the strings we need. Any other outputs like <code class="language-plaintext highlighter-rouge">entry.msgctxt</code> is not needed so I kept only <code class="language-plaintext highlighter-rouge">entry.msgid</code> in the new script.</p>
 
-<p>For example <code class="highlighter-rouge">./solenv/bin/uiex</code> script:</p>
+<p>For example <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code> script:</p>
 <pre>
 $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
 </pre>
@@ -571,9 +571,9 @@ $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
 <span class="n">msgid</span> <span class="s">"OpenCL Options"</span>
 <span class="n">msgstr</span> <span class="s">""</span></code></pre></figure>
 
-<p>But we only need strings inside <code class="highlighter-rouge">msgid</code> here. Others are not needed.</p>
+<p>But we only need strings inside <code class="language-plaintext highlighter-rouge">msgid</code> here. Others are not needed.</p>
 
-<p><code class="highlighter-rouge">./solenv/bin/uiex_options</code> extracts only strings inside <code class="highlighter-rouge">msgid</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">./solenv/bin/uiex_options</code> extracts only strings inside <code class="language-plaintext highlighter-rouge">msgid</code>:</p>
 
 <pre>
 $ ./solenv/bin/uiex_options -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
@@ -592,7 +592,7 @@ OpenCL Options
   <li>Extraction at build-time</li>
 </ul>
 
-<p>Added all ui files that belong to Options dialog, inside <code class="highlighter-rouge">cui/UIConfig_cui.mk</code> file:</p>
+<p>Added all ui files that belong to Options dialog, inside <code class="language-plaintext highlighter-rouge">cui/UIConfig_cui.mk</code> file:</p>
 
 <figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span><span class="o">(</span><span class="nb">eval</span> <span class="si">$(</span>call gb_UIConfig_generate_options_uifiles,cui/uiconfig/uioptions, <span class="se">\</span>
 <span class="go">    cui/uiconfig/ui/optuserpage \
@@ -653,9 +653,9 @@ OpenCL Options
     starmath/uiconfig/smath/ui/smathsettings \
 ))</span></code></pre></figure>
 
-<p>this calls <code class="highlighter-rouge">gb_UIConfig_generate_options_uifiles</code> function with <code class="highlighter-rouge">cui/uiconfig/uioptions</code> as first parameter and list of ui files as second parameter.</p>
+<p>this calls <code class="language-plaintext highlighter-rouge">gb_UIConfig_generate_options_uifiles</code> function with <code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions</code> as first parameter and list of ui files as second parameter.</p>
 
-<p><code class="highlighter-rouge">solenv/gbuild/UIConfig.mk</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">solenv/gbuild/UIConfig.mk</code>:</p>
 
 <figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">define gb_UIConfig_run_uiex_options_script
 </span><span class="gp">$</span><span class="o">(</span>shell <span class="si">$(</span>SRCDIR<span class="si">)</span>/solenv/bin/uiex_options <span class="nt">-i</span> <span class="si">$(</span>SRCDIR<span class="si">)</span>/<span class="si">$(</span>2<span class="si">)</span>.ui <span class="nt">-o</span> <span class="si">$(</span>1<span class="si">)</span>/<span class="si">$(</span>3<span class="si">)</span>.txt<span class="o">)</span>
@@ -680,25 +680,25 @@ endef</span></code></pre></figure>
   <li>Extracted file location</li>
 </ul>
 
-<p>All extracted files located in <code class="highlighter-rouge">cui/uiconfig/uioptions/*</code>.</p>
+<p>All extracted files located in <code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/*</code>.</p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/cui/*</code>        for ui files in <code class="highlighter-rouge">./cui/uiconfig/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/cui/*</code>        for ui files in <code class="language-plaintext highlighter-rouge">./cui/uiconfig/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sc/*</code>         for ui files in <code class="highlighter-rouge">./sc/uiconfig/scalc/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/sc/*</code>         for ui files in <code class="language-plaintext highlighter-rouge">./sc/uiconfig/scalc/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sd/*</code>         for ui files in <code class="highlighter-rouge">./sd/uiconfig/simpress/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/sd/*</code>         for ui files in <code class="language-plaintext highlighter-rouge">./sd/uiconfig/simpress/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sfx2/*</code>       for ui files in <code class="highlighter-rouge">./sfx2/uiconfig/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/sfx2/*</code>       for ui files in <code class="language-plaintext highlighter-rouge">./sfx2/uiconfig/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/starmath/*</code>   for ui files in <code class="highlighter-rouge">./starmath/uiconfig/smath/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/starmath/*</code>   for ui files in <code class="language-plaintext highlighter-rouge">./starmath/uiconfig/smath/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/svx/*</code>        for ui files in <code class="highlighter-rouge">./svx/uiconfig/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/svx/*</code>        for ui files in <code class="language-plaintext highlighter-rouge">./svx/uiconfig/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sw/*</code>         for ui files in <code class="highlighter-rouge">./sw/uiconfig/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/sw/*</code>         for ui files in <code class="language-plaintext highlighter-rouge">./sw/uiconfig/ui/*.ui</code></p>
 
-<p>and all of sub-directories contain a <code class="highlighter-rouge">README.md</code> file.</p>
+<p>and all of sub-directories contain a <code class="language-plaintext highlighter-rouge">README.md</code> file.</p>
 
-<p>e.g. <code class="highlighter-rouge">cui/uiconfig/uioptions/sfx2/README.md</code>:</p>
+<p>e.g. <code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/sfx2/README.md</code>:</p>
 
 <pre style="white-space: pre-wrap">
 This directory contains txt files that extracted form build-time. All files contains labels, accessible-names, accessible-descriptions and tooltip-texts from all ./sfx2/uiconfig/ui/*.ui files that exist in Tools-Options dialog.
@@ -729,7 +729,7 @@ e.g.: optprintpage.txt has strings from ./sfx2/uiconfig/ui/optprintpage.ui
     <span class="n">OUString</span> <span class="n">getAllStringsFrom</span><span class="p">(</span><span class="n">sal_uInt16</span> <span class="n">nPageId</span><span class="p">);</span>
 <span class="p">};</span></code></pre></figure>
 
-<p>Vector <code class="highlighter-rouge">std::vector&lt; OptionsPageIdInfo* &gt; m_aTreePageIds</code> contains all informatin related to extracted strings.</p>
+<p>Vector <code class="language-plaintext highlighter-rouge">std::vector&lt; OptionsPageIdInfo* &gt; m_aTreePageIds</code> contains all informatin related to extracted strings.</p>
 
 <pre>
 m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text(*xEntry), aParentId, pPageInfo-&gt;m_nPageId));
@@ -752,12 +752,12 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 
 <p><br /></p>
 <ul>
-  <li>Updated the <code class="highlighter-rouge">applySearchFilter()</code> function</li>
+  <li>Updated the <code class="language-plaintext highlighter-rouge">applySearchFilter()</code> function</li>
 </ul>
 
-<p>The searching is made only in the variable <code class="highlighter-rouge">sPageNameAndStrings</code>. It contains the dialog page name and its strings.</p>
+<p>The searching is made only in the variable <code class="language-plaintext highlighter-rouge">sPageNameAndStrings</code>. It contains the dialog page name and its strings.</p>
 
-<p><code class="highlighter-rouge">OUString sPageNameAndStrings = sParentName + " " + sPageName + " " + sPageStrings;</code></p>
+<p><code class="language-plaintext highlighter-rouge">OUString sPageNameAndStrings = sParentName + " " + sPageName + " " + sPageStrings;</code></p>
 
 <p>Then the searching is made:</p>
 
@@ -765,7 +765,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">textSearch</span><span class="p">.</span><span class="n">SearchForward</span><span class="p">(</span><span class="n">sPageNameAndStrings</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aStartPos</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aEndPos</span><span class="p">))</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 <span class="k">else</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">applySearchFilter(OUString const&amp; rSearchTerm)</code> function:</p>
+<p><code class="language-plaintext highlighter-rouge">applySearchFilter(OUString const&amp; rSearchTerm)</code> function:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">applySearchFilter</span><span class="p">(</span><span class="n">OUString</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rSearchTerm</span><span class="p">)</span>
 <span class="p">{</span>
@@ -780,7 +780,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="p">}</span>
 
     <span class="n">m_options</span><span class="p">.</span><span class="n">searchString</span> <span class="o">=</span> <span class="n">rSearchTerm</span><span class="p">;</span>
-    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="n">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
+    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="nf">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
 
     <span class="n">clearOptionsDialog</span><span class="p">();</span>
 
@@ -837,7 +837,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 
 <p><br /></p>
 <ul>
-  <li>Added new cxx file <code class="highlighter-rouge">cui/source/options/treeopthelper.cxx</code></li>
+  <li>Added new cxx file <code class="language-plaintext highlighter-rouge">cui/source/options/treeopthelper.cxx</code></li>
 </ul>
 
 <p>This file contains the file path of extracted strings with thair page-id and strings.</p>
@@ -861,7 +861,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="p">...</span> <span class="p">(</span><span class="n">and</span> <span class="n">other</span> <span class="mi">68</span> <span class="n">entries</span><span class="p">)</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>The function <code class="highlighter-rouge">storeStringsFromUiFile(sal_uInt16 nPageId)</code> reads the data inside txt files and fetch them into <code class="highlighter-rouge">PageIdToFileNameMap_Impl</code> struct as <code class="highlighter-rouge">rEntry.m_sContent += sLine + " ";</code></p>
+<p>The function <code class="language-plaintext highlighter-rouge">storeStringsFromUiFile(sal_uInt16 nPageId)</code> reads the data inside txt files and fetch them into <code class="language-plaintext highlighter-rouge">PageIdToFileNameMap_Impl</code> struct as <code class="language-plaintext highlighter-rouge">rEntry.m_sContent += sLine + " ";</code></p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">TreeOptHelper</span><span class="o">::</span><span class="n">storeStringsFromUiFile</span><span class="p">(</span><span class="n">sal_uInt16</span> <span class="n">nPageId</span><span class="p">)</span>
 <span class="p">{</span>
@@ -903,7 +903,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>The function <code class="highlighter-rouge">getAllStringsFrom(sal_uInt16 nPageId)</code> gets the strings from the given pageId:</p>
+<p>The function <code class="language-plaintext highlighter-rouge">getAllStringsFrom(sal_uInt16 nPageId)</code> gets the strings from the given pageId:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">OUString</span> <span class="n">TreeOptHelper</span><span class="o">::</span><span class="n">getAllStringsFrom</span><span class="p">(</span><span class="n">sal_uInt16</span> <span class="n">nPageId</span><span class="p">)</span>
 <span class="p">{</span>
@@ -918,7 +918,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="k">return</span> <span class="n">OUString</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nf">OUString</span><span class="p">();</span>
 <span class="p">}</span></code></pre></figure>
 
 <p><br /></p>
@@ -1007,9 +1007,9 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
   <li>The Problem in Options sub-dialogs</li>
 </ul>
 
-<p>I’ve been working with Options dialog which has more than 30 sub-dialogs. On the left pane of the Options dialog, the TreeView headers and their sub-headers were included in searching. There is no problem here. However, when it comes to adding all sub-dialogs’ <code class="highlighter-rouge">labels</code>, <code class="highlighter-rouge">accessible-names</code>, <code class="highlighter-rouge">accessible-descriptions</code> and <code class="highlighter-rouge">tooltip-texts</code> to the searching, there is a problem arise: When Options dialog opens, it does not initialize all dialogs so it is <code class="highlighter-rouge">NOT</code> possible to access their methods - until they were clicked manually.</p>
+<p>I’ve been working with Options dialog which has more than 30 sub-dialogs. On the left pane of the Options dialog, the TreeView headers and their sub-headers were included in searching. There is no problem here. However, when it comes to adding all sub-dialogs’ <code class="language-plaintext highlighter-rouge">labels</code>, <code class="language-plaintext highlighter-rouge">accessible-names</code>, <code class="language-plaintext highlighter-rouge">accessible-descriptions</code> and <code class="language-plaintext highlighter-rouge">tooltip-texts</code> to the searching, there is a problem arise: When Options dialog opens, it does not initialize all dialogs so it is <code class="language-plaintext highlighter-rouge">NOT</code> possible to access their methods - until they were clicked manually.</p>
 
-<p>I asked about this problem on <code class="highlighter-rouge">IRC #libreoffice-dev</code> channel:</p>
+<p>I asked about this problem on <code class="language-plaintext highlighter-rouge">IRC #libreoffice-dev</code> channel:</p>
 
 <pre style="white-space: pre-wrap">
 
@@ -1033,16 +1033,16 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 
 </pre>
 
-<p>It is not possible to access all sub-dialogs when Options dialog opens. We can only have access to their <code class="highlighter-rouge">pageIDs</code> and <code class="highlighter-rouge">pageNames(headers)</code>, but we can’t access their methods since they aren’t instantiated. Otherwise, fetching the all data we need would be very easy with a method implemented by all dialogs - something like <code class="highlighter-rouge">pPageInfo-&gt;m_xPage-&gt;getAllTooltips()</code> etc..</p>
+<p>It is not possible to access all sub-dialogs when Options dialog opens. We can only have access to their <code class="language-plaintext highlighter-rouge">pageIDs</code> and <code class="language-plaintext highlighter-rouge">pageNames(headers)</code>, but we can’t access their methods since they aren’t instantiated. Otherwise, fetching the all data we need would be very easy with a method implemented by all dialogs - something like <code class="language-plaintext highlighter-rouge">pPageInfo-&gt;m_xPage-&gt;getAllTooltips()</code> etc..</p>
 
 <p>Initializing all dialogs when Options dialog opens is another idea. But this is not a good idea since it takes long to create/initialize all sub-dialogs.</p>
 
 <p><br /></p>
 <ul>
-  <li>About <code class="highlighter-rouge">./solenv/bin/uiex</code> script</li>
+  <li>About <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code> script</li>
 </ul>
 
-<p>In <code class="highlighter-rouge">./core</code> directory; e.g. for <code class="highlighter-rouge">optopenclpage.ui</code> file, running</p>
+<p>In <code class="language-plaintext highlighter-rouge">./core</code> directory; e.g. for <code class="language-plaintext highlighter-rouge">optopenclpage.ui</code> file, running</p>
 
 <pre>
  $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
@@ -1078,22 +1078,22 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 
 <span class="o">---</span></code></pre></figure>
 
-<p>As far as I understand,  the <code class="highlighter-rouge">./solenv/bin/uiex</code> script extracts all strings that have</p>
+<p>As far as I understand,  the <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code> script extracts all strings that have</p>
 
 <pre>
 &lt;... translatable="yes" ... &gt;
 </pre>
 
-<p>property. This also extracts all <code class="highlighter-rouge">label</code>, <code class="highlighter-rouge">accessible-name</code>, <code class="highlighter-rouge">accessible-description</code> and <code class="highlighter-rouge">tooltip-text</code> values which are the exact data we need. But this happens only running <code class="highlighter-rouge">./solenv/bin/uiex</code> script. We need the data at build-time.</p>
+<p>property. This also extracts all <code class="language-plaintext highlighter-rouge">label</code>, <code class="language-plaintext highlighter-rouge">accessible-name</code>, <code class="language-plaintext highlighter-rouge">accessible-description</code> and <code class="language-plaintext highlighter-rouge">tooltip-text</code> values which are the exact data we need. But this happens only running <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code> script. We need the data at build-time.</p>
 
 <p><br /></p>
 <ul>
   <li>Extracting the data at build-time</li>
 </ul>
 
-<p>The extraction happens when running <code class="highlighter-rouge">$ make translations</code>. <code class="highlighter-rouge">$ make</code> doesn’t extract the data. (or - does it ?)</p>
+<p>The extraction happens when running <code class="language-plaintext highlighter-rouge">$ make translations</code>. <code class="language-plaintext highlighter-rouge">$ make</code> doesn’t extract the data. (or - does it ?)</p>
 
-<p><code class="highlighter-rouge">$ make translations</code> extracts the all information from the following file extensions. (imho, probably this is why it takes longer than expected - on my computer it took 1 min 56 secs.)</p>
+<p><code class="language-plaintext highlighter-rouge">$ make translations</code> extracts the all information from the following file extensions. (imho, probably this is why it takes longer than expected - on my computer it took 1 min 56 secs.)</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="k">static</span> <span class="n">Command</span> <span class="k">const</span> <span class="n">commands</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
         <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".hrc"</span><span class="p">),</span> <span class="s">"hrcex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
@@ -1107,22 +1107,22 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
         <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".tree"</span><span class="p">),</span> <span class="s">"treex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">}</span>
     <span class="p">};</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">$ make translations</code> extracts all strings into <code class="highlighter-rouge">./workdir/pot/*</code> directory.</p>
+<p><code class="language-plaintext highlighter-rouge">$ make translations</code> extracts all strings into <code class="language-plaintext highlighter-rouge">./workdir/pot/*</code> directory.</p>
 
-<p>Extraction happens in <code class="highlighter-rouge">handleFile(...)</code> function at <code class="highlighter-rouge">./l10ntools/source/localize.cxx</code> (<a href="https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189">https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189</a>)</p>
+<p>Extraction happens in <code class="language-plaintext highlighter-rouge">handleFile(...)</code> function at <code class="language-plaintext highlighter-rouge">./l10ntools/source/localize.cxx</code> (<a href="https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189">https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189</a>)</p>
 
-<p>The extracted file <code class="highlighter-rouge">./workdir/pot/cui/messages.pot</code> includes all strings for <code class="highlighter-rouge">.ui</code> files that inside <code class="highlighter-rouge">./cui/*</code>. But <code class="highlighter-rouge">messages.pot</code> also has strings that unnecessary for our case.</p>
+<p>The extracted file <code class="language-plaintext highlighter-rouge">./workdir/pot/cui/messages.pot</code> includes all strings for <code class="language-plaintext highlighter-rouge">.ui</code> files that inside <code class="language-plaintext highlighter-rouge">./cui/*</code>. But <code class="language-plaintext highlighter-rouge">messages.pot</code> also has strings that unnecessary for our case.</p>
 
-<p>I imagine a script similar to <code class="highlighter-rouge">./solenv/bin/uiex</code> that extracts all <code class="highlighter-rouge">.ui</code> files that Options dialog has, into a file (xml or txt etc. ?), during <code class="highlighter-rouge">$ make</code>. Then we can retrieve the data into a vector and use it at run-time (maybe - when options dialog opens ?).</p>
+<p>I imagine a script similar to <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code> that extracts all <code class="language-plaintext highlighter-rouge">.ui</code> files that Options dialog has, into a file (xml or txt etc. ?), during <code class="language-plaintext highlighter-rouge">$ make</code>. Then we can retrieve the data into a vector and use it at run-time (maybe - when options dialog opens ?).</p>
 
-<p><code class="highlighter-rouge">./workdir/pot/cui/messages.pot</code> file:</p>
+<p><code class="language-plaintext highlighter-rouge">./workdir/pot/cui/messages.pot</code> file:</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-03-0-messages-pot.png" alt="w-03-1-messages-pot.png" title="messages.pot file" />
 </p>
 <p><br /></p>
 
-<p>Debug messages after <code class="highlighter-rouge">$ make translations</code>:</p>
+<p>Debug messages after <code class="language-plaintext highlighter-rouge">$ make translations</code>:</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-03-1-terminal.png" alt="w-03-2-terminal.png" title="terminal messages after $ make translations" />
@@ -1133,7 +1133,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 
 <ul>
   <li>There is a problem with accessing methods of sub-dialogs in Options dialog. (the reason is that the sub-dialogs don’t exist until the page is switched)</li>
-  <li>We decided that strings in all <code class="highlighter-rouge">.ui</code> files will be generated at build-time. (which will be the most challenging part in this project)</li>
+  <li>We decided that strings in all <code class="language-plaintext highlighter-rouge">.ui</code> files will be generated at build-time. (which will be the most challenging part in this project)</li>
   <li>I’ll be trying to generate the data at build-time in the following weeks.</li>
 </ul>
 
@@ -1196,7 +1196,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
   <li>In week #1, search functionality was implemented only for headers of the options TreeView. (“Tools &gt; Options” - left pane tree).</li>
 </ul>
 
-<p>We should expand the search functionality to include the sub-headers(sub-elements) of the nodes. For example; if you type <code class="highlighter-rouge">“libre”</code>, search function will look if there is any match only in headers. But we should also check their child nodes(sub-headers) to be ensure if there will be any match with the search term.</p>
+<p>We should expand the search functionality to include the sub-headers(sub-elements) of the nodes. For example; if you type <code class="language-plaintext highlighter-rouge">“libre”</code>, search function will look if there is any match only in headers. But we should also check their child nodes(sub-headers) to be ensure if there will be any match with the search term.</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-01-02-search.png" alt="w-01-02-search.png" title="searching for headers" />
@@ -1209,21 +1209,21 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 
 <p>Patchset 2: <a href="https://gerrit.libreoffice.org/c/core/+/152519/2">https://gerrit.libreoffice.org/c/core/+/152519/2</a></p>
 
-<p>If user types <code class="highlighter-rouge">"japanese"</code>, search function will find the match in <code class="highlighter-rouge">"Searching in Japanese"</code> and will show its parent node - which is <code class="highlighter-rouge">"Language Settings"</code>, as shown below. However, if we only search in headers, this would not be possible and the left pane would be empty - nothing would be shown.</p>
+<p>If user types <code class="language-plaintext highlighter-rouge">"japanese"</code>, search function will find the match in <code class="language-plaintext highlighter-rouge">"Searching in Japanese"</code> and will show its parent node - which is <code class="language-plaintext highlighter-rouge">"Language Settings"</code>, as shown below. However, if we only search in headers, this would not be possible and the left pane would be empty - nothing would be shown.</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-02-01-sub-tree-search.png" alt="w-02-01-sub-tree-search.png" title="searching for headers and sub-headers" />
 </p>
 <p><br /></p>
 
-<p>As you can see at the bottom line of the terminal; if there is a match, debug prints <code class="highlighter-rouge">"found: &lt;full string of where search item found&gt; : &lt;its parent ID&gt;"</code>.</p>
+<p>As you can see at the bottom line of the terminal; if there is a match, debug prints <code class="language-plaintext highlighter-rouge">"found: &lt;full string of where search item found&gt; : &lt;its parent ID&gt;"</code>.</p>
 
 <p><br /></p>
 <ul>
   <li>Some technical details</li>
 </ul>
 
-<p>All TreeView nodes and their child nodes are stored in a <code class="highlighter-rouge">std::vector</code> as a <code class="highlighter-rouge">std::pair</code>.</p>
+<p>All TreeView nodes and their child nodes are stored in a <code class="language-plaintext highlighter-rouge">std::vector</code> as a <code class="language-plaintext highlighter-rouge">std::pair</code>.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">OUString</span><span class="p">,</span> <span class="n">sal_uInt16</span><span class="o">&gt;&gt;</span> <span class="n">storedIdVector</span><span class="p">;</span></code></pre></figure>
 
@@ -1255,7 +1255,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Search function searchs through all first elements of <code class="highlighter-rouge">std::pair&lt;OUString, sal_uInt16&gt;</code>. If there is a match, the second element - which is the ID of the parent node - will be added to left pane as a node.</p>
+<p>Search function searchs through all first elements of <code class="language-plaintext highlighter-rouge">std::pair&lt;OUString, sal_uInt16&gt;</code>. If there is a match, the second element - which is the ID of the parent node - will be added to left pane as a node.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">applySearchFilter</span><span class="p">(</span><span class="n">OUString</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rSearchTerm</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1268,7 +1268,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="p">}</span>
 
     <span class="n">m_options</span><span class="p">.</span><span class="n">searchString</span> <span class="o">=</span> <span class="n">rSearchTerm</span><span class="p">;</span>
-    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="n">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
+    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="nf">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
 
     <span class="n">clearOptionsDialog</span><span class="p">();</span>
 
@@ -1458,13 +1458,13 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
   </li>
 </ul>
 
-<p><code class="highlighter-rouge">cui/uiconfig/ui/optionsdialog.ui</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/ui/optionsdialog.ui</code>:</p>
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-01-00-search-ui-glade.png" alt="w-01-00-search-ui-glade.png" />
 </p>
 <p><br /></p>
 
-<p><code class="highlighter-rouge">“Tools &gt; Options”</code> dialog:</p>
+<p><code class="language-plaintext highlighter-rouge">“Tools &gt; Options”</code> dialog:</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-01-01-search-ui-libre.png" alt="w-01-01-search-ui-libre.png" />
@@ -1484,7 +1484,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
   <li>Some technical details</li>
 </ul>
 
-<p>There is a timer that waits the user to stop typing if user types faster than <code class="highlighter-rouge">350ms</code>. Since searching can be expensive, we shouldn’t perform search for every key press if pressing between two keys are less than 350ms, which will improve the performance.</p>
+<p>There is a timer that waits the user to stop typing if user types faster than <code class="language-plaintext highlighter-rouge">350ms</code>. Since searching can be expensive, we shouldn’t perform search for every key press if pressing between two keys are less than 350ms, which will improve the performance.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">IMPL_LINK_NOARG</span><span class="p">(</span><span class="n">OfaTreeOptionsDialog</span><span class="p">,</span> <span class="n">SearchUpdateHdl</span><span class="p">,</span> <span class="n">weld</span><span class="o">::</span><span class="n">Entry</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1492,7 +1492,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="c1">// debug ("timer -&gt; SearchUpdateHdl()");</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">ImplUpdateDataHdl()</code> is called for searching:</p>
+<p><code class="language-plaintext highlighter-rouge">ImplUpdateDataHdl()</code> is called for searching:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">IMPL_LINK_NOARG</span><span class="p">(</span><span class="n">OfaTreeOptionsDialog</span><span class="p">,</span> <span class="n">ImplUpdateDataHdl</span><span class="p">,</span> <span class="n">Timer</span><span class="o">*</span><span class="p">,</span> <span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1517,7 +1517,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">applySearchFilter(aSearchTerm)</code> function gets the word in search bar and does the search:</p>
+<p><code class="language-plaintext highlighter-rouge">applySearchFilter(aSearchTerm)</code> function gets the word in search bar and does the search:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">applySearchFilter</span><span class="p">(</span><span class="n">OUString</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rSearchTerm</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1532,7 +1532,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="p">}</span>
 
     <span class="n">m_options</span><span class="p">.</span><span class="n">searchString</span> <span class="o">=</span> <span class="n">rSearchTerm</span><span class="p">;</span>
-    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="n">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
+    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="nf">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
 
     <span class="n">ClearAllOptions</span><span class="p">();</span>
 

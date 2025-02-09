@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Ekşi Sözlük için yaptığım küçük bir eklenti: Ekşi Search | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Ekşi Sözlük için yaptığım küçük bir eklenti: Ekşi Search" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -71,11 +71,11 @@
 <p><br />
 Aşağıdaki javascript fonksiyonu, anladığım kadarıyla aralarında boşluk ve/veya özel karakterler içeren kelimeleri URL formatına çeviriyor yani adres satırında nasıl gözükmesi gerektiği işine yarıyor:</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">fixedEncodeURI</span> <span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nb">encodeURI</span><span class="p">(</span><span class="nx">str</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/%5B/g</span><span class="p">,</span> <span class="dl">'</span><span class="s1">[</span><span class="dl">'</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/%5D/g</span><span class="p">,</span> <span class="dl">'</span><span class="s1">]</span><span class="dl">'</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nf">fixedEncodeURI</span> <span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nf">encodeURI</span><span class="p">(</span><span class="nx">str</span><span class="p">).</span><span class="nf">replace</span><span class="p">(</span><span class="sr">/%5B/g</span><span class="p">,</span> <span class="dl">'</span><span class="s1">[</span><span class="dl">'</span><span class="p">).</span><span class="nf">replace</span><span class="p">(</span><span class="sr">/%5D/g</span><span class="p">,</span> <span class="dl">'</span><span class="s1">]</span><span class="dl">'</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Mesela <code class="highlighter-rouge">hello world</code> kelimesi, adres satırında <code class="highlighter-rouge">hello%20world</code> olarak yorumlanır.</p>
+<p>Mesela <code class="language-plaintext highlighter-rouge">hello world</code> kelimesi, adres satırında <code class="language-plaintext highlighter-rouge">hello%20world</code> olarak yorumlanır.</p>
 
 <hr />
 

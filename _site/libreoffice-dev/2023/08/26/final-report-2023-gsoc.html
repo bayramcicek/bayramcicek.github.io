@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Final Report - Google Summer of Code 2023 - Search Field in Options | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Final Report - Google Summer of Code 2023 - Search Field in Options" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -64,7 +64,7 @@
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Add search field to Options dialog - UI</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Implement search function</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Include Options TreeView’s parent and child node names into searching</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Add <code class="highlighter-rouge">GetAllStrings()</code> method to fetch strings from 69 dialogs step by step</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Add <code class="language-plaintext highlighter-rouge">GetAllStrings()</code> method to fetch strings from 69 dialogs step by step</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Include following element strings into searching:
     <ul class="task-list">
       <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  labels</li>
@@ -83,7 +83,7 @@
     </ul>
   </li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include option pages from extensions into searching</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="language-plaintext highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Initialize all dialogs to get strings properly (not in background - synchronously)
     <ul class="task-list">
       <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  initialize ~half of them after opening the options</li>
@@ -92,7 +92,7 @@
   </li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Update Options TreeView properly after the searching done</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Expand the first node and select first child-node after search by default</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Remove Hyphen (<code class="highlighter-rouge">_</code>) and Tilde (<code class="highlighter-rouge">~</code>) symbols from fetched strings to make the search function work correctly</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />  Remove Hyphen (<code class="language-plaintext highlighter-rouge">_</code>) and Tilde (<code class="language-plaintext highlighter-rouge">~</code>) symbols from fetched strings to make the search function work correctly</li>
 </ul>
 
 <h3 id="my-work-during-gsoc">My Work during GSoC</h3>
@@ -105,7 +105,7 @@ This option requires working on file operations, LibreOffice’s build system, m
 This option is more understandable and simple. Instructions are clear. No need to worry about localization. No need to work on file operations, extracting and fetching data, working with makefiles etc…</li>
 </ul>
 
-<p>When I felt that Option A is just wasting my time (~5 weeks); I switched to Option B where I can -at least- make some progress. The main issue in Option B was initializing all dialogs which takes about 4-8 secs. I tried to initialize them at background but there was some errors on Win10 that I don’t reproduce the issue on my linux machine. Then I tried to see the errors on Win10 with a virtual machine, but it was too slow to test. Therefore I uninstalled Manjaro/Linux (which I’ve been using it more than 1.5 years) from my computer and had to install Win10 (which I last used 6 years ago) on my machine to see the problems in there. There was some visual inconsistencies while initializing sub-dialogs using <code class="highlighter-rouge">salhelper::Thread</code> at background.</p>
+<p>When I felt that Option A is just wasting my time (~5 weeks); I switched to Option B where I can -at least- make some progress. The main issue in Option B was initializing all dialogs which takes about 4-8 secs. I tried to initialize them at background but there was some errors on Win10 that I don’t reproduce the issue on my linux machine. Then I tried to see the errors on Win10 with a virtual machine, but it was too slow to test. Therefore I uninstalled Manjaro/Linux (which I’ve been using it more than 1.5 years) from my computer and had to install Win10 (which I last used 6 years ago) on my machine to see the problems in there. There was some visual inconsistencies while initializing sub-dialogs using <code class="language-plaintext highlighter-rouge">salhelper::Thread</code> at background.</p>
 
 <p>After working long hours for weeks meanwhile the time was running out, I decided to initialize almost half of them at Options dialog startup and the remaining ones at the time of searching. In that way, time of initializing process is divided by ~2 which can be acceptable time in some degree in terms of user experience.</p>
 
@@ -129,7 +129,7 @@ This option is more understandable and simple. Instructions are clear. No need t
     </ul>
   </li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Include option pages from extensions into searching</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />  Initialize all dialogs at background if it’s possible (<code class="language-plaintext highlighter-rouge">salhelper::Thread</code> - asynchronously)</li>
 </ul>
 
 <h3 id="additional-hacks">Additional hacks</h3>

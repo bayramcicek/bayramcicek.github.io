@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Ddrescue ile HDD Verilerini Kurtarmak | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Ddrescue ile HDD Verilerini Kurtarmak" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -48,14 +48,14 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde <code class="highlighter-rouge">...the superblock is corrupt...</code> hatasını gördüm. Kullandığım HDD üzerinde daha önce <a href="https://bayramcicek.github.io/general/2020/07/11/disk-bad-sector.html">bad sector</a> problemi oluşmuştu ve sadece read-only hatası vermişti.</p>
+    <p>GNU/Linux cihazları açılırken ekranda yukarıdan aşağı akan kernel mesajları içerisinde <code class="language-plaintext highlighter-rouge">...the superblock is corrupt...</code> hatasını gördüm. Kullandığım HDD üzerinde daha önce <a href="https://bayramcicek.github.io/general/2020/07/11/disk-bad-sector.html">bad sector</a> problemi oluşmuştu ve sadece read-only hatası vermişti.</p>
 
-<p>1TB ‘lık HDD içinden ayırdığım -temiz ve bad sector içermeyen- 100GB ‘lık alanda bu defasında -dosya sistemi ile ilgili metadata bilgilerini içeren- <code class="highlighter-rouge">superblock</code> adı verilen bloklardan biri bozulmuştu. Bu blok bozulduğunda sisteminiz o bellek alanını tanıyamaz ve terminalden o alanı <code class="highlighter-rouge">mount</code> etmek istediğinizde ise <code class="highlighter-rouge">the file system structure on disk is corrupt</code> hatasını alırsınız.</p>
+<p>1TB ‘lık HDD içinden ayırdığım -temiz ve bad sector içermeyen- 100GB ‘lık alanda bu defasında -dosya sistemi ile ilgili metadata bilgilerini içeren- <code class="language-plaintext highlighter-rouge">superblock</code> adı verilen bloklardan biri bozulmuştu. Bu blok bozulduğunda sisteminiz o bellek alanını tanıyamaz ve terminalden o alanı <code class="language-plaintext highlighter-rouge">mount</code> etmek istediğinizde ise <code class="language-plaintext highlighter-rouge">the file system structure on disk is corrupt</code> hatasını alırsınız.</p>
 
-<p>Bu 100GB bozuk bellek alanına erişimim kaybolduğundan <code class="highlighter-rouge">unallocated</code> olarak bıraktığım 900GB alanın 150GB ‘lık alanını ext4 olarak ayırdım. Bu hatalı belleğin temiz alanlarını 150GB ‘lık bellek alanına <code class="highlighter-rouge">ddrescue</code> ile kopyalayarak kurtarmayı düşündüm.</p>
+<p>Bu 100GB bozuk bellek alanına erişimim kaybolduğundan <code class="language-plaintext highlighter-rouge">unallocated</code> olarak bıraktığım 900GB alanın 150GB ‘lık alanını ext4 olarak ayırdım. Bu hatalı belleğin temiz alanlarını 150GB ‘lık bellek alanına <code class="language-plaintext highlighter-rouge">ddrescue</code> ile kopyalayarak kurtarmayı düşündüm.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">$ sudo fdisk -l</code></li>
+  <li><code class="language-plaintext highlighter-rouge">$ sudo fdisk -l</code></li>
 </ul>
 
 <pre>
@@ -64,10 +64,10 @@ Device         Start       End    Sectors  Size  Type
 /dev/sdb2  209717248 524290047  314572800  150G  Linux filesystem
 </pre>
 
-<p>Hatalı alan <code class="highlighter-rouge">/dev/sbd1</code>, yeni alan ise <code class="highlighter-rouge">/dev/sdb2</code>. Öyleyse <code class="highlighter-rouge">sdb1</code> alanını <code class="highlighter-rouge">sdb2</code> alanına kopyalamak gerekir.</p>
+<p>Hatalı alan <code class="language-plaintext highlighter-rouge">/dev/sbd1</code>, yeni alan ise <code class="language-plaintext highlighter-rouge">/dev/sdb2</code>. Öyleyse <code class="language-plaintext highlighter-rouge">sdb1</code> alanını <code class="language-plaintext highlighter-rouge">sdb2</code> alanına kopyalamak gerekir.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">$ sudo ddrescue -f -n /dev/sdb1 /dev/sdb2 /root/recovery.log</code></li>
+  <li><code class="language-plaintext highlighter-rouge">$ sudo ddrescue -f -n /dev/sdb1 /dev/sdb2 /root/recovery.log</code></li>
 </ul>
 
 <p align="center">
@@ -75,16 +75,16 @@ Device         Start       End    Sectors  Size  Type
 </p>
 
 <p><br />
-Kurtarma işlemi bittiğinde <code class="highlighter-rouge">/dev/sdb2</code> belleğini mount etmek istediğimde <code class="highlighter-rouge">unable to access location: Structure needs cleaning</code> hatası ortaya çıktı. Öyleyse dosya sistemini yeniden yapılandırmak gerekir.</p>
+Kurtarma işlemi bittiğinde <code class="language-plaintext highlighter-rouge">/dev/sdb2</code> belleğini mount etmek istediğimde <code class="language-plaintext highlighter-rouge">unable to access location: Structure needs cleaning</code> hatası ortaya çıktı. Öyleyse dosya sistemini yeniden yapılandırmak gerekir.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">$ sudo fsck.ext4 -y /dev/sdb2</code></li>
+  <li><code class="language-plaintext highlighter-rouge">$ sudo fsck.ext4 -y /dev/sdb2</code></li>
 </ul>
 
-<p>Bu işlemi yaptıktan bir süre sonra <code class="highlighter-rouge">sdb2</code> tekrar hata vermeye başladı. Bu alan çok büyük olduğundan 50GB ‘lık yeni bir bellek alanı oluşturup <code class="highlighter-rouge">bad block</code> içermediğini kontrol ettikten sonra 150GB bellek alanındaki çok az yer kaplayan verileri bu alana kopyalamanın daha sağlıklı olacağını düşündüm. Bu alanda herhangi bir hata olmadığı için problem çözülmüş oldu.</p>
+<p>Bu işlemi yaptıktan bir süre sonra <code class="language-plaintext highlighter-rouge">sdb2</code> tekrar hata vermeye başladı. Bu alan çok büyük olduğundan 50GB ‘lık yeni bir bellek alanı oluşturup <code class="language-plaintext highlighter-rouge">bad block</code> içermediğini kontrol ettikten sonra 150GB bellek alanındaki çok az yer kaplayan verileri bu alana kopyalamanın daha sağlıklı olacağını düşündüm. Bu alanda herhangi bir hata olmadığı için problem çözülmüş oldu.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">$ sudo badblocks -b 4096 -vs /dev/sdb3 &gt; ./bad_blocks.txt</code></li>
+  <li><code class="language-plaintext highlighter-rouge">$ sudo badblocks -b 4096 -vs /dev/sdb3 &gt; ./bad_blocks.txt</code></li>
 </ul>
 
 <p align="center">
@@ -92,9 +92,9 @@ Kurtarma işlemi bittiğinde <code class="highlighter-rouge">/dev/sdb2</code> be
 </p>
 
 <p><br />
-Bellek alanınız ne kadar büyük olursa kurtarma ve bad block tarama işlemleri o kadar uzun sürer. Bu yüzden belleğinizi olabildiğince ufak bir alana ayırıp neredeyse hiç kullanmayacağınız alanları <code class="highlighter-rouge">unallocated</code> olarak yapılandırmak diskinizin hatalara karşı daha hızlı cevap vermesini sağlayacaktır.</p>
+Bellek alanınız ne kadar büyük olursa kurtarma ve bad block tarama işlemleri o kadar uzun sürer. Bu yüzden belleğinizi olabildiğince ufak bir alana ayırıp neredeyse hiç kullanmayacağınız alanları <code class="language-plaintext highlighter-rouge">unallocated</code> olarak yapılandırmak diskinizin hatalara karşı daha hızlı cevap vermesini sağlayacaktır.</p>
 
-<p>Yılın ilk günü hard diskinizin bozulması iyi bir yılbaşı hediyesi olmasa da <code class="highlighter-rouge">ddrescue</code> ile verilerin nasıl kurtarılacağı konusunu öğrenmek iyi bir başlangıç olarak sayılabilir.</p>
+<p>Yılın ilk günü hard diskinizin bozulması iyi bir yılbaşı hediyesi olmasa da <code class="language-plaintext highlighter-rouge">ddrescue</code> ile verilerin nasıl kurtarılacağı konusunu öğrenmek iyi bir başlangıç olarak sayılabilir.</p>
 
 
   </div><a class="u-url" href="/general/2021/01/01/superblock-error-ddrescue.html" hidden></a>

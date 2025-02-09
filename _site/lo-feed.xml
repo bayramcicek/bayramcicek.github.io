@@ -5,9 +5,9 @@
         <description>All content written by me is by default released freely under the Public License.</description>
         <link>https://bayramcicek.github.io/libreoffice/</link>
         <atom:link href="https://bayramcicek.github.io/lo-feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 16 Apr 2024 15:00:09 +0300</pubDate>
-        <lastBuildDate>Tue, 16 Apr 2024 15:00:09 +0300</lastBuildDate>
-        <generator>Jekyll v4.0.1</generator>
+        <pubDate>Sun, 09 Feb 2025 20:08:55 +0300</pubDate>
+        <lastBuildDate>Sun, 09 Feb 2025 20:08:55 +0300</lastBuildDate>
+        <generator>Jekyll v4.3.4</generator>
         
             <item>
                 <title>Final Report - Google Summer of Code 2023 - Search Field in Options</title>
@@ -28,7 +28,7 @@
   &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Add search field to Options dialog - UI&lt;/li&gt;
   &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Implement search function&lt;/li&gt;
   &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Include Options TreeView’s parent and child node names into searching&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Add &lt;code class=&quot;highlighter-rouge&quot;&gt;GetAllStrings()&lt;/code&gt; method to fetch strings from 69 dialogs step by step&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GetAllStrings()&lt;/code&gt; method to fetch strings from 69 dialogs step by step&lt;/li&gt;
   &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Include following element strings into searching:
     &lt;ul class=&quot;task-list&quot;&gt;
       &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  labels&lt;/li&gt;
@@ -47,7 +47,7 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Include option pages from extensions into searching&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Initialize all dialogs at background if it’s possible (&lt;code class=&quot;highlighter-rouge&quot;&gt;salhelper::Thread&lt;/code&gt; - asynchronously)&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Initialize all dialogs at background if it’s possible (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;salhelper::Thread&lt;/code&gt; - asynchronously)&lt;/li&gt;
   &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Initialize all dialogs to get strings properly (not in background - synchronously)
     &lt;ul class=&quot;task-list&quot;&gt;
       &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  initialize ~half of them after opening the options&lt;/li&gt;
@@ -56,7 +56,7 @@
   &lt;/li&gt;
   &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Update Options TreeView properly after the searching done&lt;/li&gt;
   &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Expand the first node and select first child-node after search by default&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Remove Hyphen (&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt;) and Tilde (&lt;code class=&quot;highlighter-rouge&quot;&gt;~&lt;/code&gt;) symbols from fetched strings to make the search function work correctly&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;  Remove Hyphen (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_&lt;/code&gt;) and Tilde (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~&lt;/code&gt;) symbols from fetched strings to make the search function work correctly&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;my-work-during-gsoc&quot;&gt;My Work during GSoC&lt;/h3&gt;
@@ -69,7 +69,7 @@ This option requires working on file operations, LibreOffice’s build system, m
 This option is more understandable and simple. Instructions are clear. No need to worry about localization. No need to work on file operations, extracting and fetching data, working with makefiles etc…&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;When I felt that Option A is just wasting my time (~5 weeks); I switched to Option B where I can -at least- make some progress. The main issue in Option B was initializing all dialogs which takes about 4-8 secs. I tried to initialize them at background but there was some errors on Win10 that I don’t reproduce the issue on my linux machine. Then I tried to see the errors on Win10 with a virtual machine, but it was too slow to test. Therefore I uninstalled Manjaro/Linux (which I’ve been using it more than 1.5 years) from my computer and had to install Win10 (which I last used 6 years ago) on my machine to see the problems in there. There was some visual inconsistencies while initializing sub-dialogs using &lt;code class=&quot;highlighter-rouge&quot;&gt;salhelper::Thread&lt;/code&gt; at background.&lt;/p&gt;
+&lt;p&gt;When I felt that Option A is just wasting my time (~5 weeks); I switched to Option B where I can -at least- make some progress. The main issue in Option B was initializing all dialogs which takes about 4-8 secs. I tried to initialize them at background but there was some errors on Win10 that I don’t reproduce the issue on my linux machine. Then I tried to see the errors on Win10 with a virtual machine, but it was too slow to test. Therefore I uninstalled Manjaro/Linux (which I’ve been using it more than 1.5 years) from my computer and had to install Win10 (which I last used 6 years ago) on my machine to see the problems in there. There was some visual inconsistencies while initializing sub-dialogs using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;salhelper::Thread&lt;/code&gt; at background.&lt;/p&gt;
 
 &lt;p&gt;After working long hours for weeks meanwhile the time was running out, I decided to initialize almost half of them at Options dialog startup and the remaining ones at the time of searching. In that way, time of initializing process is divided by ~2 which can be acceptable time in some degree in terms of user experience.&lt;/p&gt;
 
@@ -93,7 +93,7 @@ This option is more understandable and simple. Instructions are clear. No need t
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Include option pages from extensions into searching&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Initialize all dialogs at background if it’s possible (&lt;code class=&quot;highlighter-rouge&quot;&gt;salhelper::Thread&lt;/code&gt; - asynchronously)&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;  Initialize all dialogs at background if it’s possible (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;salhelper::Thread&lt;/code&gt; - asynchronously)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;additional-hacks&quot;&gt;Additional hacks&lt;/h3&gt;
@@ -196,7 +196,7 @@ Bayram Çiçek&lt;/i&gt;
 &lt;p&gt;TODO: add accessible-names, accessible-descriptions and tooltip-texts into searching.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GetAllStrings()&lt;/code&gt; function returns all visible strings. e.g.:&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GetAllStrings()&lt;/code&gt; function returns all visible strings. e.g.:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ScTpFormulaOptions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAllStrings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
@@ -310,11 +310,11 @@ Bayram Çiçek&lt;/i&gt;
 
 &lt;p&gt;We can reformat a file easily. But what if we want to do clang-format only for a specific code-piece(s) (e.g. a function, class, if-else …) instead?&lt;/p&gt;
 
-&lt;p&gt;On &lt;code class=&quot;highlighter-rouge&quot;&gt;VSCode&lt;/code&gt; (Linux):&lt;/p&gt;
+&lt;p&gt;On &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VSCode&lt;/code&gt; (Linux):&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;File&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Preferences&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Settings&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Search for &lt;code class=&quot;highlighter-rouge&quot;&gt;clang-format&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;in &lt;code class=&quot;highlighter-rouge&quot;&gt;C_Cpp: Clang_format_path&lt;/code&gt; section, set the path of the clang-format executable as &lt;code class=&quot;highlighter-rouge&quot;&gt;/opt/lo/bin/clang-format&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;File&lt;/code&gt; &amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Preferences&lt;/code&gt; &amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Settings&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Search for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clang-format&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C_Cpp: Clang_format_path&lt;/code&gt; section, set the path of the clang-format executable as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/opt/lo/bin/clang-format&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;For example, let’s only select the if statement here:&lt;/p&gt;
@@ -330,7 +330,7 @@ Bayram Çiçek&lt;/i&gt;
 &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
-Then &lt;code class=&quot;highlighter-rouge&quot;&gt;right click&lt;/code&gt; on the selection and select &lt;code class=&quot;highlighter-rouge&quot;&gt;Format Selection&lt;/code&gt;:&lt;/p&gt;
+Then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;right click&lt;/code&gt; on the selection and select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Format Selection&lt;/code&gt;:&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
   &lt;img src=&quot;../../../../folder/libreoffice-png/format-selection-dialog-vscode.png&quot; alt=&quot;format-selection-dialog-vscode.png&quot; title=&quot;format-selection-dialog-vscode&quot; /&gt;
@@ -375,38 +375,38 @@ Then &lt;code class=&quot;highlighter-rouge&quot;&gt;right click&lt;/code&gt; on
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I removed the &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex_options&lt;/code&gt; script that almost the same with &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt;. Instead of creating a new script, adding an additional option to the existing uiex script -to only print the msgid instead of the full entry-, is better than a different file.&lt;/p&gt;
+&lt;p&gt;I removed the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex_options&lt;/code&gt; script that almost the same with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt;. Instead of creating a new script, adding an additional option to the existing uiex script -to only print the msgid instead of the full entry-, is better than a different file.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt;:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;bp&quot;&gt;...&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;getString&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;w&quot;&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;getString&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ofile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check_output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xgettext&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;--add-comments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;--no-wrap&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ifile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;-o&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;po&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;polib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pofile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;po&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ofile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check_output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;xgettext&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;--add-comments&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;--no-wrap&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ifile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;-o&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;UTF-8&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;po&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;polib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pofile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;po&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;po&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
             &lt;span class=&quot;c1&quot;&gt;# skip &apos;stock&apos; entries like &quot;cancel&quot;, &quot;help&quot;, &quot;ok&quot;, etc
 &lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;# l10ntools/source/localize.cxx will insert one entry for each stock per .po
-&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;stock&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;stock&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
                 &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;keyid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;|&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;#. &apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;polib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genKeyId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keyid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;keyid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgctxt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;#. &lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;polib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;genKeyId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keyid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;occurrence&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;occurrences&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;occurrences&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;occurrence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;SRCDIR&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;occurrence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;occurrence&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;occurrences&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;occurrences&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;relpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;occurrence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;SRCDIR&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;occurrence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
             &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+                &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -612,9 +612,9 @@ Then &lt;code class=&quot;highlighter-rouge&quot;&gt;right click&lt;/code&gt; on
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I added new python script called &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex_options&lt;/code&gt; to extract strings(&lt;code class=&quot;highlighter-rouge&quot;&gt;labels&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-names&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-descriptions&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tooltip-texts&lt;/code&gt;) from ui files. This script is almost the same with &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt;. The only difference is the new script extracts only &lt;code class=&quot;highlighter-rouge&quot;&gt;entry.msgid&lt;/code&gt; which contains the strings we need. Any other outputs like &lt;code class=&quot;highlighter-rouge&quot;&gt;entry.msgctxt&lt;/code&gt; is not needed so I kept only &lt;code class=&quot;highlighter-rouge&quot;&gt;entry.msgid&lt;/code&gt; in the new script.&lt;/p&gt;
+&lt;p&gt;I added new python script called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex_options&lt;/code&gt; to extract strings(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;labels&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;accessible-names&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;accessible-descriptions&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tooltip-texts&lt;/code&gt;) from ui files. This script is almost the same with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt;. The only difference is the new script extracts only &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;entry.msgid&lt;/code&gt; which contains the strings we need. Any other outputs like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;entry.msgctxt&lt;/code&gt; is not needed so I kept only &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;entry.msgid&lt;/code&gt; in the new script.&lt;/p&gt;
 
-&lt;p&gt;For example &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script:&lt;/p&gt;
+&lt;p&gt;For example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script:&lt;/p&gt;
 &lt;pre&gt;
 $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
 &lt;/pre&gt;
@@ -645,9 +645,9 @@ $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
 &lt;span class=&quot;n&quot;&gt;msgid&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;OpenCL Options&quot;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;msgstr&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;But we only need strings inside &lt;code class=&quot;highlighter-rouge&quot;&gt;msgid&lt;/code&gt; here. Others are not needed.&lt;/p&gt;
+&lt;p&gt;But we only need strings inside &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msgid&lt;/code&gt; here. Others are not needed.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex_options&lt;/code&gt; extracts only strings inside &lt;code class=&quot;highlighter-rouge&quot;&gt;msgid&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex_options&lt;/code&gt; extracts only strings inside &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msgid&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;
 $ ./solenv/bin/uiex_options -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
@@ -666,7 +666,7 @@ OpenCL Options
   &lt;li&gt;Extraction at build-time&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Added all ui files that belong to Options dialog, inside &lt;code class=&quot;highlighter-rouge&quot;&gt;cui/UIConfig_cui.mk&lt;/code&gt; file:&lt;/p&gt;
+&lt;p&gt;Added all ui files that belong to Options dialog, inside &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/UIConfig_cui.mk&lt;/code&gt; file:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;call gb_UIConfig_generate_options_uifiles,cui/uiconfig/uioptions, &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;    cui/uiconfig/ui/optuserpage \
@@ -727,9 +727,9 @@ OpenCL Options
     starmath/uiconfig/smath/ui/smathsettings \
 ))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;this calls &lt;code class=&quot;highlighter-rouge&quot;&gt;gb_UIConfig_generate_options_uifiles&lt;/code&gt; function with &lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions&lt;/code&gt; as first parameter and list of ui files as second parameter.&lt;/p&gt;
+&lt;p&gt;this calls &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gb_UIConfig_generate_options_uifiles&lt;/code&gt; function with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/uioptions&lt;/code&gt; as first parameter and list of ui files as second parameter.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;solenv/gbuild/UIConfig.mk&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;solenv/gbuild/UIConfig.mk&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;define gb_UIConfig_run_uiex_options_script
 &lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;shell &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;SRCDIR&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/solenv/bin/uiex_options &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;SRCDIR&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;2&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;.ui &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;1&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;3&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;.txt&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
@@ -754,25 +754,25 @@ endef&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;li&gt;Extracted file location&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;All extracted files located in &lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/*&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;All extracted files located in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/*&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/cui/*&lt;/code&gt;        for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./cui/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/cui/*&lt;/code&gt;        for ui files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./cui/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sc/*&lt;/code&gt;         for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./sc/uiconfig/scalc/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sc/*&lt;/code&gt;         for ui files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./sc/uiconfig/scalc/ui/*.ui&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sd/*&lt;/code&gt;         for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./sd/uiconfig/simpress/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sd/*&lt;/code&gt;         for ui files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./sd/uiconfig/simpress/ui/*.ui&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sfx2/*&lt;/code&gt;       for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./sfx2/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sfx2/*&lt;/code&gt;       for ui files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./sfx2/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/starmath/*&lt;/code&gt;   for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./starmath/uiconfig/smath/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/starmath/*&lt;/code&gt;   for ui files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./starmath/uiconfig/smath/ui/*.ui&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/svx/*&lt;/code&gt;        for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./svx/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/svx/*&lt;/code&gt;        for ui files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./svx/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sw/*&lt;/code&gt;         for ui files in &lt;code class=&quot;highlighter-rouge&quot;&gt;./sw/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sw/*&lt;/code&gt;         for ui files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./sw/uiconfig/ui/*.ui&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;and all of sub-directories contain a &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;and all of sub-directories contain a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;README.md&lt;/code&gt; file.&lt;/p&gt;
 
-&lt;p&gt;e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sfx2/README.md&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/uioptions/sfx2/README.md&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre style=&quot;white-space: pre-wrap&quot;&gt;
 This directory contains txt files that extracted form build-time. All files contains labels, accessible-names, accessible-descriptions and tooltip-texts from all ./sfx2/uiconfig/ui/*.ui files that exist in Tools-Options dialog.
@@ -803,7 +803,7 @@ e.g.: optprintpage.txt has strings from ./sfx2/uiconfig/ui/optprintpage.ui
     &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getAllStringsFrom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Vector &lt;code class=&quot;highlighter-rouge&quot;&gt;std::vector&amp;lt; OptionsPageIdInfo* &amp;gt; m_aTreePageIds&lt;/code&gt; contains all informatin related to extracted strings.&lt;/p&gt;
+&lt;p&gt;Vector &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::vector&amp;lt; OptionsPageIdInfo* &amp;gt; m_aTreePageIds&lt;/code&gt; contains all informatin related to extracted strings.&lt;/p&gt;
 
 &lt;pre&gt;
 m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_text(*xEntry), aParentId, pPageInfo-&amp;gt;m_nPageId));
@@ -826,12 +826,12 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Updated the &lt;code class=&quot;highlighter-rouge&quot;&gt;applySearchFilter()&lt;/code&gt; function&lt;/li&gt;
+  &lt;li&gt;Updated the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applySearchFilter()&lt;/code&gt; function&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The searching is made only in the variable &lt;code class=&quot;highlighter-rouge&quot;&gt;sPageNameAndStrings&lt;/code&gt;. It contains the dialog page name and its strings.&lt;/p&gt;
+&lt;p&gt;The searching is made only in the variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sPageNameAndStrings&lt;/code&gt;. It contains the dialog page name and its strings.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;OUString sPageNameAndStrings = sParentName + &quot; &quot; + sPageName + &quot; &quot; + sPageStrings;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OUString sPageNameAndStrings = sParentName + &quot; &quot; + sPageName + &quot; &quot; + sPageStrings;&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Then the searching is made:&lt;/p&gt;
 
@@ -839,7 +839,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SearchForward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sPageNameAndStrings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aStartPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aEndPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;applySearchFilter(OUString const&amp;amp; rSearchTerm)&lt;/code&gt; function:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applySearchFilter(OUString const&amp;amp; rSearchTerm)&lt;/code&gt; function:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OfaTreeOptionsDialog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applySearchFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSearchTerm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -854,7 +854,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;searchString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSearchTerm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;utl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextSearch&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;utl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextSearch&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;textSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;clearOptionsDialog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 
@@ -911,7 +911,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Added new cxx file &lt;code class=&quot;highlighter-rouge&quot;&gt;cui/source/options/treeopthelper.cxx&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Added new cxx file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/source/options/treeopthelper.cxx&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;This file contains the file path of extracted strings with thair page-id and strings.&lt;/p&gt;
@@ -935,7 +935,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
     &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;other&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;68&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The function &lt;code class=&quot;highlighter-rouge&quot;&gt;storeStringsFromUiFile(sal_uInt16 nPageId)&lt;/code&gt; reads the data inside txt files and fetch them into &lt;code class=&quot;highlighter-rouge&quot;&gt;PageIdToFileNameMap_Impl&lt;/code&gt; struct as &lt;code class=&quot;highlighter-rouge&quot;&gt;rEntry.m_sContent += sLine + &quot; &quot;;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;storeStringsFromUiFile(sal_uInt16 nPageId)&lt;/code&gt; reads the data inside txt files and fetch them into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PageIdToFileNameMap_Impl&lt;/code&gt; struct as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rEntry.m_sContent += sLine + &quot; &quot;;&lt;/code&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeOptHelper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;storeStringsFromUiFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -977,7 +977,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The function &lt;code class=&quot;highlighter-rouge&quot;&gt;getAllStringsFrom(sal_uInt16 nPageId)&lt;/code&gt; gets the strings from the given pageId:&lt;/p&gt;
+&lt;p&gt;The function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getAllStringsFrom(sal_uInt16 nPageId)&lt;/code&gt; gets the strings from the given pageId:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeOptHelper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getAllStringsFrom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nPageId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -992,7 +992,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OUString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -1096,9 +1096,9 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
   &lt;li&gt;The Problem in Options sub-dialogs&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I’ve been working with Options dialog which has more than 30 sub-dialogs. On the left pane of the Options dialog, the TreeView headers and their sub-headers were included in searching. There is no problem here. However, when it comes to adding all sub-dialogs’ &lt;code class=&quot;highlighter-rouge&quot;&gt;labels&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-names&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-descriptions&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tooltip-texts&lt;/code&gt; to the searching, there is a problem arise: When Options dialog opens, it does not initialize all dialogs so it is &lt;code class=&quot;highlighter-rouge&quot;&gt;NOT&lt;/code&gt; possible to access their methods - until they were clicked manually.&lt;/p&gt;
+&lt;p&gt;I’ve been working with Options dialog which has more than 30 sub-dialogs. On the left pane of the Options dialog, the TreeView headers and their sub-headers were included in searching. There is no problem here. However, when it comes to adding all sub-dialogs’ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;labels&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;accessible-names&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;accessible-descriptions&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tooltip-texts&lt;/code&gt; to the searching, there is a problem arise: When Options dialog opens, it does not initialize all dialogs so it is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NOT&lt;/code&gt; possible to access their methods - until they were clicked manually.&lt;/p&gt;
 
-&lt;p&gt;I asked about this problem on &lt;code class=&quot;highlighter-rouge&quot;&gt;IRC #libreoffice-dev&lt;/code&gt; channel:&lt;/p&gt;
+&lt;p&gt;I asked about this problem on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IRC #libreoffice-dev&lt;/code&gt; channel:&lt;/p&gt;
 
 &lt;pre style=&quot;white-space: pre-wrap&quot;&gt;
 
@@ -1122,16 +1122,16 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 &lt;/pre&gt;
 
-&lt;p&gt;It is not possible to access all sub-dialogs when Options dialog opens. We can only have access to their &lt;code class=&quot;highlighter-rouge&quot;&gt;pageIDs&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;pageNames(headers)&lt;/code&gt;, but we can’t access their methods since they aren’t instantiated. Otherwise, fetching the all data we need would be very easy with a method implemented by all dialogs - something like &lt;code class=&quot;highlighter-rouge&quot;&gt;pPageInfo-&amp;gt;m_xPage-&amp;gt;getAllTooltips()&lt;/code&gt; etc..&lt;/p&gt;
+&lt;p&gt;It is not possible to access all sub-dialogs when Options dialog opens. We can only have access to their &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pageIDs&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pageNames(headers)&lt;/code&gt;, but we can’t access their methods since they aren’t instantiated. Otherwise, fetching the all data we need would be very easy with a method implemented by all dialogs - something like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pPageInfo-&amp;gt;m_xPage-&amp;gt;getAllTooltips()&lt;/code&gt; etc..&lt;/p&gt;
 
 &lt;p&gt;Initializing all dialogs when Options dialog opens is another idea. But this is not a good idea since it takes long to create/initialize all sub-dialogs.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;About &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script&lt;/li&gt;
+  &lt;li&gt;About &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;./core&lt;/code&gt; directory; e.g. for &lt;code class=&quot;highlighter-rouge&quot;&gt;optopenclpage.ui&lt;/code&gt; file, running&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./core&lt;/code&gt; directory; e.g. for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;optopenclpage.ui&lt;/code&gt; file, running&lt;/p&gt;
 
 &lt;pre&gt;
  $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
@@ -1167,22 +1167,22 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 &lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;As far as I understand,  the &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script extracts all strings that have&lt;/p&gt;
+&lt;p&gt;As far as I understand,  the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script extracts all strings that have&lt;/p&gt;
 
 &lt;pre&gt;
 &amp;lt;... translatable=&quot;yes&quot; ... &amp;gt;
 &lt;/pre&gt;
 
-&lt;p&gt;property. This also extracts all &lt;code class=&quot;highlighter-rouge&quot;&gt;label&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-name&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;accessible-description&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tooltip-text&lt;/code&gt; values which are the exact data we need. But this happens only running &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script. We need the data at build-time.&lt;/p&gt;
+&lt;p&gt;property. This also extracts all &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;label&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;accessible-name&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;accessible-description&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tooltip-text&lt;/code&gt; values which are the exact data we need. But this happens only running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; script. We need the data at build-time.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Extracting the data at build-time&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The extraction happens when running &lt;code class=&quot;highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;$ make&lt;/code&gt; doesn’t extract the data. (or - does it ?)&lt;/p&gt;
+&lt;p&gt;The extraction happens when running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt;. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ make&lt;/code&gt; doesn’t extract the data. (or - does it ?)&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt; extracts the all information from the following file extensions. (imho, probably this is why it takes longer than expected - on my computer it took 1 min 56 secs.)&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt; extracts the all information from the following file extensions. (imho, probably this is why it takes longer than expected - on my computer it took 1 min 56 secs.)&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Command&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;.hrc&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;hrcex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
@@ -1196,22 +1196,22 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
         &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u16string_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u&quot;.tree&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;treex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt; extracts all strings into &lt;code class=&quot;highlighter-rouge&quot;&gt;./workdir/pot/*&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt; extracts all strings into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./workdir/pot/*&lt;/code&gt; directory.&lt;/p&gt;
 
-&lt;p&gt;Extraction happens in &lt;code class=&quot;highlighter-rouge&quot;&gt;handleFile(...)&lt;/code&gt; function at &lt;code class=&quot;highlighter-rouge&quot;&gt;./l10ntools/source/localize.cxx&lt;/code&gt; (&lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189&quot;&gt;https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Extraction happens in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;handleFile(...)&lt;/code&gt; function at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./l10ntools/source/localize.cxx&lt;/code&gt; (&lt;a href=&quot;https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189&quot;&gt;https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189&lt;/a&gt;)&lt;/p&gt;
 
-&lt;p&gt;The extracted file &lt;code class=&quot;highlighter-rouge&quot;&gt;./workdir/pot/cui/messages.pot&lt;/code&gt; includes all strings for &lt;code class=&quot;highlighter-rouge&quot;&gt;.ui&lt;/code&gt; files that inside &lt;code class=&quot;highlighter-rouge&quot;&gt;./cui/*&lt;/code&gt;. But &lt;code class=&quot;highlighter-rouge&quot;&gt;messages.pot&lt;/code&gt; also has strings that unnecessary for our case.&lt;/p&gt;
+&lt;p&gt;The extracted file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./workdir/pot/cui/messages.pot&lt;/code&gt; includes all strings for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ui&lt;/code&gt; files that inside &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./cui/*&lt;/code&gt;. But &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;messages.pot&lt;/code&gt; also has strings that unnecessary for our case.&lt;/p&gt;
 
-&lt;p&gt;I imagine a script similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; that extracts all &lt;code class=&quot;highlighter-rouge&quot;&gt;.ui&lt;/code&gt; files that Options dialog has, into a file (xml or txt etc. ?), during &lt;code class=&quot;highlighter-rouge&quot;&gt;$ make&lt;/code&gt;. Then we can retrieve the data into a vector and use it at run-time (maybe - when options dialog opens ?).&lt;/p&gt;
+&lt;p&gt;I imagine a script similar to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./solenv/bin/uiex&lt;/code&gt; that extracts all &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ui&lt;/code&gt; files that Options dialog has, into a file (xml or txt etc. ?), during &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ make&lt;/code&gt;. Then we can retrieve the data into a vector and use it at run-time (maybe - when options dialog opens ?).&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./workdir/pot/cui/messages.pot&lt;/code&gt; file:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./workdir/pot/cui/messages.pot&lt;/code&gt; file:&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
   &lt;img src=&quot;../../../../folder/libreoffice-png/w-03-0-messages-pot.png&quot; alt=&quot;w-03-1-messages-pot.png&quot; title=&quot;messages.pot file&quot; /&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;Debug messages after &lt;code class=&quot;highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Debug messages after &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ make translations&lt;/code&gt;:&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
   &lt;img src=&quot;../../../../folder/libreoffice-png/w-03-1-terminal.png&quot; alt=&quot;w-03-2-terminal.png&quot; title=&quot;terminal messages after $ make translations&quot; /&gt;
@@ -1222,7 +1222,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 &lt;ul&gt;
   &lt;li&gt;There is a problem with accessing methods of sub-dialogs in Options dialog. (the reason is that the sub-dialogs don’t exist until the page is switched)&lt;/li&gt;
-  &lt;li&gt;We decided that strings in all &lt;code class=&quot;highlighter-rouge&quot;&gt;.ui&lt;/code&gt; files will be generated at build-time. (which will be the most challenging part in this project)&lt;/li&gt;
+  &lt;li&gt;We decided that strings in all &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ui&lt;/code&gt; files will be generated at build-time. (which will be the most challenging part in this project)&lt;/li&gt;
   &lt;li&gt;I’ll be trying to generate the data at build-time in the following weeks.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1300,7 +1300,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
   &lt;li&gt;In week #1, search functionality was implemented only for headers of the options TreeView. (“Tools &amp;gt; Options” - left pane tree).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;We should expand the search functionality to include the sub-headers(sub-elements) of the nodes. For example; if you type &lt;code class=&quot;highlighter-rouge&quot;&gt;“libre”&lt;/code&gt;, search function will look if there is any match only in headers. But we should also check their child nodes(sub-headers) to be ensure if there will be any match with the search term.&lt;/p&gt;
+&lt;p&gt;We should expand the search functionality to include the sub-headers(sub-elements) of the nodes. For example; if you type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;“libre”&lt;/code&gt;, search function will look if there is any match only in headers. But we should also check their child nodes(sub-headers) to be ensure if there will be any match with the search term.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
   &lt;img src=&quot;../../../../folder/libreoffice-png/w-01-02-search.png&quot; alt=&quot;w-01-02-search.png&quot; title=&quot;searching for headers&quot; /&gt;
@@ -1313,21 +1313,21 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
 
 &lt;p&gt;Patchset 2: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/152519/2&quot;&gt;https://gerrit.libreoffice.org/c/core/+/152519/2&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;If user types &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;japanese&quot;&lt;/code&gt;, search function will find the match in &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;Searching in Japanese&quot;&lt;/code&gt; and will show its parent node - which is &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;Language Settings&quot;&lt;/code&gt;, as shown below. However, if we only search in headers, this would not be possible and the left pane would be empty - nothing would be shown.&lt;/p&gt;
+&lt;p&gt;If user types &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;japanese&quot;&lt;/code&gt;, search function will find the match in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Searching in Japanese&quot;&lt;/code&gt; and will show its parent node - which is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Language Settings&quot;&lt;/code&gt;, as shown below. However, if we only search in headers, this would not be possible and the left pane would be empty - nothing would be shown.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
   &lt;img src=&quot;../../../../folder/libreoffice-png/w-02-01-sub-tree-search.png&quot; alt=&quot;w-02-01-sub-tree-search.png&quot; title=&quot;searching for headers and sub-headers&quot; /&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;As you can see at the bottom line of the terminal; if there is a match, debug prints &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;found: &amp;lt;full string of where search item found&amp;gt; : &amp;lt;its parent ID&amp;gt;&quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;As you can see at the bottom line of the terminal; if there is a match, debug prints &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;found: &amp;lt;full string of where search item found&amp;gt; : &amp;lt;its parent ID&amp;gt;&quot;&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Some technical details&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;All TreeView nodes and their child nodes are stored in a &lt;code class=&quot;highlighter-rouge&quot;&gt;std::vector&lt;/code&gt; as a &lt;code class=&quot;highlighter-rouge&quot;&gt;std::pair&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;All TreeView nodes and their child nodes are stored in a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::vector&lt;/code&gt; as a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::pair&lt;/code&gt;.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pair&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sal_uInt16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;storedIdVector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -1359,7 +1359,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Search function searchs through all first elements of &lt;code class=&quot;highlighter-rouge&quot;&gt;std::pair&amp;lt;OUString, sal_uInt16&amp;gt;&lt;/code&gt;. If there is a match, the second element - which is the ID of the parent node - will be added to left pane as a node.&lt;/p&gt;
+&lt;p&gt;Search function searchs through all first elements of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::pair&amp;lt;OUString, sal_uInt16&amp;gt;&lt;/code&gt;. If there is a match, the second element - which is the ID of the parent node - will be added to left pane as a node.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OfaTreeOptionsDialog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applySearchFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSearchTerm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1372,7 +1372,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;searchString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSearchTerm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;utl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextSearch&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;utl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextSearch&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;textSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;clearOptionsDialog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 
@@ -1577,13 +1577,13 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cui/uiconfig/ui/optionsdialog.ui&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cui/uiconfig/ui/optionsdialog.ui&lt;/code&gt;:&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
   &lt;img src=&quot;../../../../folder/libreoffice-png/w-01-00-search-ui-glade.png&quot; alt=&quot;w-01-00-search-ui-glade.png&quot; /&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;“Tools &amp;gt; Options”&lt;/code&gt; dialog:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;“Tools &amp;gt; Options”&lt;/code&gt; dialog:&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
   &lt;img src=&quot;../../../../folder/libreoffice-png/w-01-01-search-ui-libre.png&quot; alt=&quot;w-01-01-search-ui-libre.png&quot; /&gt;
@@ -1603,7 +1603,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
   &lt;li&gt;Some technical details&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;There is a timer that waits the user to stop typing if user types faster than &lt;code class=&quot;highlighter-rouge&quot;&gt;350ms&lt;/code&gt;. Since searching can be expensive, we shouldn’t perform search for every key press if pressing between two keys are less than 350ms, which will improve the performance.&lt;/p&gt;
+&lt;p&gt;There is a timer that waits the user to stop typing if user types faster than &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;350ms&lt;/code&gt;. Since searching can be expensive, we shouldn’t perform search for every key press if pressing between two keys are less than 350ms, which will improve the performance.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;n&quot;&gt;IMPL_LINK_NOARG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OfaTreeOptionsDialog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SearchUpdateHdl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;weld&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1611,7 +1611,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
     &lt;span class=&quot;c1&quot;&gt;// debug (&quot;timer -&amp;gt; SearchUpdateHdl()&quot;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ImplUpdateDataHdl()&lt;/code&gt; is called for searching:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ImplUpdateDataHdl()&lt;/code&gt; is called for searching:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;n&quot;&gt;IMPL_LINK_NOARG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OfaTreeOptionsDialog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ImplUpdateDataHdl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Timer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1636,7 +1636,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;applySearchFilter(aSearchTerm)&lt;/code&gt; function gets the word in search bar and does the search:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applySearchFilter(aSearchTerm)&lt;/code&gt; function gets the word in search bar and does the search:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OfaTreeOptionsDialog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applySearchFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUString&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSearchTerm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1651,7 +1651,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;searchString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rSearchTerm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;utl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextSearch&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;utl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextSearch&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;textSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;ClearAllOptions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 
@@ -2124,7 +2124,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&amp;gt;get_
   &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/120519&quot;&gt;https://gerrit.libreoffice.org/c/core/+/120519&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;In (Sidebar Tab) &lt;code class=&quot;highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;, Calc always shows preview of the selected cell borders.&lt;/p&gt;
+&lt;p&gt;In (Sidebar Tab) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;, Calc always shows preview of the selected cell borders.&lt;/p&gt;
 
 &lt;p&gt;For example; if LEFT border set in a cell, the preview shows LEFT border (as expected). But this feature doesn’t show the preview of diagonal borders. When we set (e.g.)diagonal RIGHT border in a cell, the preview doesn’t update itself to show diagonal RIGHT border.&lt;/p&gt;
 
@@ -2174,7 +2174,7 @@ Diagonal borders should be shown in the preview (as other borders).&lt;/p&gt;
 
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DrawLine()&lt;/code&gt; method draws the lines. Here, lines for diagonal borders are missing. We need to add &lt;code class=&quot;highlighter-rouge&quot;&gt;DrawLine()&lt;/code&gt; method for them and update the parameters of the &lt;code class=&quot;highlighter-rouge&quot;&gt;UpdateCellBorder(...)&lt;/code&gt; function:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DrawLine()&lt;/code&gt; method draws the lines. Here, lines for diagonal borders are missing. We need to add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DrawLine()&lt;/code&gt; method for them and update the parameters of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UpdateCellBorder(...)&lt;/code&gt; function:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CellAppearancePropertyPanel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UpdateCellBorder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                                                    &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bVer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bHor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -2281,7 +2281,7 @@ layout, not in current cell.&lt;/li&gt;
 
 &lt;h4 id=&quot;diagonal-borders-now-accessible-from-table-toolbar--borders-tab-in-calc&quot;&gt;Diagonal borders now accessible from “Table Toolbar &amp;gt; Borders” tab in Calc&lt;/h4&gt;
 
-&lt;p&gt;Calc has diagonal borders feature in &lt;code class=&quot;highlighter-rouge&quot;&gt;Format &amp;gt; Cells... &amp;gt; Borders tab&lt;/code&gt; and (Sidebar Tab) &lt;code class=&quot;highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;. However, this feature wasn’t exist in “Table Toolbar &amp;gt; Borders” tab. With commit &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;, Calc can draw diagonal left and diagonal right borders from table toolbar. \o/&lt;/p&gt;
+&lt;p&gt;Calc has diagonal borders feature in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Format &amp;gt; Cells... &amp;gt; Borders tab&lt;/code&gt; and (Sidebar Tab) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;. However, this feature wasn’t exist in “Table Toolbar &amp;gt; Borders” tab. With commit &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;, Calc can draw diagonal left and diagonal right borders from table toolbar. \o/&lt;/p&gt;
 
 &lt;p&gt;This &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt; commit had “&lt;em&gt;(WIP) Support diagonal borders in Writer-Tables&lt;/em&gt;” name before, and I sent 3-4 patchsets for Writer-diagonal-borders, but I made it Calc-specific and changed the title as “&lt;em&gt;Calc: made diagonal borders accessible in Toolbar&amp;gt;Borders&lt;/em&gt;”. The reason of this change is: Writer and Calc use the same Border tab in Table toolbar (svx/source/tbxctrls/tbcontrl.cxx). Therefore I will leave the commit as Calc-specific and will submit a new commit just for Writer-specific. But first, I want to write UItest for Calc-diagonal-borders next week.&lt;/p&gt;
 
@@ -2329,11 +2329,11 @@ layout, not in current cell.&lt;/li&gt;
   &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt; - Support diagonal borders in TABLEs&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;Table Toolbar &amp;gt; Bordes&lt;/code&gt;, Writer has 8 border frames for each cell, and has 12 border frames for multiple selected cells. With 2 new borders (Diagonal Left/Right), Writer has 14 border frames.&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Table Toolbar &amp;gt; Bordes&lt;/code&gt;, Writer has 8 border frames for each cell, and has 12 border frames for multiple selected cells. With 2 new borders (Diagonal Left/Right), Writer has 14 border frames.&lt;/p&gt;
 
 &lt;p&gt;I made research about how applying borders works in Writer-Tables. Then I started to work on it with sending first patchsets as WIP: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/119685&quot;&gt;https://gerrit.libreoffice.org/c/core/+/119685&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;I realized that Calc has diagonal borders feature in both &lt;code class=&quot;highlighter-rouge&quot;&gt;Format &amp;gt; Cells... &amp;gt; Borders tab&lt;/code&gt; and (Sidebar Tab) &lt;code class=&quot;highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;. Next week, I will try to understand how diagonal borders work in Calc cells and will try to implement them in Writer-Tables.&lt;/p&gt;
+&lt;p&gt;I realized that Calc has diagonal borders feature in both &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Format &amp;gt; Cells... &amp;gt; Borders tab&lt;/code&gt; and (Sidebar Tab) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Properties &amp;gt; Cell Appearance&lt;/code&gt;. Next week, I will try to understand how diagonal borders work in Calc cells and will try to implement them in Writer-Tables.&lt;/p&gt;
 
 &lt;h4 id=&quot;code-pointers&quot;&gt;Code pointers:&lt;/h4&gt;
 
@@ -2390,7 +2390,7 @@ layout, not in current cell.&lt;/li&gt;
   &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=143300&quot;&gt;tdf#143300&lt;/a&gt;: Add icons for diagonal borders&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I wanted to add diagonal borders to the &lt;code class=&quot;highlighter-rouge&quot;&gt;table toolbar &amp;gt; borders&lt;/code&gt; but realized that LO doesn’t have diagonal left and diagonal right borders under &lt;code class=&quot;highlighter-rouge&quot;&gt;./icon-themes/*/svx/res/*&lt;/code&gt;. Then on the &lt;em&gt;LibreOffice Design EN&lt;/em&gt; telegram channel, I said that these icons are necessary for tdf#51665. Designers wanted me to open a new report dedicated for the icons, so that &lt;em&gt;Rizal Muttaqin&lt;/em&gt;(huge thanks for the icons) could draw them. Diagonal border icons will be added for all themes soon.&lt;/p&gt;
+&lt;p&gt;I wanted to add diagonal borders to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;table toolbar &amp;gt; borders&lt;/code&gt; but realized that LO doesn’t have diagonal left and diagonal right borders under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./icon-themes/*/svx/res/*&lt;/code&gt;. Then on the &lt;em&gt;LibreOffice Design EN&lt;/em&gt; telegram channel, I said that these icons are necessary for tdf#51665. Designers wanted me to open a new report dedicated for the icons, so that &lt;em&gt;Rizal Muttaqin&lt;/em&gt;(huge thanks for the icons) could draw them. Diagonal border icons will be added for all themes soon.&lt;/p&gt;
 
 &lt;h3 id=&quot;ui---add-diagonal-borders-in-table-toolbar&quot;&gt;UI - add diagonal borders in Table toolbar&lt;/h3&gt;
 
@@ -2399,7 +2399,7 @@ layout, not in current cell.&lt;/li&gt;
   &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/118951&quot;&gt;https://gerrit.libreoffice.org/c/core/+/118951&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;In order to work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;, I added diagonal borders to &lt;code class=&quot;highlighter-rouge&quot;&gt;table toolbar &amp;gt; borders&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In order to work on &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=51665&quot;&gt;tdf#51665&lt;/a&gt;, I added diagonal borders to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;table toolbar &amp;gt; borders&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
   &lt;img src=&quot;../../../../folder/libreoffice-png/one_cell_border_0.png&quot; alt=&quot;one_cell_border_0.png&quot; /&gt;
@@ -2427,7 +2427,7 @@ layout, not in current cell.&lt;/li&gt;
 &lt;p&gt;Added tooltip &lt;em&gt;“Set Diagonal Left Border”&lt;/em&gt; for diagonal LEFT border.&lt;br /&gt;
 Added tooltip &lt;em&gt;“Set Diagonal Right Border”&lt;/em&gt; for for diagonal RIGHT border.&lt;/p&gt;
 
-&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;include/svx/strings.hrc&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;include/svx/strings.hrc&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define RID_SVXSTR_PARA_PRESET_DIAGONALLEFT         NC_(&quot;RID_SVXSTR_PARA_PRESET_DIAGONALLEFT&quot;, &quot;Set Diagonal Left Border&quot;)
 #define RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT        NC_(&quot;RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT&quot;, &quot;Set Diagonal Right Border&quot;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -2436,10 +2436,10 @@ Added tooltip &lt;em&gt;“Set Diagonal Right Border”&lt;/em&gt; for for diago
   &lt;li&gt;Icons&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Added diagonal Left and Right borders to the &lt;code class=&quot;highlighter-rouge&quot;&gt;svx/inc/bitmaps.hlst&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Added diagonal Left and Right borders to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;svx/inc/bitmaps.hlst&lt;/code&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fr013.png&lt;/code&gt; -&amp;gt; Right Diagonal Border&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;fr014.png&lt;/code&gt; -&amp;gt; Left Diagonal Border&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fr013.png&lt;/code&gt; -&amp;gt; Right Diagonal Border&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fr014.png&lt;/code&gt; -&amp;gt; Left Diagonal Border&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define RID_SVXBMP_FRAME13                          &quot;svx/res/fr013.png&quot;
 #define RID_SVXBMP_FRAME14                          &quot;svx/res/fr014.png&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -2448,16 +2448,16 @@ Added tooltip &lt;em&gt;“Set Diagonal Right Border”&lt;/em&gt; for for diago
   &lt;li&gt;Update &lt;em&gt;for loops&lt;/em&gt; and &lt;em&gt;switch cases&lt;/em&gt;:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Increased all for loops limits by 2. &lt;code class=&quot;highlighter-rouge&quot;&gt;svx/source/tbxctrls/tbcontrl.cxx&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Increased all for loops limits by 2. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;svx/source/tbxctrls/tbcontrl.cxx&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//bParagraphMode should have been set in StateChanged&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bParagraphMode&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// made -&amp;gt; for ( i = 11; i &amp;lt; 15; i++ )&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;mxFrameSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InsertItem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aImgVec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aImgVec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Updated &lt;code class=&quot;highlighter-rouge&quot;&gt;mxFrameSet-&amp;gt;SetColCount( 4 );&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;mxFrameSet-&amp;gt;SetColCount( 5 );&lt;/code&gt;, because column size should be 5 after adding the diagonal borders to the 5.th and 10.th order:&lt;/p&gt;
+&lt;p&gt;Updated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mxFrameSet-&amp;gt;SetColCount( 4 );&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mxFrameSet-&amp;gt;SetColCount( 5 );&lt;/code&gt;, because column size should be 5 after adding the diagonal borders to the 5.th and 10.th order:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;svx/source/tbxctrls/tbcontrl.cxx&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;svx/source/tbxctrls/tbcontrl.cxx&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// DIAGONAL LEFT&lt;/span&gt;
 
@@ -2588,7 +2588,7 @@ there are 3 issues about comment section:&lt;/p&gt;
     &lt;span class=&quot;cm&quot;&gt;/*...*/&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GetOutlinerView()-&amp;gt;ShowCursor();&lt;/code&gt; has a default value &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; if no argument passed in. I realized that this line causes the autoscroll to the old cursor location, and setting it to &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; solved the issue.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GetOutlinerView()-&amp;gt;ShowCursor();&lt;/code&gt; has a default value &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; if no argument passed in. I realized that this line causes the autoscroll to the old cursor location, and setting it to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt; solved the issue.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;b&gt;Fix for “jumping to the top of comment view”&lt;/b&gt;&lt;/li&gt;
@@ -2608,7 +2608,7 @@ there are 3 issues about comment section:&lt;/p&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Just remove unnecessary &lt;code class=&quot;highlighter-rouge&quot;&gt;const bool bLockView = mrView.GetWrtShell().IsViewLocked();&lt;/code&gt; line, set &lt;code class=&quot;highlighter-rouge&quot;&gt;.LockView( bLockView );&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;.LockView( true );&lt;/code&gt; because we activating &lt;code class=&quot;highlighter-rouge&quot;&gt;SetActiveSidebarWin&lt;/code&gt; here, it should be &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; and this fixes the jumping to the top of comment view issue with:&lt;/p&gt;
+&lt;p&gt;Just remove unnecessary &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;const bool bLockView = mrView.GetWrtShell().IsViewLocked();&lt;/code&gt; line, set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.LockView( bLockView );&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.LockView( true );&lt;/code&gt; because we activating &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SetActiveSidebarWin&lt;/code&gt; here, it should be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; and this fixes the jumping to the top of comment view issue with:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwAnnotationWin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UnsetActiveSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -2625,7 +2625,7 @@ there are 3 issues about comment section:&lt;/p&gt;
 
 &lt;p&gt;Steps to reproduce: (in comments section)&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- select text (2-3 words for example)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- select text (2-3 words for example)
 - scroll selected text to unvisible area (up or down)
 - click into the writer document canvas
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -2646,7 +2646,7 @@ there are 3 issues about comment section:&lt;/p&gt;
     &lt;span class=&quot;n&quot;&gt;ShowCursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bGotoCursor&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ShowCursor( bGotoCursor );&lt;/code&gt; causes the jumping when deactivating the comment canvas (when clicking into writer document canvas).&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ShowCursor( bGotoCursor );&lt;/code&gt; causes the jumping when deactivating the comment canvas (when clicking into writer document canvas).&lt;/p&gt;
 
 &lt;p&gt;Just made it to:&lt;/p&gt;
 &lt;pre&gt;
@@ -2677,7 +2677,7 @@ there are 3 issues about comment section:&lt;/p&gt;
     &lt;span class=&quot;n&quot;&gt;mrSidebarWin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LockView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Before the &lt;code class=&quot;highlighter-rouge&quot;&gt;mrSidebarWin.LockView();&lt;/code&gt;, I created a new method in &lt;code class=&quot;highlighter-rouge&quot;&gt;sw/source/uibase/docvw/AnnotationWin2.cxx&lt;/code&gt; to have access &lt;code class=&quot;highlighter-rouge&quot;&gt;LockView()&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Before the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mrSidebarWin.LockView();&lt;/code&gt;, I created a new method in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sw/source/uibase/docvw/AnnotationWin2.cxx&lt;/code&gt; to have access &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LockView()&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwAnnotationWin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LockView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bLock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -2723,9 +2723,9 @@ there are 3 issues about comment section:&lt;/p&gt;
   &lt;li&gt;Bug: &lt;a href=&quot;https://bugs.documentfoundation.org/show_bug.cgi?id=34438&quot;&gt;tdf#34438 (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Writer can group &lt;code class=&quot;highlighter-rouge&quot;&gt;Drawing objects&lt;/code&gt;. For example shapes(rectangles, circles), text boxes and draw images can be grouped together to drag &amp;amp; drop.&lt;/p&gt;
+&lt;p&gt;Writer can group &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Drawing objects&lt;/code&gt;. For example shapes(rectangles, circles), text boxes and draw images can be grouped together to drag &amp;amp; drop.&lt;/p&gt;
 
-&lt;p&gt;However, when copy/paste or drag&amp;amp;drop an image into the writer document canvas, (raster/bitmap)images are handled as &lt;code class=&quot;highlighter-rouge&quot;&gt;Frame objects (holding images/bitmaps)&lt;/code&gt;, not &lt;code class=&quot;highlighter-rouge&quot;&gt;Drawing objects&lt;/code&gt;. Drawing objects have the group feature, but this feature is not implemented for Graphics(Frame objects/bitmap). This is why Writer can’t group raster images.&lt;/p&gt;
+&lt;p&gt;However, when copy/paste or drag&amp;amp;drop an image into the writer document canvas, (raster/bitmap)images are handled as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Frame objects (holding images/bitmaps)&lt;/code&gt;, not &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Drawing objects&lt;/code&gt;. Drawing objects have the group feature, but this feature is not implemented for Graphics(Frame objects/bitmap). This is why Writer can’t group raster images.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
   &lt;img src=&quot;../../../../folder/libreoffice-png/shapes-selected.png&quot; alt=&quot;shapes-selected.png&quot; /&gt;
@@ -2766,27 +2766,27 @@ there are 3 issues about comment section:&lt;/p&gt;
 
 &lt;h4 id=&quot;technical-details&quot;&gt;Technical Details&lt;/h4&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SAL_DEBUG( rMrkList.GetMarkDescription() );&lt;/code&gt; output: (in SwFEShell::SelectObj)&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SAL_DEBUG( rMrkList.GetMarkDescription() );&lt;/code&gt; output: (in SwFEShell::SelectObj)&lt;/p&gt;
 
-&lt;p&gt;For shapes: &lt;code class=&quot;highlighter-rouge&quot;&gt;shapes&lt;/code&gt; &lt;br /&gt;
-For 2+ shapes: &lt;code class=&quot;highlighter-rouge&quot;&gt;2 shapes&lt;/code&gt; &lt;br /&gt;
-For draw images: &lt;code class=&quot;highlighter-rouge&quot;&gt;Image with transparency&lt;/code&gt; &lt;br /&gt;
-For text box: &lt;code class=&quot;highlighter-rouge&quot;&gt;Text Frame&lt;/code&gt;&lt;br /&gt;
-For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing object]&lt;/code&gt; &lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;For shapes: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shapes&lt;/code&gt; &lt;br /&gt;
+For 2+ shapes: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2 shapes&lt;/code&gt; &lt;br /&gt;
+For draw images: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Image with transparency&lt;/code&gt; &lt;br /&gt;
+For text box: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Text Frame&lt;/code&gt;&lt;br /&gt;
+For raster images: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[Drawing object]&lt;/code&gt; &lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;Raster images seem to have &lt;code class=&quot;highlighter-rouge&quot;&gt;NONE&lt;/code&gt; object name:&lt;/p&gt;
+&lt;p&gt;Raster images seem to have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NONE&lt;/code&gt; object name:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#define STR_ObjNameSingulNONE    NC_(&quot;STR_ObjNameSingulNONE&quot;, &quot;Drawing object&quot;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList.GetMarkDescription()&lt;/code&gt; can’t classify the raster images?&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rMrkList.GetMarkDescription()&lt;/code&gt; can’t classify the raster images?&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SAL_DEBUG( rMrkList.GetMarkCount() );&lt;/code&gt; always increases by &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; when selecting drawing objects via SHIFT+CLICK. But always gives &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; when selecting raster images.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SAL_DEBUG( rMrkList.GetMarkCount() );&lt;/code&gt; always increases by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; when selecting drawing objects via SHIFT+CLICK. But always gives &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; when selecting raster images.&lt;/p&gt;
 
-&lt;p&gt;All selected objects store in &lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList&lt;/code&gt; list:&lt;/p&gt;
+&lt;p&gt;All selected objects store in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rMrkList&lt;/code&gt; list:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SdrMarkList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rMrkList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pDView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkedObjectList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;This means raster images added to the list but always be unmarked when GetMarkCount reaches &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt;. The actual reason of unmarking issue is:&lt;/p&gt;
+&lt;p&gt;This means raster images added to the list but always be unmarked when GetMarkCount reaches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;. The actual reason of unmarking issue is:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// call Unmark when !bAddSelect or if fly was selected&lt;/span&gt;
 &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bUnmark&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bAddSelect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// bUnmark is &apos;false&apos; here &lt;/span&gt;
@@ -2814,9 +2814,9 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
             &lt;span class=&quot;n&quot;&gt;pOldSelFly&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SelectionHasChanged&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;With SHIFT+CLICK, &lt;code class=&quot;highlighter-rouge&quot;&gt;pOldSelFly = ::GetFlyFromMarked( &amp;amp;rMrkList, this );&lt;/code&gt; returns 0(null) when selecting the second, third … shape (which is expected); and it doesn’t set &lt;code class=&quot;highlighter-rouge&quot;&gt;bUnmark = true&lt;/code&gt;, so it doesn’t execute &lt;code class=&quot;highlighter-rouge&quot;&gt;pDView-&amp;gt;UnmarkAll()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;With SHIFT+CLICK, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pOldSelFly = ::GetFlyFromMarked( &amp;amp;rMrkList, this );&lt;/code&gt; returns 0(null) when selecting the second, third … shape (which is expected); and it doesn’t set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bUnmark = true&lt;/code&gt;, so it doesn’t execute &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pDView-&amp;gt;UnmarkAll()&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;However, &lt;code class=&quot;highlighter-rouge&quot;&gt;pOldSelFly = ::GetFlyFromMarked( &amp;amp;rMrkList, this );&lt;/code&gt; always returns an address which is evaluated &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; in an &lt;code class=&quot;highlighter-rouge&quot;&gt;if ( pOldSelFly )&lt;/code&gt; case. This causes &lt;code class=&quot;highlighter-rouge&quot;&gt;bUnmark = true;&lt;/code&gt; and executes &lt;code class=&quot;highlighter-rouge&quot;&gt;if ( bUnmark )&lt;/code&gt;. Therefore, when &lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList.GetMarkCount() == 1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;::GetFlyFromMarked( &amp;amp;rMrkList, this )&lt;/code&gt; returns an address; &lt;code class=&quot;highlighter-rouge&quot;&gt;rMrkList&lt;/code&gt; doesn’t add the second selected raster image to itself and do unmark it.&lt;/p&gt;
+&lt;p&gt;However, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pOldSelFly = ::GetFlyFromMarked( &amp;amp;rMrkList, this );&lt;/code&gt; always returns an address which is evaluated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; in an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if ( pOldSelFly )&lt;/code&gt; case. This causes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bUnmark = true;&lt;/code&gt; and executes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if ( bUnmark )&lt;/code&gt;. Therefore, when &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rMrkList.GetMarkCount() == 1&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::GetFlyFromMarked( &amp;amp;rMrkList, this )&lt;/code&gt; returns an address; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rMrkList&lt;/code&gt; doesn’t add the second selected raster image to itself and do unmark it.&lt;/p&gt;
 
 &lt;h4 id=&quot;frame-is-not-accessible&quot;&gt;Frame is not accessible&lt;/h4&gt;
 
@@ -2824,7 +2824,7 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
   &lt;img src=&quot;../../../../folder/libreoffice-png/frame-is-not-accessible.png&quot; alt=&quot;frame-is-not-accessible.png&quot; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;Another interesting issue is when trying to add(select) a raster image to the shape list (unmarking disabled) debugging warns &lt;code class=&quot;highlighter-rouge&quot;&gt;warn: /*...*/ frame is not accessible&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Another interesting issue is when trying to add(select) a raster image to the shape list (unmarking disabled) debugging warns &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;warn: /*...*/ frame is not accessible&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;SwAccessibleMap::InvalidateCursorPosition:&lt;/p&gt;
 
@@ -2845,9 +2845,9 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
     &lt;span class=&quot;n&quot;&gt;OSL_ENSURE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bShapeSelected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aFrameOrObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsAccessible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetShell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsPreview&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()),&lt;/span&gt;
             &lt;span class=&quot;s&quot;&gt;&quot;frame is not accessible&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pFESh-&amp;gt;IsObjSelected()&lt;/code&gt; should return &lt;code class=&quot;highlighter-rouge&quot;&gt;GetMarkCount()&lt;/code&gt;, not &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt;. Otherwise &lt;code class=&quot;highlighter-rouge&quot;&gt;bShapeSelected&lt;/code&gt; stays &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;OSL_ENSURE&lt;/code&gt; warns &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;frame is not accessible&quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pFESh-&amp;gt;IsObjSelected()&lt;/code&gt; should return &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GetMarkCount()&lt;/code&gt;, not &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;. Otherwise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bShapeSelected&lt;/code&gt; stays &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OSL_ENSURE&lt;/code&gt; warns &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;frame is not accessible&quot;&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;/sw/source/core/frmedt/feshview.cxx : &lt;code class=&quot;highlighter-rouge&quot;&gt;SwFEShell::IsObjSelected()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;SwFEShell::IsFrameSelected()&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;/sw/source/core/frmedt/feshview.cxx : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SwFEShell::IsObjSelected()&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SwFEShell::IsFrameSelected()&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SwFEShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsObjSelected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -2871,7 +2871,7 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nullptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetFlyFromMarked&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetDrawView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetMarkedObjectList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
                                         &lt;span class=&quot;k&quot;&gt;const_cast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SwFEShell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GetFlyFromMarked&lt;/code&gt; should return &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; (0(null)), not an address which make &lt;code class=&quot;highlighter-rouge&quot;&gt;nullptr != 0x01...&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;.
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GetFlyFromMarked&lt;/code&gt; should return &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt; (0(null)), not an address which make &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nullptr != 0x01...&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;.
 &lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
     ***
@@ -3009,15 +3009,15 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
   &lt;li&gt;Commit: &lt;a href=&quot;https://gerrit.libreoffice.org/c/core/+/116395&quot;&gt;https://gerrit.libreoffice.org/c/core/+/116395&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Mouseover effect wasn’t showing in palettes on Color, Gradient, Bitmap, Pattern and Hatch sections. These sections are located at &lt;code class=&quot;highlighter-rouge&quot;&gt;Format &amp;gt; Page Style... &amp;gt; Area&lt;/code&gt; Tab.&lt;/p&gt;
+&lt;p&gt;Mouseover effect wasn’t showing in palettes on Color, Gradient, Bitmap, Pattern and Hatch sections. These sections are located at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Format &amp;gt; Page Style... &amp;gt; Area&lt;/code&gt; Tab.&lt;/p&gt;
 
-&lt;p&gt;Since &lt;code class=&quot;highlighter-rouge&quot;&gt;Font Color&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Highlight Color&lt;/code&gt; palettes have the mouseover effect, I tried to find code pointers for them to understand how mouseover effect is shown in the code.&lt;/p&gt;
+&lt;p&gt;Since &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Font Color&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Highlight Color&lt;/code&gt; palettes have the mouseover effect, I tried to find code pointers for them to understand how mouseover effect is shown in the code.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// ValueSet&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;m_xValSetColorList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_xValSetColorList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;WB_FLATVALUESET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WB_ITEMBORDER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WB_NO_DIRECTSELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WB_TABSTOP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;WB(WinBits) are showing the styles of palettes and &lt;code class=&quot;highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt; does the mouseover effect on the palettes. In some sections &lt;code class=&quot;highlighter-rouge&quot;&gt;SetStyle()&lt;/code&gt; wasn’t set. The ones that have the SetStyle(), didn’t have the &lt;code class=&quot;highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt;. I just added the &lt;code class=&quot;highlighter-rouge&quot;&gt;SetStyle()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt; within it. Now, mouseover effect works fine on the Area Tab.&lt;/p&gt;
+&lt;p&gt;WB(WinBits) are showing the styles of palettes and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt; does the mouseover effect on the palettes. In some sections &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SetStyle()&lt;/code&gt; wasn’t set. The ones that have the SetStyle(), didn’t have the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt;. I just added the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SetStyle()&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WB_FLATVALUESET&lt;/code&gt; within it. Now, mouseover effect works fine on the Area Tab.&lt;/p&gt;
 
 &lt;p&gt;Before: No mouseover effect:&lt;/p&gt;
 
@@ -3061,7 +3061,7 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
 
 &lt;p&gt;I’ve spend about 3-4 days to find code pointers because ‘flipping’ is mentioned as ‘mirroring’ in the code.&lt;/p&gt;
 
-&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;sw/source/core/graphic/ndgrf.cxx&lt;/code&gt;, flipping flags are set to &lt;code class=&quot;highlighter-rouge&quot;&gt;GraphicAttr&amp;amp; rGA&lt;/code&gt; in the function &lt;code class=&quot;highlighter-rouge&quot;&gt;SwGrfNode::GetGraphicAttr(...)&lt;/code&gt;. Crop values are applied to &lt;code class=&quot;highlighter-rouge&quot;&gt;rGA.SetCrop&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sw/source/core/graphic/ndgrf.cxx&lt;/code&gt;, flipping flags are set to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GraphicAttr&amp;amp; rGA&lt;/code&gt; in the function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SwGrfNode::GetGraphicAttr(...)&lt;/code&gt;. Crop values are applied to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rGA.SetCrop&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;    &lt;span class=&quot;n&quot;&gt;rGA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetMirrorFlags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nMirror&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
@@ -3071,7 +3071,7 @@ For raster images: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Drawing obje
                  &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
                  &lt;span class=&quot;n&quot;&gt;convertTwipToMm100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rCrop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetBottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Then, I thought that what if we also mirror the &lt;code class=&quot;highlighter-rouge&quot;&gt;crop values&lt;/code&gt; alongside the image?&lt;/p&gt;
+&lt;p&gt;Then, I thought that what if we also mirror the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;crop values&lt;/code&gt; alongside the image?&lt;/p&gt;
 
 &lt;p&gt;Assign Left, Top, Right and Bottom crop values to our new variables to work with easily:&lt;/p&gt;
 

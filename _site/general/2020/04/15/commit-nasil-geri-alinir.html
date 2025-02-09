@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Git: commit’ler nasıl geri alınır/silinir? | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Git: commit’ler nasıl geri alınır/silinir?" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -54,15 +54,15 @@
   <li>Öncelikle uzak sunucudaki depoyu yerelinize kopyalayın ve depo dizinine girin:</li>
 </ul>
 
-<p><code class="highlighter-rouge">$ git clone &lt;link&gt;</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ git clone &lt;link&gt;</code></p>
 
-<p><code class="highlighter-rouge">$ cd ./&lt;depo-adı&gt;</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ cd ./&lt;depo-adı&gt;</code></p>
 
 <ul>
   <li>Sondan kaçıncı commit’ten itibaren silmeniz gerektiğini öğrenmek için ya Github vb. gibi bir uzak sunucudan bakmalısınız ya da komut satırından şu şekilde bakmalısınız:</li>
 </ul>
 
-<p><code class="highlighter-rouge">$ git log</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ git log</code></p>
 
 <p>Burada önünüze son commit’ten eskiye doğru giden bir sayfa gelmelidir. Burada kaç commit silmek istediğinizi belirleyin.</p>
 
@@ -75,7 +75,7 @@
   </li>
 </ul>
 
-<p><code class="highlighter-rouge">$ git log -n 12</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ git log -n 12</code></p>
 
 <p>Önünüze çıkan commit’lerde en aşağı indiğinizde bu 12. commit olacaktır. 12. commit’in ID’sini kopyalayın. (örn: df11d552bc6a38e7z3e229f969d44be65ed1998d)</p>
 
@@ -83,19 +83,19 @@
   <li>Aşağıdaki komutu çalıştırdığınızda önünüze son 11 commit’in olduğu bir dosya açılacak:</li>
 </ul>
 
-<p><code class="highlighter-rouge">git rebase -i df11d552bc6a38e7z3e229f969d44be65ed1998d</code></p>
+<p><code class="language-plaintext highlighter-rouge">git rebase -i df11d552bc6a38e7z3e229f969d44be65ed1998d</code></p>
 
-<p>(burada öğrenmiş oluyoruz ki <code class="highlighter-rouge">git rebase -i &lt;x'inci commit_ID&gt;</code>,  bize son <code class="highlighter-rouge">(x-1)</code>‘inci commit’leri gösteriyor.)</p>
+<p>(burada öğrenmiş oluyoruz ki <code class="language-plaintext highlighter-rouge">git rebase -i &lt;x'inci commit_ID&gt;</code>,  bize son <code class="language-plaintext highlighter-rouge">(x-1)</code>‘inci commit’leri gösteriyor.)</p>
 
 <p>Önünüzdeki dosyada en üstteki commit en eski commit, en alttaki de en yeni yapılmış(son) commit olacaktır. Biz son 10 commit’i silmek istiyorduk. Öyleyse en üstteki commit hariç(çünkü en üstteki commit son 11. commit), altındaki 10 commit’i silip dosyayı kaydedip kapatıyoruz.</p>
 
-<p>(Aslında <code class="highlighter-rouge">git rebase -i x</code> yazarken sadece silmek istediğimiz commit’lerin gösterilmesini isteyebiliriz fakat son 10 commit’i silmek istediğimizde kalacak sonuncu commit’i görmek, hatalı bir işlem yapılması ihtimalinin önüne geçebilir.)</p>
+<p>(Aslında <code class="language-plaintext highlighter-rouge">git rebase -i x</code> yazarken sadece silmek istediğimiz commit’lerin gösterilmesini isteyebiliriz fakat son 10 commit’i silmek istediğimizde kalacak sonuncu commit’i görmek, hatalı bir işlem yapılması ihtimalinin önüne geçebilir.)</p>
 
 <ul>
   <li>İşlemin yapıldığından emin olmak için commit’leri kontrol edelim:</li>
 </ul>
 
-<p><code class="highlighter-rouge">$ git status</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ git status</code></p>
 
 <p>Burada yerelimizde bulunan commit’lerin uzak sunucudaki commit’lerden 10 geri(behind) olduğunu görmelisiniz ki istediğimiz şey de buydu zaten.</p>
 
@@ -103,7 +103,7 @@
   <li>Son olarak değişiklikleri uzak sunucuya yollayıp uzak sunucudaki sayfanızı yenileyin:</li>
 </ul>
 
-<p><code class="highlighter-rouge">$ git push -f origin master</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ git push -f origin master</code></p>
 
 <p><i>(-f -&gt; force-push, –force)</i></p>
 

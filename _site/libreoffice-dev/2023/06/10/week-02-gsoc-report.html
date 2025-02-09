@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Week #2 - GSoC 2023 Weekly Report - Search Field in Options | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Week #2 - GSoC 2023 Weekly Report - Search Field in Options" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -54,7 +54,7 @@
   <li>In week #1, search functionality was implemented only for headers of the options TreeView. (“Tools &gt; Options” - left pane tree).</li>
 </ul>
 
-<p>We should expand the search functionality to include the sub-headers(sub-elements) of the nodes. For example; if you type <code class="highlighter-rouge">“libre”</code>, search function will look if there is any match only in headers. But we should also check their child nodes(sub-headers) to be ensure if there will be any match with the search term.</p>
+<p>We should expand the search functionality to include the sub-headers(sub-elements) of the nodes. For example; if you type <code class="language-plaintext highlighter-rouge">“libre”</code>, search function will look if there is any match only in headers. But we should also check their child nodes(sub-headers) to be ensure if there will be any match with the search term.</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-01-02-search.png" alt="w-01-02-search.png" title="searching for headers" />
@@ -67,21 +67,21 @@
 
 <p>Patchset 2: <a href="https://gerrit.libreoffice.org/c/core/+/152519/2">https://gerrit.libreoffice.org/c/core/+/152519/2</a></p>
 
-<p>If user types <code class="highlighter-rouge">"japanese"</code>, search function will find the match in <code class="highlighter-rouge">"Searching in Japanese"</code> and will show its parent node - which is <code class="highlighter-rouge">"Language Settings"</code>, as shown below. However, if we only search in headers, this would not be possible and the left pane would be empty - nothing would be shown.</p>
+<p>If user types <code class="language-plaintext highlighter-rouge">"japanese"</code>, search function will find the match in <code class="language-plaintext highlighter-rouge">"Searching in Japanese"</code> and will show its parent node - which is <code class="language-plaintext highlighter-rouge">"Language Settings"</code>, as shown below. However, if we only search in headers, this would not be possible and the left pane would be empty - nothing would be shown.</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-02-01-sub-tree-search.png" alt="w-02-01-sub-tree-search.png" title="searching for headers and sub-headers" />
 </p>
 <p><br /></p>
 
-<p>As you can see at the bottom line of the terminal; if there is a match, debug prints <code class="highlighter-rouge">"found: &lt;full string of where search item found&gt; : &lt;its parent ID&gt;"</code>.</p>
+<p>As you can see at the bottom line of the terminal; if there is a match, debug prints <code class="language-plaintext highlighter-rouge">"found: &lt;full string of where search item found&gt; : &lt;its parent ID&gt;"</code>.</p>
 
 <p><br /></p>
 <ul>
   <li>Some technical details</li>
 </ul>
 
-<p>All TreeView nodes and their child nodes are stored in a <code class="highlighter-rouge">std::vector</code> as a <code class="highlighter-rouge">std::pair</code>.</p>
+<p>All TreeView nodes and their child nodes are stored in a <code class="language-plaintext highlighter-rouge">std::vector</code> as a <code class="language-plaintext highlighter-rouge">std::pair</code>.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">OUString</span><span class="p">,</span> <span class="n">sal_uInt16</span><span class="o">&gt;&gt;</span> <span class="n">storedIdVector</span><span class="p">;</span></code></pre></figure>
 
@@ -113,7 +113,7 @@
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Search function searchs through all first elements of <code class="highlighter-rouge">std::pair&lt;OUString, sal_uInt16&gt;</code>. If there is a match, the second element - which is the ID of the parent node - will be added to left pane as a node.</p>
+<p>Search function searchs through all first elements of <code class="language-plaintext highlighter-rouge">std::pair&lt;OUString, sal_uInt16&gt;</code>. If there is a match, the second element - which is the ID of the parent node - will be added to left pane as a node.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">applySearchFilter</span><span class="p">(</span><span class="n">OUString</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rSearchTerm</span><span class="p">)</span>
 <span class="p">{</span>
@@ -126,7 +126,7 @@
     <span class="p">}</span>
 
     <span class="n">m_options</span><span class="p">.</span><span class="n">searchString</span> <span class="o">=</span> <span class="n">rSearchTerm</span><span class="p">;</span>
-    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="n">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
+    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="nf">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
 
     <span class="n">clearOptionsDialog</span><span class="p">();</span>
 

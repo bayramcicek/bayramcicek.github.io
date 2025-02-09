@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Week #5 and #6 - GSoC 2023 Weekly Report - Search Field in Options" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -61,38 +61,38 @@
   </li>
 </ul>
 
-<p>I removed the <code class="highlighter-rouge">./solenv/bin/uiex_options</code> script that almost the same with <code class="highlighter-rouge">./solenv/bin/uiex</code>. Instead of creating a new script, adding an additional option to the existing uiex script -to only print the msgid instead of the full entry-, is better than a different file.</p>
+<p>I removed the <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex_options</code> script that almost the same with <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code>. Instead of creating a new script, adding an additional option to the existing uiex script -to only print the msgid instead of the full entry-, is better than a different file.</p>
 
-<p><code class="highlighter-rouge">./solenv/bin/uiex</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code>:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="p">...</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="bp">...</span>
 
-<span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"getString"</span><span class="p">)</span> <span class="p">):</span>
-    <span class="n">mode</span> <span class="o">=</span> <span class="s">"w"</span>
+<span class="nf">if </span><span class="p">(</span> <span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">getString</span><span class="sh">"</span><span class="p">)</span> <span class="p">):</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="sh">"</span><span class="s">w</span><span class="sh">"</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">mode</span> <span class="o">=</span> <span class="s">"a"</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="sh">"</span><span class="s">a</span><span class="sh">"</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
-    <span class="nb">input</span> <span class="o">=</span> <span class="n">check_output</span><span class="p">([</span><span class="s">"xgettext"</span><span class="p">,</span> <span class="s">"--add-comments"</span><span class="p">,</span> <span class="s">"--no-wrap"</span><span class="p">,</span> <span class="n">ifile</span><span class="p">,</span> <span class="s">"-o"</span><span class="p">,</span> <span class="s">"-"</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">)</span>
-    <span class="n">po</span> <span class="o">=</span> <span class="n">polib</span><span class="p">.</span><span class="n">pofile</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">po</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nf">check_output</span><span class="p">([</span><span class="sh">"</span><span class="s">xgettext</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">--add-comments</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">--no-wrap</span><span class="sh">"</span><span class="p">,</span> <span class="n">ifile</span><span class="p">,</span> <span class="sh">"</span><span class="s">-o</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">-</span><span class="sh">"</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">"</span><span class="s">UTF-8</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">po</span> <span class="o">=</span> <span class="n">polib</span><span class="p">.</span><span class="nf">pofile</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">po</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">""</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">po</span><span class="p">:</span>
             <span class="c1"># skip 'stock' entries like "cancel", "help", "ok", etc
 </span>            <span class="c1"># l10ntools/source/localize.cxx will insert one entry for each stock per .po
-</span>            <span class="k">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">==</span> <span class="s">"stock"</span><span class="p">:</span>
+</span>            <span class="k">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">==</span> <span class="sh">"</span><span class="s">stock</span><span class="sh">"</span><span class="p">:</span>
                 <span class="k">continue</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="s">"a"</span><span class="p">):</span>
-                <span class="n">keyid</span> <span class="o">=</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">+</span> <span class="s">'|'</span> <span class="o">+</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgid</span>
-                <span class="k">print</span><span class="p">(</span><span class="s">'#. '</span> <span class="o">+</span> <span class="n">polib</span><span class="p">.</span><span class="n">genKeyId</span><span class="p">(</span><span class="n">keyid</span><span class="p">),</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+            <span class="nf">if </span><span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="sh">"</span><span class="s">a</span><span class="sh">"</span><span class="p">):</span>
+                <span class="n">keyid</span> <span class="o">=</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgctxt</span> <span class="o">+</span> <span class="sh">'</span><span class="s">|</span><span class="sh">'</span> <span class="o">+</span> <span class="n">entry</span><span class="p">.</span><span class="n">msgid</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">#. </span><span class="sh">'</span> <span class="o">+</span> <span class="n">polib</span><span class="p">.</span><span class="nf">genKeyId</span><span class="p">(</span><span class="n">keyid</span><span class="p">),</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
 
-            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">occurrence</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">):</span>
-                <span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">occurrence</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'SRCDIR'</span><span class="p">]),</span> <span class="n">occurrence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">occurrence</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">):</span>
+                <span class="n">entry</span><span class="p">.</span><span class="n">occurrences</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">relpath</span><span class="p">(</span><span class="n">occurrence</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="sh">'</span><span class="s">SRCDIR</span><span class="sh">'</span><span class="p">]),</span> <span class="n">occurrence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="s">"a"</span><span class="p">):</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+            <span class="nf">if </span><span class="p">(</span><span class="n">mode</span> <span class="o">==</span> <span class="sh">"</span><span class="s">a</span><span class="sh">"</span><span class="p">):</span>
+                <span class="nf">print</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">msgid</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></code></pre></figure>
+                <span class="nf">print</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">msgid</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></code></pre></figure>
 
 <p><br /></p>
 <ul>

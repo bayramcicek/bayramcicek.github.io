@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Week #10 - GSoC Weekly Report - 100 Paper Cuts | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Week #10 - GSoC Weekly Report - 100 Paper Cuts" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -57,7 +57,7 @@
   <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/120519">https://gerrit.libreoffice.org/c/core/+/120519</a></li>
 </ul>
 
-<p>In (Sidebar Tab) <code class="highlighter-rouge">Properties &gt; Cell Appearance</code>, Calc always shows preview of the selected cell borders.</p>
+<p>In (Sidebar Tab) <code class="language-plaintext highlighter-rouge">Properties &gt; Cell Appearance</code>, Calc always shows preview of the selected cell borders.</p>
 
 <p>For example; if LEFT border set in a cell, the preview shows LEFT border (as expected). But this feature doesn’t show the preview of diagonal borders. When we set (e.g.)diagonal RIGHT border in a cell, the preview doesn’t update itself to show diagonal RIGHT border.</p>
 
@@ -107,7 +107,7 @@ Diagonal borders should be shown in the preview (as other borders).</p>
 
 <span class="p">}</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">DrawLine()</code> method draws the lines. Here, lines for diagonal borders are missing. We need to add <code class="highlighter-rouge">DrawLine()</code> method for them and update the parameters of the <code class="highlighter-rouge">UpdateCellBorder(...)</code> function:</p>
+<p><code class="language-plaintext highlighter-rouge">DrawLine()</code> method draws the lines. Here, lines for diagonal borders are missing. We need to add <code class="language-plaintext highlighter-rouge">DrawLine()</code> method for them and update the parameters of the <code class="language-plaintext highlighter-rouge">UpdateCellBorder(...)</code> function:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">CellAppearancePropertyPanel</span><span class="o">::</span><span class="n">UpdateCellBorder</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bTop</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bBot</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bLeft</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bRight</span><span class="p">,</span>
                                                    <span class="kt">bool</span> <span class="n">bVer</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bHor</span><span class="p">,</span>

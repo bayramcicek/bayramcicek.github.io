@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Week #3 - GSoC 2023 Weekly Report - Search Field in Options | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Week #3 - GSoC 2023 Weekly Report - Search Field in Options" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -54,9 +54,9 @@
   <li>The Problem in Options sub-dialogs</li>
 </ul>
 
-<p>I’ve been working with Options dialog which has more than 30 sub-dialogs. On the left pane of the Options dialog, the TreeView headers and their sub-headers were included in searching. There is no problem here. However, when it comes to adding all sub-dialogs’ <code class="highlighter-rouge">labels</code>, <code class="highlighter-rouge">accessible-names</code>, <code class="highlighter-rouge">accessible-descriptions</code> and <code class="highlighter-rouge">tooltip-texts</code> to the searching, there is a problem arise: When Options dialog opens, it does not initialize all dialogs so it is <code class="highlighter-rouge">NOT</code> possible to access their methods - until they were clicked manually.</p>
+<p>I’ve been working with Options dialog which has more than 30 sub-dialogs. On the left pane of the Options dialog, the TreeView headers and their sub-headers were included in searching. There is no problem here. However, when it comes to adding all sub-dialogs’ <code class="language-plaintext highlighter-rouge">labels</code>, <code class="language-plaintext highlighter-rouge">accessible-names</code>, <code class="language-plaintext highlighter-rouge">accessible-descriptions</code> and <code class="language-plaintext highlighter-rouge">tooltip-texts</code> to the searching, there is a problem arise: When Options dialog opens, it does not initialize all dialogs so it is <code class="language-plaintext highlighter-rouge">NOT</code> possible to access their methods - until they were clicked manually.</p>
 
-<p>I asked about this problem on <code class="highlighter-rouge">IRC #libreoffice-dev</code> channel:</p>
+<p>I asked about this problem on <code class="language-plaintext highlighter-rouge">IRC #libreoffice-dev</code> channel:</p>
 
 <pre style="white-space: pre-wrap">
 
@@ -80,16 +80,16 @@
 
 </pre>
 
-<p>It is not possible to access all sub-dialogs when Options dialog opens. We can only have access to their <code class="highlighter-rouge">pageIDs</code> and <code class="highlighter-rouge">pageNames(headers)</code>, but we can’t access their methods since they aren’t instantiated. Otherwise, fetching the all data we need would be very easy with a method implemented by all dialogs - something like <code class="highlighter-rouge">pPageInfo-&gt;m_xPage-&gt;getAllTooltips()</code> etc..</p>
+<p>It is not possible to access all sub-dialogs when Options dialog opens. We can only have access to their <code class="language-plaintext highlighter-rouge">pageIDs</code> and <code class="language-plaintext highlighter-rouge">pageNames(headers)</code>, but we can’t access their methods since they aren’t instantiated. Otherwise, fetching the all data we need would be very easy with a method implemented by all dialogs - something like <code class="language-plaintext highlighter-rouge">pPageInfo-&gt;m_xPage-&gt;getAllTooltips()</code> etc..</p>
 
 <p>Initializing all dialogs when Options dialog opens is another idea. But this is not a good idea since it takes long to create/initialize all sub-dialogs.</p>
 
 <p><br /></p>
 <ul>
-  <li>About <code class="highlighter-rouge">./solenv/bin/uiex</code> script</li>
+  <li>About <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code> script</li>
 </ul>
 
-<p>In <code class="highlighter-rouge">./core</code> directory; e.g. for <code class="highlighter-rouge">optopenclpage.ui</code> file, running</p>
+<p>In <code class="language-plaintext highlighter-rouge">./core</code> directory; e.g. for <code class="language-plaintext highlighter-rouge">optopenclpage.ui</code> file, running</p>
 
 <pre>
  $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
@@ -125,22 +125,22 @@
 
 <span class="o">---</span></code></pre></figure>
 
-<p>As far as I understand,  the <code class="highlighter-rouge">./solenv/bin/uiex</code> script extracts all strings that have</p>
+<p>As far as I understand,  the <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code> script extracts all strings that have</p>
 
 <pre>
 &lt;... translatable="yes" ... &gt;
 </pre>
 
-<p>property. This also extracts all <code class="highlighter-rouge">label</code>, <code class="highlighter-rouge">accessible-name</code>, <code class="highlighter-rouge">accessible-description</code> and <code class="highlighter-rouge">tooltip-text</code> values which are the exact data we need. But this happens only running <code class="highlighter-rouge">./solenv/bin/uiex</code> script. We need the data at build-time.</p>
+<p>property. This also extracts all <code class="language-plaintext highlighter-rouge">label</code>, <code class="language-plaintext highlighter-rouge">accessible-name</code>, <code class="language-plaintext highlighter-rouge">accessible-description</code> and <code class="language-plaintext highlighter-rouge">tooltip-text</code> values which are the exact data we need. But this happens only running <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code> script. We need the data at build-time.</p>
 
 <p><br /></p>
 <ul>
   <li>Extracting the data at build-time</li>
 </ul>
 
-<p>The extraction happens when running <code class="highlighter-rouge">$ make translations</code>. <code class="highlighter-rouge">$ make</code> doesn’t extract the data. (or - does it ?)</p>
+<p>The extraction happens when running <code class="language-plaintext highlighter-rouge">$ make translations</code>. <code class="language-plaintext highlighter-rouge">$ make</code> doesn’t extract the data. (or - does it ?)</p>
 
-<p><code class="highlighter-rouge">$ make translations</code> extracts the all information from the following file extensions. (imho, probably this is why it takes longer than expected - on my computer it took 1 min 56 secs.)</p>
+<p><code class="language-plaintext highlighter-rouge">$ make translations</code> extracts the all information from the following file extensions. (imho, probably this is why it takes longer than expected - on my computer it took 1 min 56 secs.)</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="k">static</span> <span class="n">Command</span> <span class="k">const</span> <span class="n">commands</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
         <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".hrc"</span><span class="p">),</span> <span class="s">"hrcex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">},</span>
@@ -154,22 +154,22 @@
         <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">u16string_view</span><span class="p">(</span><span class="s">u".tree"</span><span class="p">),</span> <span class="s">"treex"</span><span class="p">,</span> <span class="nb">false</span> <span class="p">}</span>
     <span class="p">};</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">$ make translations</code> extracts all strings into <code class="highlighter-rouge">./workdir/pot/*</code> directory.</p>
+<p><code class="language-plaintext highlighter-rouge">$ make translations</code> extracts all strings into <code class="language-plaintext highlighter-rouge">./workdir/pot/*</code> directory.</p>
 
-<p>Extraction happens in <code class="highlighter-rouge">handleFile(...)</code> function at <code class="highlighter-rouge">./l10ntools/source/localize.cxx</code> (<a href="https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189">https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189</a>)</p>
+<p>Extraction happens in <code class="language-plaintext highlighter-rouge">handleFile(...)</code> function at <code class="language-plaintext highlighter-rouge">./l10ntools/source/localize.cxx</code> (<a href="https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189">https://opengrok.libreoffice.org/xref/core/l10ntools/source/localize.cxx?r=eaf07139#189</a>)</p>
 
-<p>The extracted file <code class="highlighter-rouge">./workdir/pot/cui/messages.pot</code> includes all strings for <code class="highlighter-rouge">.ui</code> files that inside <code class="highlighter-rouge">./cui/*</code>. But <code class="highlighter-rouge">messages.pot</code> also has strings that unnecessary for our case.</p>
+<p>The extracted file <code class="language-plaintext highlighter-rouge">./workdir/pot/cui/messages.pot</code> includes all strings for <code class="language-plaintext highlighter-rouge">.ui</code> files that inside <code class="language-plaintext highlighter-rouge">./cui/*</code>. But <code class="language-plaintext highlighter-rouge">messages.pot</code> also has strings that unnecessary for our case.</p>
 
-<p>I imagine a script similar to <code class="highlighter-rouge">./solenv/bin/uiex</code> that extracts all <code class="highlighter-rouge">.ui</code> files that Options dialog has, into a file (xml or txt etc. ?), during <code class="highlighter-rouge">$ make</code>. Then we can retrieve the data into a vector and use it at run-time (maybe - when options dialog opens ?).</p>
+<p>I imagine a script similar to <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code> that extracts all <code class="language-plaintext highlighter-rouge">.ui</code> files that Options dialog has, into a file (xml or txt etc. ?), during <code class="language-plaintext highlighter-rouge">$ make</code>. Then we can retrieve the data into a vector and use it at run-time (maybe - when options dialog opens ?).</p>
 
-<p><code class="highlighter-rouge">./workdir/pot/cui/messages.pot</code> file:</p>
+<p><code class="language-plaintext highlighter-rouge">./workdir/pot/cui/messages.pot</code> file:</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-03-0-messages-pot.png" alt="w-03-1-messages-pot.png" title="messages.pot file" />
 </p>
 <p><br /></p>
 
-<p>Debug messages after <code class="highlighter-rouge">$ make translations</code>:</p>
+<p>Debug messages after <code class="language-plaintext highlighter-rouge">$ make translations</code>:</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-03-1-terminal.png" alt="w-03-2-terminal.png" title="terminal messages after $ make translations" />
@@ -180,7 +180,7 @@
 
 <ul>
   <li>There is a problem with accessing methods of sub-dialogs in Options dialog. (the reason is that the sub-dialogs don’t exist until the page is switched)</li>
-  <li>We decided that strings in all <code class="highlighter-rouge">.ui</code> files will be generated at build-time. (which will be the most challenging part in this project)</li>
+  <li>We decided that strings in all <code class="language-plaintext highlighter-rouge">.ui</code> files will be generated at build-time. (which will be the most challenging part in this project)</li>
   <li>I’ll be trying to generate the data at build-time in the following weeks.</li>
 </ul>
 

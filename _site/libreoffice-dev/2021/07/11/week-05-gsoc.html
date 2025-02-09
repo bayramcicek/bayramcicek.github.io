@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Week #5 - GSoC Weekly Report - 100 Paper Cuts | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Week #5 - GSoC Weekly Report - 100 Paper Cuts" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -111,7 +111,7 @@ there are 3 issues about comment section:</p>
     <span class="cm">/*...*/</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">GetOutlinerView()-&gt;ShowCursor();</code> has a default value <code class="highlighter-rouge">true</code> if no argument passed in. I realized that this line causes the autoscroll to the old cursor location, and setting it to <code class="highlighter-rouge">false</code> solved the issue.</p>
+<p><code class="language-plaintext highlighter-rouge">GetOutlinerView()-&gt;ShowCursor();</code> has a default value <code class="language-plaintext highlighter-rouge">true</code> if no argument passed in. I realized that this line causes the autoscroll to the old cursor location, and setting it to <code class="language-plaintext highlighter-rouge">false</code> solved the issue.</p>
 
 <ul>
   <li><b>Fix for “jumping to the top of comment view”</b></li>
@@ -131,7 +131,7 @@ there are 3 issues about comment section:</p>
     <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Just remove unnecessary <code class="highlighter-rouge">const bool bLockView = mrView.GetWrtShell().IsViewLocked();</code> line, set <code class="highlighter-rouge">.LockView( bLockView );</code> to <code class="highlighter-rouge">.LockView( true );</code> because we activating <code class="highlighter-rouge">SetActiveSidebarWin</code> here, it should be <code class="highlighter-rouge">true</code> and this fixes the jumping to the top of comment view issue with:</p>
+<p>Just remove unnecessary <code class="language-plaintext highlighter-rouge">const bool bLockView = mrView.GetWrtShell().IsViewLocked();</code> line, set <code class="language-plaintext highlighter-rouge">.LockView( bLockView );</code> to <code class="language-plaintext highlighter-rouge">.LockView( true );</code> because we activating <code class="language-plaintext highlighter-rouge">SetActiveSidebarWin</code> here, it should be <code class="language-plaintext highlighter-rouge">true</code> and this fixes the jumping to the top of comment view issue with:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">UnsetActiveSidebarWin</span><span class="p">()</span>
 <span class="p">{</span>
@@ -148,7 +148,7 @@ there are 3 issues about comment section:</p>
 
 <p>Steps to reproduce: (in comments section)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- select text (2-3 words for example)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- select text (2-3 words for example)
 - scroll selected text to unvisible area (up or down)
 - click into the writer document canvas
 </code></pre></div></div>
@@ -169,7 +169,7 @@ there are 3 issues about comment section:</p>
     <span class="n">ShowCursor</span><span class="p">(</span> <span class="n">bGotoCursor</span> <span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">ShowCursor( bGotoCursor );</code> causes the jumping when deactivating the comment canvas (when clicking into writer document canvas).</p>
+<p><code class="language-plaintext highlighter-rouge">ShowCursor( bGotoCursor );</code> causes the jumping when deactivating the comment canvas (when clicking into writer document canvas).</p>
 
 <p>Just made it to:</p>
 <pre>
@@ -200,7 +200,7 @@ there are 3 issues about comment section:</p>
     <span class="n">mrSidebarWin</span><span class="p">.</span><span class="n">LockView</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Before the <code class="highlighter-rouge">mrSidebarWin.LockView();</code>, I created a new method in <code class="highlighter-rouge">sw/source/uibase/docvw/AnnotationWin2.cxx</code> to have access <code class="highlighter-rouge">LockView()</code>:</p>
+<p>Before the <code class="language-plaintext highlighter-rouge">mrSidebarWin.LockView();</code>, I created a new method in <code class="language-plaintext highlighter-rouge">sw/source/uibase/docvw/AnnotationWin2.cxx</code> to have access <code class="language-plaintext highlighter-rouge">LockView()</code>:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">SwAnnotationWin</span><span class="o">::</span><span class="n">LockView</span><span class="p">(</span><span class="kt">bool</span> <span class="n">bLock</span><span class="p">)</span>
 <span class="p">{</span>

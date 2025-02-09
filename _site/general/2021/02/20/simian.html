@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Simian: copy/paste code detector/fixing | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Simian: copy/paste code detector/fixing" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -54,16 +54,16 @@
 
 <p>To get a space separated list of .cxx files, run:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find &lt;directory&gt; -name "*.cxx" | grep -v unxlng | tr '\n' ' ' &gt; files
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find &lt;directory&gt; -name "*.cxx" | grep -v unxlng | tr '\n' ' ' &gt; files
 </code></pre></div></div>
-<p>All .cxx file names have been written to <code class="highlighter-rouge">files.txt</code>. The Simian call to get code pieces with at least 30 equivalent is for example:</p>
+<p>All .cxx file names have been written to <code class="language-plaintext highlighter-rouge">files.txt</code>. The Simian call to get code pieces with at least 30 equivalent is for example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -jar simian-2.3.31.jar -threshold=30 -language=c++ `cat files`
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -jar simian-2.3.31.jar -threshold=30 -language=c++ `cat files`
 </code></pre></div></div>
 
 <p>Output would be:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Found 34 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Found 34 duplicate lines with fingerprint fda93f5a150ea8d915b59a498eac4979 in the following files:
  Between lines 639 and 726 in /.../core/vcl/source/bitmap/bitmap.cxx
  Between lines 766 and 853 in /.../core/vcl/source/bitmap/bitmap.cxx
  
@@ -122,10 +122,10 @@ Found 75 duplicate lines with fingerprint 026938a138dede7a72201d666a827760 in th
     <span class="k">return</span> <span class="n">bSuccess</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>convertDuration(double&amp; rfTime, std::u16string_view rString)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>convertDuration(double&amp; rfTime, std::u16string_view rString)
 convertDuration(double&amp; rfTime, std::string_view rString)
 </code></pre></div></div>
-<p>Since two functions are include the same data type of <code class="highlighter-rouge">rfTime</code> variables, there is no need to create a <code class="highlighter-rouge">template</code>. However, data type of <code class="highlighter-rouge">rString</code> variables are different. Consequently, we have to create a template only for rString.</p>
+<p>Since two functions are include the same data type of <code class="language-plaintext highlighter-rouge">rfTime</code> variables, there is no need to create a <code class="language-plaintext highlighter-rouge">template</code>. However, data type of <code class="language-plaintext highlighter-rouge">rString</code> variables are different. Consequently, we have to create a template only for rString.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/** helper function of Converter::convertDuration */</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">V</span><span class="p">&gt;</span>

@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Heap ve Stack: Bellek Birimlerine Genel Bakış | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Heap ve Stack: Bellek Birimlerine Genel Bakış" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -52,7 +52,7 @@
   <li>Stack</li>
 </ul>
 
-<p><code class="highlighter-rouge">stack</code>, bilgisayar hafızasının özel bir bölümüdür. Bilgisayar tarafından
+<p><code class="language-plaintext highlighter-rouge">stack</code>, bilgisayar hafızasının özel bir bölümüdür. Bilgisayar tarafından
 kontrol edir yani otomatiktir ve programcı bu alana manuel olarak müdahale etmesi
 gerekmez. <i>main()</i> fonksiyonu dahil fonksiyonların ürettiği geçici değerler tutulur.
 <i>LIFO (last in, first out)</i> veri yapısına sahiptir.</p>
@@ -66,9 +66,9 @@ değişkenleri, onları oluşturan fonksiyonlar hayatta	 olduğu sürece vardır
   <li>Heap</li>
 </ul>
 
-<p><code class="highlighter-rouge">heap</code>, bilgisayarın hafızasının otomatik olarak yönetilmediği bölümüdür.
-<i>Heap</i> bölümünde bellek tahsisi için <code class="highlighter-rouge">malloc</code>, <code class="highlighter-rouge">calloc</code> veya <code class="highlighter-rouge">realloc</code> fonksiyonları
-çağırılmalıdır. Tahsis edilen bellek ünitesi yine manuel olarak <code class="highlighter-rouge">free</code> ile serbest
+<p><code class="language-plaintext highlighter-rouge">heap</code>, bilgisayarın hafızasının otomatik olarak yönetilmediği bölümüdür.
+<i>Heap</i> bölümünde bellek tahsisi için <code class="language-plaintext highlighter-rouge">malloc</code>, <code class="language-plaintext highlighter-rouge">calloc</code> veya <code class="language-plaintext highlighter-rouge">realloc</code> fonksiyonları
+çağırılmalıdır. Tahsis edilen bellek ünitesi yine manuel olarak <code class="language-plaintext highlighter-rouge">free</code> ile serbest
 bırakılması gerekir. Bu işlemler programcının sorumluluğundadır. Eğer bir hata
 çıkarsa buna <i>memory leak</i> denir.</p>
 
@@ -99,7 +99,7 @@ sahipsek bunları stack bölümünde tutabiliriz (bu daha hızlı ve basit olur)
 <p>Eğer diziler ve struct yapıları gibi boyutları değişmesi muhtemel olan
 yapılar kullanılacak ise bunları <em>heap</em>	
 bölümünde tahsis etmeli ve dinamik bellek tahsisini manuel olarak yönetmemizi sağlayan 
-<code class="highlighter-rouge">malloc</code>, <code class="highlighter-rouge">calloc</code>, <code class="highlighter-rouge">realloc</code> ve <code class="highlighter-rouge">free</code> fonksiyonlarını kullanmamız gerekir.</p>
+<code class="language-plaintext highlighter-rouge">malloc</code>, <code class="language-plaintext highlighter-rouge">calloc</code>, <code class="language-plaintext highlighter-rouge">realloc</code> ve <code class="language-plaintext highlighter-rouge">free</code> fonksiyonlarını kullanmamız gerekir.</p>
 
 <hr />
 <p><br />

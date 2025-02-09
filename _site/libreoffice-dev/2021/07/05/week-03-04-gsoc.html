@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Week #3 - #4 - GSoC Weekly Report - 100 Paper Cuts" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -56,9 +56,9 @@
   <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=34438">tdf#34438 (Image-Group) - [feature request, FORMATTING] group selection does not work with raster images</a>.</li>
 </ul>
 
-<p>Writer can group <code class="highlighter-rouge">Drawing objects</code>. For example shapes(rectangles, circles), text boxes and draw images can be grouped together to drag &amp; drop.</p>
+<p>Writer can group <code class="language-plaintext highlighter-rouge">Drawing objects</code>. For example shapes(rectangles, circles), text boxes and draw images can be grouped together to drag &amp; drop.</p>
 
-<p>However, when copy/paste or drag&amp;drop an image into the writer document canvas, (raster/bitmap)images are handled as <code class="highlighter-rouge">Frame objects (holding images/bitmaps)</code>, not <code class="highlighter-rouge">Drawing objects</code>. Drawing objects have the group feature, but this feature is not implemented for Graphics(Frame objects/bitmap). This is why Writer can’t group raster images.</p>
+<p>However, when copy/paste or drag&amp;drop an image into the writer document canvas, (raster/bitmap)images are handled as <code class="language-plaintext highlighter-rouge">Frame objects (holding images/bitmaps)</code>, not <code class="language-plaintext highlighter-rouge">Drawing objects</code>. Drawing objects have the group feature, but this feature is not implemented for Graphics(Frame objects/bitmap). This is why Writer can’t group raster images.</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/shapes-selected.png" alt="shapes-selected.png" />
@@ -99,27 +99,27 @@
 
 <h4 id="technical-details">Technical Details</h4>
 
-<p><code class="highlighter-rouge">SAL_DEBUG( rMrkList.GetMarkDescription() );</code> output: (in SwFEShell::SelectObj)</p>
+<p><code class="language-plaintext highlighter-rouge">SAL_DEBUG( rMrkList.GetMarkDescription() );</code> output: (in SwFEShell::SelectObj)</p>
 
-<p>For shapes: <code class="highlighter-rouge">shapes</code> <br />
-For 2+ shapes: <code class="highlighter-rouge">2 shapes</code> <br />
-For draw images: <code class="highlighter-rouge">Image with transparency</code> <br />
-For text box: <code class="highlighter-rouge">Text Frame</code><br />
-For raster images: <code class="highlighter-rouge">[Drawing object]</code> <br /></p>
+<p>For shapes: <code class="language-plaintext highlighter-rouge">shapes</code> <br />
+For 2+ shapes: <code class="language-plaintext highlighter-rouge">2 shapes</code> <br />
+For draw images: <code class="language-plaintext highlighter-rouge">Image with transparency</code> <br />
+For text box: <code class="language-plaintext highlighter-rouge">Text Frame</code><br />
+For raster images: <code class="language-plaintext highlighter-rouge">[Drawing object]</code> <br /></p>
 
-<p>Raster images seem to have <code class="highlighter-rouge">NONE</code> object name:</p>
+<p>Raster images seem to have <code class="language-plaintext highlighter-rouge">NONE</code> object name:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define STR_ObjNameSingulNONE    NC_("STR_ObjNameSingulNONE", "Drawing object")</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">rMrkList.GetMarkDescription()</code> can’t classify the raster images?</p>
+<p><code class="language-plaintext highlighter-rouge">rMrkList.GetMarkDescription()</code> can’t classify the raster images?</p>
 
-<p><code class="highlighter-rouge">SAL_DEBUG( rMrkList.GetMarkCount() );</code> always increases by <code class="highlighter-rouge">1</code> when selecting drawing objects via SHIFT+CLICK. But always gives <code class="highlighter-rouge">1</code> when selecting raster images.</p>
+<p><code class="language-plaintext highlighter-rouge">SAL_DEBUG( rMrkList.GetMarkCount() );</code> always increases by <code class="language-plaintext highlighter-rouge">1</code> when selecting drawing objects via SHIFT+CLICK. But always gives <code class="language-plaintext highlighter-rouge">1</code> when selecting raster images.</p>
 
-<p>All selected objects store in <code class="highlighter-rouge">rMrkList</code> list:</p>
+<p>All selected objects store in <code class="language-plaintext highlighter-rouge">rMrkList</code> list:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">const</span> <span class="n">SdrMarkList</span> <span class="o">&amp;</span><span class="n">rMrkList</span> <span class="o">=</span> <span class="n">pDView</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">();</span></code></pre></figure>
 
-<p>This means raster images added to the list but always be unmarked when GetMarkCount reaches <code class="highlighter-rouge">1</code>. The actual reason of unmarking issue is:</p>
+<p>This means raster images added to the list but always be unmarked when GetMarkCount reaches <code class="language-plaintext highlighter-rouge">1</code>. The actual reason of unmarking issue is:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// call Unmark when !bAddSelect or if fly was selected</span>
 <span class="kt">bool</span> <span class="n">bUnmark</span> <span class="o">=</span> <span class="o">!</span><span class="n">bAddSelect</span><span class="p">;</span> <span class="c1">// bUnmark is 'false' here </span>
@@ -147,9 +147,9 @@ For raster images: <code class="highlighter-rouge">[Drawing object]</code> <br /
             <span class="n">pOldSelFly</span><span class="o">-&gt;</span><span class="n">SelectionHasChanged</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
     <span class="p">}</span></code></pre></figure>
 
-<p>With SHIFT+CLICK, <code class="highlighter-rouge">pOldSelFly = ::GetFlyFromMarked( &amp;rMrkList, this );</code> returns 0(null) when selecting the second, third … shape (which is expected); and it doesn’t set <code class="highlighter-rouge">bUnmark = true</code>, so it doesn’t execute <code class="highlighter-rouge">pDView-&gt;UnmarkAll()</code>.</p>
+<p>With SHIFT+CLICK, <code class="language-plaintext highlighter-rouge">pOldSelFly = ::GetFlyFromMarked( &amp;rMrkList, this );</code> returns 0(null) when selecting the second, third … shape (which is expected); and it doesn’t set <code class="language-plaintext highlighter-rouge">bUnmark = true</code>, so it doesn’t execute <code class="language-plaintext highlighter-rouge">pDView-&gt;UnmarkAll()</code>.</p>
 
-<p>However, <code class="highlighter-rouge">pOldSelFly = ::GetFlyFromMarked( &amp;rMrkList, this );</code> always returns an address which is evaluated <code class="highlighter-rouge">true</code> in an <code class="highlighter-rouge">if ( pOldSelFly )</code> case. This causes <code class="highlighter-rouge">bUnmark = true;</code> and executes <code class="highlighter-rouge">if ( bUnmark )</code>. Therefore, when <code class="highlighter-rouge">rMrkList.GetMarkCount() == 1</code> and <code class="highlighter-rouge">::GetFlyFromMarked( &amp;rMrkList, this )</code> returns an address; <code class="highlighter-rouge">rMrkList</code> doesn’t add the second selected raster image to itself and do unmark it.</p>
+<p>However, <code class="language-plaintext highlighter-rouge">pOldSelFly = ::GetFlyFromMarked( &amp;rMrkList, this );</code> always returns an address which is evaluated <code class="language-plaintext highlighter-rouge">true</code> in an <code class="language-plaintext highlighter-rouge">if ( pOldSelFly )</code> case. This causes <code class="language-plaintext highlighter-rouge">bUnmark = true;</code> and executes <code class="language-plaintext highlighter-rouge">if ( bUnmark )</code>. Therefore, when <code class="language-plaintext highlighter-rouge">rMrkList.GetMarkCount() == 1</code> and <code class="language-plaintext highlighter-rouge">::GetFlyFromMarked( &amp;rMrkList, this )</code> returns an address; <code class="language-plaintext highlighter-rouge">rMrkList</code> doesn’t add the second selected raster image to itself and do unmark it.</p>
 
 <h4 id="frame-is-not-accessible">Frame is not accessible</h4>
 
@@ -157,7 +157,7 @@ For raster images: <code class="highlighter-rouge">[Drawing object]</code> <br /
   <img src="../../../../folder/libreoffice-png/frame-is-not-accessible.png" alt="frame-is-not-accessible.png" />
 </p>
 
-<p>Another interesting issue is when trying to add(select) a raster image to the shape list (unmarking disabled) debugging warns <code class="highlighter-rouge">warn: /*...*/ frame is not accessible</code>.</p>
+<p>Another interesting issue is when trying to add(select) a raster image to the shape list (unmarking disabled) debugging warns <code class="language-plaintext highlighter-rouge">warn: /*...*/ frame is not accessible</code>.</p>
 
 <p>SwAccessibleMap::InvalidateCursorPosition:</p>
 
@@ -178,9 +178,9 @@ For raster images: <code class="highlighter-rouge">[Drawing object]</code> <br /
     <span class="n">OSL_ENSURE</span><span class="p">(</span> <span class="n">bShapeSelected</span> <span class="o">||</span> <span class="n">aFrameOrObj</span><span class="p">.</span><span class="n">IsAccessible</span><span class="p">(</span><span class="n">GetShell</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">IsPreview</span><span class="p">()),</span>
             <span class="s">"frame is not accessible"</span> <span class="p">);</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">pFESh-&gt;IsObjSelected()</code> should return <code class="highlighter-rouge">GetMarkCount()</code>, not <code class="highlighter-rouge">0</code>. Otherwise <code class="highlighter-rouge">bShapeSelected</code> stays <code class="highlighter-rouge">false</code> and <code class="highlighter-rouge">OSL_ENSURE</code> warns <code class="highlighter-rouge">"frame is not accessible"</code>.</p>
+<p><code class="language-plaintext highlighter-rouge">pFESh-&gt;IsObjSelected()</code> should return <code class="language-plaintext highlighter-rouge">GetMarkCount()</code>, not <code class="language-plaintext highlighter-rouge">0</code>. Otherwise <code class="language-plaintext highlighter-rouge">bShapeSelected</code> stays <code class="language-plaintext highlighter-rouge">false</code> and <code class="language-plaintext highlighter-rouge">OSL_ENSURE</code> warns <code class="language-plaintext highlighter-rouge">"frame is not accessible"</code>.</p>
 
-<p>/sw/source/core/frmedt/feshview.cxx : <code class="highlighter-rouge">SwFEShell::IsObjSelected()</code> and <code class="highlighter-rouge">SwFEShell::IsFrameSelected()</code>:</p>
+<p>/sw/source/core/frmedt/feshview.cxx : <code class="language-plaintext highlighter-rouge">SwFEShell::IsObjSelected()</code> and <code class="language-plaintext highlighter-rouge">SwFEShell::IsFrameSelected()</code>:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">size_t</span> <span class="n">SwFEShell</span><span class="o">::</span><span class="n">IsObjSelected</span><span class="p">()</span> <span class="k">const</span>
 <span class="p">{</span>
@@ -204,7 +204,7 @@ For raster images: <code class="highlighter-rouge">[Drawing object]</code> <br /
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">return</span> <span class="nb">nullptr</span> <span class="o">!=</span> <span class="o">::</span><span class="n">GetFlyFromMarked</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">Imp</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetDrawView</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMarkedObjectList</span><span class="p">(),</span>
                                         <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">SwFEShell</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">);</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">GetFlyFromMarked</code> should return <code class="highlighter-rouge">false</code> (0(null)), not an address which make <code class="highlighter-rouge">nullptr != 0x01...</code> <code class="highlighter-rouge">true</code>.
+<p><code class="language-plaintext highlighter-rouge">GetFlyFromMarked</code> should return <code class="language-plaintext highlighter-rouge">false</code> (0(null)), not an address which make <code class="language-plaintext highlighter-rouge">nullptr != 0x01...</code> <code class="language-plaintext highlighter-rouge">true</code>.
 <br /></p>
 <p align="center">
     ***

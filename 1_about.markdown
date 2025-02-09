@@ -36,7 +36,7 @@ medium: [medium.com/@cicek]
 ___
 
 <br>
-libreoffice: [https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com]
+libreoffice: [https://gerrit.libreoffice.org/q/owner:bayramcicek2125@gmail.com]
 
 collabora: [github.com/CollaboraOnline/online/commits?author=bayramcicek]
 
@@ -82,7 +82,7 @@ You can find the source code for Jekyll at GitHub:
 [twitter.com/bayramcicek21]: https://www.twitter.com/bayramcicek21
 [medium.com/@cicek]: https://medium.com/@cicek
 
-[https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com]: https://gerrit.libreoffice.org/q/owner:bayramcicek2125%2540gmail.com
+[https://gerrit.libreoffice.org/q/owner:bayramcicek2125@gmail.com]: https://gerrit.libreoffice.org/q/owner:bayramcicek2125@gmail.com+OR+owner:bayram.cicek@collabora.com
 [github.com/CollaboraOnline/online/commits?author=bayramcicek]: https://github.com/CollaboraOnline/online/commits?author=bayramcicek
 [wiki.documentfoundation.org/User:Bayramcicek]: https://wiki.documentfoundation.org/User:Bayramcicek
 

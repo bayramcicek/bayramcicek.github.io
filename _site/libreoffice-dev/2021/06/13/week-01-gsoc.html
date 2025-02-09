@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Week #1 - GSoC Weekly Report - 100 Paper Cuts | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Week #1 - GSoC Weekly Report - 100 Paper Cuts" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -59,15 +59,15 @@
   <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/116395">https://gerrit.libreoffice.org/c/core/+/116395</a></li>
 </ul>
 
-<p>Mouseover effect wasn’t showing in palettes on Color, Gradient, Bitmap, Pattern and Hatch sections. These sections are located at <code class="highlighter-rouge">Format &gt; Page Style... &gt; Area</code> Tab.</p>
+<p>Mouseover effect wasn’t showing in palettes on Color, Gradient, Bitmap, Pattern and Hatch sections. These sections are located at <code class="language-plaintext highlighter-rouge">Format &gt; Page Style... &gt; Area</code> Tab.</p>
 
-<p>Since <code class="highlighter-rouge">Font Color</code> and <code class="highlighter-rouge">Highlight Color</code> palettes have the mouseover effect, I tried to find code pointers for them to understand how mouseover effect is shown in the code.</p>
+<p>Since <code class="language-plaintext highlighter-rouge">Font Color</code> and <code class="language-plaintext highlighter-rouge">Highlight Color</code> palettes have the mouseover effect, I tried to find code pointers for them to understand how mouseover effect is shown in the code.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// ValueSet</span>
 <span class="n">m_xValSetColorList</span><span class="o">-&gt;</span><span class="n">SetStyle</span><span class="p">(</span><span class="n">m_xValSetColorList</span><span class="o">-&gt;</span><span class="n">GetStyle</span><span class="p">()</span> <span class="o">|</span>
         <span class="n">WB_FLATVALUESET</span> <span class="o">|</span> <span class="n">WB_ITEMBORDER</span> <span class="o">|</span> <span class="n">WB_NO_DIRECTSELECT</span> <span class="o">|</span> <span class="n">WB_TABSTOP</span><span class="p">);</span></code></pre></figure>
 
-<p>WB(WinBits) are showing the styles of palettes and <code class="highlighter-rouge">WB_FLATVALUESET</code> does the mouseover effect on the palettes. In some sections <code class="highlighter-rouge">SetStyle()</code> wasn’t set. The ones that have the SetStyle(), didn’t have the <code class="highlighter-rouge">WB_FLATVALUESET</code>. I just added the <code class="highlighter-rouge">SetStyle()</code> and <code class="highlighter-rouge">WB_FLATVALUESET</code> within it. Now, mouseover effect works fine on the Area Tab.</p>
+<p>WB(WinBits) are showing the styles of palettes and <code class="language-plaintext highlighter-rouge">WB_FLATVALUESET</code> does the mouseover effect on the palettes. In some sections <code class="language-plaintext highlighter-rouge">SetStyle()</code> wasn’t set. The ones that have the SetStyle(), didn’t have the <code class="language-plaintext highlighter-rouge">WB_FLATVALUESET</code>. I just added the <code class="language-plaintext highlighter-rouge">SetStyle()</code> and <code class="language-plaintext highlighter-rouge">WB_FLATVALUESET</code> within it. Now, mouseover effect works fine on the Area Tab.</p>
 
 <p>Before: No mouseover effect:</p>
 
@@ -111,7 +111,7 @@
 
 <p>I’ve spend about 3-4 days to find code pointers because ‘flipping’ is mentioned as ‘mirroring’ in the code.</p>
 
-<p>In <code class="highlighter-rouge">sw/source/core/graphic/ndgrf.cxx</code>, flipping flags are set to <code class="highlighter-rouge">GraphicAttr&amp; rGA</code> in the function <code class="highlighter-rouge">SwGrfNode::GetGraphicAttr(...)</code>. Crop values are applied to <code class="highlighter-rouge">rGA.SetCrop</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">sw/source/core/graphic/ndgrf.cxx</code>, flipping flags are set to <code class="language-plaintext highlighter-rouge">GraphicAttr&amp; rGA</code> in the function <code class="language-plaintext highlighter-rouge">SwGrfNode::GetGraphicAttr(...)</code>. Crop values are applied to <code class="language-plaintext highlighter-rouge">rGA.SetCrop</code>:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="n">rGA</span><span class="p">.</span><span class="n">SetMirrorFlags</span><span class="p">(</span> <span class="n">nMirror</span> <span class="p">);</span>
 
@@ -121,7 +121,7 @@
                  <span class="n">convertTwipToMm100</span><span class="p">(</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetRight</span><span class="p">()</span> <span class="p">),</span>
                  <span class="n">convertTwipToMm100</span><span class="p">(</span> <span class="n">rCrop</span><span class="p">.</span><span class="n">GetBottom</span><span class="p">()</span> <span class="p">));</span></code></pre></figure>
 
-<p>Then, I thought that what if we also mirror the <code class="highlighter-rouge">crop values</code> alongside the image?</p>
+<p>Then, I thought that what if we also mirror the <code class="language-plaintext highlighter-rouge">crop values</code> alongside the image?</p>
 
 <p>Assign Left, Top, Right and Bottom crop values to our new variables to work with easily:</p>
 

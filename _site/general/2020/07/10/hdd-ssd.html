@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>HDD ve SSD Hız Karşılaştırması | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="HDD ve SSD Hız Karşılaştırması" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -48,21 +48,21 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Bilgisayarları hızlandırmak için ek <code class="highlighter-rouge">RAM</code> eklemek her zaman çözüm olmayabilir. Bir bilgisayarın <code class="highlighter-rouge">RAM</code> hafızası yeterliyse ve <code class="highlighter-rouge">HDD</code> ile çalıştırılıyor ise sadece <code class="highlighter-rouge">SSD</code> eklenerek hızlandırılabilir.</p>
+    <p>Bilgisayarları hızlandırmak için ek <code class="language-plaintext highlighter-rouge">RAM</code> eklemek her zaman çözüm olmayabilir. Bir bilgisayarın <code class="language-plaintext highlighter-rouge">RAM</code> hafızası yeterliyse ve <code class="language-plaintext highlighter-rouge">HDD</code> ile çalıştırılıyor ise sadece <code class="language-plaintext highlighter-rouge">SSD</code> eklenerek hızlandırılabilir.</p>
 
-<p>HDD’nin istenilen verilere erişmesi için arama başlığını <code class="highlighter-rouge">fiziksel</code> olarak hareket ettirip doğru <code class="highlighter-rouge">track</code> kısmını bulduktan sonra o track’teki doğru <code class="highlighter-rouge">sector</code> kısmını bulmalıdır. Bu da çok fazla zaman kaybına yol açar. SDD ise bir veriye erişmek için verinin bulunduğu yere -hızlı fiziksel aracılar sayesinde- direkt bir <code class="highlighter-rouge">komut</code> gönderir ve veri hazır hale gelir. Böylece SSD, bir veriye HDD disklerden daha hızlı erişim sağlar. SSD’nin bu üstünlükleri tabii ki fiyatlarına da yansır.</p>
+<p>HDD’nin istenilen verilere erişmesi için arama başlığını <code class="language-plaintext highlighter-rouge">fiziksel</code> olarak hareket ettirip doğru <code class="language-plaintext highlighter-rouge">track</code> kısmını bulduktan sonra o track’teki doğru <code class="language-plaintext highlighter-rouge">sector</code> kısmını bulmalıdır. Bu da çok fazla zaman kaybına yol açar. SDD ise bir veriye erişmek için verinin bulunduğu yere -hızlı fiziksel aracılar sayesinde- direkt bir <code class="language-plaintext highlighter-rouge">komut</code> gönderir ve veri hazır hale gelir. Böylece SSD, bir veriye HDD disklerden daha hızlı erişim sağlar. SSD’nin bu üstünlükleri tabii ki fiyatlarına da yansır.</p>
 
-<p>Aynı şekilde bir işletim sistemi HDD yerine bir SSD üzerinde <code class="highlighter-rouge">boot</code> edilirse bilgisayar daha hızlı açılacaktır. <code class="highlighter-rouge">Okuma-yazma</code> hızı arttığından programlar da daha hızlı tepki vererek eskisinden daha hızlı açılacaktır.</p>
+<p>Aynı şekilde bir işletim sistemi HDD yerine bir SSD üzerinde <code class="language-plaintext highlighter-rouge">boot</code> edilirse bilgisayar daha hızlı açılacaktır. <code class="language-plaintext highlighter-rouge">Okuma-yazma</code> hızı arttığından programlar da daha hızlı tepki vererek eskisinden daha hızlı açılacaktır.</p>
 
-<p>Uzun zamandır sadece HDD ile kullandığım dizüstü bilgisayarı -yavaş ve hantal kalmasından dolayı- SSD ekleyerek çalıştırmayı denedim. HDD kullanırken <code class="highlighter-rouge">Ubuntu 20.04</code> kullanıyordum. SSD’ye geçtiğimde ise <code class="highlighter-rouge">Manjaro 20.0.3</code> kullanmaya başladım. Aşağıdaki ölçümler bu işletim sistemlerine göredir.</p>
+<p>Uzun zamandır sadece HDD ile kullandığım dizüstü bilgisayarı -yavaş ve hantal kalmasından dolayı- SSD ekleyerek çalıştırmayı denedim. HDD kullanırken <code class="language-plaintext highlighter-rouge">Ubuntu 20.04</code> kullanıyordum. SSD’ye geçtiğimde ise <code class="language-plaintext highlighter-rouge">Manjaro 20.0.3</code> kullanmaya başladım. Aşağıdaki ölçümler bu işletim sistemlerine göredir.</p>
 
 <p>İşletim sisteminin açılması(boot) -&gt; Kullanıcı seçme ve parola girişi -&gt; Masaüstüne erişim:</p>
 
 <ul>
-  <li>HDD üzerinde : <code class="highlighter-rouge">80sn</code></li>
-  <li>SSD üzerinde : <code class="highlighter-rouge">41sn</code>
+  <li>HDD üzerinde : <code class="language-plaintext highlighter-rouge">80sn</code></li>
+  <li>SSD üzerinde : <code class="language-plaintext highlighter-rouge">41sn</code>
     <ul>
-      <li><code class="highlighter-rouge">100−((41÷80)×100)</code> = <code class="highlighter-rouge">%48,75</code> daha <code class="highlighter-rouge">hızlı</code> masaüstüne erişim.</li>
+      <li><code class="language-plaintext highlighter-rouge">100−((41÷80)×100)</code> = <code class="language-plaintext highlighter-rouge">%48,75</code> daha <code class="language-plaintext highlighter-rouge">hızlı</code> masaüstüne erişim.</li>
     </ul>
   </li>
 </ul>
@@ -70,10 +70,10 @@
 <p>Android Studio açılması -&gt; Dosyaların indexlenmesi:</p>
 
 <ul>
-  <li>HDD üzerinde : <code class="highlighter-rouge">123sn</code></li>
-  <li>SSD üzerinde : <code class="highlighter-rouge">30sn</code>
+  <li>HDD üzerinde : <code class="language-plaintext highlighter-rouge">123sn</code></li>
+  <li>SSD üzerinde : <code class="language-plaintext highlighter-rouge">30sn</code>
     <ul>
-      <li><code class="highlighter-rouge">100−((30÷123)×100)</code> = <code class="highlighter-rouge">%75,6</code> daha <code class="highlighter-rouge">hızlı</code> kullanıma hazır olma.</li>
+      <li><code class="language-plaintext highlighter-rouge">100−((30÷123)×100)</code> = <code class="language-plaintext highlighter-rouge">%75,6</code> daha <code class="language-plaintext highlighter-rouge">hızlı</code> kullanıma hazır olma.</li>
     </ul>
   </li>
 </ul>

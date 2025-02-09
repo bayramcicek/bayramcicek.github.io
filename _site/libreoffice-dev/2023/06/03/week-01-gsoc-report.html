@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Week #1 - GSoC 2023 Weekly Report - Search Field in Options | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Week #1 - GSoC 2023 Weekly Report - Search Field in Options" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -65,13 +65,13 @@
   </li>
 </ul>
 
-<p><code class="highlighter-rouge">cui/uiconfig/ui/optionsdialog.ui</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/ui/optionsdialog.ui</code>:</p>
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-01-00-search-ui-glade.png" alt="w-01-00-search-ui-glade.png" />
 </p>
 <p><br /></p>
 
-<p><code class="highlighter-rouge">“Tools &gt; Options”</code> dialog:</p>
+<p><code class="language-plaintext highlighter-rouge">“Tools &gt; Options”</code> dialog:</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/w-01-01-search-ui-libre.png" alt="w-01-01-search-ui-libre.png" />
@@ -91,7 +91,7 @@
   <li>Some technical details</li>
 </ul>
 
-<p>There is a timer that waits the user to stop typing if user types faster than <code class="highlighter-rouge">350ms</code>. Since searching can be expensive, we shouldn’t perform search for every key press if pressing between two keys are less than 350ms, which will improve the performance.</p>
+<p>There is a timer that waits the user to stop typing if user types faster than <code class="language-plaintext highlighter-rouge">350ms</code>. Since searching can be expensive, we shouldn’t perform search for every key press if pressing between two keys are less than 350ms, which will improve the performance.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">IMPL_LINK_NOARG</span><span class="p">(</span><span class="n">OfaTreeOptionsDialog</span><span class="p">,</span> <span class="n">SearchUpdateHdl</span><span class="p">,</span> <span class="n">weld</span><span class="o">::</span><span class="n">Entry</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -99,7 +99,7 @@
     <span class="c1">// debug ("timer -&gt; SearchUpdateHdl()");</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">ImplUpdateDataHdl()</code> is called for searching:</p>
+<p><code class="language-plaintext highlighter-rouge">ImplUpdateDataHdl()</code> is called for searching:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">IMPL_LINK_NOARG</span><span class="p">(</span><span class="n">OfaTreeOptionsDialog</span><span class="p">,</span> <span class="n">ImplUpdateDataHdl</span><span class="p">,</span> <span class="n">Timer</span><span class="o">*</span><span class="p">,</span> <span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -124,7 +124,7 @@
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">applySearchFilter(aSearchTerm)</code> function gets the word in search bar and does the search:</p>
+<p><code class="language-plaintext highlighter-rouge">applySearchFilter(aSearchTerm)</code> function gets the word in search bar and does the search:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">applySearchFilter</span><span class="p">(</span><span class="n">OUString</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rSearchTerm</span><span class="p">)</span>
 <span class="p">{</span>
@@ -139,7 +139,7 @@
     <span class="p">}</span>
 
     <span class="n">m_options</span><span class="p">.</span><span class="n">searchString</span> <span class="o">=</span> <span class="n">rSearchTerm</span><span class="p">;</span>
-    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="n">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
+    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="nf">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
 
     <span class="n">ClearAllOptions</span><span class="p">();</span>
 

@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>How to clang-format LibreOffice code-base only for selected code piece(s) - VSCode | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="How to clang-format LibreOffice code-base only for selected code piece(s) - VSCode" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -61,11 +61,11 @@
 
 <p>We can reformat a file easily. But what if we want to do clang-format only for a specific code-piece(s) (e.g. a function, class, if-else …) instead?</p>
 
-<p>On <code class="highlighter-rouge">VSCode</code> (Linux):</p>
+<p>On <code class="language-plaintext highlighter-rouge">VSCode</code> (Linux):</p>
 <ul>
-  <li><code class="highlighter-rouge">File</code> &gt; <code class="highlighter-rouge">Preferences</code> &gt; <code class="highlighter-rouge">Settings</code>.</li>
-  <li>Search for <code class="highlighter-rouge">clang-format</code>.</li>
-  <li>in <code class="highlighter-rouge">C_Cpp: Clang_format_path</code> section, set the path of the clang-format executable as <code class="highlighter-rouge">/opt/lo/bin/clang-format</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">File</code> &gt; <code class="language-plaintext highlighter-rouge">Preferences</code> &gt; <code class="language-plaintext highlighter-rouge">Settings</code>.</li>
+  <li>Search for <code class="language-plaintext highlighter-rouge">clang-format</code>.</li>
+  <li>in <code class="language-plaintext highlighter-rouge">C_Cpp: Clang_format_path</code> section, set the path of the clang-format executable as <code class="language-plaintext highlighter-rouge">/opt/lo/bin/clang-format</code>.</li>
 </ul>
 
 <p>For example, let’s only select the if statement here:</p>
@@ -81,7 +81,7 @@
 <span class="p">...</span></code></pre></figure>
 
 <p><br />
-Then <code class="highlighter-rouge">right click</code> on the selection and select <code class="highlighter-rouge">Format Selection</code>:</p>
+Then <code class="language-plaintext highlighter-rouge">right click</code> on the selection and select <code class="language-plaintext highlighter-rouge">Format Selection</code>:</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/format-selection-dialog-vscode.png" alt="format-selection-dialog-vscode.png" title="format-selection-dialog-vscode" />

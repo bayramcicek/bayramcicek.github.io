@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Week #4 - GSoC 2023 Weekly Report - Search Field in Options | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Week #4 - GSoC 2023 Weekly Report - Search Field in Options" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -61,9 +61,9 @@
   </li>
 </ul>
 
-<p>I added new python script called <code class="highlighter-rouge">./solenv/bin/uiex_options</code> to extract strings(<code class="highlighter-rouge">labels</code>, <code class="highlighter-rouge">accessible-names</code>, <code class="highlighter-rouge">accessible-descriptions</code> and <code class="highlighter-rouge">tooltip-texts</code>) from ui files. This script is almost the same with <code class="highlighter-rouge">./solenv/bin/uiex</code>. The only difference is the new script extracts only <code class="highlighter-rouge">entry.msgid</code> which contains the strings we need. Any other outputs like <code class="highlighter-rouge">entry.msgctxt</code> is not needed so I kept only <code class="highlighter-rouge">entry.msgid</code> in the new script.</p>
+<p>I added new python script called <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex_options</code> to extract strings(<code class="language-plaintext highlighter-rouge">labels</code>, <code class="language-plaintext highlighter-rouge">accessible-names</code>, <code class="language-plaintext highlighter-rouge">accessible-descriptions</code> and <code class="language-plaintext highlighter-rouge">tooltip-texts</code>) from ui files. This script is almost the same with <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code>. The only difference is the new script extracts only <code class="language-plaintext highlighter-rouge">entry.msgid</code> which contains the strings we need. Any other outputs like <code class="language-plaintext highlighter-rouge">entry.msgctxt</code> is not needed so I kept only <code class="language-plaintext highlighter-rouge">entry.msgid</code> in the new script.</p>
 
-<p>For example <code class="highlighter-rouge">./solenv/bin/uiex</code> script:</p>
+<p>For example <code class="language-plaintext highlighter-rouge">./solenv/bin/uiex</code> script:</p>
 <pre>
 $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
 </pre>
@@ -94,9 +94,9 @@ $ ./solenv/bin/uiex -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
 <span class="n">msgid</span> <span class="s">"OpenCL Options"</span>
 <span class="n">msgstr</span> <span class="s">""</span></code></pre></figure>
 
-<p>But we only need strings inside <code class="highlighter-rouge">msgid</code> here. Others are not needed.</p>
+<p>But we only need strings inside <code class="language-plaintext highlighter-rouge">msgid</code> here. Others are not needed.</p>
 
-<p><code class="highlighter-rouge">./solenv/bin/uiex_options</code> extracts only strings inside <code class="highlighter-rouge">msgid</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">./solenv/bin/uiex_options</code> extracts only strings inside <code class="language-plaintext highlighter-rouge">msgid</code>:</p>
 
 <pre>
 $ ./solenv/bin/uiex_options -i ./cui/uiconfig/ui/optopenclpage.ui -o output.txt
@@ -115,7 +115,7 @@ OpenCL Options
   <li>Extraction at build-time</li>
 </ul>
 
-<p>Added all ui files that belong to Options dialog, inside <code class="highlighter-rouge">cui/UIConfig_cui.mk</code> file:</p>
+<p>Added all ui files that belong to Options dialog, inside <code class="language-plaintext highlighter-rouge">cui/UIConfig_cui.mk</code> file:</p>
 
 <figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span><span class="o">(</span><span class="nb">eval</span> <span class="si">$(</span>call gb_UIConfig_generate_options_uifiles,cui/uiconfig/uioptions, <span class="se">\</span>
 <span class="go">    cui/uiconfig/ui/optuserpage \
@@ -176,9 +176,9 @@ OpenCL Options
     starmath/uiconfig/smath/ui/smathsettings \
 ))</span></code></pre></figure>
 
-<p>this calls <code class="highlighter-rouge">gb_UIConfig_generate_options_uifiles</code> function with <code class="highlighter-rouge">cui/uiconfig/uioptions</code> as first parameter and list of ui files as second parameter.</p>
+<p>this calls <code class="language-plaintext highlighter-rouge">gb_UIConfig_generate_options_uifiles</code> function with <code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions</code> as first parameter and list of ui files as second parameter.</p>
 
-<p><code class="highlighter-rouge">solenv/gbuild/UIConfig.mk</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">solenv/gbuild/UIConfig.mk</code>:</p>
 
 <figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">define gb_UIConfig_run_uiex_options_script
 </span><span class="gp">$</span><span class="o">(</span>shell <span class="si">$(</span>SRCDIR<span class="si">)</span>/solenv/bin/uiex_options <span class="nt">-i</span> <span class="si">$(</span>SRCDIR<span class="si">)</span>/<span class="si">$(</span>2<span class="si">)</span>.ui <span class="nt">-o</span> <span class="si">$(</span>1<span class="si">)</span>/<span class="si">$(</span>3<span class="si">)</span>.txt<span class="o">)</span>
@@ -203,25 +203,25 @@ endef</span></code></pre></figure>
   <li>Extracted file location</li>
 </ul>
 
-<p>All extracted files located in <code class="highlighter-rouge">cui/uiconfig/uioptions/*</code>.</p>
+<p>All extracted files located in <code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/*</code>.</p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/cui/*</code>        for ui files in <code class="highlighter-rouge">./cui/uiconfig/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/cui/*</code>        for ui files in <code class="language-plaintext highlighter-rouge">./cui/uiconfig/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sc/*</code>         for ui files in <code class="highlighter-rouge">./sc/uiconfig/scalc/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/sc/*</code>         for ui files in <code class="language-plaintext highlighter-rouge">./sc/uiconfig/scalc/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sd/*</code>         for ui files in <code class="highlighter-rouge">./sd/uiconfig/simpress/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/sd/*</code>         for ui files in <code class="language-plaintext highlighter-rouge">./sd/uiconfig/simpress/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sfx2/*</code>       for ui files in <code class="highlighter-rouge">./sfx2/uiconfig/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/sfx2/*</code>       for ui files in <code class="language-plaintext highlighter-rouge">./sfx2/uiconfig/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/starmath/*</code>   for ui files in <code class="highlighter-rouge">./starmath/uiconfig/smath/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/starmath/*</code>   for ui files in <code class="language-plaintext highlighter-rouge">./starmath/uiconfig/smath/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/svx/*</code>        for ui files in <code class="highlighter-rouge">./svx/uiconfig/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/svx/*</code>        for ui files in <code class="language-plaintext highlighter-rouge">./svx/uiconfig/ui/*.ui</code></p>
 
-<p><code class="highlighter-rouge">cui/uiconfig/uioptions/sw/*</code>         for ui files in <code class="highlighter-rouge">./sw/uiconfig/ui/*.ui</code></p>
+<p><code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/sw/*</code>         for ui files in <code class="language-plaintext highlighter-rouge">./sw/uiconfig/ui/*.ui</code></p>
 
-<p>and all of sub-directories contain a <code class="highlighter-rouge">README.md</code> file.</p>
+<p>and all of sub-directories contain a <code class="language-plaintext highlighter-rouge">README.md</code> file.</p>
 
-<p>e.g. <code class="highlighter-rouge">cui/uiconfig/uioptions/sfx2/README.md</code>:</p>
+<p>e.g. <code class="language-plaintext highlighter-rouge">cui/uiconfig/uioptions/sfx2/README.md</code>:</p>
 
 <pre style="white-space: pre-wrap">
 This directory contains txt files that extracted form build-time. All files contains labels, accessible-names, accessible-descriptions and tooltip-texts from all ./sfx2/uiconfig/ui/*.ui files that exist in Tools-Options dialog.
@@ -252,7 +252,7 @@ e.g.: optprintpage.txt has strings from ./sfx2/uiconfig/ui/optprintpage.ui
     <span class="n">OUString</span> <span class="n">getAllStringsFrom</span><span class="p">(</span><span class="n">sal_uInt16</span> <span class="n">nPageId</span><span class="p">);</span>
 <span class="p">};</span></code></pre></figure>
 
-<p>Vector <code class="highlighter-rouge">std::vector&lt; OptionsPageIdInfo* &gt; m_aTreePageIds</code> contains all informatin related to extracted strings.</p>
+<p>Vector <code class="language-plaintext highlighter-rouge">std::vector&lt; OptionsPageIdInfo* &gt; m_aTreePageIds</code> contains all informatin related to extracted strings.</p>
 
 <pre>
 m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text(*xEntry), aParentId, pPageInfo-&gt;m_nPageId));
@@ -275,12 +275,12 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 
 <p><br /></p>
 <ul>
-  <li>Updated the <code class="highlighter-rouge">applySearchFilter()</code> function</li>
+  <li>Updated the <code class="language-plaintext highlighter-rouge">applySearchFilter()</code> function</li>
 </ul>
 
-<p>The searching is made only in the variable <code class="highlighter-rouge">sPageNameAndStrings</code>. It contains the dialog page name and its strings.</p>
+<p>The searching is made only in the variable <code class="language-plaintext highlighter-rouge">sPageNameAndStrings</code>. It contains the dialog page name and its strings.</p>
 
-<p><code class="highlighter-rouge">OUString sPageNameAndStrings = sParentName + " " + sPageName + " " + sPageStrings;</code></p>
+<p><code class="language-plaintext highlighter-rouge">OUString sPageNameAndStrings = sParentName + " " + sPageName + " " + sPageStrings;</code></p>
 
 <p>Then the searching is made:</p>
 
@@ -288,7 +288,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">textSearch</span><span class="p">.</span><span class="n">SearchForward</span><span class="p">(</span><span class="n">sPageNameAndStrings</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aStartPos</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">aEndPos</span><span class="p">))</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 <span class="k">else</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">applySearchFilter(OUString const&amp; rSearchTerm)</code> function:</p>
+<p><code class="language-plaintext highlighter-rouge">applySearchFilter(OUString const&amp; rSearchTerm)</code> function:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">OfaTreeOptionsDialog</span><span class="o">::</span><span class="n">applySearchFilter</span><span class="p">(</span><span class="n">OUString</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rSearchTerm</span><span class="p">)</span>
 <span class="p">{</span>
@@ -303,7 +303,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="p">}</span>
 
     <span class="n">m_options</span><span class="p">.</span><span class="n">searchString</span> <span class="o">=</span> <span class="n">rSearchTerm</span><span class="p">;</span>
-    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="n">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
+    <span class="n">utl</span><span class="o">::</span><span class="n">TextSearch</span> <span class="nf">textSearch</span><span class="p">(</span><span class="n">m_options</span><span class="p">);</span>
 
     <span class="n">clearOptionsDialog</span><span class="p">();</span>
 
@@ -360,7 +360,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
 
 <p><br /></p>
 <ul>
-  <li>Added new cxx file <code class="highlighter-rouge">cui/source/options/treeopthelper.cxx</code></li>
+  <li>Added new cxx file <code class="language-plaintext highlighter-rouge">cui/source/options/treeopthelper.cxx</code></li>
 </ul>
 
 <p>This file contains the file path of extracted strings with thair page-id and strings.</p>
@@ -384,7 +384,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="p">...</span> <span class="p">(</span><span class="n">and</span> <span class="n">other</span> <span class="mi">68</span> <span class="n">entries</span><span class="p">)</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>The function <code class="highlighter-rouge">storeStringsFromUiFile(sal_uInt16 nPageId)</code> reads the data inside txt files and fetch them into <code class="highlighter-rouge">PageIdToFileNameMap_Impl</code> struct as <code class="highlighter-rouge">rEntry.m_sContent += sLine + " ";</code></p>
+<p>The function <code class="language-plaintext highlighter-rouge">storeStringsFromUiFile(sal_uInt16 nPageId)</code> reads the data inside txt files and fetch them into <code class="language-plaintext highlighter-rouge">PageIdToFileNameMap_Impl</code> struct as <code class="language-plaintext highlighter-rouge">rEntry.m_sContent += sLine + " ";</code></p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="n">TreeOptHelper</span><span class="o">::</span><span class="n">storeStringsFromUiFile</span><span class="p">(</span><span class="n">sal_uInt16</span> <span class="n">nPageId</span><span class="p">)</span>
 <span class="p">{</span>
@@ -426,7 +426,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>The function <code class="highlighter-rouge">getAllStringsFrom(sal_uInt16 nPageId)</code> gets the strings from the given pageId:</p>
+<p>The function <code class="language-plaintext highlighter-rouge">getAllStringsFrom(sal_uInt16 nPageId)</code> gets the strings from the given pageId:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">OUString</span> <span class="n">TreeOptHelper</span><span class="o">::</span><span class="n">getAllStringsFrom</span><span class="p">(</span><span class="n">sal_uInt16</span> <span class="n">nPageId</span><span class="p">)</span>
 <span class="p">{</span>
@@ -441,7 +441,7 @@ m_aTreePageIds.push_back(new OptionsPageIdInfo(sParentName, xTreeLB-&gt;get_text
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="k">return</span> <span class="n">OUString</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nf">OUString</span><span class="p">();</span>
 <span class="p">}</span></code></pre></figure>
 
 <p><br /></p>

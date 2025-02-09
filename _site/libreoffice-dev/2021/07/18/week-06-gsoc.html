@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Week #6 - GSoC Weekly Report - 100 Paper Cuts | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Week #6 - GSoC Weekly Report - 100 Paper Cuts" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -56,7 +56,7 @@
   <li>Bug: <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=143300">tdf#143300</a>: Add icons for diagonal borders</li>
 </ul>
 
-<p>I wanted to add diagonal borders to the <code class="highlighter-rouge">table toolbar &gt; borders</code> but realized that LO doesn’t have diagonal left and diagonal right borders under <code class="highlighter-rouge">./icon-themes/*/svx/res/*</code>. Then on the <em>LibreOffice Design EN</em> telegram channel, I said that these icons are necessary for tdf#51665. Designers wanted me to open a new report dedicated for the icons, so that <em>Rizal Muttaqin</em>(huge thanks for the icons) could draw them. Diagonal border icons will be added for all themes soon.</p>
+<p>I wanted to add diagonal borders to the <code class="language-plaintext highlighter-rouge">table toolbar &gt; borders</code> but realized that LO doesn’t have diagonal left and diagonal right borders under <code class="language-plaintext highlighter-rouge">./icon-themes/*/svx/res/*</code>. Then on the <em>LibreOffice Design EN</em> telegram channel, I said that these icons are necessary for tdf#51665. Designers wanted me to open a new report dedicated for the icons, so that <em>Rizal Muttaqin</em>(huge thanks for the icons) could draw them. Diagonal border icons will be added for all themes soon.</p>
 
 <h3 id="ui---add-diagonal-borders-in-table-toolbar">UI - add diagonal borders in Table toolbar</h3>
 
@@ -65,7 +65,7 @@
   <li>Commit: <a href="https://gerrit.libreoffice.org/c/core/+/118951">https://gerrit.libreoffice.org/c/core/+/118951</a></li>
 </ul>
 
-<p>In order to work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>, I added diagonal borders to <code class="highlighter-rouge">table toolbar &gt; borders</code>.</p>
+<p>In order to work on <a href="https://bugs.documentfoundation.org/show_bug.cgi?id=51665">tdf#51665</a>, I added diagonal borders to <code class="language-plaintext highlighter-rouge">table toolbar &gt; borders</code>.</p>
 
 <p align="center">
   <img src="../../../../folder/libreoffice-png/one_cell_border_0.png" alt="one_cell_border_0.png" />
@@ -93,7 +93,7 @@
 <p>Added tooltip <em>“Set Diagonal Left Border”</em> for diagonal LEFT border.<br />
 Added tooltip <em>“Set Diagonal Right Border”</em> for for diagonal RIGHT border.</p>
 
-<p>In <code class="highlighter-rouge">include/svx/strings.hrc</code>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">include/svx/strings.hrc</code>:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define RID_SVXSTR_PARA_PRESET_DIAGONALLEFT         NC_("RID_SVXSTR_PARA_PRESET_DIAGONALLEFT", "Set Diagonal Left Border")
 #define RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT        NC_("RID_SVXSTR_PARA_PRESET_DIAGONALRIGHT", "Set Diagonal Right Border")</span></code></pre></figure>
@@ -102,10 +102,10 @@ Added tooltip <em>“Set Diagonal Right Border”</em> for for diagonal RIGHT bo
   <li>Icons</li>
 </ul>
 
-<p>Added diagonal Left and Right borders to the <code class="highlighter-rouge">svx/inc/bitmaps.hlst</code>:</p>
+<p>Added diagonal Left and Right borders to the <code class="language-plaintext highlighter-rouge">svx/inc/bitmaps.hlst</code>:</p>
 
-<p><code class="highlighter-rouge">fr013.png</code> -&gt; Right Diagonal Border<br />
-<code class="highlighter-rouge">fr014.png</code> -&gt; Left Diagonal Border</p>
+<p><code class="language-plaintext highlighter-rouge">fr013.png</code> -&gt; Right Diagonal Border<br />
+<code class="language-plaintext highlighter-rouge">fr014.png</code> -&gt; Left Diagonal Border</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#define RID_SVXBMP_FRAME13                          "svx/res/fr013.png"
 #define RID_SVXBMP_FRAME14                          "svx/res/fr014.png"</span></code></pre></figure>
@@ -114,16 +114,16 @@ Added tooltip <em>“Set Diagonal Right Border”</em> for for diagonal RIGHT bo
   <li>Update <em>for loops</em> and <em>switch cases</em>:</li>
 </ul>
 
-<p>Increased all for loops limits by 2. <code class="highlighter-rouge">svx/source/tbxctrls/tbcontrl.cxx</code>:</p>
+<p>Increased all for loops limits by 2. <code class="language-plaintext highlighter-rouge">svx/source/tbxctrls/tbcontrl.cxx</code>:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">//bParagraphMode should have been set in StateChanged</span>
 <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">bParagraphMode</span> <span class="p">)</span>
     <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="c1">// made -&gt; for ( i = 11; i &lt; 15; i++ )</span>
         <span class="n">mxFrameSet</span><span class="o">-&gt;</span><span class="n">InsertItem</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Image</span><span class="p">(</span><span class="n">aImgVec</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">first</span><span class="p">),</span> <span class="n">aImgVec</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">second</span><span class="p">);</span> </code></pre></figure>
 
-<p>Updated <code class="highlighter-rouge">mxFrameSet-&gt;SetColCount( 4 );</code> to <code class="highlighter-rouge">mxFrameSet-&gt;SetColCount( 5 );</code>, because column size should be 5 after adding the diagonal borders to the 5.th and 10.th order:</p>
+<p>Updated <code class="language-plaintext highlighter-rouge">mxFrameSet-&gt;SetColCount( 4 );</code> to <code class="language-plaintext highlighter-rouge">mxFrameSet-&gt;SetColCount( 5 );</code>, because column size should be 5 after adding the diagonal borders to the 5.th and 10.th order:</p>
 
-<p><code class="highlighter-rouge">svx/source/tbxctrls/tbcontrl.cxx</code>:</p>
+<p><code class="language-plaintext highlighter-rouge">svx/source/tbxctrls/tbcontrl.cxx</code>:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">case</span> <span class="mi">5</span><span class="p">:</span> <span class="k">break</span><span class="p">;</span>  <span class="c1">// DIAGONAL LEFT</span>
 

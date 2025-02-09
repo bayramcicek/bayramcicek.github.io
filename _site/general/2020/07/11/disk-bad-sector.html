@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Disk ve Bad Sector Problemi | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Disk ve Bad Sector Problemi" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -48,18 +48,18 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Kullandığım cihazda sürekli <a href="https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system">şuradaki</a> <code class="highlighter-rouge">read-only file system</code> problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve <a href="https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system/1213927#1213927">şurada</a> yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki <code class="highlighter-rouge">fiziksel</code> bir problem olabileceğini öğrendim.</p>
+    <p>Kullandığım cihazda sürekli <a href="https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system">şuradaki</a> <code class="language-plaintext highlighter-rouge">read-only file system</code> problemini yaşamaktaydım. İlk başta hatanın işletim sisteminin kendisinden geleceğini düşündüm. Daha sonra ise diskin dosya sistemindeki yazılımsal hatalardan dolayı olabileceğini düşündüm ve <a href="https://askubuntu.com/questions/1041416/apt-update-problem-unlinking-the-file-30-read-only-file-system/1213927#1213927">şurada</a> yazdığım adımları uyguladım. Bu adımlar sadece geçici bir süreliğine işe yaradı. Bu yüzden daha uzunca bir araştırma yaptım ve problemin yazılımsal değil diskteki <code class="language-plaintext highlighter-rouge">fiziksel</code> bir problem olabileceğini öğrendim.</p>
 
-<p>HDD disklerindeki <code class="highlighter-rouge">sector</code> kısımları zamanla fiziksel olarak zarar görebiliyor. <code class="highlighter-rouge">Bad sector</code> kısımlarına veri okuma-yazma işlemleri yapılmak istendiğinde işletim sistemi bir problem olduğunu farkediyor ve güvenlik açısından kendisinin yüklü olduğu disk kısmını read-only haline getiriyor. Baştan beri yaşadığım problem buydu.</p>
+<p>HDD disklerindeki <code class="language-plaintext highlighter-rouge">sector</code> kısımları zamanla fiziksel olarak zarar görebiliyor. <code class="language-plaintext highlighter-rouge">Bad sector</code> kısımlarına veri okuma-yazma işlemleri yapılmak istendiğinde işletim sistemi bir problem olduğunu farkediyor ve güvenlik açısından kendisinin yüklü olduğu disk kısmını read-only haline getiriyor. Baştan beri yaşadığım problem buydu.</p>
 
-<p>Bad sector fiziksel bir problem olduğundan aslında bu problemi çözemeyiz fakat bu kullanılamayan sector kısımlarını diskin görmezden gelmesini sağlayıp bu problemden <code class="highlighter-rouge">diski formatlamadığımız sürece</code> kurtulabiliriz.</p>
+<p>Bad sector fiziksel bir problem olduğundan aslında bu problemi çözemeyiz fakat bu kullanılamayan sector kısımlarını diskin görmezden gelmesini sağlayıp bu problemden <code class="language-plaintext highlighter-rouge">diski formatlamadığımız sürece</code> kurtulabiliriz.</p>
 
-<p>Bad sector’e sahip disk, sistemimde <code class="highlighter-rouge">/dev/sda1</code> olarak bulunuyor. Bu her cihazda değişiklik gösterebilir.</p>
+<p>Bad sector’e sahip disk, sistemimde <code class="language-plaintext highlighter-rouge">/dev/sda1</code> olarak bulunuyor. Bu her cihazda değişiklik gösterebilir.</p>
 
 <p>Diskte ne kadar bad sector olduğunu bulmadan önce diskteki her bir sector’ün boyutunu öğrenmeliyiz.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">$ sudo tune2fs -l /dev/sda1 | grep -i 'block size'</code></li>
+  <li><code class="language-plaintext highlighter-rouge">$ sudo tune2fs -l /dev/sda1 | grep -i 'block size'</code></li>
 </ul>
 
 <p align="center">
@@ -67,10 +67,10 @@
 </p>
 
 <p><br />
-Diskteki bad sector kısımlarının bulunması ve bu kısımların bir dosyaya yazılması gereklidir. Bu işlem için tüm diskin taranması gerektiğinden işlem çok uzun sürebilir. <code class="highlighter-rouge">1TB</code> boyutundaki bir disk için saatler sürebilir. Bu uzun tarama süresinden kaçınmak için diskimi <code class="highlighter-rouge">100GB</code> ve <code class="highlighter-rouge">900GB</code> olarak ayırdım. 900GB’lik kısmı kullanmama gerek olmadığından bu kısmı <code class="highlighter-rouge">GParted</code> üzerinden <code class="highlighter-rouge">unallocated</code> olarak formatladım. Diğer 100GB boyutunu da <code class="highlighter-rouge">ext4</code> olarak formatladım. Böylece sadece 100GB’lik bir alan taranacağından taranma süresi çok daha hızlı olacak. (yaklaşık 40 dakika)</p>
+Diskteki bad sector kısımlarının bulunması ve bu kısımların bir dosyaya yazılması gereklidir. Bu işlem için tüm diskin taranması gerektiğinden işlem çok uzun sürebilir. <code class="language-plaintext highlighter-rouge">1TB</code> boyutundaki bir disk için saatler sürebilir. Bu uzun tarama süresinden kaçınmak için diskimi <code class="language-plaintext highlighter-rouge">100GB</code> ve <code class="language-plaintext highlighter-rouge">900GB</code> olarak ayırdım. 900GB’lik kısmı kullanmama gerek olmadığından bu kısmı <code class="language-plaintext highlighter-rouge">GParted</code> üzerinden <code class="language-plaintext highlighter-rouge">unallocated</code> olarak formatladım. Diğer 100GB boyutunu da <code class="language-plaintext highlighter-rouge">ext4</code> olarak formatladım. Böylece sadece 100GB’lik bir alan taranacağından taranma süresi çok daha hızlı olacak. (yaklaşık 40 dakika)</p>
 
 <ul>
-  <li><code class="highlighter-rouge">$ sudo badblocks -b 4096 -vs /dev/sda1 &gt; ./bad_blocks.txt</code></li>
+  <li><code class="language-plaintext highlighter-rouge">$ sudo badblocks -b 4096 -vs /dev/sda1 &gt; ./bad_blocks.txt</code></li>
 </ul>
 
 <p align="center">
@@ -78,7 +78,7 @@ Diskteki bad sector kısımlarının bulunması ve bu kısımların bir dosyaya 
 </p>
 
 <p><br />
-Eğer diskteki blok boyutunu öğrenmeden <code class="highlighter-rouge">-b 4096</code> kısmını ilk yazılan komutta girmeseydik büyük ihtimal <code class="highlighter-rouge">out of range; ignored.</code> hatası olacaktı.</p>
+Eğer diskteki blok boyutunu öğrenmeden <code class="language-plaintext highlighter-rouge">-b 4096</code> kısmını ilk yazılan komutta girmeseydik büyük ihtimal <code class="language-plaintext highlighter-rouge">out of range; ignored.</code> hatası olacaktı.</p>
 
 <p align="center">
   <img src="../../../../folder/bad-blocks/3-block-ignored-error.png" alt="block-ignored-error" />
@@ -92,7 +92,7 @@ Tarama bittiğinde kaç adet bad block olduğu gösterilir.</p>
 </p>
 
 <p><br />
-Bad block kısımlarının kaydedildiği <code class="highlighter-rouge">bad_blocks.txt</code> dosyası.</p>
+Bad block kısımlarının kaydedildiği <code class="language-plaintext highlighter-rouge">bad_blocks.txt</code> dosyası.</p>
 
 <p align="center">
   <img src="../../../../folder/bad-blocks/5-badblocks-txt-file.png" alt="badblocks-txt-file" />
@@ -102,7 +102,7 @@ Bad block kısımlarının kaydedildiği <code class="highlighter-rouge">bad_blo
 Son olarak diskin, hatalı blokları görmezden gelmesi sağlanmalıdır.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">$ sudo e2fsck -l bad_blocks.txt /dev/sda1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">$ sudo e2fsck -l bad_blocks.txt /dev/sda1</code></li>
 </ul>
 
 <p align="center">

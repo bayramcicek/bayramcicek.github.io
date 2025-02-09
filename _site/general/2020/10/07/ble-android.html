@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Android Bluetooth Low Energy - BLE | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Android Bluetooth Low Energy - BLE" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -52,7 +52,7 @@
 
 <p>Çalıştığımız bir projede Android üzerinde BLE kullanmamız gerekti ve her ne kadar BLE’nin Android üzerinde uygulanışı biraz sancılı olsa da en azından verinin karşıdaki cihaza aktarımını gerçekleştirebildik.</p>
 
-<p>Öncelikle gerekli izinlerin <code class="highlighter-rouge">AndroidManifest.xml</code> dosyasına eklenmesi gerek.</p>
+<p>Öncelikle gerekli izinlerin <code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> dosyasına eklenmesi gerek.</p>
 
 <figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.BLUETOOTH"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.BLUETOOTH_ADMIN"</span> <span class="nt">/&gt;</span>
@@ -64,9 +64,9 @@
 
 <p>Yukarıdaki izinleri kullanıcının kendisi açması gerekir. Bu yüzden her izin için kullanıcıya bir arayüz ile erişim yetkisi istemelisiniz. Bu yazının sade olması ve uzun olmaması için bu adımlar atlıyoruz.</p>
 
-<p><code class="highlighter-rouge">mConnectedGatt</code>, BLE cihazlarının <a href="https://www.bluetooth.com/specifications/GATT/">GATT</a> profilini tanımlar. Bu profilde BLE servislerini taramak, bağlantının yönetilmesi, <code class="highlighter-rouge">MTU</code>(Maksimum transfer kotası) belirlenmesi ve BLE cihazlarının servis ve karakteristik özelliklerine erişim gibi özellikler bulunur.</p>
+<p><code class="language-plaintext highlighter-rouge">mConnectedGatt</code>, BLE cihazlarının <a href="https://www.bluetooth.com/specifications/GATT/">GATT</a> profilini tanımlar. Bu profilde BLE servislerini taramak, bağlantının yönetilmesi, <code class="language-plaintext highlighter-rouge">MTU</code>(Maksimum transfer kotası) belirlenmesi ve BLE cihazlarının servis ve karakteristik özelliklerine erişim gibi özellikler bulunur.</p>
 
-<p><code class="highlighter-rouge">characteristic</code>, cihazın pil seviyesini, seri numarasını veya cihaza gönderilecek verileri tutan bir veri taşıyıcısıdır yani anlamlı verilerin tutulduğu değişkendir.</p>
+<p><code class="language-plaintext highlighter-rouge">characteristic</code>, cihazın pil seviyesini, seri numarasını veya cihaza gönderilecek verileri tutan bir veri taşıyıcısıdır yani anlamlı verilerin tutulduğu değişkendir.</p>
 
 <figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">private</span> <span class="kd">var</span> <span class="py">mConnectedGatt</span><span class="p">:</span> <span class="nc">BluetoothGatt</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
 <span class="k">private</span> <span class="kd">var</span> <span class="py">characteristic</span><span class="p">:</span> <span class="nc">BluetoothGattCharacteristic</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
@@ -77,7 +77,7 @@
 <span class="k">private</span> <span class="kd">val</span> <span class="py">serviceUuid</span> <span class="p">=</span> <span class="nc">UUID</span><span class="p">.</span><span class="nf">fromString</span><span class="p">(</span><span class="nc">ENVIRONMENTAL_SERVICE_UUID</span><span class="p">)</span>
 <span class="k">private</span> <span class="kd">val</span> <span class="py">charUuid</span> <span class="p">=</span> <span class="nc">UUID</span><span class="p">.</span><span class="nf">fromString</span><span class="p">(</span><span class="nc">CHARACTERISTIC_UUID</span><span class="p">)</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">bluetoothAdapter</code>, direkt olarak bluetooth donanımını temsil eder. Bluetooth’u açıp/kapatmak ve BLE cihazlarını taramak için kullanılır.</p>
+<p><code class="language-plaintext highlighter-rouge">bluetoothAdapter</code>, direkt olarak bluetooth donanımını temsil eder. Bluetooth’u açıp/kapatmak ve BLE cihazlarını taramak için kullanılır.</p>
 
 <figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">private</span> <span class="kd">val</span> <span class="py">bluetoothAdapter</span><span class="p">:</span> <span class="nc">BluetoothAdapter</span> <span class="k">by</span> <span class="nf">lazy</span> <span class="p">{</span>
     <span class="kd">val</span> <span class="py">bluetoothManager</span> <span class="p">=</span> <span class="n">activity</span><span class="o">?.</span><span class="nf">getSystemService</span><span class="p">(</span><span class="nc">BLUETOOTH_SERVICE</span><span class="p">)</span> <span class="k">as</span> <span class="nc">BluetoothManager</span>
@@ -93,7 +93,7 @@
     <span class="p">.</span><span class="nf">setScanMode</span><span class="p">(</span><span class="nc">ScanSettings</span><span class="p">.</span><span class="nc">CALLBACK_TYPE_FIRST_MATCH</span><span class="p">)</span>
     <span class="p">.</span><span class="nf">build</span><span class="p">()</span></code></pre></figure>
 
-<p>BLE cihazları tarandığında scanCallback() çalışacaktır. onScanResult() metodu içerisinde taranan cihazlar görülecektir. if() kısmında ise şartınıza uyan cihaz hangisi ise <code class="highlighter-rouge">result.let{}</code> ile o cihaza BLE bağlantısı kurulmaya çalışılacak.</p>
+<p>BLE cihazları tarandığında scanCallback() çalışacaktır. onScanResult() metodu içerisinde taranan cihazlar görülecektir. if() kısmında ise şartınıza uyan cihaz hangisi ise <code class="language-plaintext highlighter-rouge">result.let{}</code> ile o cihaza BLE bağlantısı kurulmaya çalışılacak.</p>
 
 <figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">private</span> <span class="kd">val</span> <span class="py">scanCallback</span> <span class="p">=</span> <span class="k">object</span><span class="p">:</span> <span class="nc">ScanCallback</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">onScanResult</span><span class="p">(</span><span class="n">callbackType</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="nc">ScanResult</span><span class="p">)</span> <span class="p">{</span>
@@ -113,7 +113,7 @@
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Bağlanılmak istenen cihaz bulunduğunda <code class="highlighter-rouge">gattCallback()</code> çağırılır. <code class="highlighter-rouge">onConnectionStateChange()</code> içerisindeki <code class="highlighter-rouge">newState</code> ile bağlantının sağlandığını veya bağlantının koptuğunu belirleyebiliriz. Bağlantı sağlandı ise <code class="highlighter-rouge">gatt?.requestMtu(64)</code> ile istenilen MTU miktarını belirtmeliyiz. MTU isteğinin ardından <code class="highlighter-rouge">onMtuChanged</code> metodu çağırılır ve ardından istenilen servise bağlanmak için <code class="highlighter-rouge">gatt?.discoverServices()</code> ile <code class="highlighter-rouge">onServicesDiscovered()</code> methodu çağırılır. Eğer istenilen servise bağlantı başarılı ise <code class="highlighter-rouge">isServiceDiscovered = true</code> ile <code class="highlighter-rouge">isServiceDiscovered</code> değişkenine bir <code class="highlighter-rouge">setter</code> belirleyip bağlantının başarılı olduğuna dair bir bildirim veya popup gösterebiliriz.</p>
+<p>Bağlanılmak istenen cihaz bulunduğunda <code class="language-plaintext highlighter-rouge">gattCallback()</code> çağırılır. <code class="language-plaintext highlighter-rouge">onConnectionStateChange()</code> içerisindeki <code class="language-plaintext highlighter-rouge">newState</code> ile bağlantının sağlandığını veya bağlantının koptuğunu belirleyebiliriz. Bağlantı sağlandı ise <code class="language-plaintext highlighter-rouge">gatt?.requestMtu(64)</code> ile istenilen MTU miktarını belirtmeliyiz. MTU isteğinin ardından <code class="language-plaintext highlighter-rouge">onMtuChanged</code> metodu çağırılır ve ardından istenilen servise bağlanmak için <code class="language-plaintext highlighter-rouge">gatt?.discoverServices()</code> ile <code class="language-plaintext highlighter-rouge">onServicesDiscovered()</code> methodu çağırılır. Eğer istenilen servise bağlantı başarılı ise <code class="language-plaintext highlighter-rouge">isServiceDiscovered = true</code> ile <code class="language-plaintext highlighter-rouge">isServiceDiscovered</code> değişkenine bir <code class="language-plaintext highlighter-rouge">setter</code> belirleyip bağlantının başarılı olduğuna dair bir bildirim veya popup gösterebiliriz.</p>
 
 <figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">private</span> <span class="kd">val</span> <span class="py">gattCallback</span> <span class="p">=</span> <span class="k">object</span><span class="p">:</span> <span class="nc">BluetoothGattCallback</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">override</span> <span class="k">fun</span> <span class="nf">onConnectionStateChange</span><span class="p">(</span><span class="n">gatt</span><span class="p">:</span> <span class="nc">BluetoothGatt</span><span class="p">?,</span> <span class="n">status</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">newState</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
@@ -187,7 +187,7 @@
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>BLE cihazlarını taramak için <code class="highlighter-rouge">bleScanner.startScan(null, scanSettings, scanCallback)</code>, taramayı durdurmak için ise <code class="highlighter-rouge">bleScanner.stopScan(scanCallback)</code> kullanılır.</p>
+<p>BLE cihazlarını taramak için <code class="language-plaintext highlighter-rouge">bleScanner.startScan(null, scanSettings, scanCallback)</code>, taramayı durdurmak için ise <code class="language-plaintext highlighter-rouge">bleScanner.stopScan(scanCallback)</code> kullanılır.</p>
 
 <figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">private</span> <span class="kd">val</span> <span class="py">handler</span> <span class="p">=</span> <span class="nc">Handler</span><span class="p">()</span>
 
@@ -208,12 +208,12 @@
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Bağlanılan cihaza gönderilecek veri <code class="highlighter-rouge">byte array</code> tipine dönüştürülmesi gerekir.</p>
+<p>Bağlanılan cihaza gönderilecek veri <code class="language-plaintext highlighter-rouge">byte array</code> tipine dönüştürülmesi gerekir.</p>
 
 <figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="kd">val</span> <span class="py">byteArray</span> <span class="p">=</span>
     <span class="s">"{'data': '$data'}"</span><span class="p">.</span><span class="nf">toByteArray</span><span class="p">(</span><span class="n">charset</span><span class="p">)</span></code></pre></figure>
 
-<p>Daha sonra <code class="highlighter-rouge">characteristic</code> ve <code class="highlighter-rouge">mConnectedGatt</code> değişkenleri <code class="highlighter-rouge">null</code> durumundan farklı ise veriyi BLE cihazına göndermek gerekir.</p>
+<p>Daha sonra <code class="language-plaintext highlighter-rouge">characteristic</code> ve <code class="language-plaintext highlighter-rouge">mConnectedGatt</code> değişkenleri <code class="language-plaintext highlighter-rouge">null</code> durumundan farklı ise veriyi BLE cihazına göndermek gerekir.</p>
 
 <figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">try</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">characteristic</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">mConnectedGatt</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>

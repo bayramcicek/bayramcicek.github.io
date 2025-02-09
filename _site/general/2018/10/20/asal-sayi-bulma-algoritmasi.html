@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Asal Sayı Bulma Algoritması | Bayram Çiçek’s website</title>
-<meta name="generator" content="Jekyll v4.0.1" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Asal Sayı Bulma Algoritması" />
 <meta name="author" content="Bayram Çiçek" />
 <meta property="og:locale" content="en_US" />
@@ -81,15 +81,15 @@ soruyu, okulda öğrendiğimiz bir algoritma ile çözmeye çalıştım.</p>
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#!/usr/bin/python3.6
 # created by cicek on 20.10.2018 18:50
 </span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
 
 	<span class="n">prime</span> <span class="o">=</span> <span class="mi">1</span>
 
-	<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+	<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
 		<span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 			<span class="n">prime</span> <span class="o">=</span> <span class="mi">0</span>
 	<span class="k">if</span> <span class="n">prime</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-		<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span></code></pre></figure>
+		<span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span></code></pre></figure>
 
 <p>Bu algoritma, sadece küçük sayılar için işe yarıyordu. 3–1000000 arası asal sayıları bulması
 dakikalar sürüyordu. Biraz iyileştirme ile bu süreyi kısaltmak istedim:</p>
@@ -97,21 +97,21 @@ dakikalar sürüyordu. Biraz iyileştirme ile bu süreyi kısaltmak istedim:</p>
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#!/usr/bin/python3.6
 # created by cicek on 20.10.2018 18:50
 </span>
-<span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+<span class="nf">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
 
 	<span class="n">prime</span> <span class="o">=</span> <span class="mi">1</span>
 
-	<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+	<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
 		<span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 			<span class="n">prime</span> <span class="o">=</span> <span class="mi">0</span>
 			<span class="k">break</span>
 
-		<span class="k">elif</span> <span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)):</span>
+		<span class="nf">elif </span><span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)):</span>
 			<span class="k">break</span>
 
 	<span class="k">if</span> <span class="n">prime</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-		<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span></code></pre></figure>
+		<span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span></code></pre></figure>
 
 <p>Kodun iyileştirilmiş halinde bile sayı büyüdükçe algoritmanın zorlandığını ve 2 milyonu
 denediğimde 10’larca dakika geçmesine rağmen sonucu bulamadığını gördüm.</p>
@@ -124,15 +124,15 @@ denediğimde 10’larca dakika geçmesine rağmen sonucu bulamadığını görd�
 <span class="k">def</span> <span class="nf">sumPrimes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 	<span class="nb">sum</span><span class="p">,</span> <span class="n">sieve</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="p">([</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
 
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
 		<span class="k">if</span> <span class="n">sieve</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
 			<span class="nb">sum</span> <span class="o">+=</span> <span class="n">p</span>
 
-			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+			<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
 				<span class="n">sieve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 	<span class="k">return</span> <span class="nb">sum</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">sumPrimes</span><span class="p">(</span><span class="mi">2000000</span><span class="p">))</span></code></pre></figure>
+<span class="nf">print</span><span class="p">(</span><span class="nf">sumPrimes</span><span class="p">(</span><span class="mi">2000000</span><span class="p">))</span></code></pre></figure>
 
 <p>–&gt; sieve dizisine n kadar True ekliyor.<br />
 –&gt; İlk bulduğu sayı 2<br />
